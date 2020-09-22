@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public BattleManager battleManager;
+    public BeastManager beastManager;
 
     bool mouse_over;
     
@@ -23,7 +24,7 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 if(battleManager.roundOrderTypes[battleManager.turn] == "Player")
                 {
                     //Attack this beast
-                    battleManager.Attack(GetName());
+                    battleManager.Attack(beastManager.getFromName(GetName()));
                 }
             }
         }

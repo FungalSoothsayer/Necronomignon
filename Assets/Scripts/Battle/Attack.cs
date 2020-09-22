@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+//using System.Diagnostics;
 using UnityEngine;
 
 public class Attack : MonoBehaviour
@@ -7,95 +8,119 @@ public class Attack : MonoBehaviour
     public BeastDatabase beastDatabase;
     //public EnemyDatabase enemyDatabase;
     public HealthManager healthManager;
-
-    float modifier;
+    float modifier = 1;
     int damage;
+    readonly Random Random = new Random();
 
-    public void InitiateAttack(string attacker, string target, string row, string attacking)
+    public void InitiateAttack(Beast attacker, Beast target)
     {
+        if (attacker != null)
+            for (int x = attacker.number_MOVES; x > 0; x--)
+            {
+                if (!isMiss(attacker, target))
+                {
+                    modifier *= isCrit(attacker, target);
+                    modifier *= isGuard(attacker, target);
+                    CalculateDamage(attacker, target);
+                }
+                modifier = 1;
+            }
+    }
 
+    private bool isMiss(Beast attacker, Beast target)
+    {
         //Calculate the chance that an attack misses
-        float missChance = beastDatabase.GetSkill(attacker) - (beastDatabase.GetSpeed(target) / 5);
-        missChance = 3 / missChance;
+        float missChance = (float)attacker.dexterity / (float)target.speed;
 
-        //Get Random variable
+
+        //Get Random variable 
         int rand = Random.Range(1, 100);
+        int rando = Random.Range(1, 20);
+
+        Debug.Log(missChance);
+        Debug.Log("1-100 dice to check miss " + rand);
+        Debug.Log("1-20 dice to check miss " + rando);
 
         //If random variable is less than the miss chance, then the attack misses
-        if (rand <= missChance * 100)
+        if (rando <= 2 || rand >= missChance * 100)
         {
             Debug.Log("Attack Misses");
+            return true;
         }
         else
         {
-            //Calculate the chance that an attack is blocked
-            float blockChance = 1000 / beastDatabase.GetSkill(target);
-            blockChance = 3 / blockChance;
-
-            //Get new random variable
-            rand = Random.Range(1, 100);
-
-            //If random variable is less than the block chance, the the attack gets blocked
-            if(rand <= (blockChance * 100))
-            {
-                Debug.Log("Attack is Blocked!");
-            }
-            else
-            {
-                //Calculate the chance that an attack is a critical hit
-                float criticalChance = beastDatabase.GetSkill(attacker) / 5;
-                criticalChance = 2 / criticalChance;
-
-                //Get new random variable
-                rand = Random.Range(1, 100);
-
-                //If random variable is less than critical hit chance, the attack has a modifier of 1.5, otherwise it's modifier is 1
-                if (rand <= criticalChance * 100)
-                {
-                    modifier = 1.5f;
-                    Debug.Log("Critical Hit!");
-                    CalculateDamage(attacker, target, row, attacking);
-                }
-                else
-                {
-                    modifier = 1;
-                    CalculateDamage(attacker, target, row, attacking);
-                }
-            }
+            Debug.Log(attacker.name + " attacked " + target.name);
+            return false;
         }
     }
 
-    void CalculateDamage(string attacker, string target, string row, string attacking)
+    private float isCrit(Beast attacker, Beast target)
     {
+        //Calculate the chance that an attack is a critical hit
+
+        //(d20roll) + ({Attacker.Speed/2} + Attacker.Skill)/({Target.Speed/2} + Target.Skill)
+        int rand = Random.Range(1, 20);
+        float criticalChance = rand + (((attacker.speed / 2) + attacker.dexterity) / (target.speed / 2) + target.dexterity);
+
+        Debug.Log("crit 1-20 " + rand);
+
+        float ra = (float)(rand + target.defence / attacker.power);
+        int critChance = (int)Mathf.Round(ra);
+
+        Debug.Log("crit chance " + critChance);
+
+        //If random variable is less than critical hit chance, the attack has a modifier of 1.5, otherwise it's modifier is 1
+        if (critChance >= 20)
+        {
+            Debug.Log("Critical Hit!");
+            return 2;
+        }
+        return 1;
+    }
+
+    private float isGuard(Beast attacker, Beast target)
+    {
+        //Calculate the chance that an attack is blocked
+        //(d10roll) + (TargetDefense/AttackerPower)
+
+        int rand = Random.Range(1, 10);
+        Debug.Log("Block Chance 1-10 " + rand);
+        float ra = (float)(rand + (((float)target.defence / (float)attacker.power) * 1));
+        Debug.Log("Block Chance ratio " + ra);
+        int blockChance = (int)Mathf.Round(ra);
+
+        Debug.Log("block chance " + blockChance);
+        //Get new random variable
+
+        if (blockChance >= 10)
+        {
+            float vary = 0.32f;
+
+            int vary2 = Random.Range(1, 33);
+
+            vary += (float)vary2 / 100;
+            Debug.Log("the block modifier is " + vary);
+            Debug.Log("Attack is Blocked!");
+            return vary;
+        }
+
+        return 1;
+    }
+
+    void CalculateDamage(Beast attacker, Beast target)
+    {
+    //    Random Random = new Random();
         float dmg;
-        if(row == "A")
-        {
-            //Calculates the damage if the attacker is in row A
-            dmg = beastDatabase.GetPower(attacker) * beastDatabase.GetMoveA(attacker) / beastDatabase.GetDefense(target) * modifier;
-        }
-        else
-        {
-            //Calculates the damage if the attacker is in row B
-            dmg = beastDatabase.GetPower(attacker) * beastDatabase.GetMoveB(attacker) / beastDatabase.GetDefense(target) * modifier;
-        }
+        //Calculates the damage if the attacker is in row A
+        dmg = attacker.power * attacker.MoveA / target.defence;
 
-        damage = (int)dmg; //Convert damage to an integer
-        ApplyDamage(attacker, target, attacking);
-    }
+        float vary = 0.89f;
 
-    void ApplyDamage(string attacker, string target, string attacking)
-    {
-        //Display Debug messages for the attack
-        if(attacking == "Player")
-        {
-            Debug.Log("Player's " + attacker + " does " + damage + " damage to Enemy's " + target);
-        }
-        else
-        {
-            Debug.Log("Enemy's " + attacker + " does " + damage + " damage to Player's " + target);
-        }
-
-        //Subtract the damage from the target's health
-        healthManager.UpdateHealth(target, damage, attacking);
+        float vary2 = Random.Range(1, 20);
+        vary += vary2 / 100;
+        Debug.Log("the damage modifier is " + vary);
+        damage = (int)(dmg * vary * modifier); //Convert damage to an integer
+        Debug.Log("This is damage done " + damage);
+        //healthManager.UpdateHealth(target, damage);
     }
 }

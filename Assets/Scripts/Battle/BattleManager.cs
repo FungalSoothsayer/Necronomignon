@@ -236,12 +236,13 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void Attack(string target)
+    public void Attack(Beast target)
     {
         //Check to see if the round is still going and then run an attack
         if (turn == totalMoves - 1)
         {
-            attack.InitiateAttack(currentTurn, target, GetRow(), roundOrderTypes[turn]);
+            //removed these paramaters GetRow(), roundOrderTypes[turn]
+            attack.InitiateAttack(currentTurn, target);
             Debug.Log("Round Ended");
             ClearTurns();
             currentTurn = roundOrder[0];
@@ -250,7 +251,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            attack.InitiateAttack(currentTurn, target, GetRow(), roundOrderTypes[turn]);
+            attack.InitiateAttack(currentTurn, target);
             AddTurn();
             TakeTurn();
         }

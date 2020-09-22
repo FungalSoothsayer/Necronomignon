@@ -1,0 +1,17 @@
+{"Moves" : [
+
+	{
+		"move_id" : "1", 
+		"name" : "punch",
+		"power" : "60"
+		"condition_chance" : ".1"
+	},
+	{
+		"move_id" : "2", 
+		"name" : "scratch",
+		"power" : "75"
+		"condition_chance" : "0"
+	},
+
+]
+}

@@ -1,0 +1,65 @@
+{"Beasts": [
+	{
+		"name" : "Cthulu",
+		"hitPoints" : "650",
+		"defence" : "45",
+		"power" : "60",
+		"speed" : "50",
+		"dexterity": "45",
+		"number_MOVES" : "2",
+		"tier" : "0"
+	},
+
+	{
+		"name" : "Gaia",
+		"hitPoints" : "700",
+		"defence" : "60",
+		"power" : "50",
+		"speed" : "35",
+		"dexterity": "30",
+		"number_MOVES" : "2",
+		"tier" : "0"
+	},
+	{
+		"name" : "Trodgor",
+		"hitPoints" : "450",
+		"defence" : "40",
+		"power" : "40",
+		"speed" : "74",
+		"dexterity": "60",
+		"number_MOVES" : "4",
+		"tier" : "0"
+	},
+	{
+		"name" : "Behemoth",
+		"hitPoints" : "500",
+		"defence" : "35",
+		"power" : "45",
+		"speed" : "82",
+		"dexterity": "65",
+		"number_MOVES" : "3",
+		"tier" : "0"
+	},
+	{
+		"name" : "Naglfar",
+		"hitPoints" : "800",
+		"defence" : "55",
+		"power" : "80",
+		"speed" : "46",
+		"dexterity": "50",
+		"number_MOVES" : "4",
+		"tier" : "0"
+	},
+	{
+		"name" : "Sunbather",
+		"hitPoints" : "380",
+		"defence" : "45",
+		"power" : "50",
+		"speed" : "61",
+		"dexterity": "70",
+		"number_MOVES" : "2",
+		"tier" : "0"
+	}
+
+ ]
+}
