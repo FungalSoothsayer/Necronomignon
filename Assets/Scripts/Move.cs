@@ -1,18 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Move : MonoBehaviour
+public class Move 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int id;
+    public string name;
+    public int power;
+    public float condition_chance;
 
-    // Update is called once per frame
-    void Update()
+    override
+    public String ToString()
     {
-        
+        String str = "";
+        str += "Name = " + name + "\n";
+        str += "ID = " + id + "\n";
+        str += "Condition Chance = " + condition_chance + "\n";
+        str += "Power = " + power + "\n";
+        return str;
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 //using UnityEngine;
 
 [System.Serializable]
-public class Beast 
+public class Beast
 {
     public string name;
     public int hitPoints;
@@ -14,7 +14,45 @@ public class Beast
     public int dexterity;
     public int number_MOVES;
     public int tier;
+    public int id;
+    public types type;
+    public int moveA = -1;
+    public Move Move_A;
+    public int moveB = -1;
+    public Move Move_B;
 
+    public enum types {Fire, Water, Air, Earth, Dark, Light };
+
+
+    public Beast()
+    {
+
+    }
+
+    public Beast(Beast b)
+    {
+        this.name = b.name;
+        this.hitPoints = b.hitPoints;
+        this.defence = b.defence;
+        this.power = b.power;
+        this.speed = b.speed;
+        this.dexterity = b.dexterity;
+        this.number_MOVES = b.number_MOVES;
+        this.tier = b.tier;
+        this.type = b.type;
+        this.moveA = b.moveA;
+        this.moveB = b.moveB;
+
+    }
+
+    public void setAttacks()
+    {
+        if(moveA == -1 || moveB == -1)
+        {
+            return;
+        }
+
+    }
 
     /*
     private bool summoned = true;
@@ -57,7 +95,7 @@ public class Beast
         str += "Moves = " + number_MOVES + "\n";
         str += "Tier = " + tier + "\n";
         return str;
-    }/*
+    }
     override
     public bool Equals(object obj)
     {
@@ -65,7 +103,7 @@ public class Beast
         {
             Beast b = (Beast)obj;
 
-            if (b.Name.Equals(this.name) && b.Id == this.Id)
+            if (b.name.Equals(this.name) && b.id == this.id)
             {
                 return true;
             }
@@ -77,5 +115,4 @@ public class Beast
     {
         return base.GetHashCode();
     }
-    */
 }

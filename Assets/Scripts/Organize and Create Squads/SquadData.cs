@@ -5,14 +5,14 @@ using UnityEngine;
 public class SquadData : MonoBehaviour
 {
     //Holds the names of the beasts in each position of the grid of saved squad 1
-    public static List<string> squad1 = new List<string>();
+    public static List<Beast> squad1 = new List<Beast>();
     public static bool squad1Saved = false;
 
     //Holds the names of the beasts in each position of the grid of saved squad 2
-    public static List<string> squad2 = new List<string>();
+    public static List<Beast> squad2 = new List<Beast>();
     public static bool squad2Saved = false;
 
-    public void AddToList(int squad, string beast)
+    public void AddToList(int squad, Beast beast)
     {
         if(squad == 1)
         {
@@ -44,7 +44,7 @@ public class SquadData : MonoBehaviour
         }
     }
 
-    public List<string> GetSquadList(int squad)
+    public List<Beast> GetSquadList(int squad)
     {
         if (squad == 1)
         {

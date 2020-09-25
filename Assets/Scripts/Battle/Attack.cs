@@ -112,7 +112,7 @@ public class Attack : MonoBehaviour
     //    Random Random = new Random();
         float dmg;
         //Calculates the damage if the attacker is in row A
-        dmg = attacker.power * attacker.MoveA / target.defence;
+        dmg = attacker.power * attacker.Move_A.power / target.defence;
 
         float vary = 0.89f;
 

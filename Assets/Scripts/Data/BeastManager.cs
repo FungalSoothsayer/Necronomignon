@@ -10,7 +10,7 @@ using System.Runtime.Versioning;
 [System.Serializable]
 public class BeastManager : MonoBehaviour
 {
-
+    static int givenId = 0;
     string path;
     string jsonString;
 
@@ -22,33 +22,23 @@ public class BeastManager : MonoBehaviour
         path = Application.dataPath + "/Scripts/Data/Beast.json";
         jsonString = File.ReadAllText(path);
 
-
        beastsList = JsonUtility.FromJson<BeastList>(jsonString);
      // print(JsonConvert.DeserializeObject(jsonString)); 
-
-
 
         if (jsonString != null)
         {          
             foreach (Beast beast in beastsList.Beasts)
             {
-                print(beast);
-
+//                print(beast);
+                beast.id = givenId;
+                givenId++;
             }
         }
         else
         {
             print("Asset is null");
         }
-       // get();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public Beast getFromName(String str)
     {
@@ -57,16 +47,17 @@ public class BeastManager : MonoBehaviour
             Start();
         }
 
-        Beast b = null;
+        Beast b = new Beast();
 
         for (int x = 0; x < beastsList.Beasts.Count; x++)
         {
             if (str.Equals(beastsList.Beasts[x].name))
             {
-                b = beastsList.Beasts[x];
+                b = new Beast(beastsList.Beasts[x]);
+                b.id = givenId;
+                givenId++;
                 break;
             }
-            
         }
         return b;
     }

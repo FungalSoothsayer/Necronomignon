@@ -7,7 +7,8 @@
 		"speed" : "50",
 		"dexterity": "45",
 		"number_MOVES" : "2",
-		"tier" : "0"
+		"tier" : "0",
+		"type" : "Dark"
 	},
 
 	{
@@ -18,7 +19,8 @@
 		"speed" : "35",
 		"dexterity": "30",
 		"number_MOVES" : "2",
-		"tier" : "0"
+		"tier" : "0",
+		"type" : "Earth"
 	},
 	{
 		"name" : "Trodgor",
@@ -28,7 +30,8 @@
 		"speed" : "74",
 		"dexterity": "60",
 		"number_MOVES" : "4",
-		"tier" : "0"
+		"tier" : "0",
+		"type" : "Fire"
 	},
 	{
 		"name" : "Behemoth",
@@ -38,7 +41,8 @@
 		"speed" : "82",
 		"dexterity": "65",
 		"number_MOVES" : "3",
-		"tier" : "0"
+		"tier" : "0",
+		"type" : "Wind"
 	},
 	{
 		"name" : "Naglfar",
@@ -48,7 +52,8 @@
 		"speed" : "46",
 		"dexterity": "50",
 		"number_MOVES" : "4",
-		"tier" : "0"
+		"tier" : "0",
+		"type" : "Water"
 	},
 	{
 		"name" : "Sunbather",
@@ -58,7 +63,8 @@
 		"speed" : "61",
 		"dexterity": "70",
 		"number_MOVES" : "2",
-		"tier" : "0"
+		"tier" : "0",
+		"type" : "Light"
 	}
 
  ]

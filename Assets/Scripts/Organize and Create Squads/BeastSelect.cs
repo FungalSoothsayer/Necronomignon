@@ -46,6 +46,7 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     //Get the index of the beast that is selected
     private int GetThisBeast()
     {
+
         if (gameObject.name == "Pool1") return 0;
         else if (gameObject.name == "Pool2") return 1;
         else if (gameObject.name == "Pool3") return 2;

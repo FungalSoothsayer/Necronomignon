@@ -37,9 +37,9 @@ public class DemoBattleManager : MonoBehaviour
     public Image order8;
     public Image order9;
 
-    List<string> thisSquad = new List<string>();
+    List<Beast> thisSquad = new List<Beast>();
     List<string> roundOrder = new List<string>();
-    List<string> enemies = new List<string>();
+    List<Beast> enemies = new List<Beast>();
 
     int turn = 0;
     int totalMoves;
@@ -48,10 +48,18 @@ public class DemoBattleManager : MonoBehaviour
 
     void Start()
     {
-        enemies.Add("Target");
-        enemies.Add("");
-        enemies.Add("");
-        enemies.Add("");
+        Beast b = new Beast();
+        b.name = "Target";
+        b.hitPoints = BeastDatabase.targetHitPoints;
+        b.defence = BeastDatabase.targetDefense;
+        b.power = BeastDatabase.targetPower;
+        b.speed = BeastDatabase.targetSpeed;
+        b.dexterity = BeastDatabase.targetSkill;
+        b.number_MOVES = 0;
+        enemies.Add(b);
+        enemies.Add(null);
+        enemies.Add(null);
+        enemies.Add(null);
         squadNumber = loadDemoBattle.GetSquadNumber();
         LoadSquadImages();
         LoadOrder();
@@ -60,48 +68,50 @@ public class DemoBattleManager : MonoBehaviour
 
     void LoadSquadImages()
     {
-        List<string> toLoad = new List<string>();
+
+        List<Beast> toLoad = new List<Beast>();
+
         toLoad = squadData.GetSquadList(squadNumber);
 
         if (toLoad[0] != "")
         {
-            slot1Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[0]));
-            slot1 = toLoad[0];
+            slot1Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[0].name));
+            slot1 = toLoad[0].name;
             thisSquad.Add(toLoad[0]);
         }
         else slot1Img.gameObject.SetActive(false);
         if (toLoad[1] != "")
         {
-            slot2Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[1]));
-            slot2 = toLoad[1];
+            slot2Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[1].name));
+            slot2 = toLoad[1].name;
             thisSquad.Add(toLoad[1]);
         }
         else slot2Img.gameObject.SetActive(false);
         if (toLoad[2] != "")
         {
-            slot3Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[2]));
-            slot3 = toLoad[2];
+            slot3Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[2].name));
+            slot3 = toLoad[2].name;
             thisSquad.Add(toLoad[2]);
         }
         else slot3Img.gameObject.SetActive(false);
         if (toLoad[3] != "")
         {
-            slot4Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[3]));
-            slot4 = toLoad[3];
+            slot4Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[3].name));
+            slot4 = toLoad[3].name;
             thisSquad.Add(toLoad[3]);
         }
         else slot4Img.gameObject.SetActive(false);
         if (toLoad[4] != "")
         {
-            slot5Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[4]));
-            slot5 = toLoad[4];
+            slot5Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[4].name));
+            slot5 = toLoad[4].name;
             thisSquad.Add(toLoad[4]);
         }
         else slot5Img.gameObject.SetActive(false);
         if (toLoad[5] != "")
         {
-            slot6Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[5]));
-            slot6 = toLoad[5];
+            slot6Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[5].name));
+            slot6 = toLoad[5].name;
             thisSquad.Add(toLoad[5]);
         }
         else slot6Img.gameObject.SetActive(false);
