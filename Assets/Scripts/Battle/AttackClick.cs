@@ -26,6 +26,7 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             if (Input.GetMouseButtonDown(0))
             {
                 print("b");
+                print(battleManager.turn);
                 //print("THIS IS WHATS BUGGING: " + battleManager.turn);
                 if (battleManager.roundOrderTypes[battleManager.turn] == "Player")
                 {
