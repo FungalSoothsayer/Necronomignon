@@ -140,7 +140,6 @@ public class BattleManager : MonoBehaviour
         {
             for (int x = 0; x < 8; x++)
             {
-                print("Manoil");
                 if (player1Active && speeds[x] == speed1 && moves1 > 0 && !InWave("Player " + players[0], wave))
                 {
                     roundOrder.Add(players[0]);

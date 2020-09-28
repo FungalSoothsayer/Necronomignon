@@ -132,7 +132,6 @@ public class LoadMission : MonoBehaviour
             
             if (enemyToLoad[x] != null)
             {
-                print(enemyToLoad[x]+"goddamn man oil");
                 enemySlotImg[x].sprite = Resources.Load<Sprite>(enemyToLoad[x].static_img);
                 enemySlot.Add(beastManager.getFromName(enemyToLoad[x].name));
                 enemySquad.Add(beastManager.getFromName(enemyToLoad[x].name));

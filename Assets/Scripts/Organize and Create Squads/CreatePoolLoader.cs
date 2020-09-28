@@ -28,7 +28,6 @@ public class CreatePoolLoader : MonoBehaviour
         {
             beastManager.start();
         }
-        print("Start is running");
         BeastList bl = beastManager.beastsList;
         print(bl);
         for (int x =0;x < bl.Beasts.Count; x++)
@@ -37,7 +36,6 @@ public class CreatePoolLoader : MonoBehaviour
             {
                 summonedImages.Add(bl.Beasts[x].static_img);
                 summoned.Add(bl.Beasts[x]);
-
             }
         }
 
@@ -84,7 +82,7 @@ public class CreatePoolLoader : MonoBehaviour
         {
             slot1.sprite = Resources.Load<Sprite>(summonedImages[0]);
         }
-        else slot1.sprite = Resources.Load<Sprite>(null);
+        else slot1.sprite = Resources.Load<Sprite>("EmptyRectangle");
 
         if (summoned.Count >= 2)
         {
