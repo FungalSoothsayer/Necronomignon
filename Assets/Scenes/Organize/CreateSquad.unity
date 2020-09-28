@@ -758,6 +758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
+  beastManager: {fileID: 843462596}
   slotID: 4
 --- !u!1 &365207519
 GameObject:
@@ -1067,6 +1068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
+  beastManager: {fileID: 843462596}
   slotID: 2
 --- !u!1 &560744598
 GameObject:
@@ -1376,6 +1378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
+  beastManager: {fileID: 843462596}
   slotID: 3
 --- !u!1 &843462588
 GameObject:
@@ -1392,6 +1395,7 @@ GameObject:
   - component: {fileID: 843462593}
   - component: {fileID: 843462594}
   - component: {fileID: 843462595}
+  - component: {fileID: 843462596}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1449,6 +1453,7 @@ MonoBehaviour:
   summonedImages: []
   summoned: []
   beastDatabase: {fileID: 843462592}
+  beastManager: {fileID: 843462596}
   createManager: {fileID: 843462593}
 --- !u!114 &843462592
 MonoBehaviour:
@@ -1483,13 +1488,104 @@ MonoBehaviour:
   slot6Obj: {fileID: 1246635156}
   cancelButton: {fileID: 1538440197}
   removeButton: {fileID: 581799512}
-  slot1: 
-  slot2: 
-  slot3: 
-  slot4: 
-  slot5: 
-  slot6: 
-  selected: 
+  slot1:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  slot2:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  slot3:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  slot4:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  slot5:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  slot6:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  selected:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
   selectedIndex: 0
   canBePlaced: 1
   placing: 0
@@ -1526,6 +1622,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3eb582d69d9f14cc78b0879bfcf4e5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &843462596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843462588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a524b3150c2d9704689a83f5ae409939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &846920007
@@ -1908,6 +2016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
+  beastManager: {fileID: 843462596}
   slotID: 5
 --- !u!1 &929942426
 GameObject:
@@ -2090,6 +2199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
+  beastManager: {fileID: 843462596}
   slotID: 1
 --- !u!1 &1220153787
 GameObject:
@@ -2329,6 +2439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
+  beastManager: {fileID: 843462596}
   slotID: 6
 --- !u!1 &1281084574
 GameObject:

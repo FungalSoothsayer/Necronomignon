@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,18 +14,24 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if (mouse_over)
         {
+            
             //When mouse is clicked and cursor is over this image, light up the slots
             if (Input.GetMouseButtonDown(0))
             {
                 if (NotSummoned() && !createManager.saveMode)
                 {
-                    if (createManager.canBePlaced)
-                    {
-                        createManager.LightUpSlots();
-                        createManager.placing = true;
-                    }
+                    
                     createManager.selectedIndex = GetThisBeast();
-                    createManager.selected = createPoolLoader.summoned[createManager.selectedIndex];
+                    if (createManager.selectedIndex < createPoolLoader.summoned.Count)
+                    {
+                        if (createManager.canBePlaced)
+                        {
+                            createManager.LightUpSlots();
+                            createManager.placing = true;
+                        }
+                        createManager.selected = createPoolLoader.summoned[createManager.selectedIndex];
+                    }
+                    
 
                 }
             }
@@ -62,9 +69,17 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     //Check to make sure that this beast is not already in the grid
     bool NotSummoned()
     {
-        string beast = createPoolLoader.summoned[GetThisBeast()];
-        if (createManager.slot1 != beast && createManager.slot2 != beast && createManager.slot3 != beast
-        && createManager.slot4 != beast && createManager.slot5 != beast && createManager.slot6 != beast)
+        print("not summonded");
+        if (GetThisBeast() >= createPoolLoader.summoned.Count)
+        {
+            return true;
+        }
+        Beast beast = createPoolLoader.summoned[GetThisBeast()];
+        print(createManager.slot1);
+        print(createManager.slot2);
+        print(createManager.slot3);
+        if (beast != null && !beast.Equals(createManager.slot1) && !beast.Equals(createManager.slot1) && !beast.Equals(createManager.slot1)
+        && !beast.Equals(createManager.slot1) && !beast.Equals(createManager.slot1) && !beast.Equals(createManager.slot1))
         {
             return true;
         }

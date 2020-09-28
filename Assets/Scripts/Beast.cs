@@ -6,7 +6,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Beast
 {
-    public string name;
+    public string name = "";
     public int hitPoints;
     public int defence;
     public int power;
@@ -20,6 +20,7 @@ public class Beast
     public Move Move_A;
     public int moveB = -1;
     public Move Move_B;
+    public string static_img;
 
     public enum types {Fire, Water, Air, Earth, Dark, Light };
 
@@ -42,6 +43,7 @@ public class Beast
         this.type = b.type;
         this.moveA = b.moveA;
         this.moveB = b.moveB;
+        this.static_img = b.static_img;
 
     }
 
@@ -94,11 +96,14 @@ public class Beast
         str += "Dexterity = " + dexterity + "\n";
         str += "Moves = " + number_MOVES + "\n";
         str += "Tier = " + tier + "\n";
+        str += "img = " + static_img + "\n";
         return str;
     }
     override
     public bool Equals(object obj)
     {
+        if (obj == null)
+            return false;
         if (obj.GetType() == typeof(Beast))
         {
             Beast b = (Beast)obj;

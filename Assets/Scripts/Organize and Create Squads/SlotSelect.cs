@@ -8,12 +8,13 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     public CreateManager createManager;
     public CreatePoolLoader createPoolLoader;
+    public BeastManager beastManager;
 
     private bool mouse_over = false;
 
     public int slotID; //Set in inspector
 
-    string thisBeast;
+    Beast thisBeast;
     int thisBeastIndex;
 
     void Update()
@@ -110,7 +111,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         createManager.placed += 1;
         createManager.placing = false;
         createManager.CheckPlaceable();
-        createManager.selected = "";
+        createManager.selected = null;
         createManager.selectedIndex = -1;
         createManager.TurnOffSlots();
     }
@@ -118,6 +119,19 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Get the faded image of the placed beast
     string GetFadedImage()
     {
+        if (!beastManager.isLoaded())
+        {
+            beastManager.start();
+        }
+        BeastList bl = beastManager.beastsList; 
+        for (int x = 0; x< bl.Beasts.Count; x++)
+        {
+            if (bl.Beasts[x].Equals(createManager.selected))
+            {
+                return "EmptyRectangle";
+            }
+        }
+/*
         if(createManager.selected == "Gaia")
         {
             return "EmptyRectangle";
@@ -145,7 +159,8 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         else
         {
             return "";
-        }
+        }*/
+        return "";
     }
 
     //Select this beast and give options to move to another slot or remove from the grid

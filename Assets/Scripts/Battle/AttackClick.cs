@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public BattleManager battleManager;
-    public BeastManager beastManager;
+//    public BeastManager beastManager;
 
    public static bool mouse_over;
     
@@ -18,8 +18,8 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     void Update()
     {
-        OnPointerEnter(null);
-        print(mouse_over);
+//        OnPointerEnter(null);
+//        print(mouse_over);
         if (mouse_over)
         {
             print("a");
@@ -39,6 +39,12 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
  
 
     //When the cursor is over this image, make mouse_over true
+    public void PointerEnter(PointerEventData eventData)
+    {
+        print("d");
+        mouse_over = true;
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         print("d");

@@ -280,7 +280,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 469307953}
-  beastManager: {fileID: 0}
 --- !u!1 &269560411
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,12 +488,90 @@ MonoBehaviour:
   slot5Img: {fileID: 1762295715}
   slot6Img: {fileID: 1638041230}
   playerSlotImg: []
-  slot1: 
-  slot2: 
-  slot3: 
-  slot4: 
-  slot5: 
-  slot6: 
+  slot1:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  slot2:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  slot3:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  slot4:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  slot5:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  slot6:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
   playerSlot: []
   enemySlot1Img: {fileID: 609619339}
   enemySlot2Img: {fileID: 174227169}
@@ -503,12 +580,90 @@ MonoBehaviour:
   enemySlot5Img: {fileID: 1337831874}
   enemySlot6Img: {fileID: 1324915900}
   enemySlotImg: []
-  enemySlot1: 
-  enemySlot2: 
-  enemySlot3: 
-  enemySlot4: 
-  enemySlot5: 
-  enemySlot6: 
+  enemySlot1:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  enemySlot2:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  enemySlot3:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  enemySlot4:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  enemySlot5:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  enemySlot6:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
   enemySlot: []
 --- !u!114 &469307945
 MonoBehaviour:
@@ -585,6 +740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mission: sample
+  beastManager: {fileID: 469307954}
   enemies: []
 --- !u!114 &469307950
 MonoBehaviour:
@@ -641,14 +797,8 @@ MonoBehaviour:
   attack: {fileID: 469307946}
   loadMission: {fileID: 469307944}
   txtTurn: {fileID: 278595597}
-  players: []
   roundOrder: []
   roundOrderTypes: []
-  attackPool: []
-  playerSlot: []
-  enemySlot: []
-  playerActive: 
-  playersTurnTaken: 
   turn: 0
   currentTurn:
     name: 
@@ -663,12 +813,91 @@ MonoBehaviour:
     type: 0
     moveA: -1
     moveB: -1
-  enemySlot1: 
-  enemySlot2: 
-  enemySlot3: 
-  enemySlot4: 
-  enemySlot5: 
-  enemySlot6: 
+    static_img: 
+  enemySlot1:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  enemySlot2:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  enemySlot3:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  enemySlot4:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  enemySlot5:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
+  enemySlot6:
+    name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: -1
+    moveB: -1
+    static_img: 
   player1Active: 1
   player2Active: 1
   player3Active: 1
@@ -702,7 +931,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 469307953}
-  beastManager: {fileID: 0}
 --- !u!114 &469307956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,6 +960,7 @@ GameObject:
   - component: {fileID: 609619341}
   - component: {fileID: 609619343}
   - component: {fileID: 609619342}
+  - component: {fileID: 609619344}
   m_Layer: 5
   m_Name: Slot1
   m_TagString: Untagged
@@ -808,7 +1037,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 469307953}
-  beastManager: {fileID: 0}
 --- !u!114 &609619342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -847,6 +1075,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &609619344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609619337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b27f6d966069ced499bda3adaaba80f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &638683676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,7 +1347,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 469307953}
-  beastManager: {fileID: 0}
 --- !u!1 &988995382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,7 +1435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 469307953}
-  beastManager: {fileID: 0}
 --- !u!1 &1008383666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,7 +2017,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 469307953}
-  beastManager: {fileID: 0}
 --- !u!1 &1337831872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1868,7 +2105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 469307953}
-  beastManager: {fileID: 0}
 --- !u!1 &1340172211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,7 +2272,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340521545}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -2152,6 +2388,7 @@ GameObject:
   - component: {fileID: 1453972848}
   - component: {fileID: 1453972847}
   - component: {fileID: 1453972846}
+  - component: {fileID: 1453972849}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2224,6 +2461,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1453972849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453972845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 51
+  m_MaxRayIntersections: 0
 --- !u!1 &1511964348
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,7 +3082,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030339586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 

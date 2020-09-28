@@ -38,13 +38,13 @@ public class DemoBattleManager : MonoBehaviour
     public Image order9;
 
     List<Beast> thisSquad = new List<Beast>();
-    List<string> roundOrder = new List<string>();
+    List<Beast> roundOrder = new List<Beast>();
     List<Beast> enemies = new List<Beast>();
 
     int turn = 0;
     int totalMoves;
 
-    string currentTurn;
+    Beast currentTurn;
 
     void Start()
     {
@@ -73,42 +73,42 @@ public class DemoBattleManager : MonoBehaviour
 
         toLoad = squadData.GetSquadList(squadNumber);
 
-        if (toLoad[0] != "")
+        if (toLoad[0] != null)
         {
             slot1Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[0].name));
             slot1 = toLoad[0].name;
             thisSquad.Add(toLoad[0]);
         }
         else slot1Img.gameObject.SetActive(false);
-        if (toLoad[1] != "")
+        if (toLoad[1] != null)
         {
             slot2Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[1].name));
             slot2 = toLoad[1].name;
             thisSquad.Add(toLoad[1]);
         }
         else slot2Img.gameObject.SetActive(false);
-        if (toLoad[2] != "")
+        if (toLoad[2] != null)
         {
             slot3Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[2].name));
             slot3 = toLoad[2].name;
             thisSquad.Add(toLoad[2]);
         }
         else slot3Img.gameObject.SetActive(false);
-        if (toLoad[3] != "")
+        if (toLoad[3] != null)
         {
             slot4Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[3].name));
             slot4 = toLoad[3].name;
             thisSquad.Add(toLoad[3]);
         }
         else slot4Img.gameObject.SetActive(false);
-        if (toLoad[4] != "")
+        if (toLoad[4] != null)
         {
             slot5Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[4].name));
             slot5 = toLoad[4].name;
             thisSquad.Add(toLoad[4]);
         }
         else slot5Img.gameObject.SetActive(false);
-        if (toLoad[5] != "")
+        if (toLoad[5] != null)
         {
             slot6Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[5].name));
             slot6 = toLoad[5].name;
@@ -130,16 +130,16 @@ public class DemoBattleManager : MonoBehaviour
 
     void LoadOrder()
     {
-        int moves1 = beastDatabase.GetMoves(thisSquad[0]);
-        int moves2 = beastDatabase.GetMoves(thisSquad[1]);
-        int moves3 = beastDatabase.GetMoves(thisSquad[2]);
-        int moves4 = beastDatabase.GetMoves(thisSquad[3]);
+        int moves1 = thisSquad[0].number_MOVES;
+        int moves2 = thisSquad[1].number_MOVES;
+        int moves3 = thisSquad[2].number_MOVES;
+        int moves4 = thisSquad[3].number_MOVES;
         totalMoves = moves1 + moves2 + moves3 + moves4;
 
-        int speed1 = beastDatabase.GetSpeed(thisSquad[0]);
-        int speed2 = beastDatabase.GetSpeed(thisSquad[1]);
-        int speed3 = beastDatabase.GetSpeed(thisSquad[2]);
-        int speed4 = beastDatabase.GetSpeed(thisSquad[3]);
+        int speed1 = thisSquad[0].speed;
+        int speed2 = thisSquad[1].speed;
+        int speed3 = thisSquad[2].speed;
+        int speed4 = thisSquad[3].speed;
 
         int i = 0;
 
@@ -185,7 +185,7 @@ public class DemoBattleManager : MonoBehaviour
         currentTurn = roundOrder[turn];
         try
         {
-            order1.sprite = Resources.Load<Sprite>(GetImage(roundOrder[0 + turn]));
+            order1.sprite = Resources.Load<Sprite>(GetImage(roundOrder[0 + turn].name));
         }
         catch
         {
@@ -193,7 +193,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order2.sprite = Resources.Load<Sprite>(GetImage(roundOrder[1 + turn]));
+            order2.sprite = Resources.Load<Sprite>(GetImage(roundOrder[1 + turn].name));
         }
         catch
         {
@@ -201,7 +201,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order3.sprite = Resources.Load<Sprite>(GetImage(roundOrder[2 + turn]));
+            order3.sprite = Resources.Load<Sprite>(GetImage(roundOrder[2 + turn].name));
         }
         catch
         {
@@ -209,7 +209,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order4.sprite = Resources.Load<Sprite>(GetImage(roundOrder[3 + turn]));
+            order4.sprite = Resources.Load<Sprite>(GetImage(roundOrder[3 + turn].name));
         }
         catch
         {
@@ -217,7 +217,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order5.sprite = Resources.Load<Sprite>(GetImage(roundOrder[4 + turn]));
+            order5.sprite = Resources.Load<Sprite>(GetImage(roundOrder[4 + turn].name));
         }
         catch
         {
@@ -225,7 +225,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order6.sprite = Resources.Load<Sprite>(GetImage(roundOrder[5 + turn]));
+            order6.sprite = Resources.Load<Sprite>(GetImage(roundOrder[5 + turn].name));
         }
         catch
         {
@@ -233,7 +233,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order7.sprite = Resources.Load<Sprite>(GetImage(roundOrder[6 + turn]));
+            order7.sprite = Resources.Load<Sprite>(GetImage(roundOrder[6 + turn].name));
         }
         catch
         {
@@ -241,7 +241,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order8.sprite = Resources.Load<Sprite>(GetImage(roundOrder[7 + turn]));
+            order8.sprite = Resources.Load<Sprite>(GetImage(roundOrder[7 + turn].name));
         }
         catch
         {
@@ -249,7 +249,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order9.sprite = Resources.Load<Sprite>(GetImage(roundOrder[8 + turn]));
+            order9.sprite = Resources.Load<Sprite>(GetImage(roundOrder[8 + turn].name));
         }
         catch
         {

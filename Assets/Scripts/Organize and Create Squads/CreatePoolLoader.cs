@@ -16,14 +16,33 @@ public class CreatePoolLoader : MonoBehaviour
     public Image slot9;
 
     public List<string> summonedImages = new List<string>();
-    public List<string> summoned = new List<string>();
+    public List<Beast> summoned = new List<Beast>();
 
     public BeastDatabase beastDatabase;
+    public BeastManager beastManager;
     public CreateManager createManager;
 
     void Start()
     {
-        //Add the image names to a list if they are summoned
+        if (!beastManager.isLoaded())
+        {
+            beastManager.start();
+        }
+        print("Start is running");
+        BeastList bl = beastManager.beastsList;
+        print(bl);
+        for (int x =0;x < bl.Beasts.Count; x++)
+        {
+            if(bl.Beasts[x].tier > 0)
+            {
+                summonedImages.Add(bl.Beasts[x].static_img);
+                summoned.Add(bl.Beasts[x]);
+
+            }
+        }
+
+
+/*        //Add the image names to a list if they are summoned
         if (beastDatabase.GetStatus("Gaia"))
         {
             summonedImages.Add("Boss Nature Titan Tellia-4");
@@ -53,7 +72,7 @@ public class CreatePoolLoader : MonoBehaviour
         {
             summonedImages.Add("Boss Darklord Excelsios-1");
             summoned.Add("Sunbather");
-        }
+        }*/
 
         SetImages();
     }
@@ -65,7 +84,7 @@ public class CreatePoolLoader : MonoBehaviour
         {
             slot1.sprite = Resources.Load<Sprite>(summonedImages[0]);
         }
-        else slot1.sprite = Resources.Load<Sprite>("EmptyRectangle");
+        else slot1.sprite = Resources.Load<Sprite>(null);
 
         if (summoned.Count >= 2)
         {

@@ -15,14 +15,14 @@ public class CreateManager : MonoBehaviour
     public GameObject cancelButton;
     public GameObject removeButton;
 
-    public string slot1;
-    public string slot2;
-    public string slot3;
-    public string slot4;
-    public string slot5;
-    public string slot6;
+    public Beast slot1;
+    public Beast slot2;
+    public Beast slot3;
+    public Beast slot4;
+    public Beast slot5;
+    public Beast slot6;
 
-    public string selected;
+    public Beast selected;
     public int selectedIndex;
 
     public bool canBePlaced = true;
@@ -62,27 +62,27 @@ public class CreateManager : MonoBehaviour
     //Set all slots that do not have a beast placed in it to inactive
     public void TurnOffSlots()
     {
-        if(slot1 == "")
+        if(slot1 == null)
         {
             slot1Obj.SetActive(false);
         }
-        if(slot2 == "")
+        if(slot2 == null)
         {
             slot2Obj.SetActive(false);
         }
-        if (slot3 == "")
+        if (slot3 == null)
         {
             slot3Obj.SetActive(false);
         }
-        if (slot4 == "")
+        if (slot4 == null)
         {
             slot4Obj.SetActive(false);
         }
-        if (slot5 == "")
+        if (slot5 == null)
         {
             slot5Obj.SetActive(false);
         }
-        if (slot6 == "")
+        if (slot6 == null)
         {
             slot6Obj.SetActive(false);
         }
@@ -93,7 +93,7 @@ public class CreateManager : MonoBehaviour
     public void Cancel()
     {
         TurnOffSlots();
-        selected = "";
+        selected = null;
         selectedIndex = -1;
         if (removeButton.activeInHierarchy) removeButton.SetActive(false);
         if (moving) moving = false;
@@ -114,30 +114,30 @@ public class CreateManager : MonoBehaviour
         {
             case 1:
                 GameObject.Find("Slot1").GetComponent<SlotSelect>().RemoveImage();
-                slot1 = "";
+                slot1 = null;
                 break;
             case 2:
                 GameObject.Find("Slot2").GetComponent<SlotSelect>().RemoveImage();
-                slot2 = "";
+                slot2 = null;
                 break;
             case 3:
                 GameObject.Find("Slot3").GetComponent<SlotSelect>().RemoveImage();
-                slot3 = "";
+                slot3 = null;
                 break;
             case 4:
                 GameObject.Find("Slot4").GetComponent<SlotSelect>().RemoveImage();
-                slot4 = "";
+                slot4 = null;
                 break;
             case 5:
                 GameObject.Find("Slot5").GetComponent<SlotSelect>().RemoveImage();
-                slot5 = "";
+                slot5 = null;
                 break;
             case 6:
                 GameObject.Find("Slot6").GetComponent<SlotSelect>().RemoveImage();
-                slot6 = "";
+                slot6 = null;
                 break;
         }
-        selected = "";
+        selected = null;
         selectedIndex = -1;
         placed -= 1;
         CheckPlaceable();

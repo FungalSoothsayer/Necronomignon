@@ -19,6 +19,7 @@ public class BeastManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        print("beast manager called");
         path = Application.dataPath + "/Scripts/Data/Beast.json";
         jsonString = File.ReadAllText(path);
 
@@ -32,12 +33,29 @@ public class BeastManager : MonoBehaviour
 //                print(beast);
                 beast.id = givenId;
                 givenId++;
+                print(beast);
             }
         }
         else
         {
             print("Asset is null");
         }
+        print(beastsList.Beasts.Count);
+    }
+
+    public bool isLoaded()
+    {
+        if (beastsList.Beasts.Count == 0)
+        {
+            return false;
+        }
+        
+         return true;
+    }
+
+    public void start()
+    {
+        Start();
     }
 
     public Beast getFromName(String str)
@@ -48,7 +66,6 @@ public class BeastManager : MonoBehaviour
         }
 
         Beast b = new Beast();
-
         for (int x = 0; x < beastsList.Beasts.Count; x++)
         {
             if (str.Equals(beastsList.Beasts[x].name))

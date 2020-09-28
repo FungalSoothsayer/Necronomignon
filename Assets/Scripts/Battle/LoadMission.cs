@@ -49,8 +49,8 @@ public class LoadMission : MonoBehaviour
     public List<Beast> enemySlot = new List<Beast>(6);
 
     List<Beast> thisSquad = new List<Beast>();
-    List<string> toLoad = new List<string>();
-    List<string> enemyToLoad = new List<string>();
+    List<Beast> toLoad = new List<Beast>();
+    List<Beast> enemyToLoad = new List<Beast>();
     List<Beast> enemySquad = new List<Beast>();
 
     int squadMissing = 0;
@@ -130,11 +130,12 @@ public class LoadMission : MonoBehaviour
         for (int x = 0; x < enemyToLoad.Count; x++)
         {
             
-            if (enemyToLoad[x] != "")
+            if (enemyToLoad[x] != null)
             {
-                enemySlotImg[x].sprite = Resources.Load<Sprite>(GetImage(enemyToLoad[x]));
-                enemySlot.Add(beastManager.getFromName(enemyToLoad[x]));
-                enemySquad.Add(beastManager.getFromName(enemyToLoad[x]));
+                print(enemyToLoad[x]+"goddamn man oil");
+                enemySlotImg[x].sprite = Resources.Load<Sprite>(enemyToLoad[x].static_img);
+                enemySlot.Add(beastManager.getFromName(enemyToLoad[x].name));
+                enemySquad.Add(beastManager.getFromName(enemyToLoad[x].name));
             }
             else
             {
@@ -150,11 +151,11 @@ public class LoadMission : MonoBehaviour
         grid.SetActive(true);
         for (int x = 0; x < toLoad.Count; x++)
         {
-            if (toLoad[x] != "")
+            if (toLoad[x] != null)
             {
-                playerSlotImg[x].sprite = Resources.Load<Sprite>(GetImage(toLoad[x]));
-                playerSlot.Add(beastManager.getFromName(toLoad[x]));
-                thisSquad.Add(beastManager.getFromName(toLoad[x]));
+                playerSlotImg[x].sprite = Resources.Load<Sprite>(toLoad[x].static_img);
+                playerSlot.Add(beastManager.getFromName(toLoad[x].name));
+                thisSquad.Add(beastManager.getFromName(toLoad[x].name));
             }
             else
             {
