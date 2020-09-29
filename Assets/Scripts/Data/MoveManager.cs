@@ -19,23 +19,22 @@ public class MoveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        print("Something that we could easily find");
         path = Application.dataPath + "/Scripts/Data/Move.json";
         jsonString = File.ReadAllText(path);
-
+        print(jsonString);
         movesList = JsonUtility.FromJson<MoveList>(jsonString);
-        // print(JsonConvert.DeserializeObject(jsonString)); 
+        //movesList = JsonConvert.DeserializeObject(jsonString); 
+        print(movesList.Moves.Count);
+        foreach (Move moves in movesList.Moves)
+        {
+            print(moves);
+        }
+    }
 
-        if (jsonString != null)
-        {
-            foreach (Move move in movesList.Moves)
-            {
-                print(move);
-            }
-        }
-        else
-        {
-            print("Asset is null");
-        }
+    public void start()
+    {
+        Start();
     }
 
     // Update is called once per frame

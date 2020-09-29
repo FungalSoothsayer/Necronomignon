@@ -6,6 +6,8 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public BeastDatabase beastDatabase;
+    public BeastManager beastManager;
+//    public MoveManager moveManager;
     //public EnemyDatabase enemyDatabase;
     public HealthManager healthManager;
     float modifier = 1;
@@ -14,9 +16,29 @@ public class Attack : MonoBehaviour
 
     public void InitiateAttack(Beast attacker, Beast target)
     {
-        if (attacker != null)
-            for (int x = attacker.number_MOVES; x > 0; x--)
+        print(beastManager);
+        print(beastManager.moveManager);
+        print(beastManager.moveManager.movesList);
+
+        if (beastManager.moveManager.movesList == null)
+        {
+            beastManager.moveManager.start();
+        }
+        
+        if(attacker.Move_A == null)
+        {
+            attacker.Move_A = beastManager.getMove(attacker.moveA);
+        }
+        
+
+
+        if (attacker != null && target != null)
+            if(attacker.speed == 0 || target.speed == 0)
             {
+                return;
+            }
+ //           for (int x = attacker.number_MOVES; x > 0; x--)
+   //         {
                 if (!isMiss(attacker, target))
                 {
                     modifier *= isCrit(attacker, target);
@@ -24,12 +46,14 @@ public class Attack : MonoBehaviour
                     CalculateDamage(attacker, target);
                 }
                 modifier = 1;
-            }
+     //       }
     }
 
     private bool isMiss(Beast attacker, Beast target)
     {
         //Calculate the chance that an attack misses
+        print(attacker);
+        print(target);
         float missChance = (float)attacker.dexterity / (float)target.speed;
 
 
@@ -57,7 +81,8 @@ public class Attack : MonoBehaviour
     private float isCrit(Beast attacker, Beast target)
     {
         //Calculate the chance that an attack is a critical hit
-
+        print(attacker);
+        print(target);
         //(d20roll) + ({Attacker.Speed/2} + Attacker.Skill)/({Target.Speed/2} + Target.Skill)
         int rand = Random.Range(1, 20);
         float criticalChance = rand + (((attacker.speed / 2) + attacker.dexterity) / (target.speed / 2) + target.dexterity);
@@ -110,7 +135,12 @@ public class Attack : MonoBehaviour
     void CalculateDamage(Beast attacker, Beast target)
     {
     //    Random Random = new Random();
+        if(attacker.Move_A == null)
+        {
+            attacker.setAttacks();
+        }
         float dmg;
+        print(attacker.Move_A);
         //Calculates the damage if the attacker is in row A
         dmg = attacker.power * attacker.Move_A.power / target.defence;
 
@@ -121,6 +151,6 @@ public class Attack : MonoBehaviour
         Debug.Log("the damage modifier is " + vary);
         damage = (int)(dmg * vary * modifier); //Convert damage to an integer
         Debug.Log("This is damage done " + damage);
-        //healthManager.UpdateHealth(target, damage);
+        healthManager.UpdateHealth(target, damage);
     }
 }

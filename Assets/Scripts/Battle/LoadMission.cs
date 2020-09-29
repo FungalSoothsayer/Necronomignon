@@ -150,6 +150,11 @@ public class LoadMission : MonoBehaviour
         grid.SetActive(true);
         for (int x = 0; x < toLoad.Count; x++)
         {
+            if (toLoad[x] != null && toLoad[x].speed == 0)
+            {
+                toLoad[x] = null;
+            }
+            print(toLoad[x]);
             if (toLoad[x] != null)
             {
                 playerSlotImg[x].sprite = Resources.Load<Sprite>(toLoad[x].static_img);

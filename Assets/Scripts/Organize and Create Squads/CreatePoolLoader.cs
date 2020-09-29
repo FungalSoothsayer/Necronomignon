@@ -26,7 +26,7 @@ public class CreatePoolLoader : MonoBehaviour
     {
         if (!beastManager.isLoaded())
         {
-            beastManager.start();
+            beastManager.Awake();
         }
         BeastList bl = beastManager.beastsList;
         print(bl);

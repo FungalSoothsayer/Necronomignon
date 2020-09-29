@@ -121,7 +121,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (!beastManager.isLoaded())
         {
-            beastManager.start();
+            beastManager.Awake();
         }
         BeastList bl = beastManager.beastsList; 
         for (int x = 0; x< bl.Beasts.Count; x++)

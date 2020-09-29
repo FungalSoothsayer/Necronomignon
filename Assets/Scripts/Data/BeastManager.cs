@@ -13,6 +13,7 @@ public class BeastManager : MonoBehaviour
     static int givenId = 0;
     string path;
     string jsonString;
+    public MoveManager moveManager;
 
     public BeastList beastsList = new BeastList();
 
@@ -33,7 +34,7 @@ public class BeastManager : MonoBehaviour
 //                print(beast);
                 beast.id = givenId;
                 givenId++;
-                print(beast);
+                print(getMove(beast.moveA));
             }
         }
         else
@@ -41,6 +42,12 @@ public class BeastManager : MonoBehaviour
             print("Asset is null");
         }
         print(beastsList.Beasts.Count);
+
+        foreach(Beast beast in beastsList.Beasts)
+        {
+            beast.Move_A = getMove(beast.moveA);
+            beast.Move_B = getMove(beast.moveB);
+        }
     }
 
     public bool isLoaded()
@@ -53,9 +60,56 @@ public class BeastManager : MonoBehaviour
          return true;
     }
 
-    public void start()
+    public void Awake()
     {
-        Start();
+        print("beast manager called");
+        path = Application.dataPath + "/Scripts/Data/Beast.json";
+        jsonString = File.ReadAllText(path);
+
+        beastsList = JsonUtility.FromJson<BeastList>(jsonString);
+        // print(JsonConvert.DeserializeObject(jsonString)); 
+
+        if (jsonString != null)
+        {
+            foreach (Beast beast in beastsList.Beasts)
+            {
+                //                print(beast);
+                beast.id = givenId;
+                givenId++;
+                print(beast);
+            }
+        }
+        else
+        {
+            print("Asset is null");
+        }
+        print(beastsList.Beasts.Count);
+
+        foreach (Beast beast in beastsList.Beasts)
+        {
+            beast.Move_A = getMove(beast.moveA);
+            beast.Move_B = getMove(beast.moveB);
+        }
+    }
+
+    public Move getMove(int x)
+    {
+        print(moveManager);
+        List<Move> ml = moveManager.movesList.Moves;
+        for(int i = 0; i < ml.Count; i++)
+        {
+            if(ml[i].move_id == x)
+            {
+                return ml[i];
+            }
+
+        }
+        Move mavi = new Move();
+        mavi.move_id = 0;
+        mavi.name = "struggle";
+        mavi.power = 10;
+        mavi.condition_chance = .000003f;
+        return mavi;
     }
 
     public Beast getFromName(String str)

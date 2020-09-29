@@ -16,18 +16,19 @@ public class Beast
     public int tier;
     public int id;
     public types type;
-    public int moveA = -1;
+    public int moveA;
     public Move Move_A;
-    public int moveB = -1;
+    public int moveB;
     public Move Move_B;
     public string static_img;
 
     public enum types {Fire, Water, Air, Earth, Dark, Light };
+    BeastManager bm = new BeastManager();
 
 
     public Beast()
     {
-
+       
     }
 
     public Beast(Beast b)
@@ -42,17 +43,17 @@ public class Beast
         this.tier = b.tier;
         this.type = b.type;
         this.moveA = b.moveA;
+        this.Move_A = b.Move_A;
         this.moveB = b.moveB;
+        this.Move_B = b.Move_B;
         this.static_img = b.static_img;
-
     }
 
     public void setAttacks()
     {
-        if(moveA == -1 || moveB == -1)
-        {
-            return;
-        }
+        bm.moveManager = new MoveManager();
+        this.Move_A = bm.getMove(this.moveA);
+        this.Move_B = bm.getMove(this.moveB);
 
     }
 

@@ -39,12 +39,6 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
  
 
-    //When the cursor is over this image, make mouse_over true
-    public void PointerEnter(PointerEventData eventData)
-    {
-        print("d");
-        mouse_over = true;
-    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -62,6 +56,7 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     //Get the name of the beast that this slot is holding
     Beast GetName()
     {
+
         if (gameObject.name == "Slot1") return battleManager.enemySlot1;
         else if (gameObject.name == "Slot2") return battleManager.enemySlot2;
         else if (gameObject.name == "Slot3") return battleManager.enemySlot3;

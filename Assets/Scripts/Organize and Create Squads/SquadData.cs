@@ -14,6 +14,9 @@ public class SquadData : MonoBehaviour
 
     public void AddToList(int squad, Beast beast)
     {
+        
+        
+        
         if(squad == 1)
         {
             squad1.Add(beast);

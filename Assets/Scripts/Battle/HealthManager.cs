@@ -57,9 +57,9 @@ public class HealthManager : MonoBehaviour
     }
 
     //Subtract the damage from the target's health
-    public void UpdateHealth(string target, int damage, string attacking) 
+    public void UpdateHealth(Beast target, int damage) 
     {
-        if (target == squad[0].name && attacking != "Player")
+        if (target == squad[0])
         {
             player1 -= damage;
             if(player1 <= 0)
@@ -70,10 +70,10 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(attacking, target, player1);
+                DisplayHealthLeft(target, player1);
             }
         }
-        else if (target == squad[1].name && attacking != "Player")
+        else if (target == squad[1])
         {
             player2 -= damage;
             if (player2 <= 0)
@@ -84,10 +84,10 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(attacking, target, player2);
+                DisplayHealthLeft(target, player2);
             }
         }
-        else if (target == squad[2].name && attacking != "Player")
+        else if (target == squad[2])
         {
             player3 -= damage;
             if (player3 <= 0)
@@ -98,10 +98,10 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(attacking, target, player3);
+                DisplayHealthLeft(target, player3);
             }
         }
-        else if (target == squad[3].name && attacking != "Player")
+        else if (target == squad[3])
         {
             player4 -= damage;
             if (player4 <= 0)
@@ -112,10 +112,10 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(attacking, target, player4);
+                DisplayHealthLeft(target, player4);
             }
         }
-        else if (target == enemies[0].name && attacking == "Player")
+        else if (target == enemies[0])
         {
             enemy1 -= damage;
             if (enemy1 <= 0)
@@ -126,10 +126,10 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(attacking, target, enemy1);
+                DisplayHealthLeft(target, enemy1);
             }
         }
-        else if (target == enemies[1].name && attacking == "Player")
+        else if (target == enemies[1])
         {
             enemy2 -= damage;
             if (enemy2 <= 0)
@@ -140,10 +140,10 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(attacking, target, enemy2);
+                DisplayHealthLeft(target, enemy2);
             }
         }
-        else if (target == enemies[2].name && attacking == "Player")
+        else if (target == enemies[2])
         {
             enemy3 -= damage;
             if (enemy3 <= 0)
@@ -154,10 +154,10 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(attacking, target, enemy3);
+                DisplayHealthLeft(target, enemy3);
             }
         }
-        else if (target == enemies[3].name && attacking == "Player")
+        else if (target == enemies[3])
         {
             enemy4 -= damage;
             if (enemy4 <= 0)
@@ -168,14 +168,14 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(attacking, target, enemy4);
+                DisplayHealthLeft(target, enemy4);
             }
         }
     }
 
-    void DisplayHealthLeft(string attacking, string target, int healthLeft)
+    void DisplayHealthLeft(Beast target, int healthLeft)
     {
-        Debug.Log(attacking + "'s " + target + " has " + healthLeft + " health left.");
+        Debug.Log(target.name + " has " + healthLeft + " health left.");
     }
 
     //Check to see if there are any players left, if not end game

@@ -65,4 +65,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle/SampleLevel.unity
     guid: 950f234063c7044ebbcb432d623ecd40
+  - enabled: 1
+    path: Assets/Scenes/Battle/Manoli.unity
+    guid: 49f2bb9d65ba861468c16d478879f141
   m_configObjects: {}

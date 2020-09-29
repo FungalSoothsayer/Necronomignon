@@ -209,6 +209,7 @@ public class BattleManager : MonoBehaviour
         }
 
         currentTurn = roundOrder[turn];
+        print(currentTurn);
         txtTurn.text = roundOrderTypes[0] + " " + currentTurn + "'s turn";
     }
 
@@ -252,6 +253,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
+            print(target);  
             attack.InitiateAttack(currentTurn, target);
             AddTurn();
             TakeTurn();
