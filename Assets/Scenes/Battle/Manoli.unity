@@ -590,7 +590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17.2, y: -1.1}
+  m_AnchoredPosition: {x: -43.6, y: -28.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &281912664
@@ -837,7 +837,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 41.4, y: 36.4}
+  m_AnchoredPosition: {x: 19, y: -1.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &496434341
@@ -925,7 +925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -39.2, y: -28.9}
+  m_AnchoredPosition: {x: -16.4, y: 12.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &569184466
@@ -1589,7 +1589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.600037, y: -435.5}
+  m_AnchoredPosition: {x: 35.600037, y: -324}
   m_SizeDelta: {x: 300, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &748002084
@@ -1820,7 +1820,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.8, y: 9}
+  m_AnchoredPosition: {x: 41.7, y: 37.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &912212959
@@ -2358,7 +2358,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot1:
     name: 
@@ -2372,7 +2382,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot2:
     name: 
@@ -2386,7 +2406,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot3:
     name: 
@@ -2400,7 +2430,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot4:
     name: 
@@ -2414,7 +2454,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot5:
     name: 
@@ -2428,7 +2478,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot6:
     name: 
@@ -2442,7 +2502,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   player1Active: 1
   player2Active: 1
@@ -2504,7 +2574,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   slot2:
     name: 
@@ -2518,7 +2598,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   slot3:
     name: 
@@ -2532,7 +2622,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   slot4:
     name: 
@@ -2546,7 +2646,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   slot5:
     name: 
@@ -2560,7 +2670,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   slot6:
     name: 
@@ -2574,7 +2694,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   playerSlot: []
   enemySlot1Img: {fileID: 471931500}
@@ -2596,7 +2726,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot2:
     name: 
@@ -2610,7 +2750,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot3:
     name: 
@@ -2624,7 +2774,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot4:
     name: 
@@ -2638,7 +2798,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot5:
     name: 
@@ -2652,7 +2822,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot6:
     name: 
@@ -2666,7 +2846,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot: []
 --- !u!114 &1637945764
@@ -2721,7 +2911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beastDatabase: {fileID: 1637945767}
-  moveManager: {fileID: 0}
+  beastManager: {fileID: 1637945760}
   healthManager: {fileID: 1637945765}
 --- !u!114 &1637945767
 MonoBehaviour:

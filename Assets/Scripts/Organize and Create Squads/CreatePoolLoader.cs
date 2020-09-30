@@ -29,7 +29,6 @@ public class CreatePoolLoader : MonoBehaviour
             beastManager.Awake();
         }
         BeastList bl = beastManager.beastsList;
-        print(bl);
         for (int x =0;x < bl.Beasts.Count; x++)
         {
             if(bl.Beasts[x].tier > 0)

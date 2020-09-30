@@ -133,8 +133,8 @@ public class LoadMission : MonoBehaviour
             if (enemyToLoad[x] != null)
             {
                 enemySlotImg[x].sprite = Resources.Load<Sprite>(enemyToLoad[x].static_img);
-                enemySlot.Add(beastManager.getFromName(enemyToLoad[x].name));
-                enemySquad.Add(beastManager.getFromName(enemyToLoad[x].name));
+                enemySlot.Add(enemyToLoad[x]);
+                enemySquad.Add(enemyToLoad[x]);
             }
             else
             {
@@ -154,7 +154,6 @@ public class LoadMission : MonoBehaviour
             {
                 toLoad[x] = null;
             }
-            print(toLoad[x]);
             if (toLoad[x] != null)
             {
                 playerSlotImg[x].sprite = Resources.Load<Sprite>(toLoad[x].static_img);
@@ -167,8 +166,21 @@ public class LoadMission : MonoBehaviour
                 playerSlot.Add(null);
             }
         }
+        slot1 = playerSlot[0];
+        slot2 = playerSlot[1];
+        slot3 = playerSlot[2];
+        slot4 = playerSlot[3];
+        slot5 = playerSlot[4];
+        slot6 = playerSlot[5];
+        enemySlot1 = enemySlot[0];
+        enemySlot2 = enemySlot[1];
+        enemySlot3 = enemySlot[2];
+        enemySlot4 = enemySlot[3];
+        enemySlot5 = enemySlot[4];
+        enemySlot6 = enemySlot[5];
+
         battleManager.SendLists(thisSquad, enemySquad);
-        battleManager.GetSlots(slot1, slot2, slot3, slot4, slot5, slot6, enemySlot1, enemySlot2, enemySlot3, enemySlot4, enemySlot5, enemySlot6);
+        battleManager.GetSlots(playerSlot[0], playerSlot[1], playerSlot[2], playerSlot[3], playerSlot[4], playerSlot[5], enemySlot[0], enemySlot[1], enemySlot[2], enemySlot[3], enemySlot[4], enemySlot[5]);
 
         //battleManager.SendLists(thisSquad, enemySquad);
         //battleManager.GetSlots(playerSlot, enemySlot);
@@ -195,11 +207,13 @@ public class LoadMission : MonoBehaviour
     //Get the slot to remove the image from
     Image GetImageToRemove(Beast beast, string owner)
     {
-        
-        
+        print(beast);
         for(int x = 0; x < 6; x++)
         {
-            if(owner == "player")
+            print(playerSlot[x]);
+
+
+            if(owner.Equals("Player"))
             {
                 if (beast.Equals(playerSlot[x]))
                 {

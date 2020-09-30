@@ -126,7 +126,7 @@ public class BattleManager : MonoBehaviour
 
         List<string> wave = new List<string>();
 
-        //Create an array woth each speed and sort it highest to lowest
+        //Create an array with each speed and sort it highest to lowest
         int[] speeds = { speed1, speed2, speed3, speed4, speed5, speed6, speed7, speed8 };
         System.Array.Sort(speeds);
         System.Array.Reverse(speeds);
@@ -140,67 +140,75 @@ public class BattleManager : MonoBehaviour
         {
             for (int x = 0; x < 8; x++)
             {
-                if (player1Active && speeds[x] == speed1 && moves1 > 0 && !InWave("Player " + players[0], wave))
+                if (player1Active && speeds[x] == speed1 && moves1 > 0 && !InWave("Player " + players[0].name, wave))
                 {
+                    print(players[0].name);
                     roundOrder.Add(players[0]);
                     roundOrderTypes.Add("Player");
-                    wave.Add("Player " + players[0]);
+                    wave.Add("Player " + players[0].name);
                     moves1--;
                     i++;
                 }
-                else if (player2Active && speeds[x] == speed2 && moves2 > 0 && !InWave("Player " + players[1], wave))
+                else if (player2Active && speeds[x] == speed2 && moves2 > 0 && !InWave("Player " + players[1].name, wave))
                 {
+                    print(players[1].name);
                     roundOrder.Add(players[1]);
                     roundOrderTypes.Add("Player");
-                    wave.Add("Player " + players[1]);
+                    wave.Add("Player " + players[1].name);
                     moves2--;
                     i++;
                 }
-                else if (player3Active && speeds[x] == speed3 && moves3 > 0 && !InWave("Player " + players[2], wave))
+                else if (player3Active && speeds[x] == speed3 && moves3 > 0 && !InWave("Player " + players[2].name, wave))
                 {
+                    print(players[2].name);
                     roundOrder.Add(players[2]);
                     roundOrderTypes.Add("Player");
-                    wave.Add("Player " + players[2]);
+                    wave.Add("Player " + players[2].name);
                     moves3--;
                     i++;
                 }
-                else if (player4Active && speeds[x] == speed4 && moves4 > 0 && !InWave("Player " + players[3], wave))
+                else if (player4Active && speeds[x] == speed4 && moves4 > 0 && !InWave("Player " + players[3].name, wave))
                 {
+                    print(players[3].name);
                     roundOrder.Add(players[3]);
                     roundOrderTypes.Add("Player");
-                    wave.Add("Player " + players[3]);
+                    wave.Add("Player " + players[3].name);
                     moves4--;
                     i++;
                 }
-                else if (enemy1Active && speeds[x] == speed5 && moves5 > 0 && !InWave("Enemy " + enemies[0], wave))
+                else if (enemy1Active && speeds[x] == speed5 && moves5 > 0 && !InWave("Enemy " + enemies[0].name, wave))
                 {
+                    print(enemies[0].name);
                     roundOrder.Add(enemies[0]);
                     roundOrderTypes.Add("Enemy");
-                    wave.Add("Enemy " + enemies[0]);
+                    wave.Add("Enemy " + enemies[0].name);
                     moves5--;
                     i++;
                 }
-                else if (enemy2Active && speeds[x] == speed6 && moves6 > 0 && !InWave("Enemy " + enemies[1], wave))
+                else if (enemy2Active && speeds[x] == speed6 && moves6 > 0 && !InWave("Enemy " + enemies[1].name, wave))
                 {
+                    print(enemies[1].name);
                     roundOrder.Add(enemies[1]);
                     roundOrderTypes.Add("Enemy");
-                    wave.Add("Enemy " + enemies[1]);
+                    wave.Add("Enemy " + enemies[1].name);
                     moves6--;
                     i++;
                 }
-                else if (enemy3Active && speeds[x] == speed7 && moves7 > 0 && !InWave("Enemy " + enemies[2], wave))
+                else if (enemy3Active && speeds[x] == speed7 && moves7 > 0 && !InWave("Enemy " + enemies[2].name, wave))
                 {
+                    print(enemies[2].name);
                     roundOrder.Add(enemies[2]);
                     roundOrderTypes.Add("Enemy");
-                    wave.Add("Enemy " + enemies[2]);
+                    wave.Add("Enemy " + enemies[2].name);
                     moves7--;
                     i++;
                 }
-                else if (enemy4Active && speeds[x] == speed8 && moves8 > 0 && !InWave("Enemy " + enemies[3], wave))
+                else if (enemy4Active && speeds[x] == speed8 && moves8 > 0 && !InWave("Enemy " + enemies[3].name, wave))
                 {
+                    print(enemies[3].name);
                     roundOrder.Add(enemies[3]);
                     roundOrderTypes.Add("Enemy");
-                    wave.Add("Enemy " + enemies[3]);
+                    wave.Add("Enemy " + enemies[3].name);
                     moves8--;
                     i++;
                 }
@@ -269,7 +277,7 @@ public class BattleManager : MonoBehaviour
     //Enemy targets a random player from a pool of active player beasts
     Beast GetEnemyTarget()
     {
-        int rand = Random.Range(0, attackPool.Count);
+        int rand = Random.Range(0, attackPool.Count-1);
         return attackPool[rand];
     }
 

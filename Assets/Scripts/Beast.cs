@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-//using UnityEngine;
+//using System.Diagnostics;
+using UnityEngine;
 
 [System.Serializable]
 public class Beast
@@ -109,10 +110,13 @@ public class Beast
         {
             Beast b = (Beast)obj;
 
-            if (b.name.Equals(this.name) && b.id == this.id)
+            if (b.name.Equals(this.name) /*&& b.id == this.id*/)
             {
                 return true;
             }
+        }
+        else { 
+           Debug.Log("The boolean expresion is wrong"); 
         }
         return false;
     }

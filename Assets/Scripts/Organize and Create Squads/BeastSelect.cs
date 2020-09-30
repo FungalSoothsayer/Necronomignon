@@ -69,15 +69,11 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     //Check to make sure that this beast is not already in the grid
     bool NotSummoned()
     {
-        print("not summonded");
         if (GetThisBeast() >= createPoolLoader.summoned.Count)
         {
             return true;
         }
         Beast beast = createPoolLoader.summoned[GetThisBeast()];
-        print(createManager.slot1);
-        print(createManager.slot2);
-        print(createManager.slot3);
         if (beast != null && !beast.Equals(createManager.slot1) && !beast.Equals(createManager.slot1) && !beast.Equals(createManager.slot1)
         && !beast.Equals(createManager.slot1) && !beast.Equals(createManager.slot1) && !beast.Equals(createManager.slot1))
         {

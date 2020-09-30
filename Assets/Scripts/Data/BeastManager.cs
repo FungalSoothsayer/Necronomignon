@@ -20,7 +20,6 @@ public class BeastManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("beast manager called");
         path = Application.dataPath + "/Scripts/Data/Beast.json";
         jsonString = File.ReadAllText(path);
 
@@ -34,14 +33,8 @@ public class BeastManager : MonoBehaviour
 //                print(beast);
                 beast.id = givenId;
                 givenId++;
-                print(getMove(beast.moveA));
             }
         }
-        else
-        {
-            print("Asset is null");
-        }
-        print(beastsList.Beasts.Count);
 
         foreach(Beast beast in beastsList.Beasts)
         {
@@ -62,7 +55,6 @@ public class BeastManager : MonoBehaviour
 
     public void Awake()
     {
-        print("beast manager called");
         path = Application.dataPath + "/Scripts/Data/Beast.json";
         jsonString = File.ReadAllText(path);
 
@@ -76,14 +68,8 @@ public class BeastManager : MonoBehaviour
                 //                print(beast);
                 beast.id = givenId;
                 givenId++;
-                print(beast);
             }
         }
-        else
-        {
-            print("Asset is null");
-        }
-        print(beastsList.Beasts.Count);
 
         foreach (Beast beast in beastsList.Beasts)
         {
@@ -94,22 +80,22 @@ public class BeastManager : MonoBehaviour
 
     public Move getMove(int x)
     {
-        print(moveManager);
         List<Move> ml = moveManager.movesList.Moves;
         for(int i = 0; i < ml.Count; i++)
-        {
+        {           
             if(ml[i].move_id == x)
             {
                 return ml[i];
             }
 
-        }
+        }/*
         Move mavi = new Move();
         mavi.move_id = 0;
         mavi.name = "struggle";
         mavi.power = 10;
         mavi.condition_chance = .000003f;
-        return mavi;
+        return mavi;*/
+        return null;
     }
 
     public Beast getFromName(String str)

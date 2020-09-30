@@ -64,9 +64,9 @@ public class HealthManager : MonoBehaviour
             player1 -= damage;
             if(player1 <= 0)
             {
-                Debug.Log(target + " is knocked out.");
+                Debug.Log(target.name + " is knocked out.");
                 CheckRemainingPlayers();
-                //battleManager.RemoveBeast("player1");
+                battleManager.RemoveBeast("player1");
             }
             else
             {
@@ -78,9 +78,9 @@ public class HealthManager : MonoBehaviour
             player2 -= damage;
             if (player2 <= 0)
             {
-                Debug.Log(target + " is knocked out.");
+                Debug.Log(target.name + " is knocked out.");
                 CheckRemainingPlayers();
-                //battleManager.RemoveBeast("player2");
+                battleManager.RemoveBeast("player2");
             }
             else
             {
@@ -92,9 +92,9 @@ public class HealthManager : MonoBehaviour
             player3 -= damage;
             if (player3 <= 0)
             {
-                Debug.Log(target + " is knocked out.");
+                Debug.Log(target.name + " is knocked out.");
                 CheckRemainingPlayers();
-                //battleManager.RemoveBeast("player3");
+                battleManager.RemoveBeast("player3");
             }
             else
             {
@@ -106,8 +106,8 @@ public class HealthManager : MonoBehaviour
             player4 -= damage;
             if (player4 <= 0)
             {
-                Debug.Log(target + " is knocked out.");
-                //battleManager.RemoveBeast("player4");
+                Debug.Log(target.name + " is knocked out.");
+                battleManager.RemoveBeast("player4");
                 CheckRemainingPlayers();
             }
             else
@@ -120,8 +120,8 @@ public class HealthManager : MonoBehaviour
             enemy1 -= damage;
             if (enemy1 <= 0)
             {
-                Debug.Log(target + " is knocked out.");
-                //battleManager.RemoveBeast("enemy1");
+                Debug.Log(target.name + " is knocked out.");
+                battleManager.RemoveBeast("enemy1");
                 CheckRemainingOpposing();
             }
             else
@@ -134,8 +134,8 @@ public class HealthManager : MonoBehaviour
             enemy2 -= damage;
             if (enemy2 <= 0)
             {
-                Debug.Log(target + " is knocked out.");
-                //battleManager.RemoveBeast("enemy2");
+                Debug.Log(target.name + " is knocked out.");
+                battleManager.RemoveBeast("enemy2");
                 CheckRemainingOpposing();
             }
             else
@@ -148,8 +148,8 @@ public class HealthManager : MonoBehaviour
             enemy3 -= damage;
             if (enemy3 <= 0)
             {
-                Debug.Log(target + " is knocked out.");
-                //battleManager.RemoveBeast("enemy3");
+                Debug.Log(target.name + " is knocked out.");
+                battleManager.RemoveBeast("enemy3");
                 CheckRemainingOpposing();
             }
             else
@@ -162,8 +162,8 @@ public class HealthManager : MonoBehaviour
             enemy4 -= damage;
             if (enemy4 <= 0)
             {
-                Debug.Log(target + " is knocked out.");
-                //battleManager.RemoveBeast("enemy4");
+                Debug.Log(target.name + " is knocked out.");
+                battleManager.RemoveBeast("enemy4");
                 CheckRemainingOpposing();
             }
             else

@@ -16,9 +16,7 @@ public class Attack : MonoBehaviour
 
     public void InitiateAttack(Beast attacker, Beast target)
     {
-        print(beastManager);
-        print(beastManager.moveManager);
-        print(beastManager.moveManager.movesList);
+        
 
         if (beastManager.moveManager.movesList == null)
         {
@@ -52,18 +50,12 @@ public class Attack : MonoBehaviour
     private bool isMiss(Beast attacker, Beast target)
     {
         //Calculate the chance that an attack misses
-        print(attacker);
-        print(target);
         float missChance = (float)attacker.dexterity / (float)target.speed;
 
 
         //Get Random variable 
         int rand = Random.Range(1, 100);
         int rando = Random.Range(1, 20);
-
-        Debug.Log(missChance);
-        Debug.Log("1-100 dice to check miss " + rand);
-        Debug.Log("1-20 dice to check miss " + rando);
 
         //If random variable is less than the miss chance, then the attack misses
         if (rando <= 2 || rand >= missChance * 100)
@@ -81,18 +73,13 @@ public class Attack : MonoBehaviour
     private float isCrit(Beast attacker, Beast target)
     {
         //Calculate the chance that an attack is a critical hit
-        print(attacker);
-        print(target);
         //(d20roll) + ({Attacker.Speed/2} + Attacker.Skill)/({Target.Speed/2} + Target.Skill)
         int rand = Random.Range(1, 20);
         float criticalChance = rand + (((attacker.speed / 2) + attacker.dexterity) / (target.speed / 2) + target.dexterity);
 
-        Debug.Log("crit 1-20 " + rand);
 
         float ra = (float)(rand + target.defence / attacker.power);
         int critChance = (int)Mathf.Round(ra);
-
-        Debug.Log("crit chance " + critChance);
 
         //If random variable is less than critical hit chance, the attack has a modifier of 1.5, otherwise it's modifier is 1
         if (critChance >= 20)
@@ -109,12 +96,11 @@ public class Attack : MonoBehaviour
         //(d10roll) + (TargetDefense/AttackerPower)
 
         int rand = Random.Range(1, 10);
-        Debug.Log("Block Chance 1-10 " + rand);
+
         float ra = (float)(rand + (((float)target.defence / (float)attacker.power) * 1));
-        Debug.Log("Block Chance ratio " + ra);
+
         int blockChance = (int)Mathf.Round(ra);
 
-        Debug.Log("block chance " + blockChance);
         //Get new random variable
 
         if (blockChance >= 10)
@@ -124,7 +110,6 @@ public class Attack : MonoBehaviour
             int vary2 = Random.Range(1, 33);
 
             vary += (float)vary2 / 100;
-            Debug.Log("the block modifier is " + vary);
             Debug.Log("Attack is Blocked!");
             return vary;
         }
@@ -135,12 +120,8 @@ public class Attack : MonoBehaviour
     void CalculateDamage(Beast attacker, Beast target)
     {
     //    Random Random = new Random();
-        if(attacker.Move_A == null)
-        {
-            attacker.setAttacks();
-        }
+        
         float dmg;
-        print(attacker.Move_A);
         //Calculates the damage if the attacker is in row A
         dmg = attacker.power * attacker.Move_A.power / target.defence;
 
@@ -148,7 +129,7 @@ public class Attack : MonoBehaviour
 
         float vary2 = Random.Range(1, 20);
         vary += vary2 / 100;
-        Debug.Log("the damage modifier is " + vary);
+
         damage = (int)(dmg * vary * modifier); //Convert damage to an integer
         Debug.Log("This is damage done " + damage);
         healthManager.UpdateHealth(target, damage);
