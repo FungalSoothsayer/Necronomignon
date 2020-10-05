@@ -9,7 +9,7 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public BattleManager battleManager;
 //    public BeastManager beastManager;
 
-   public static bool mouse_over;
+   bool mouse_over;
     
     void Start() 
     {
@@ -22,15 +22,16 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 //        print(mouse_over);
         if (mouse_over)
         {
-            //print("a");
+            print(gameObject.name);
             if (Input.GetMouseButtonDown(0))
             {
-                //print("b");
-                //print(battleManager.turn);
+//                print("b");
+
                 //print("THIS IS WHATS BUGGING: " + battleManager.roundOrderTypes[battleManager.turn]);
                 if (battleManager.roundOrderTypes[battleManager.turn] == "Player")
                 {
-                    //print("c");
+                    print(battleManager.turn);
+                    print("c");
                     //Attack this beast
                     battleManager.Attack(GetName());
                 }
