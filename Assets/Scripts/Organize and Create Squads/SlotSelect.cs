@@ -95,7 +95,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         SetSlot();
     }
 
-    //Set te CreateManager's variables to reflect the selected beast
+    //Set the CreateManager's variables to reflect the selected beast
     void SetSlot()
     {
         if (gameObject.name == "Slot1") createManager.slot1 = createManager.selected;
@@ -166,20 +166,26 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Select this beast and give options to move to another slot or remove from the grid
     void EditPlace()
     {
-        createManager.selected = thisBeast;
-        createManager.selectedIndex = thisBeastIndex;
-        createManager.selectedSlotID = slotID;
-        createManager.LightUpSlots();
-        createManager.removeButton.SetActive(true);
-        createManager.moving = true;
+            createManager.selected = thisBeast;
+            createManager.selectedIndex = thisBeastIndex;
+            createManager.selectedSlotID = slotID;
+            createManager.LightUpSlots();
+            createManager.removeButton.SetActive(true);
+            createManager.moving = true;
     }
 
     //Move this beast to another slot
     void MoveImage()
     {
-        gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex]);
-        gameObject.GetComponent<Image>().color = Color.white;
-        SetSlot();
-        createManager.RemoveSlotImage();
+        //print(createManager.selectedSlotID + " SlotID");
+        //print(createManager.selectedIndex+" Index");
+        //print(createManager.selected);
+        if (slotID != createManager.selectedSlotID)
+        {
+                gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex]);
+                gameObject.GetComponent<Image>().color = Color.white;
+                SetSlot();
+                createManager.RemoveSlotImage();
+        }
     }
 }

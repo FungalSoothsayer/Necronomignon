@@ -210,7 +210,6 @@ public class LoadMission : MonoBehaviour
         print(beast);
         for(int x = 0; x < 6; x++)
         {
-            print(playerSlot[x]);
 
 
             if(owner.Equals("Player"))

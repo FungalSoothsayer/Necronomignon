@@ -62,27 +62,28 @@ public class CreateManager : MonoBehaviour
     //Set all slots that do not have a beast placed in it to inactive
     public void TurnOffSlots()
     {
-        if(slot1 == null)
+
+        if(slot1 == null || slot1.speed == 0)
         {
             slot1Obj.SetActive(false);
         }
-        if(slot2 == null)
+        if(slot2 == null || slot2.speed == 0)
         {
             slot2Obj.SetActive(false);
         }
-        if (slot3 == null)
+        if (slot3 == null || slot3.speed == 0)
         {
             slot3Obj.SetActive(false);
         }
-        if (slot4 == null)
+        if (slot4 == null || slot4.speed == 0)
         {
             slot4Obj.SetActive(false);
         }
-        if (slot5 == null)
+        if (slot5 == null || slot5.speed == 0)
         {
             slot5Obj.SetActive(false);
         }
-        if (slot6 == null)
+        if (slot6 == null || slot6.speed == 0)
         {
             slot6Obj.SetActive(false);
         }
@@ -110,6 +111,7 @@ public class CreateManager : MonoBehaviour
     //Remove the image in a slot and remove it from selected variables
     public void RemoveSlotImage()
     {
+        
         switch (selectedSlotID)
         {
             case 1:

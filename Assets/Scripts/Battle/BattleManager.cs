@@ -219,6 +219,10 @@ public class BattleManager : MonoBehaviour
         currentTurn = roundOrder[turn];
         print(currentTurn);
         txtTurn.text = roundOrderTypes[0] + " " + currentTurn + "'s turn";
+        if(roundOrderTypes[0] == "Enemy")
+        {
+            Attack(GetEnemyTarget());
+        }
     }
 
     //Check to see of beast is used in the loop yet
@@ -258,10 +262,13 @@ public class BattleManager : MonoBehaviour
             currentTurn = roundOrder[0];
             txtTurn.text = roundOrderTypes[0] + " " + currentTurn + "'s turn";
             turn = 0;
+            if (healthManager.playersLeft > 0 && healthManager.enemiesLeft > 0)
+            {
+                Attack(GetEnemyTarget());
+            }
         }
         else
-        {
-            print(target);  
+        { 
             attack.InitiateAttack(currentTurn, target);
             AddTurn();
             TakeTurn();

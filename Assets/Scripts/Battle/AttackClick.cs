@@ -30,8 +30,8 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 //print("THIS IS WHATS BUGGING: " + battleManager.roundOrderTypes[battleManager.turn]);
                 if (battleManager.roundOrderTypes[battleManager.turn] == "Player")
                 {
-                    print(battleManager.turn);
-                    print("c");
+//                    print(battleManager.turn);
+//                    print("c");
                     //Attack this beast
                     battleManager.Attack(GetName());
                 }

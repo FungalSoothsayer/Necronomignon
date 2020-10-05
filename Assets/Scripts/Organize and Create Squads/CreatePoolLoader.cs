@@ -138,6 +138,7 @@ public class CreatePoolLoader : MonoBehaviour
         switch (createManager.selectedIndex)
         {
             case 0:
+//                slot1.gameObject.SetActive(true);
                 slot1.sprite = Resources.Load<Sprite>(summonedImages[0]);
                 break;
             case 1:

@@ -15,7 +15,10 @@ public class SquadData : MonoBehaviour
     public void AddToList(int squad, Beast beast)
     {
         
-        
+        if(beast != null && beast.speed == 0)
+        {
+            beast = null;
+        }
         
         if(squad == 1)
         {
