@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -60,12 +61,47 @@ public class BattleManager : MonoBehaviour
     //Get lists from LoadMission and add the players to the attack pool
     public void SendLists(List<Beast> thisSquad, List<Beast> enemySquad)
     {
+        
         players = thisSquad;
+        players.Add(null);
+        players.Add(null);
+        players.Add(null);
+        players.Add(null);
+        players.Add(null);
+        players.Add(null);
+        players.Add(null);
         enemies = enemySquad;
         attackPool.Add(players[0]);
-        attackPool.Add(players[1]);
-        attackPool.Add(players[2]);
-        attackPool.Add(players[3]);
+        if (players[1] != null)
+        {
+            
+            attackPool.Add(players[1]);
+        }
+        else
+        {
+            player2Active = false;
+            totalBeasts--;
+        }
+        if (players[2] != null)
+        {
+            
+            attackPool.Add(players[2]);
+        }
+        else
+        {
+            player3Active = false;
+            totalBeasts--;
+        }
+        if (players[3] != null)
+        {
+            
+            attackPool.Add(players[3]);
+        }
+        else
+        {
+            player4Active = false;
+            totalBeasts--;
+        }
 
         healthManager.GetHealth(players, enemies);
         LoadOrder();
@@ -102,9 +138,9 @@ public class BattleManager : MonoBehaviour
 
         //Get each players moves per round
         if (player1Active) moves1 = players[0].number_MOVES;
-        if (player2Active) moves2 = players[1].number_MOVES;
-        if (player3Active) moves3 = players[2].number_MOVES;
-        if (player4Active) moves4 = players[3].number_MOVES;
+        if (player2Active && players[1] != null) moves2 = players[1].number_MOVES;
+        if (player3Active && players[2] != null) moves3 = players[2].number_MOVES;
+        if (player4Active && players[3] != null) moves4 = players[3].number_MOVES;
         if (enemy1Active) moves5 = enemies[0].number_MOVES;
         if (enemy2Active) moves6 = enemies[1].number_MOVES;
         if (enemy3Active) moves7 = enemies[2].number_MOVES;
@@ -114,13 +150,29 @@ public class BattleManager : MonoBehaviour
 
         //Get each player's speed
         int speed1 = players[0].speed;
-        int speed2 = players[1].speed;
-        int speed3 = players[2].speed;
-        int speed4 = players[3].speed;
+        int speed2 = 0;
+        int speed3 = 0;
+        int speed4 = 0;
         int speed5 = enemies[0].speed;
         int speed6 = enemies[1].speed;
         int speed7 = enemies[2].speed;
         int speed8 = enemies[3].speed;
+
+        if(players[1] != null)
+        {
+            
+            speed2 = players[1].speed;
+        }
+        if (players[2] != null)
+        {
+            
+            speed3 = players[2].speed;
+        }
+        if (players[3] != null)
+        {
+            
+            speed4 = players[3].speed;
+        }
 
         int i = 0;
 
@@ -253,10 +305,35 @@ public class BattleManager : MonoBehaviour
 
     public void Attack(Beast target)
     {
-        //Check to see if the round is still going and then run an attack
-        if (turn == totalMoves - 1)
+        bool inFront = false;
+        if(slot1 != null && slot1.Equals(currentTurn))
         {
-            attack.InitiateAttack(currentTurn, target);
+            inFront = true;
+        }
+        if (slot2 != null && slot2.Equals(currentTurn))
+        {
+            inFront = true;
+        }
+        if (slot3 != null && slot3.Equals(currentTurn))
+        {
+            inFront = true;
+        }
+        if (enemySlot1 != null && enemySlot1.Equals(currentTurn))
+        {
+            inFront = true;
+        }
+        if (enemySlot2 != null && enemySlot2.Equals(currentTurn))
+        {
+            inFront = true;
+        }
+        if (enemySlot3 != null && enemySlot3.Equals(currentTurn))
+        {
+            inFront = true;
+        }
+        //Check to see if the round is still going and then run an attack
+        if (turn >= totalMoves - 1)
+        {
+            attack.InitiateAttack(currentTurn, target, inFront);
             Debug.Log("Round Ended");
             ClearTurns();
             currentTurn = roundOrder[0];
@@ -269,7 +346,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         { 
-            attack.InitiateAttack(currentTurn, target);
+            attack.InitiateAttack(currentTurn, target, inFront);
             AddTurn();
             TakeTurn();
         }
@@ -285,7 +362,17 @@ public class BattleManager : MonoBehaviour
     Beast GetEnemyTarget()
     {
         int rand = Random.Range(0, attackPool.Count-1);
-        return attackPool[rand];
+
+        print(rand);
+        if (attackPool.Count > 1)
+            while (attackPool[rand] == null)
+        {
+            
+                attackPool.RemoveAt(rand);
+            rand = Random.Range(0, attackPool.Count - 1);
+        }
+        Beast b = attackPool[rand];
+        return b;
     }
 
     //Get the row to determine whether the attacker is using an A move or a B move

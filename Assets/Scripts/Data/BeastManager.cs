@@ -88,14 +88,13 @@ public class BeastManager : MonoBehaviour
                 return ml[i];
             }
 
-        }/*
+        }
         Move mavi = new Move();
         mavi.move_id = 0;
         mavi.name = "struggle";
-        mavi.power = 10;
+        mavi.power = 50;
         mavi.condition_chance = .000003f;
-        return mavi;*/
-        return null;
+        return mavi;
     }
 
     public Beast getFromName(String str)

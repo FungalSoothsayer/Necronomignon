@@ -23,7 +23,7 @@ public class Beast
     public Move Move_B;
     public string static_img;
 
-    public enum types {Fire, Water, Air, Earth, Dark, Light };
+    public enum types { Water, Fire, Earth, Air, Dark, Light };
     BeastManager bm = new BeastManager();
 
 

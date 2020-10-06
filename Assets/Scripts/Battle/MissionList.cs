@@ -15,7 +15,7 @@ public class MissionList : MonoBehaviour
         if(mission == "sample")
         {
             enemies.Add(beastManager.getFromName("Sunbather")); //A1
-            enemies.Add(beastManager.getFromName("Gaia")); //B1
+            enemies.Add(beastManager.getFromName("Behemoth")); //B1
             enemies.Add(beastManager.getFromName("Cthulhu")); //A2
             enemies.Add(null); //B2
             enemies.Add(null); //A3

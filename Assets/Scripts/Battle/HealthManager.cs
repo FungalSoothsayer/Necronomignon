@@ -29,27 +29,39 @@ public class HealthManager : MonoBehaviour
         squad = players;
         enemies = opposing;
 
-        player1 = beastDatabase.GetHitPoints(players[0].name);
-        player2 = beastDatabase.GetHitPoints(players[1].name);
-        player3 = beastDatabase.GetHitPoints(players[2].name);
-        player4 = beastDatabase.GetHitPoints(players[3].name);
+        player1 = players[0].hitPoints;
+        if (players[1] != null)
+        { 
+            player2 = players[1].hitPoints;
+        }
+        else playersLeft--;
+        if (players[2] != null) 
+        {
+            player3 = players[2].hitPoints;
+        }
+        else playersLeft--;
+        if (players[3] != null)
+        {
+            player4 = players[3].hitPoints;
+        }
+        else playersLeft--;
 
-        if(opposing[0].name != "") 
+        if (opposing[0] != null) 
         {
             enemiesLeft += 1;
             enemy1 = beastDatabase.GetHitPoints(opposing[0].name);
         }
-        if (opposing[1].name != "")
+        if (opposing[1] != null)
         {
             enemiesLeft += 1;
             enemy2 = beastDatabase.GetHitPoints(opposing[1].name);
         }
-        if (opposing[2].name != "")
+        if (opposing[2] != null)
         {
             enemiesLeft += 1;
             enemy3 = beastDatabase.GetHitPoints(opposing[2].name);
         }
-        if (opposing[3].name != "")
+        if (opposing[3] != null)
         {
             enemiesLeft += 1;
             enemy4 = beastDatabase.GetHitPoints(opposing[3].name);

@@ -14,7 +14,7 @@ public class Attack : MonoBehaviour
     int damage;
     readonly Random Random = new Random();
 
-    public void InitiateAttack(Beast attacker, Beast target)
+    public void InitiateAttack(Beast attacker, Beast target, bool inFront)
     {
         
 
@@ -41,7 +41,7 @@ public class Attack : MonoBehaviour
                 {
                     modifier *= isCrit(attacker, target);
                     modifier *= isGuard(attacker, target);
-                    CalculateDamage(attacker, target);
+                    CalculateDamage(attacker, target, inFront);
                 }
                 modifier = 1;
      //       }
@@ -117,21 +117,110 @@ public class Attack : MonoBehaviour
         return 1;
     }
 
-    void CalculateDamage(Beast attacker, Beast target)
+    void CalculateDamage(Beast attacker, Beast target, bool inFront)
     {
-    //    Random Random = new Random();
-        
+        //    Random Random = new Random();
+
         float dmg;
         //Calculates the damage if the attacker is in row A
-        dmg = attacker.power * attacker.Move_A.power / target.defence;
-
+        if (inFront)
+        {
+            dmg = attacker.power * attacker.Move_A.power / target.defence;
+            print(attacker.Move_A.name);
+        }
+        else
+        {
+            dmg = attacker.power * attacker.Move_B.power / target.defence;
+            print(attacker.Move_B.name);
+        }
         float vary = 0.89f;
 
         float vary2 = Random.Range(1, 20);
         vary += vary2 / 100;
+        print("Damage before types = " + (int)(dmg * vary * modifier));
+        print("type modifier = " + calculateType(attacker, target));
+        modifier *= calculateType(attacker, target);
 
         damage = (int)(dmg * vary * modifier); //Convert damage to an integer
         Debug.Log("This is damage done " + damage);
         healthManager.UpdateHealth(target, damage);
+    }
+
+    float calculateType(Beast attacker, Beast target)
+    {
+        if((int)attacker.type < 4)
+        {
+            switch (attacker.type)
+            {
+                case Beast.types.Water: 
+                    if(target.type == Beast.types.Fire)
+                    {
+                        print("super");
+                        return 1.5f;
+                    }
+                    if(target.type == Beast.types.Air)
+                    {
+                        print("not so good");
+                        return 0.75f;
+                    }
+                    break;
+                    
+                case Beast.types.Fire:
+                    if (target.type == Beast.types.Earth)
+                    {
+                        print("super");
+                        return 1.5f;
+                    }
+                    if (target.type == Beast.types.Water)
+                    {
+                        print("not so good");
+                        return 0.75f;
+                    }
+                    break;
+
+                case Beast.types.Earth:
+                    if (target.type == Beast.types.Air)
+                    {
+                        print("super");
+                        return 1.5f;
+                    }
+                    if (target.type == Beast.types.Fire)
+                    {
+                        print("not so good");
+                        return 0.75f;
+                    }
+                    break;
+
+                case Beast.types.Air:
+                    if (target.type == Beast.types.Water)
+                    {
+                        print("super");
+                        return 1.5f;
+                    }
+                    if (target.type == Beast.types.Earth)
+                    {
+                        print("not so good");
+                        return 0.75f;
+                    }
+                    break;
+            }
+        }
+        if(attacker.type == Beast.types.Dark)
+        {
+            if(target.type == Beast.types.Light)
+            {
+                print("super");
+                return 1.5f;
+            }
+        }
+        if (attacker.type == Beast.types.Light)
+        {
+            if (target.type == Beast.types.Dark)
+            {
+                print("super");
+                return 1.5f;
+            }
+        }
+        return 1;
     }
 }

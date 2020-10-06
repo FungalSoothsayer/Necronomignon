@@ -148,6 +148,50 @@ public class CreateManager : MonoBehaviour
         removeButton.SetActive(false);
     }
 
+    public bool isAvailable(int x)
+    {
+        switch (x)
+        {
+            case 1: 
+                if(slot1 != null && slot1.speed == 0)
+                {
+                    return true;
+                }
+                break;
+            case 2:
+                if (slot2 != null && slot2.speed == 0)
+                {
+                    return true;
+                }
+                break;
+            case 3:
+                if (slot3 != null && slot3.speed == 0)
+                {
+                    return true;
+                }
+                break;
+            case 4:
+                if (slot4 != null && slot4.speed == 0)
+                {
+                    return true;
+                }
+                break;
+            case 5:
+                if (slot5 != null && slot5.speed == 0)
+                {
+                    return true;
+                }
+                break;
+            case 6:
+                if (slot6 != null && slot6.speed == 0)
+                {
+                    return true;
+                }
+                break;
+        }
+        return false;
+    }
+
     //Check to see if any more beasts can be placed
     public void CheckPlaceable()
     {

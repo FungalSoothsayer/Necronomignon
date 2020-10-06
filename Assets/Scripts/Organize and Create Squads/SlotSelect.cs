@@ -98,7 +98,12 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Set the CreateManager's variables to reflect the selected beast
     void SetSlot()
     {
-        if (gameObject.name == "Slot1") createManager.slot1 = createManager.selected;
+        print(createManager.selectedIndex);
+        print(createManager.selectedSlotID);
+        if (gameObject.name == "Slot1")
+        {
+            createManager.slot1 = createManager.selected;
+        }
         else if (gameObject.name == "Slot2") createManager.slot2 = createManager.selected;
         else if (gameObject.name == "Slot3") createManager.slot3 = createManager.selected;
         else if (gameObject.name == "Slot4") createManager.slot4 = createManager.selected;

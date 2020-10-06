@@ -8,7 +8,7 @@
 		"dexterity": "45",
 		"number_MOVES": "2",
 		"tier": "1",
-		"type": "Dark",
+		"type": "4",
 		"static_img": "Boss Cthulhu-3",
 		"moveA": "1",
 		"moveB": "2"
@@ -23,10 +23,10 @@
 		"dexterity": "30",
 		"number_MOVES": "2",
 		"tier": "1",
-		"type": "Earth",
+		"type": "2",
 		"static_img": "Boss Nature Titan Tellia-4",
-		"moveA": "1",
-		"moveB": "2"
+		"moveA": "3",
+		"moveB": "4"
 	},
 	{
 		"name": "Trogdor",
@@ -37,10 +37,10 @@
 		"dexterity": "60",
 		"number_MOVES": "4",
 		"tier": "1",
-		"type": "Fire",
+		"type": "0",
 		"static_img": "Boss Mythical Stag Kyris-3",
-		"moveA": "1",
-		"moveB": "2"
+		"moveA": "5",
+		"moveB": "6"
 	},
 	{
 		"name": "Behemoth",
@@ -51,10 +51,10 @@
 		"dexterity": "65",
 		"number_MOVES": "3",
 		"tier": "1",
-		"type": "Wind",
+		"type": "1",
 		"static_img": "Boss Wolfbull Demon Goliath-4",
-		"moveA": "1",
-		"moveB": "2"
+		"moveA": "7",
+		"moveB": "8"
 	},
 	{
 		"name": "Naglfar",
@@ -65,10 +65,10 @@
 		"dexterity": "50",
 		"number_MOVES": "4",
 		"tier": "1",
-		"type": "Water",
+		"type": "3",
 		"static_img": "Dragons Hydra-3",
-		"moveA": "1",
-		"moveB": "2"
+		"moveA": "9",
+		"moveB": "10"
 	},
 	{
 		"name": "Sunbather",
@@ -79,10 +79,10 @@
 		"dexterity": "70",
 		"number_MOVES": "2",
 		"tier": "1",
-		"type": "Light",
+		"type": "5",
 		"static_img": "Boss Darklord Excelsios-1",
-		"moveA": "1",
-		"moveB": "2"
+		"moveA": "11",
+		"moveB": "12"
 	}
 
  ]
