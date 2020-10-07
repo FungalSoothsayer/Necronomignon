@@ -22,14 +22,13 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 //        print(mouse_over);
         if (mouse_over)
         {
-            print(gameObject.name);
             if (Input.GetMouseButtonDown(0))
             {
 //                print("b");
 
                 //print("THIS IS WHATS BUGGING: " + battleManager.roundOrderTypes[battleManager.turn]);
-                if (battleManager.roundOrderTypes[battleManager.turn] == "Player")
-                {
+                    if (battleManager.roundOrderTypes[battleManager.turn] == "Player")
+                    {
 //                    print(battleManager.turn);
 //                    print("c");
                     //Attack this beast

@@ -71,6 +71,12 @@
 			"name": "Purify",
 			"power": "75",
 			"condition_chance": "0"
+		},
+		{
+			"move_id": "13",
+			"name": "insta-Death",
+			"power": "10000",
+			"condition_chance":  "0"
 		}
 	]
 }

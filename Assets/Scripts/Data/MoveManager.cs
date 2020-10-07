@@ -23,8 +23,10 @@ public class MoveManager : MonoBehaviour
         path = Application.dataPath + "/Scripts/Data/Move.json";
         jsonString = File.ReadAllText(path);
         movesList = JsonUtility.FromJson<MoveList>(jsonString);
-        //movesList = JsonConvert.DeserializeObject(jsonString); 
+
         
+        //movesList = JsonConvert.DeserializeObject(jsonString); 
+
     }
 
     public void start()

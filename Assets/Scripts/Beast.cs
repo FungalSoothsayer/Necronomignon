@@ -52,7 +52,9 @@ public class Beast
 
     public void setAttacks()
     {
+        bm = new BeastManager();
         bm.moveManager = new MoveManager();
+        bm.moveManager.start();
         this.Move_A = bm.getMove(this.moveA);
         this.Move_B = bm.getMove(this.moveB);
 

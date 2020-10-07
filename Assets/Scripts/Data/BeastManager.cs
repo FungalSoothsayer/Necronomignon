@@ -82,7 +82,7 @@ public class BeastManager : MonoBehaviour
     {
         List<Move> ml = moveManager.movesList.Moves;
         for(int i = 0; i < ml.Count; i++)
-        {           
+        {
             if(ml[i].move_id == x)
             {
                 return ml[i];

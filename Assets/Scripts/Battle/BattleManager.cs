@@ -269,9 +269,9 @@ public class BattleManager : MonoBehaviour
         }
 
         currentTurn = roundOrder[turn];
-        print(currentTurn);
-        txtTurn.text = roundOrderTypes[0] + " " + currentTurn + "'s turn";
-        if(roundOrderTypes[0] == "Enemy")
+        //print(currentTurn);
+        txtTurn.text = roundOrderTypes[0] + " " + currentTurn.name + "'s turn \n HP left: "+currentTurn.hitPoints;
+        if(roundOrderTypes[turn] == "Enemy" && attackPool.Count > 0)
         {
             Attack(GetEnemyTarget());
         }
@@ -293,7 +293,7 @@ public class BattleManager : MonoBehaviour
     void TakeTurn()
     {
         turn++;
-        currentTurn = roundOrder[turn];
+        currentTurn = roundOrder[turn]; 
         txtTurn.text = roundOrderTypes[turn] + " " + currentTurn + " 's turn";
 
         //If it is enemy turn, start their attack
@@ -306,27 +306,27 @@ public class BattleManager : MonoBehaviour
     public void Attack(Beast target)
     {
         bool inFront = false;
-        if(slot1 != null && slot1.Equals(currentTurn))
+        if(slot1 != null && slot1.Equals(currentTurn) && roundOrderTypes[turn] == "Player")
         {
             inFront = true;
         }
-        if (slot2 != null && slot2.Equals(currentTurn))
+        if (slot2 != null && slot2.Equals(currentTurn) && roundOrderTypes[turn] == "Player")
         {
             inFront = true;
         }
-        if (slot3 != null && slot3.Equals(currentTurn))
+        if (slot3 != null && slot3.Equals(currentTurn) && roundOrderTypes[turn] == "Player")
         {
             inFront = true;
         }
-        if (enemySlot1 != null && enemySlot1.Equals(currentTurn))
+        if (enemySlot1 != null && enemySlot1.Equals(currentTurn) && roundOrderTypes[turn] == "Enemy")
         {
             inFront = true;
         }
-        if (enemySlot2 != null && enemySlot2.Equals(currentTurn))
+        if (enemySlot2 != null && enemySlot2.Equals(currentTurn) && roundOrderTypes[turn] == "Enemy")
         {
             inFront = true;
         }
-        if (enemySlot3 != null && enemySlot3.Equals(currentTurn))
+        if (enemySlot3 != null && enemySlot3.Equals(currentTurn) && roundOrderTypes[turn] == "Enemy")
         {
             inFront = true;
         }
@@ -339,7 +339,7 @@ public class BattleManager : MonoBehaviour
             currentTurn = roundOrder[0];
             txtTurn.text = roundOrderTypes[0] + " " + currentTurn + "'s turn";
             turn = 0;
-            if (healthManager.playersLeft > 0 && healthManager.enemiesLeft > 0)
+            if (healthManager.playersLeft > 0 && healthManager.enemiesLeft > 0 && roundOrderTypes[turn] == "Enemy")
             {
                 Attack(GetEnemyTarget());
             }
@@ -355,22 +355,23 @@ public class BattleManager : MonoBehaviour
     IEnumerator EnemyAttack()
     {
         yield return new WaitForSeconds(1f);
-        Attack(GetEnemyTarget());
+        if(attackPool.Count>0)
+            Attack(GetEnemyTarget());
     }
 
     //Enemy targets a random player from a pool of active player beasts
     Beast GetEnemyTarget()
     {
-        int rand = Random.Range(0, attackPool.Count-1);
-
-        print(rand);
-        if (attackPool.Count > 1)
+        int rand = Random.Range(0, attackPool.Count);
+/*
+        print(attackPool.Count);
+        if (attackPool.Count <= 1)
             while (attackPool[rand] == null)
         {
             
                 attackPool.RemoveAt(rand);
             rand = Random.Range(0, attackPool.Count - 1);
-        }
+        }*/
         Beast b = attackPool[rand];
         return b;
     }

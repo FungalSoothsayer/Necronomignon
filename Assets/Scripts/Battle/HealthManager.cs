@@ -73,8 +73,8 @@ public class HealthManager : MonoBehaviour
     {
         if (target == squad[0])
         {
-            player1 -= damage;
-            if(player1 <= 0)
+            squad[0].hitPoints -= damage;
+            if(squad[0].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
                 CheckRemainingPlayers();
@@ -82,13 +82,13 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(target, player1);
+                DisplayHealthLeft(target, squad[0].hitPoints);
             }
         }
         else if (target == squad[1])
         {
-            player2 -= damage;
-            if (player2 <= 0)
+            squad[1].hitPoints -= damage;
+            if (squad[1].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
                 CheckRemainingPlayers();
@@ -96,13 +96,13 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(target, player2);
+                DisplayHealthLeft(target, squad[1].hitPoints);
             }
         }
         else if (target == squad[2])
         {
-            player3 -= damage;
-            if (player3 <= 0)
+            squad[2].hitPoints -= damage;
+            if (squad[2].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
                 CheckRemainingPlayers();
@@ -110,13 +110,13 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(target, player3);
+                DisplayHealthLeft(target, squad[2].hitPoints);
             }
         }
         else if (target == squad[3])
         {
-            player4 -= damage;
-            if (player4 <= 0)
+            squad[3].hitPoints -= damage;
+            if (squad[3].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
                 battleManager.RemoveBeast("player4");
@@ -124,13 +124,13 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(target, player4);
+                DisplayHealthLeft(target, squad[3].hitPoints);
             }
         }
         else if (target == enemies[0])
         {
-            enemy1 -= damage;
-            if (enemy1 <= 0)
+            enemies[0].hitPoints -= damage;
+            if (enemies[0].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
                 battleManager.RemoveBeast("enemy1");
@@ -138,13 +138,13 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(target, enemy1);
+                DisplayHealthLeft(target, enemies[0].hitPoints);
             }
         }
         else if (target == enemies[1])
         {
-            enemy2 -= damage;
-            if (enemy2 <= 0)
+            enemies[1].hitPoints -= damage;
+            if (enemies[1].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
                 battleManager.RemoveBeast("enemy2");
@@ -152,13 +152,13 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(target, enemy2);
+                DisplayHealthLeft(target, enemies[1].hitPoints);
             }
         }
         else if (target == enemies[2])
         {
-            enemy3 -= damage;
-            if (enemy3 <= 0)
+            enemies[2].hitPoints -= damage;
+            if (enemies[2].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
                 battleManager.RemoveBeast("enemy3");
@@ -166,13 +166,13 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(target, enemy3);
+                DisplayHealthLeft(target, enemies[2].hitPoints);
             }
         }
         else if (target == enemies[3])
         {
-            enemy4 -= damage;
-            if (enemy4 <= 0)
+            enemies[3].hitPoints -= damage;
+            if (enemies[3].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
                 battleManager.RemoveBeast("enemy4");
@@ -180,7 +180,7 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                DisplayHealthLeft(target, enemy4);
+                DisplayHealthLeft(target, enemies[3].hitPoints);
             }
         }
     }
@@ -194,7 +194,7 @@ public class HealthManager : MonoBehaviour
     void CheckRemainingPlayers() 
     {
         playersLeft -= 1;
-        if(playersLeft == 0)
+        if(playersLeft <= 0)
         {
             Debug.Log("Opposing Team Wins. Better Luck Nex Time.");
             StartCoroutine(LoadMap());
@@ -205,7 +205,7 @@ public class HealthManager : MonoBehaviour
     void CheckRemainingOpposing()
     {
         enemiesLeft -= 1;
-        if (enemiesLeft == 0)
+        if (enemiesLeft <= 0)
         {
             Debug.Log("Congratulations! You Win!");
             StartCoroutine(LoadMap());

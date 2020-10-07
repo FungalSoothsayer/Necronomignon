@@ -50,7 +50,7 @@ public class Attack : MonoBehaviour
     private bool isMiss(Beast attacker, Beast target)
     {
         //Calculate the chance that an attack misses
-        float missChance = (float)attacker.dexterity / (float)target.speed;
+        float missChance = ((float)attacker.dexterity) / (float)target.speed;
 
 
         //Get Random variable 
@@ -58,7 +58,7 @@ public class Attack : MonoBehaviour
         int rando = Random.Range(1, 20);
 
         //If random variable is less than the miss chance, then the attack misses
-        if (rando <= 2 || rand >= missChance * 100)
+        if (rando <= 1 || rand >= missChance * 100)
         {
             Debug.Log("Attack Misses");
             return true;
@@ -120,7 +120,7 @@ public class Attack : MonoBehaviour
     void CalculateDamage(Beast attacker, Beast target, bool inFront)
     {
         //    Random Random = new Random();
-
+        attacker.setAttacks();
         float dmg;
         //Calculates the damage if the attacker is in row A
         if (inFront)
@@ -138,7 +138,6 @@ public class Attack : MonoBehaviour
         float vary2 = Random.Range(1, 20);
         vary += vary2 / 100;
         print("Damage before types = " + (int)(dmg * vary * modifier));
-        print("type modifier = " + calculateType(attacker, target));
         modifier *= calculateType(attacker, target);
 
         damage = (int)(dmg * vary * modifier); //Convert damage to an integer
