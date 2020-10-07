@@ -138,31 +138,39 @@ public class CreatePoolLoader : MonoBehaviour
         switch (createManager.selectedIndex)
         {
             case 0:
-//                slot1.gameObject.SetActive(true);
+                slot1.gameObject.SetActive(true);
                 slot1.sprite = Resources.Load<Sprite>(summonedImages[0]);
                 break;
             case 1:
+                slot2.gameObject.SetActive(true);
                 slot2.sprite = Resources.Load<Sprite>(summonedImages[1]);
                 break;
             case 2:
+                slot3.gameObject.SetActive(true);
                 slot3.sprite = Resources.Load<Sprite>(summonedImages[2]);
                 break;
             case 3:
+                slot4.gameObject.SetActive(true);
                 slot4.sprite = Resources.Load<Sprite>(summonedImages[3]);
                 break;
             case 4:
+                slot5.gameObject.SetActive(true);
                 slot5.sprite = Resources.Load<Sprite>(summonedImages[4]);
                 break;
             case 5:
+                slot6.gameObject.SetActive(true);
                 slot6.sprite = Resources.Load<Sprite>(summonedImages[5]);
                 break;
             case 6:
+                slot7.gameObject.SetActive(true);
                 slot7.sprite = Resources.Load<Sprite>(summonedImages[6]);
                 break;
             case 7:
+                slot8.gameObject.SetActive(true);
                 slot8.sprite = Resources.Load<Sprite>(summonedImages[7]);
                 break;
             case 8:
+                slot9.gameObject.SetActive(true);
                 slot9.sprite = Resources.Load<Sprite>(summonedImages[8]);
                 break;
         }
