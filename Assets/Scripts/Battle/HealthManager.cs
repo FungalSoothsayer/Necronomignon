@@ -20,29 +20,38 @@ public class HealthManager : MonoBehaviour
     public int enemy4 = 0;
     public int enemiesLeft = 0;
 
+    List<HealthBar> playerHealthBars = new List<HealthBar>();
+    List<HealthBar> enemyHealthBars = new List<HealthBar>();
+
     List<Beast> squad = new List<Beast>();
     List<Beast> enemies = new List<Beast>();
 
     //Get the health for each beast in play from BeastDatabase
-    public void GetHealth(List<Beast> players, List<Beast> opposing)
+    public void GetHealth(List<Beast> players, List<Beast> opposing, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth)
     {
         squad = players;
         enemies = opposing;
+        playerHealthBars = activePlayersHealth;
+        enemyHealthBars = activeEnemiesHealth;
 
         player1 = players[0].hitPoints;
+        activePlayersHealth[0].SetMaxHealth(players[0].hitPoints);
         if (players[1] != null)
         { 
             player2 = players[1].hitPoints;
+            activePlayersHealth[1].SetMaxHealth(players[1].hitPoints);
         }
         else playersLeft--;
         if (players[2] != null) 
         {
             player3 = players[2].hitPoints;
+            activePlayersHealth[2].SetMaxHealth(players[2].hitPoints);
         }
         else playersLeft--;
         if (players[3] != null)
         {
             player4 = players[3].hitPoints;
+            activePlayersHealth[3].SetMaxHealth(players[3].hitPoints);
         }
         else playersLeft--;
 
@@ -50,21 +59,25 @@ public class HealthManager : MonoBehaviour
         {
             enemiesLeft += 1;
             enemy1 = opposing[0].hitPoints;
+            activeEnemiesHealth[0].SetMaxHealth(opposing[0].hitPoints);
         }
         if (opposing[1] != null)
         {
             enemiesLeft += 1;
             enemy2 = opposing[1].hitPoints;
+            activeEnemiesHealth[1].SetMaxHealth(opposing[1].hitPoints);
         }
         if (opposing[2] != null)
         {
             enemiesLeft += 1;
             enemy3 = opposing[2].hitPoints;
+            activeEnemiesHealth[2].SetMaxHealth(opposing[2].hitPoints);
         }
         if (opposing[3] != null)
         {
             enemiesLeft += 1;
             enemy4 = opposing[3].hitPoints;
+            activeEnemiesHealth[5].SetMaxHealth(opposing[3].hitPoints);
         }
     }
 
@@ -74,6 +87,7 @@ public class HealthManager : MonoBehaviour
         if (target == squad[0])
         {
             squad[0].hitPoints -= damage;
+            playerHealthBars[0].SetHealth(squad[0].hitPoints);
             if(squad[0].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
@@ -88,6 +102,7 @@ public class HealthManager : MonoBehaviour
         else if (target == squad[1])
         {
             squad[1].hitPoints -= damage;
+            playerHealthBars[1].SetHealth(squad[1].hitPoints);
             if (squad[1].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
@@ -102,6 +117,7 @@ public class HealthManager : MonoBehaviour
         else if (target == squad[2])
         {
             squad[2].hitPoints -= damage;
+            playerHealthBars[2].SetHealth(squad[2].hitPoints);
             if (squad[2].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
@@ -116,6 +132,7 @@ public class HealthManager : MonoBehaviour
         else if (target == squad[3])
         {
             squad[3].hitPoints -= damage;
+            playerHealthBars[3].SetHealth(squad[3].hitPoints);
             if (squad[3].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");

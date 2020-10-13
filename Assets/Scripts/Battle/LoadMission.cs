@@ -67,6 +67,8 @@ public class LoadMission : MonoBehaviour
     List<Beast> toLoad = new List<Beast>();
     List<Beast> enemyToLoad = new List<Beast>();
     List<Beast> enemySquad = new List<Beast>();
+    List<HealthBar> activePlayersHealth = new List<HealthBar>();
+    List<HealthBar> activeEnemiesHealth = new List<HealthBar>();
 
     int squadMissing = 0;
 
@@ -164,13 +166,13 @@ public class LoadMission : MonoBehaviour
                 enemySlotImg[x].sprite = Resources.Load<Sprite>(enemyToLoad[x].static_img);
                 enemySlot.Add(enemyToLoad[x]);
                 enemySquad.Add(enemyToLoad[x]);
-                enemyHealthBars[x].SetMaxHealth(enemySlot[x].hitPoints);
+                activeEnemiesHealth.Add(enemyHealthBars[x]);
             }
             else
             {
                 enemySlotImg[x].gameObject.SetActive(false);
                 enemySlot.Add(null);
-                enemyHealthBars[x].gameObject.SetActive(false);
+                activeEnemiesHealth.Add(null);
             }
         }
     }
@@ -190,13 +192,14 @@ public class LoadMission : MonoBehaviour
                 playerSlotImg[x].sprite = Resources.Load<Sprite>(toLoad[x].static_img);
                 playerSlot.Add(beastManager.getFromName(toLoad[x].name));
                 thisSquad.Add(beastManager.getFromName(toLoad[x].name));
-                playerHealthBars[x].SetMaxHealth(playerSlot[x].hitPoints);
+                activePlayersHealth.Add(playerHealthBars[x]);
+                
             }
             else
             {
                 playerSlotImg[x].gameObject.SetActive(false);
                 playerSlot.Add(null);
-                playerHealthBars[x].gameObject.SetActive(false);
+                activePlayersHealth.Add(null);
             }
         }
         slot1 = playerSlot[0];
@@ -212,7 +215,7 @@ public class LoadMission : MonoBehaviour
         enemySlot5 = enemySlot[4];
         enemySlot6 = enemySlot[5];
 
-        battleManager.SendLists(thisSquad, enemySquad);
+        battleManager.SendLists(thisSquad, enemySquad, activePlayersHealth, activeEnemiesHealth);
         battleManager.GetSlots(playerSlot[0], playerSlot[1], playerSlot[2], playerSlot[3], playerSlot[4], playerSlot[5], enemySlot[0], enemySlot[1], enemySlot[2], enemySlot[3], enemySlot[4], enemySlot[5]);
 
         //battleManager.SendLists(thisSquad, enemySquad);

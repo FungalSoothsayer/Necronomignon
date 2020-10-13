@@ -660,9 +660,6 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
-    <Reference Include="com.unity.quicksearch">
-      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/com.unity.quicksearch.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
