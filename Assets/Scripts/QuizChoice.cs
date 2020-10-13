@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class QuizChoice : MonoBehaviour
 {
-    public BeastDatabase beastDatabase;
     public BeastManager beastManager;
 
     Beast currentBeast;

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SummonBookLoader : MonoBehaviour
 {
-    public BeastDatabase beastDatabase;
     public BeastManager beastManager;
 
     public Image gaiaImage;

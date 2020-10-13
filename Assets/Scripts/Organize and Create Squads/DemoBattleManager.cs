@@ -7,7 +7,6 @@ public class DemoBattleManager : MonoBehaviour
 {
     public LoadDemoBattle loadDemoBattle;
     public SquadData squadData;
-    public BeastDatabase beastDatabase;
     public BeastManager beastManager;
     public Attack attack;
     public HealthManager healthManager;

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class BeastSummon : MonoBehaviour
 {
-    public BeastDatabase beastDatabase;
 
     public BeastManager beastManager;
 

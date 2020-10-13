@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Summon : MonoBehaviour
 {
-    public BeastDatabase beastDatabase;
 
     //Changes the status of the desired beast and set rating to 1
     public void SummonBeast(Beast beast)
