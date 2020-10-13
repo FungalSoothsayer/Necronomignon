@@ -86,20 +86,6 @@
 			"moveB": "12"
 		},
 		{
-			"name": "Sunbather",
-			"hitPoints": "380",
-			"defence": "45",
-			"power": "50",
-			"speed": "61",
-			"dexterity": "70",
-			"number_MOVES": "2",
-			"tier": "1",
-			"type": "5",
-			"static_img": "Boss Darklord Excelsios-1",
-			"moveA": "11",
-			"moveB": "12"
-		},
-		{
 			"name": "Target",
 			"hitPoints": "10000000",
 			"defence": "50",
@@ -109,7 +95,7 @@
 			"number_MOVES": "0",
 			"tier": "-1",
 			"type": "6",
-			"static_img": "Boss Darklord Excelsios-1",
+			"static_img": "Objects wPawnB-1",
 			"moveA": "0",
 			"moveB": "0"
 		}

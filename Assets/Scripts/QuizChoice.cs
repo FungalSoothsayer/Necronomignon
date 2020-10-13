@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class QuizChoice : MonoBehaviour
 {
     public BeastDatabase beastDatabase;
+    public BeastManager beastManager;
 
     Beast currentBeast;
 
-    public void GetBeast(Beast beast)
+    public void GetBeast(string beast)
     {
-        currentBeast = beast;
+        currentBeast = beastManager.getFromName(beast);
     }
 
     public void ChoiceClick(int addRate)
