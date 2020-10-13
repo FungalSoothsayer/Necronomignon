@@ -16,6 +16,8 @@ public class LoadMission : MonoBehaviour
     public GameObject btnSquad2;
     public GameObject txtInfo;
 
+    public GameObject slot1health;
+
     public Image slot1Img;
     public Image slot2Img;
     public Image slot3Img;
@@ -159,6 +161,7 @@ public class LoadMission : MonoBehaviour
                 playerSlotImg[x].sprite = Resources.Load<Sprite>(toLoad[x].static_img);
                 playerSlot.Add(beastManager.getFromName(toLoad[x].name));
                 thisSquad.Add(beastManager.getFromName(toLoad[x].name));
+                slot1health.SetActive(true);
             }
             else
             {

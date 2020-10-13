@@ -20,6 +20,13 @@ public class HealthManager : MonoBehaviour
     public int enemy4 = 0;
     public int enemiesLeft = 0;
 
+    public HealthBar Slot1HealthBar;
+    public HealthBar Slot2HealthBar;
+    public HealthBar Slot3HealthBar;
+    public HealthBar Slot4HealthBar;
+    public HealthBar Slot5HealthBar;
+    public HealthBar Slot6HealthBar;
+
     List<Beast> squad = new List<Beast>();
     List<Beast> enemies = new List<Beast>();
 
@@ -30,6 +37,7 @@ public class HealthManager : MonoBehaviour
         enemies = opposing;
 
         player1 = players[0].hitPoints;
+        
         if (players[1] != null)
         { 
             player2 = players[1].hitPoints;
@@ -49,22 +57,22 @@ public class HealthManager : MonoBehaviour
         if (opposing[0] != null) 
         {
             enemiesLeft += 1;
-            enemy1 = beastDatabase.GetHitPoints(opposing[0].name);
+            enemy1 = opposing[0].hitPoints;
         }
         if (opposing[1] != null)
         {
             enemiesLeft += 1;
-            enemy2 = beastDatabase.GetHitPoints(opposing[1].name);
+            enemy2 = opposing[1].hitPoints;
         }
         if (opposing[2] != null)
         {
             enemiesLeft += 1;
-            enemy3 = beastDatabase.GetHitPoints(opposing[2].name);
+            enemy3 = opposing[2].hitPoints;
         }
         if (opposing[3] != null)
         {
             enemiesLeft += 1;
-            enemy4 = beastDatabase.GetHitPoints(opposing[3].name);
+            enemy4 = opposing[3].hitPoints;
         }
     }
 
