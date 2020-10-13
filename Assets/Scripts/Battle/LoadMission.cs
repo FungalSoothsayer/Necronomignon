@@ -16,7 +16,20 @@ public class LoadMission : MonoBehaviour
     public GameObject btnSquad2;
     public GameObject txtInfo;
 
-    public GameObject slot1health;
+    public HealthBar slot1Health;
+    public HealthBar slot2Health;
+    public HealthBar slot3Health;
+    public HealthBar slot4Health;
+    public HealthBar slot5Health;
+    public HealthBar slot6Health;
+    List<HealthBar> playerHealthBars = new List<HealthBar>(6);
+    public HealthBar eslot1Health;
+    public HealthBar eslot2Health;
+    public HealthBar eslot3Health;
+    public HealthBar eslot4Health;
+    public HealthBar eslot5Health;
+    public HealthBar eslot6Health;
+    List<HealthBar> enemyHealthBars = new List<HealthBar>(6);
 
     public Image slot1Img;
     public Image slot2Img;
@@ -92,6 +105,20 @@ public class LoadMission : MonoBehaviour
         enemySlotImg.Add(enemySlot5Img);
         enemySlotImg.Add(enemySlot6Img);
 
+        //sorry for bad code
+        playerHealthBars.Add(slot1Health);
+        playerHealthBars.Add(slot2Health);
+        playerHealthBars.Add(slot3Health);
+        playerHealthBars.Add(slot4Health);
+        playerHealthBars.Add(slot5Health);
+        playerHealthBars.Add(slot6Health);
+        enemyHealthBars.Add(eslot1Health);
+        enemyHealthBars.Add(eslot2Health);
+        enemyHealthBars.Add(eslot3Health);
+        enemyHealthBars.Add(eslot4Health);
+        enemyHealthBars.Add(eslot5Health);
+        enemyHealthBars.Add(eslot6Health);
+
         enemyToLoad = missionList.enemies;
         LoadEnemySquadImages();
     }
@@ -137,11 +164,13 @@ public class LoadMission : MonoBehaviour
                 enemySlotImg[x].sprite = Resources.Load<Sprite>(enemyToLoad[x].static_img);
                 enemySlot.Add(enemyToLoad[x]);
                 enemySquad.Add(enemyToLoad[x]);
+                enemyHealthBars[x].SetMaxHealth(enemySlot[x].hitPoints);
             }
             else
             {
                 enemySlotImg[x].gameObject.SetActive(false);
                 enemySlot.Add(null);
+                enemyHealthBars[x].gameObject.SetActive(false);
             }
         }
     }
@@ -161,12 +190,13 @@ public class LoadMission : MonoBehaviour
                 playerSlotImg[x].sprite = Resources.Load<Sprite>(toLoad[x].static_img);
                 playerSlot.Add(beastManager.getFromName(toLoad[x].name));
                 thisSquad.Add(beastManager.getFromName(toLoad[x].name));
-                slot1health.SetActive(true);
+                playerHealthBars[x].SetMaxHealth(playerSlot[x].hitPoints);
             }
             else
             {
                 playerSlotImg[x].gameObject.SetActive(false);
                 playerSlot.Add(null);
+                playerHealthBars[x].gameObject.SetActive(false);
             }
         }
         slot1 = playerSlot[0];

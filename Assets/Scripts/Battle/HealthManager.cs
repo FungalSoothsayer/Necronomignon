@@ -20,13 +20,6 @@ public class HealthManager : MonoBehaviour
     public int enemy4 = 0;
     public int enemiesLeft = 0;
 
-    public HealthBar Slot1HealthBar;
-    public HealthBar Slot2HealthBar;
-    public HealthBar Slot3HealthBar;
-    public HealthBar Slot4HealthBar;
-    public HealthBar Slot5HealthBar;
-    public HealthBar Slot6HealthBar;
-
     List<Beast> squad = new List<Beast>();
     List<Beast> enemies = new List<Beast>();
 
@@ -37,7 +30,6 @@ public class HealthManager : MonoBehaviour
         enemies = opposing;
 
         player1 = players[0].hitPoints;
-        
         if (players[1] != null)
         { 
             player2 = players[1].hitPoints;
