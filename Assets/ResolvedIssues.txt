@@ -1,0 +1,13 @@
+- Need to have first attack for combat to work.
+- Double clicking character in squad removes image but character still there.
+- Squad loadouts white squares.
+- Squad creation green circles don't reappear when you remove a character from a spot.
+- Enemy images need to be rotated 180° on Y axis.
+- Always targets enemy slot 1 first until it dies no matter who is clicked.
+- Fighting order is correct but when it's actually running, the order doesn't always follow properly.
+- Need to be able to create squads of less than 4.
+- Clicking on a squad in squad loadout crashes game.
+- Give each character their own moves.
+- Change where each slot is.
+- Add type advantages to combat.
+- Need to be able to create squads of less than 4.

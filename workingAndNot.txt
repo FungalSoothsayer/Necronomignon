@@ -1,0 +1,17 @@
+Things that are working (currently)
+JSON files and reading them
+Beast.cs
+BeastManager.cs
+BattleManager.cs (no errors but we haven't run a battle simulation yet)
+Attack.cs
+
+Known issues
+Not able to create a squad of less than 4
+On create squad page, double clicking on a character in squad removes the image but the 
+	character is still there so causes issues
+On create squad page, clicking a character in squad and then clicking on a spot that is
+	already occupied by another beast will remove the image of the old beast and
+	replace it with the new beast but the old beast is still considered in the squad
+On create squad page, clicking on one of the character slots that isn't occupied by 
+	a character causes a crash
+Cannot attack

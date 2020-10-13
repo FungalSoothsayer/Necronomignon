@@ -16,14 +16,30 @@ public class CreatePoolLoader : MonoBehaviour
     public Image slot9;
 
     public List<string> summonedImages = new List<string>();
-    public List<string> summoned = new List<string>();
+    public List<Beast> summoned = new List<Beast>();
 
     public BeastDatabase beastDatabase;
+    public BeastManager beastManager;
     public CreateManager createManager;
 
     void Start()
     {
-        //Add the image names to a list if they are summoned
+        if (!beastManager.isLoaded())
+        {
+            beastManager.Awake();
+        }
+        BeastList bl = beastManager.beastsList;
+        for (int x =0;x < bl.Beasts.Count; x++)
+        {
+            if(bl.Beasts[x].tier > 0)
+            {
+                summonedImages.Add(bl.Beasts[x].static_img);
+                summoned.Add(bl.Beasts[x]);
+            }
+        }
+
+
+/*        //Add the image names to a list if they are summoned
         if (beastDatabase.GetStatus("Gaia"))
         {
             summonedImages.Add("Boss Nature Titan Tellia-4");
@@ -53,7 +69,7 @@ public class CreatePoolLoader : MonoBehaviour
         {
             summonedImages.Add("Boss Darklord Excelsios-1");
             summoned.Add("Sunbather");
-        }
+        }*/
 
         SetImages();
     }
@@ -122,30 +138,39 @@ public class CreatePoolLoader : MonoBehaviour
         switch (createManager.selectedIndex)
         {
             case 0:
+                slot1.gameObject.SetActive(true);
                 slot1.sprite = Resources.Load<Sprite>(summonedImages[0]);
                 break;
             case 1:
+                slot2.gameObject.SetActive(true);
                 slot2.sprite = Resources.Load<Sprite>(summonedImages[1]);
                 break;
             case 2:
+                slot3.gameObject.SetActive(true);
                 slot3.sprite = Resources.Load<Sprite>(summonedImages[2]);
                 break;
             case 3:
+                slot4.gameObject.SetActive(true);
                 slot4.sprite = Resources.Load<Sprite>(summonedImages[3]);
                 break;
             case 4:
+                slot5.gameObject.SetActive(true);
                 slot5.sprite = Resources.Load<Sprite>(summonedImages[4]);
                 break;
             case 5:
+                slot6.gameObject.SetActive(true);
                 slot6.sprite = Resources.Load<Sprite>(summonedImages[5]);
                 break;
             case 6:
+                slot7.gameObject.SetActive(true);
                 slot7.sprite = Resources.Load<Sprite>(summonedImages[6]);
                 break;
             case 7:
+                slot8.gameObject.SetActive(true);
                 slot8.sprite = Resources.Load<Sprite>(summonedImages[7]);
                 break;
             case 8:
+                slot9.gameObject.SetActive(true);
                 slot9.sprite = Resources.Load<Sprite>(summonedImages[8]);
                 break;
         }

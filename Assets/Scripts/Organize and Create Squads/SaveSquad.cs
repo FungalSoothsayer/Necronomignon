@@ -22,7 +22,7 @@ public class SaveSquad : MonoBehaviour
 
     public void SaveButton()
     {
-        if (!createManager.canBePlaced)
+        if (createManager.placed > 0)
         {
             squad1Button.SetActive(true);
             squad2Button.SetActive(true);

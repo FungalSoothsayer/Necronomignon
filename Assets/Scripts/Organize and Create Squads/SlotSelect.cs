@@ -8,12 +8,13 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     public CreateManager createManager;
     public CreatePoolLoader createPoolLoader;
+    public BeastManager beastManager;
 
     private bool mouse_over = false;
 
     public int slotID; //Set in inspector
 
-    string thisBeast;
+    Beast thisBeast;
     int thisBeastIndex;
 
     void Update()
@@ -59,45 +60,60 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
 
     //Change the image of the beast in the pool to a faded image
+    //Change the image of the beast in the pool to a faded image
     void ChangePoolImage()
     {
         switch (createManager.selectedIndex)
         {
             case 0:
+                createPoolLoader.slot1.gameObject.SetActive(false);
                 createPoolLoader.slot1.sprite = Resources.Load<Sprite>(GetFadedImage());
                 break;
             case 1:
+                createPoolLoader.slot2.gameObject.SetActive(false);
                 createPoolLoader.slot2.sprite = Resources.Load<Sprite>(GetFadedImage());
                 break;
             case 2:
+                createPoolLoader.slot3.gameObject.SetActive(false);
                 createPoolLoader.slot3.sprite = Resources.Load<Sprite>(GetFadedImage());
                 break;
             case 3:
+                createPoolLoader.slot4.gameObject.SetActive(false);
                 createPoolLoader.slot4.sprite = Resources.Load<Sprite>(GetFadedImage());
                 break;
             case 4:
+                createPoolLoader.slot5.gameObject.SetActive(false);
                 createPoolLoader.slot5.sprite = Resources.Load<Sprite>(GetFadedImage());
                 break;
             case 5:
+                createPoolLoader.slot6.gameObject.SetActive(false);
                 createPoolLoader.slot6.sprite = Resources.Load<Sprite>(GetFadedImage());
                 break;
             case 6:
+                createPoolLoader.slot7.gameObject.SetActive(false);
                 createPoolLoader.slot7.sprite = Resources.Load<Sprite>(GetFadedImage());
                 break;
             case 7:
+                createPoolLoader.slot8.gameObject.SetActive(false);
                 createPoolLoader.slot8.sprite = Resources.Load<Sprite>(GetFadedImage());
                 break;
             case 8:
+                createPoolLoader.slot9.gameObject.SetActive(false);
                 createPoolLoader.slot9.sprite = Resources.Load<Sprite>(GetFadedImage());
                 break;
         }
         SetSlot();
     }
 
-    //Set te CreateManager's variables to reflect the selected beast
+    //Set the CreateManager's variables to reflect the selected beast
     void SetSlot()
     {
-        if (gameObject.name == "Slot1") createManager.slot1 = createManager.selected;
+        print(createManager.selectedIndex);
+        print(createManager.selectedSlotID);
+        if (gameObject.name == "Slot1")
+        {
+            createManager.slot1 = createManager.selected;
+        }
         else if (gameObject.name == "Slot2") createManager.slot2 = createManager.selected;
         else if (gameObject.name == "Slot3") createManager.slot3 = createManager.selected;
         else if (gameObject.name == "Slot4") createManager.slot4 = createManager.selected;
@@ -110,7 +126,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         createManager.placed += 1;
         createManager.placing = false;
         createManager.CheckPlaceable();
-        createManager.selected = "";
+        createManager.selected = null;
         createManager.selectedIndex = -1;
         createManager.TurnOffSlots();
     }
@@ -118,6 +134,19 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Get the faded image of the placed beast
     string GetFadedImage()
     {
+        if (!beastManager.isLoaded())
+        {
+            beastManager.Awake();
+        }
+        BeastList bl = beastManager.beastsList; 
+        for (int x = 0; x< bl.Beasts.Count; x++)
+        {
+            if (bl.Beasts[x].Equals(createManager.selected))
+            {
+                return "EmptyRectangle";
+            }
+        }
+/*
         if(createManager.selected == "Gaia")
         {
             return "EmptyRectangle";
@@ -145,26 +174,33 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         else
         {
             return "";
-        }
+        }*/
+        return "";
     }
 
     //Select this beast and give options to move to another slot or remove from the grid
     void EditPlace()
     {
-        createManager.selected = thisBeast;
-        createManager.selectedIndex = thisBeastIndex;
-        createManager.selectedSlotID = slotID;
-        createManager.LightUpSlots();
-        createManager.removeButton.SetActive(true);
-        createManager.moving = true;
+            createManager.selected = thisBeast;
+            createManager.selectedIndex = thisBeastIndex;
+            createManager.selectedSlotID = slotID;
+            createManager.LightUpSlots();
+            createManager.removeButton.SetActive(true);
+            createManager.moving = true;
     }
 
     //Move this beast to another slot
     void MoveImage()
     {
-        gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex]);
-        gameObject.GetComponent<Image>().color = Color.white;
-        SetSlot();
-        createManager.RemoveSlotImage();
+        //print(createManager.selectedSlotID + " SlotID");
+        //print(createManager.selectedIndex+" Index");
+        //print(createManager.selected);
+        if (slotID != createManager.selectedSlotID)
+        {
+                gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex]);
+                gameObject.GetComponent<Image>().color = Color.white;
+                SetSlot();
+                createManager.RemoveSlotImage();
+        }
     }
 }

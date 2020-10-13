@@ -20,169 +20,181 @@ public class HealthManager : MonoBehaviour
     public int enemy4 = 0;
     public int enemiesLeft = 0;
 
-    List<string> squad = new List<string>();
-    List<string> enemies = new List<string>();
+    List<Beast> squad = new List<Beast>();
+    List<Beast> enemies = new List<Beast>();
 
     //Get the health for each beast in play from BeastDatabase
-    public void GetHealth(List<string> players, List<string> opposing)
+    public void GetHealth(List<Beast> players, List<Beast> opposing)
     {
         squad = players;
         enemies = opposing;
 
-        player1 = beastDatabase.GetHitPoints(players[0]);
-        player2 = beastDatabase.GetHitPoints(players[1]);
-        player3 = beastDatabase.GetHitPoints(players[2]);
-        player4 = beastDatabase.GetHitPoints(players[3]);
+        player1 = players[0].hitPoints;
+        if (players[1] != null)
+        { 
+            player2 = players[1].hitPoints;
+        }
+        else playersLeft--;
+        if (players[2] != null) 
+        {
+            player3 = players[2].hitPoints;
+        }
+        else playersLeft--;
+        if (players[3] != null)
+        {
+            player4 = players[3].hitPoints;
+        }
+        else playersLeft--;
 
-        if(opposing[0] != "") 
+        if (opposing[0] != null) 
         {
             enemiesLeft += 1;
-            enemy1 = beastDatabase.GetHitPoints(opposing[0]);
+            enemy1 = beastDatabase.GetHitPoints(opposing[0].name);
         }
-        if (opposing[1] != "")
+        if (opposing[1] != null)
         {
             enemiesLeft += 1;
-            enemy2 = beastDatabase.GetHitPoints(opposing[1]);
+            enemy2 = beastDatabase.GetHitPoints(opposing[1].name);
         }
-        if (opposing[2] != "")
+        if (opposing[2] != null)
         {
             enemiesLeft += 1;
-            enemy3 = beastDatabase.GetHitPoints(opposing[2]);
+            enemy3 = beastDatabase.GetHitPoints(opposing[2].name);
         }
-        if (opposing[3] != "")
+        if (opposing[3] != null)
         {
             enemiesLeft += 1;
-            enemy4 = beastDatabase.GetHitPoints(opposing[3]);
+            enemy4 = beastDatabase.GetHitPoints(opposing[3].name);
         }
     }
 
     //Subtract the damage from the target's health
-    public void UpdateHealth(string target, int damage, string attacking) 
+    public void UpdateHealth(Beast target, int damage) 
     {
-        if (target == squad[0] && attacking != "Player")
+        if (target == squad[0])
         {
-            player1 -= damage;
-            if(player1 <= 0)
+            squad[0].hitPoints -= damage;
+            if(squad[0].hitPoints <= 0)
             {
-                Debug.Log(target + " is knocked out.");
+                Debug.Log(target.name + " is knocked out.");
                 CheckRemainingPlayers();
                 battleManager.RemoveBeast("player1");
             }
             else
             {
-                DisplayHealthLeft(attacking, target, player1);
+                DisplayHealthLeft(target, squad[0].hitPoints);
             }
         }
-        else if (target == squad[1] && attacking != "Player")
+        else if (target == squad[1])
         {
-            player2 -= damage;
-            if (player2 <= 0)
+            squad[1].hitPoints -= damage;
+            if (squad[1].hitPoints <= 0)
             {
-                Debug.Log(target + " is knocked out.");
+                Debug.Log(target.name + " is knocked out.");
                 CheckRemainingPlayers();
                 battleManager.RemoveBeast("player2");
             }
             else
             {
-                DisplayHealthLeft(attacking, target, player2);
+                DisplayHealthLeft(target, squad[1].hitPoints);
             }
         }
-        else if (target == squad[2] && attacking != "Player")
+        else if (target == squad[2])
         {
-            player3 -= damage;
-            if (player3 <= 0)
+            squad[2].hitPoints -= damage;
+            if (squad[2].hitPoints <= 0)
             {
-                Debug.Log(target + " is knocked out.");
+                Debug.Log(target.name + " is knocked out.");
                 CheckRemainingPlayers();
                 battleManager.RemoveBeast("player3");
             }
             else
             {
-                DisplayHealthLeft(attacking, target, player3);
+                DisplayHealthLeft(target, squad[2].hitPoints);
             }
         }
-        else if (target == squad[3] && attacking != "Player")
+        else if (target == squad[3])
         {
-            player4 -= damage;
-            if (player4 <= 0)
+            squad[3].hitPoints -= damage;
+            if (squad[3].hitPoints <= 0)
             {
-                Debug.Log(target + " is knocked out.");
+                Debug.Log(target.name + " is knocked out.");
                 battleManager.RemoveBeast("player4");
                 CheckRemainingPlayers();
             }
             else
             {
-                DisplayHealthLeft(attacking, target, player4);
+                DisplayHealthLeft(target, squad[3].hitPoints);
             }
         }
-        else if (target == enemies[0] && attacking == "Player")
+        else if (target == enemies[0])
         {
-            enemy1 -= damage;
-            if (enemy1 <= 0)
+            enemies[0].hitPoints -= damage;
+            if (enemies[0].hitPoints <= 0)
             {
-                Debug.Log(target + " is knocked out.");
+                Debug.Log(target.name + " is knocked out.");
                 battleManager.RemoveBeast("enemy1");
                 CheckRemainingOpposing();
             }
             else
             {
-                DisplayHealthLeft(attacking, target, enemy1);
+                DisplayHealthLeft(target, enemies[0].hitPoints);
             }
         }
-        else if (target == enemies[1] && attacking == "Player")
+        else if (target == enemies[1])
         {
-            enemy2 -= damage;
-            if (enemy2 <= 0)
+            enemies[1].hitPoints -= damage;
+            if (enemies[1].hitPoints <= 0)
             {
-                Debug.Log(target + " is knocked out.");
+                Debug.Log(target.name + " is knocked out.");
                 battleManager.RemoveBeast("enemy2");
                 CheckRemainingOpposing();
             }
             else
             {
-                DisplayHealthLeft(attacking, target, enemy2);
+                DisplayHealthLeft(target, enemies[1].hitPoints);
             }
         }
-        else if (target == enemies[2] && attacking == "Player")
+        else if (target == enemies[2])
         {
-            enemy3 -= damage;
-            if (enemy3 <= 0)
+            enemies[2].hitPoints -= damage;
+            if (enemies[2].hitPoints <= 0)
             {
-                Debug.Log(target + " is knocked out.");
+                Debug.Log(target.name + " is knocked out.");
                 battleManager.RemoveBeast("enemy3");
                 CheckRemainingOpposing();
             }
             else
             {
-                DisplayHealthLeft(attacking, target, enemy3);
+                DisplayHealthLeft(target, enemies[2].hitPoints);
             }
         }
-        else if (target == enemies[3] && attacking == "Player")
+        else if (target == enemies[3])
         {
-            enemy4 -= damage;
-            if (enemy4 <= 0)
+            enemies[3].hitPoints -= damage;
+            if (enemies[3].hitPoints <= 0)
             {
-                Debug.Log(target + " is knocked out.");
+                Debug.Log(target.name + " is knocked out.");
                 battleManager.RemoveBeast("enemy4");
                 CheckRemainingOpposing();
             }
             else
             {
-                DisplayHealthLeft(attacking, target, enemy4);
+                DisplayHealthLeft(target, enemies[3].hitPoints);
             }
         }
     }
 
-    void DisplayHealthLeft(string attacking, string target, int healthLeft)
+    void DisplayHealthLeft(Beast target, int healthLeft)
     {
-        Debug.Log(attacking + "'s " + target + " has " + healthLeft + " health left.");
+        Debug.Log(target.name + " has " + healthLeft + " health left.");
     }
 
     //Check to see if there are any players left, if not end game
     void CheckRemainingPlayers() 
     {
         playersLeft -= 1;
-        if(playersLeft == 0)
+        if(playersLeft <= 0)
         {
             Debug.Log("Opposing Team Wins. Better Luck Nex Time.");
             StartCoroutine(LoadMap());
@@ -193,7 +205,7 @@ public class HealthManager : MonoBehaviour
     void CheckRemainingOpposing()
     {
         enemiesLeft -= 1;
-        if (enemiesLeft == 0)
+        if (enemiesLeft <= 0)
         {
             Debug.Log("Congratulations! You Win!");
             StartCoroutine(LoadMap());
