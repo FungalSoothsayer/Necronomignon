@@ -8,6 +8,8 @@ public class BeastSummon : MonoBehaviour
 {
     public BeastDatabase beastDatabase;
 
+    public BeastManager beastManager;
+
     public bool summoned = false;
     public int rating = 0;
 
@@ -50,7 +52,7 @@ public class BeastSummon : MonoBehaviour
     {
         if (currentScene.name == "CthulhuMain")
         {
-            return beastDatabase.GetRating("Cthulhu");
+            return beastManager.getFromName("Cthulhu").tier;
         }
         else
         {
@@ -63,7 +65,7 @@ public class BeastSummon : MonoBehaviour
     {
         if (currentScene.name == "CthulhuMain")
         {
-            return beastDatabase.GetStatus("Cthulhu");
+            return beastManager.getFromName("Cthulhu").tier > 0;
         }
         else
         {

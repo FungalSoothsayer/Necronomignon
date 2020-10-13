@@ -7,9 +7,8 @@ public class Summon : MonoBehaviour
     public BeastDatabase beastDatabase;
 
     //Changes the status of the desired beast and set rating to 1
-    public void SummonBeast(string beast)
+    public void SummonBeast(Beast beast)
     {
-        beastDatabase.ChangeStatus(beast, true);
-        beastDatabase.ChangeRating(beast, 1);
+        beast.tier += 1;
     }
 }
