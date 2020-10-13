@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
-    public BeastDatabase beastDatabase;
     public BattleManager battleManager;
 
     public int player1 = 0;
@@ -49,22 +48,22 @@ public class HealthManager : MonoBehaviour
         if (opposing[0] != null) 
         {
             enemiesLeft += 1;
-            enemy1 = beastDatabase.GetHitPoints(opposing[0].name);
+            enemy1 = opposing[0].hitPoints;
         }
         if (opposing[1] != null)
         {
             enemiesLeft += 1;
-            enemy2 = beastDatabase.GetHitPoints(opposing[1].name);
+            enemy2 = opposing[1].hitPoints;
         }
         if (opposing[2] != null)
         {
             enemiesLeft += 1;
-            enemy3 = beastDatabase.GetHitPoints(opposing[2].name);
+            enemy3 = opposing[2].hitPoints;
         }
         if (opposing[3] != null)
         {
             enemiesLeft += 1;
-            enemy4 = beastDatabase.GetHitPoints(opposing[3].name);
+            enemy4 = opposing[3].hitPoints;
         }
     }
 

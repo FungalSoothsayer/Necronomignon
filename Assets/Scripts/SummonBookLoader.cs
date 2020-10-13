@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SummonBookLoader : MonoBehaviour
 {
-    public BeastDatabase beastDatabase;
+    public BeastManager beastManager;
 
     public Image gaiaImage;
     public Image cthulhuImage;
@@ -16,7 +16,7 @@ public class SummonBookLoader : MonoBehaviour
 
     void Start()
     {
-        if (beastDatabase.GetStatus("Cthulhu")) cthulhuImage.sprite = Resources.Load<Sprite>("Boss Cthulhu-3");
+        if (beastManager.getFromName("Cthulhu").tier > 0) cthulhuImage.sprite = Resources.Load<Sprite>("Boss Cthulhu-3");
         else cthulhuImage.sprite = Resources.Load<Sprite>("Boss Cthulhu-1");
     }
 }

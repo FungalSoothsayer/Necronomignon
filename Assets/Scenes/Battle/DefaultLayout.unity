@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a524b3150c2d9704689a83f5ae409939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveManager: {fileID: 0}
 --- !u!114 &16781091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +222,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot1:
     name: 
@@ -235,7 +246,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot2:
     name: 
@@ -249,7 +270,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot3:
     name: 
@@ -263,7 +294,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot4:
     name: 
@@ -277,7 +318,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot5:
     name: 
@@ -291,7 +342,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot6:
     name: 
@@ -305,7 +366,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   player1Active: 1
   player2Active: 1
@@ -367,7 +438,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   slot2:
     name: 
@@ -381,7 +462,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   slot3:
     name: 
@@ -395,7 +486,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   slot4:
     name: 
@@ -409,7 +510,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   slot5:
     name: 
@@ -423,7 +534,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   slot6:
     name: 
@@ -437,7 +558,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   playerSlot: []
   enemySlot1Img: {fileID: 0}
@@ -459,7 +590,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot2:
     name: 
@@ -473,7 +614,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot3:
     name: 
@@ -487,7 +638,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot4:
     name: 
@@ -501,7 +662,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot5:
     name: 
@@ -515,7 +686,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot6:
     name: 
@@ -529,7 +710,17 @@ MonoBehaviour:
     id: 0
     type: 0
     moveA: -1
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     moveB: -1
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
     static_img: 
   enemySlot: []
 --- !u!114 &16781094
@@ -584,6 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beastDatabase: {fileID: 16781097}
+  beastManager: {fileID: 16781090}
   healthManager: {fileID: 16781095}
 --- !u!114 &16781097
 MonoBehaviour:
