@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class BeastSummon : MonoBehaviour
 {
-
-    public BeastManager beastManager;
+    public BeastDatabase beastDatabase;
 
     public bool summoned = false;
     public int rating = 0;
@@ -51,7 +50,7 @@ public class BeastSummon : MonoBehaviour
     {
         if (currentScene.name == "CthulhuMain")
         {
-            return beastManager.getFromName("Cthulhu").tier;
+            return beastDatabase.GetRating("Cthulhu");
         }
         else
         {
@@ -64,7 +63,7 @@ public class BeastSummon : MonoBehaviour
     {
         if (currentScene.name == "CthulhuMain")
         {
-            return beastManager.getFromName("Cthulhu").tier > 0;
+            return beastDatabase.GetStatus("Cthulhu");
         }
         else
         {

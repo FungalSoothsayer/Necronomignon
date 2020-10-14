@@ -70,7 +70,14 @@
     <Compile Include="Assets\Scripts\Battle\LoadTutorial.cs" />
     <Compile Include="Assets\Scripts\Battle\MissionList.cs" />
     <Compile Include="Assets\Scripts\Battle\TutorialManager.cs" />
+<<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Beast.cs" />
+=======
+=======
+>>>>>>> parent of 1ecbd20... Merge pull request #3 from FungalSoothsayer/Health-Bar
+    <Compile Include="Assets\Scripts\BeastDatabase.cs" />
+>>>>>>> parent of 1ecbd20... Merge pull request #3 from FungalSoothsayer/Health-Bar
     <Compile Include="Assets\Scripts\BeastSummon.cs" />
     <Compile Include="Assets\Scripts\LoadScenes.cs" />
     <Compile Include="Assets\Scripts\Organize and Create Squads\BeastSelect.cs" />

@@ -8,6 +8,7 @@ public class BattleManager : MonoBehaviour
 {
 
     public HealthManager healthManager;
+    public BeastDatabase beastDatabase;
     public Attack attack;
     public LoadMission loadMission;
 
