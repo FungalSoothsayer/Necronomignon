@@ -70,7 +70,7 @@
     <Compile Include="Assets\Scripts\Battle\LoadTutorial.cs" />
     <Compile Include="Assets\Scripts\Battle\MissionList.cs" />
     <Compile Include="Assets\Scripts\Battle\TutorialManager.cs" />
-    <Compile Include="Assets\Scripts\BeastDatabase.cs" />
+    <Compile Include="Assets\Scripts\Beast.cs" />
     <Compile Include="Assets\Scripts\BeastSummon.cs" />
     <Compile Include="Assets\Scripts\LoadScenes.cs" />
     <Compile Include="Assets\Scripts\Organize and Create Squads\BeastSelect.cs" />
