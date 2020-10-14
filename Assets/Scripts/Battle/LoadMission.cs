@@ -15,6 +15,7 @@ public class LoadMission : MonoBehaviour
     public GameObject btnSquad1;
     public GameObject btnSquad2;
     public GameObject txtInfo;
+
     public Image slot1Img;
     public Image slot2Img;
     public Image slot3Img;
@@ -88,6 +89,7 @@ public class LoadMission : MonoBehaviour
         enemySlotImg.Add(enemySlot4Img);
         enemySlotImg.Add(enemySlot5Img);
         enemySlotImg.Add(enemySlot6Img);
+
         enemyToLoad = missionList.enemies;
         LoadEnemySquadImages();
     }
