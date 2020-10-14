@@ -17,6 +17,7 @@ public class LoadMission : MonoBehaviour
     public GameObject txtInfo;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
     public HealthBar slot1Health;
@@ -34,6 +35,8 @@ public class LoadMission : MonoBehaviour
     public HealthBar eslot6Health;
     List<HealthBar> enemyHealthBars = new List<HealthBar>(6);
 >>>>>>> parent of 52bf3f3... Finished health bars
+=======
+>>>>>>> parent of 1ecbd20... Merge pull request #3 from FungalSoothsayer/Health-Bar
 =======
 >>>>>>> parent of 1ecbd20... Merge pull request #3 from FungalSoothsayer/Health-Bar
 
@@ -113,6 +116,7 @@ public class LoadMission : MonoBehaviour
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         //sorry for bad code
         playerHealthBars.Add(slot1Health);
@@ -129,6 +133,8 @@ public class LoadMission : MonoBehaviour
         enemyHealthBars.Add(eslot6Health);
 
 >>>>>>> parent of 52bf3f3... Finished health bars
+=======
+>>>>>>> parent of 1ecbd20... Merge pull request #3 from FungalSoothsayer/Health-Bar
 =======
 >>>>>>> parent of 1ecbd20... Merge pull request #3 from FungalSoothsayer/Health-Bar
         enemyToLoad = missionList.enemies;
