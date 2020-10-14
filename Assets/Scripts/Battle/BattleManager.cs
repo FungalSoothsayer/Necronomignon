@@ -19,6 +19,9 @@ public class BattleManager : MonoBehaviour
     public List<string> roundOrderTypes = new List<string>();
     List<Beast> attackPool = new List<Beast>();
 
+    List<HealthBar> playerHealthBars = new List<HealthBar>();
+    List<HealthBar> enemyHealthBars = new List<HealthBar>();
+
 
     public int turn = 0;
     int totalMoves;
@@ -58,8 +61,10 @@ public class BattleManager : MonoBehaviour
     int enemy4TurnsTaken;
 
     //Get lists from LoadMission and add the players to the attack pool
-    public void SendLists(List<Beast> thisSquad, List<Beast> enemySquad)
+    public void SendLists(List<Beast> thisSquad, List<Beast> enemySquad, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth)
     {
+        playerHealthBars = activePlayersHealth;
+        enemyHealthBars = activeEnemiesHealth;
         
         players = thisSquad;
         players.Add(null);
@@ -102,7 +107,7 @@ public class BattleManager : MonoBehaviour
             totalBeasts--;
         }
 
-        healthManager.GetHealth(players, enemies);
+        healthManager.GetHealth(players, enemies, playerHealthBars, enemyHealthBars);
         LoadOrder();
     }
 
