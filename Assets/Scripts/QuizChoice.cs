@@ -5,17 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class QuizChoice : MonoBehaviour
 {
-    public BeastDatabase beastDatabase;
+    public BeastManager beastManager;
 
-    string currentBeast;
+    Beast currentBeast;
 
     public void GetBeast(string beast)
     {
-        currentBeast = beast;
+        currentBeast = beastManager.getFromName(beast);
     }
 
     public void ChoiceClick(int addRate)
     {
-        beastDatabase.ChangeRating(currentBeast, beastDatabase.GetRating(currentBeast) + addRate);
+        if(currentBeast.tier > 5)
+        {
+            currentBeast.tier += addRate;
+        }
+        while(currentBeast.tier > 5)
+        {
+            currentBeast.tier -= 1;
+        }
     }
 }

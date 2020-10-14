@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
-    public BeastDatabase beastDatabase;
     public BattleManager battleManager;
 
     public int player1 = 0;
