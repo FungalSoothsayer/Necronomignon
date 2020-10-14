@@ -63,7 +63,7 @@ public class DemoBattleManager : MonoBehaviour
         squadNumber = loadDemoBattle.GetSquadNumber();
         LoadSquadImages();
         LoadOrder();
-        healthManager.GetHealth(thisSquad, enemies);
+        //healthManager.GetHealth(thisSquad, enemies);
     }
 
     void LoadSquadImages()

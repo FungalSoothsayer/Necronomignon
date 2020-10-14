@@ -59,7 +59,7 @@ public class BattleManager : MonoBehaviour
     int enemy4TurnsTaken;
 
     //Get lists from LoadMission and add the players to the attack pool
-    public void SendLists(List<Beast> thisSquad, List<Beast> enemySquad)
+    public void SendLists(List<Beast> thisSquad, List<Beast> enemySquad, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth)
     {
         
         players = thisSquad;
@@ -103,7 +103,7 @@ public class BattleManager : MonoBehaviour
             totalBeasts--;
         }
 
-        healthManager.GetHealth(players, enemies);
+        healthManager.GetHealth(players, enemies, activePlayersHealth, activeEnemiesHealth);
         LoadOrder();
     }
 
