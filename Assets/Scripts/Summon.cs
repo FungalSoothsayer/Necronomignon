@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Summon : MonoBehaviour
 {
+    public BeastDatabase beastDatabase;
 
     //Changes the status of the desired beast and set rating to 1
-    public void SummonBeast(Beast beast)
+    public void SummonBeast(string beast)
     {
-        beast.tier += 1;
+        beastDatabase.ChangeStatus(beast, true);
+        beastDatabase.ChangeRating(beast, 1);
     }
 }

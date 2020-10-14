@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beastDatabase: {fileID: 469307947}
-  beastManager: {fileID: 469307954}
+  beastManager: {fileID: 0}
   healthManager: {fileID: 469307945}
 --- !u!114 &469307947
 MonoBehaviour:

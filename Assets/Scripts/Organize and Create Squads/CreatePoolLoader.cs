@@ -18,6 +18,7 @@ public class CreatePoolLoader : MonoBehaviour
     public List<string> summonedImages = new List<string>();
     public List<Beast> summoned = new List<Beast>();
 
+    public BeastDatabase beastDatabase;
     public BeastManager beastManager;
     public CreateManager createManager;
 

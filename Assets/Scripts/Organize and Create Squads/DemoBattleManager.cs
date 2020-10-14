@@ -7,7 +7,7 @@ public class DemoBattleManager : MonoBehaviour
 {
     public LoadDemoBattle loadDemoBattle;
     public SquadData squadData;
-    public BeastManager beastManager;
+    public BeastDatabase beastDatabase;
     public Attack attack;
     public HealthManager healthManager;
 
@@ -48,7 +48,14 @@ public class DemoBattleManager : MonoBehaviour
 
     void Start()
     {
-        Beast b = beastManager.getFromName("Target");
+        Beast b = new Beast();
+        b.name = "Target";
+        b.hitPoints = BeastDatabase.targetHitPoints;
+        b.defence = BeastDatabase.targetDefense;
+        b.power = BeastDatabase.targetPower;
+        b.speed = BeastDatabase.targetSpeed;
+        b.dexterity = BeastDatabase.targetSkill;
+        b.number_MOVES = 0;
         enemies.Add(b);
         enemies.Add(null);
         enemies.Add(null);
