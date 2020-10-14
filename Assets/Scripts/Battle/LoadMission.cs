@@ -15,6 +15,24 @@ public class LoadMission : MonoBehaviour
     public GameObject btnSquad1;
     public GameObject btnSquad2;
     public GameObject txtInfo;
+<<<<<<< HEAD
+=======
+
+    public HealthBar slot1Health;
+    public HealthBar slot2Health;
+    public HealthBar slot3Health;
+    public HealthBar slot4Health;
+    public HealthBar slot5Health;
+    public HealthBar slot6Health;
+    List<HealthBar> playerHealthBars = new List<HealthBar>(6);
+    public HealthBar eslot1Health;
+    public HealthBar eslot2Health;
+    public HealthBar eslot3Health;
+    public HealthBar eslot4Health;
+    public HealthBar eslot5Health;
+    public HealthBar eslot6Health;
+    List<HealthBar> enemyHealthBars = new List<HealthBar>(6);
+>>>>>>> parent of 52bf3f3... Finished health bars
 
     public Image slot1Img;
     public Image slot2Img;
@@ -90,6 +108,23 @@ public class LoadMission : MonoBehaviour
         enemySlotImg.Add(enemySlot5Img);
         enemySlotImg.Add(enemySlot6Img);
 
+<<<<<<< HEAD
+=======
+        //sorry for bad code
+        playerHealthBars.Add(slot1Health);
+        playerHealthBars.Add(slot2Health);
+        playerHealthBars.Add(slot3Health);
+        playerHealthBars.Add(slot4Health);
+        playerHealthBars.Add(slot5Health);
+        playerHealthBars.Add(slot6Health);
+        enemyHealthBars.Add(eslot1Health);
+        enemyHealthBars.Add(eslot2Health);
+        enemyHealthBars.Add(eslot3Health);
+        enemyHealthBars.Add(eslot4Health);
+        enemyHealthBars.Add(eslot5Health);
+        enemyHealthBars.Add(eslot6Health);
+
+>>>>>>> parent of 52bf3f3... Finished health bars
         enemyToLoad = missionList.enemies;
         LoadEnemySquadImages();
     }
