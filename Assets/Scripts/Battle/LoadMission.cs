@@ -10,11 +10,17 @@ public class LoadMission : MonoBehaviour
     public BattleManager battleManager;
     public BeastManager beastManager;
 
-    public GameObject grid;
+    public GameObject playerPad;
     public GameObject txtChoose;
     public GameObject btnSquad1;
     public GameObject btnSquad2;
     public GameObject txtInfo;
+    public GameObject slot1HealthBar;
+    public GameObject slot2HealthBar;
+    public GameObject slot3HealthBar;
+    public GameObject slot4HealthBar;
+    public GameObject slot5HealthBar;
+    public GameObject slot6HealthBar;
 
     public HealthBar slot1Health;
     public HealthBar slot2Health;
@@ -74,7 +80,7 @@ public class LoadMission : MonoBehaviour
 
     void Start()
     {
-        grid.SetActive(false);
+        playerPad.SetActive(false);
         if (!squadData.GetSquad1Status())
         {
             btnSquad1.SetActive(false);
@@ -121,6 +127,13 @@ public class LoadMission : MonoBehaviour
         enemyHealthBars.Add(eslot5Health);
         enemyHealthBars.Add(eslot6Health);
 
+        slot1HealthBar.SetActive(false);
+        slot2HealthBar.SetActive(false);
+        slot3HealthBar.SetActive(false);
+        slot4HealthBar.SetActive(false);
+        slot5HealthBar.SetActive(false);
+        slot6HealthBar.SetActive(false);
+
         enemyToLoad = missionList.enemies;
         LoadEnemySquadImages();
     }
@@ -148,16 +161,6 @@ public class LoadMission : MonoBehaviour
     //If enemy is there, load the corresponding image
     void LoadEnemySquadImages()
     {
-        /*
-           if (enemyToLoad[0] != "")
-        {
-            enemySlot1Img.sprite = Resources.Load<Sprite>(GetImage(enemyToLoad[0]));
-            enemySlot1 = enemyToLoad[0];
-            enemySquad.Add(enemyToLoad[0]);
-        }
-        else enemySlot1Img.gameObject.SetActive(false);
-        */
-
         for (int x = 0; x < enemyToLoad.Count; x++)
         {
             
@@ -180,7 +183,7 @@ public class LoadMission : MonoBehaviour
     //If beast is in slot, load the corresponding image
     void LoadSquadImages()
     {
-        grid.SetActive(true);
+        playerPad.SetActive(true);
         for (int x = 0; x < toLoad.Count; x++)
         {
             if (toLoad[x] != null && toLoad[x].speed == 0)
@@ -202,6 +205,13 @@ public class LoadMission : MonoBehaviour
                 activePlayersHealth.Add(null);
             }
         }
+        slot1HealthBar.SetActive(true);
+        slot2HealthBar.SetActive(true);
+        slot3HealthBar.SetActive(true);
+        slot4HealthBar.SetActive(true);
+        slot5HealthBar.SetActive(true);
+        slot6HealthBar.SetActive(true);
+
         slot1 = playerSlot[0];
         slot2 = playerSlot[1];
         slot3 = playerSlot[2];
@@ -217,9 +227,6 @@ public class LoadMission : MonoBehaviour
 
         battleManager.SendLists(thisSquad, enemySquad, activePlayersHealth, activeEnemiesHealth);
         battleManager.GetSlots(playerSlot[0], playerSlot[1], playerSlot[2], playerSlot[3], playerSlot[4], playerSlot[5], enemySlot[0], enemySlot[1], enemySlot[2], enemySlot[3], enemySlot[4], enemySlot[5]);
-
-        //battleManager.SendLists(thisSquad, enemySquad);
-        //battleManager.GetSlots(playerSlot, enemySlot);
     }
 
     //Get the images from the resources folder to be loaded
@@ -264,24 +271,5 @@ public class LoadMission : MonoBehaviour
             
         }
         return null;
-
-        /*      if(owner == "Player")
-              {
-                  if (beast == slot1) return slot1Img;
-                  else if (beast == slot2) return slot2Img;
-                  else if (beast == slot3) return slot3Img;
-                  else if (beast == slot4) return slot4Img;
-                  else if (beast == slot5) return slot5Img;
-                  else return slot6Img;
-              }
-              else
-              {
-                  if (beast == enemySlot1) return enemySlot1Img;
-                  else if (beast == enemySlot2) return enemySlot2Img;
-                  else if (beast == enemySlot3) return enemySlot3Img;
-                  else if (beast == enemySlot4) return enemySlot4Img;
-                  else if (beast == enemySlot5) return enemySlot5Img;
-                  else return enemySlot6Img;
-              }*/
     }
 }

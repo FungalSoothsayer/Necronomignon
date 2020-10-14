@@ -5742,11 +5742,17 @@ MonoBehaviour:
   missionList: {fileID: 1637945764}
   battleManager: {fileID: 1637945761}
   beastManager: {fileID: 1637945760}
-  grid: {fileID: 100430984}
+  playerPad: {fileID: 100430984}
   txtChoose: {fileID: 658825186}
   btnSquad1: {fileID: 109923736}
   btnSquad2: {fileID: 1338496267}
   txtInfo: {fileID: 1389476720}
+  slot1HealthBar: {fileID: 1011783338}
+  slot2HealthBar: {fileID: 415688509}
+  slot3HealthBar: {fileID: 1859906855}
+  slot4HealthBar: {fileID: 737815175}
+  slot5HealthBar: {fileID: 225227380}
+  slot6HealthBar: {fileID: 710381281}
   slot1Health: {fileID: 694515808}
   slot2Health: {fileID: 234868757}
   slot3Health: {fileID: 2097935840}
