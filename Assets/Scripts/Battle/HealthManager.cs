@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
-    public BeastDatabase beastDatabase;
     public BattleManager battleManager;
 
     public int player1 = 0;
@@ -65,6 +64,16 @@ public class HealthManager : MonoBehaviour
         {
             enemiesLeft += 1;
             enemy4 = opposing[3].hitPoints;
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            activeEnemiesHealth[5].SetMaxHealth(opposing[3].hitPoints);
+>>>>>>> parent of 52bf3f3... Finished health bars
+=======
+>>>>>>> parent of 1ecbd20... Merge pull request #3 from FungalSoothsayer/Health-Bar
+=======
+>>>>>>> parent of 1ecbd20... Merge pull request #3 from FungalSoothsayer/Health-Bar
         }
     }
 
