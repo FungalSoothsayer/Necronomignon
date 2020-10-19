@@ -128,14 +128,6 @@ public class BattleManager : MonoBehaviour
     //Create attack order
     void LoadOrder()
     {
-        int moves1 = 0;
-        int moves2 = 0;
-        int moves3 = 0;
-        int moves4 = 0;
-        int moves5 = 0;
-        int moves6 = 0;
-        int moves7 = 0;
-        int moves8 = 0;
         int[] moves = new int[8];
 
         //Get each players moves per round
@@ -185,9 +177,8 @@ public class BattleManager : MonoBehaviour
         List<string> wave = new List<string>();
 
         //Create an array with each speed and sort it highest to lowest
-        int[] speeds = { speed1, speed2, speed3, speed4, speed5, speed6, speed7, speed8 };
-        System.Array.Sort(speeds);
-        System.Array.Reverse(speeds);
+        System.Array.Sort(Speed);
+        System.Array.Reverse(Speed);
 
         //Clear the previous round order
         roundOrder.Clear();
@@ -199,11 +190,12 @@ public class BattleManager : MonoBehaviour
             {
                 for(int x = 0; x < 8; x++)
                 {
-                    if (x<4 && beastActive[x] && speeds[y] == players[x].speed && moves[x] > 0 && !InWave("Player " + players[x].name, wave))
+                    if (x<4 && beastActive[x] && Speed[y] == players[x].speed && moves[x] > 0 && !InWave("Player " + players[x].name, wave))
                     {
+                        print(x);
                         print(players[x]);
-                        print(Speed[x]);
-                        print(speeds[y]);
+                        print(players[x].speed + " this is speed");
+                        print(moves[x] + " moves left");
                         roundOrder.Add(players[x]);
                         roundOrderTypes.Add("Player");
                         wave.Add("Player " + players[x].name);
@@ -211,11 +203,12 @@ public class BattleManager : MonoBehaviour
                         i++;
                         break;
                     }
-                    else if(beastActive[x] && speeds[y] == enemies[x%4].speed && moves[x] > 0 && !InWave("Enemy " + enemies[x % 4].name, wave))
+                    else if(x>=4 && beastActive[x] && Speed[y] == enemies[x%4].speed && moves[x] > 0 && !InWave("Enemy " + enemies[x % 4].name, wave))
                     {
+                        print(x+"must be 4 or more");
                         print(enemies[x%4]);
-                        print(Speed[x]);
-                        print(speeds[y]);
+                        print(enemies[x % 4].speed+" this is speed");
+                        print(moves[x]+" moves left");
                         roundOrder.Add(enemies[x % 4]);
                         roundOrderTypes.Add("Enemy");
                         wave.Add("Enemy " + enemies[x % 4].name);
