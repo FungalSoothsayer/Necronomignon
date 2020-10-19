@@ -130,7 +130,26 @@ public class BattleManager : MonoBehaviour
     {
         int[] moves = new int[8];
 
+        /*int[] Moves = new int[8];
         //Get each players moves per round
+
+        for (int x = 0; x < 8; x++)
+        {
+            if (x < 4 && players[x] != null)
+            {
+                Moves[x] = players[x].number_MOVES;
+            }
+            else if (x > 3 && enemies[x % 4] != null)
+            {
+                Moves[x] = enemies[x % 4].number_MOVES;
+            }
+            else
+            {
+                Moves[x] = 0;
+            }
+        }*/
+
+
         if (player1Active) moves[0] = players[0].number_MOVES;
         if (player2Active && players[1] != null) moves[1] = players[1].number_MOVES;
         if (player3Active && players[2] != null) moves[2] = players[2].number_MOVES;
@@ -141,44 +160,35 @@ public class BattleManager : MonoBehaviour
         if (enemy4Active) moves[7] = enemies[3].number_MOVES;
 
 
-
         totalMoves = moves.Sum();
 
-        //Get each player's speed
-        int speed1 = players[0].speed;
-        int speed2 = 0;
-        int speed3 = 0;
-        int speed4 = 0;
-        int speed5 = enemies[0].speed;
-        int speed6 = enemies[1].speed;
-        int speed7 = enemies[2].speed;
-        int speed8 = enemies[3].speed;
+        List<int> Speed = new List<int>();
 
-        if(players[1] != null)
+        for(int x = 0; x < 8; x++)
         {
-            
-            speed2 = players[1].speed;
-        }
-        if (players[2] != null)
-        {
-            
-            speed3 = players[2].speed;
-        }
-        if (players[3] != null)
-        {
-            
-            speed4 = players[3].speed;
+            if(x<4&&players[x] != null)
+            {
+                Speed.Add(players[x].speed);
+            }
+            else if(x>3&&enemies[x%4] != null)
+            {
+                Speed.Add(enemies[x%4].speed);
+            }
+            else
+            {
+                Speed.Add(0);
+            }
         }
 
-        int[] Speed = { speed1, speed2, speed3, speed4, speed5, speed6, speed7, speed8 };
+        //int[] Speed = { speed1, speed2, speed3, speed4, speed5, speed6, speed7, speed8 };
         bool[] beastActive = { player1Active, player2Active, player3Active, player4Active, enemy1Active, enemy2Active, enemy3Active, enemy4Active };
         int i = 0;
 
         List<string> wave = new List<string>();
 
         //Create an array with each speed and sort it highest to lowest
-        System.Array.Sort(Speed);
-        System.Array.Reverse(Speed);
+        Speed.Sort();
+        Speed.Reverse();
 
         //Clear the previous round order
         roundOrder.Clear();
@@ -220,8 +230,6 @@ public class BattleManager : MonoBehaviour
             }
             wave.Clear();
         }
-        print(roundOrder.Count);
-        print(turn);
 
         
         
