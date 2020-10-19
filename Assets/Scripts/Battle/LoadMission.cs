@@ -21,6 +21,7 @@ public class LoadMission : MonoBehaviour
     public GameObject slot5HealthBar;
     public GameObject slot6HealthBar;
 
+    // HEALTH BARS: 
     public HealthBar slot1Health;
     public HealthBar slot2Health;
     public HealthBar slot3Health;
@@ -35,6 +36,23 @@ public class LoadMission : MonoBehaviour
     public HealthBar eslot5Health;
     public HealthBar eslot6Health;
     List<HealthBar> enemyHealthBars = new List<HealthBar>(6);
+
+    // DAMAGE BARS
+    public DamageOutput pSlot1Dmg;
+    public DamageOutput pSlot2Dmg;
+    public DamageOutput pSlot3Dmg;
+    public DamageOutput pSlot4Dmg;
+    public DamageOutput pSlot5Dmg;
+    public DamageOutput pSlot6Dmg;
+
+    public DamageOutput eSlot1Dmg;
+    public DamageOutput eSlot2Dmg;
+    public DamageOutput eSlot3Dmg;
+    public DamageOutput eSlot4Dmg;
+    public DamageOutput eSlot5Dmg;
+    public DamageOutput eSlot6Dmg;
+
+
     public Image slot1Img;
     public Image slot2Img;
     public Image slot3Img;
@@ -64,12 +82,21 @@ public class LoadMission : MonoBehaviour
     public Beast enemySlot5;
     public Beast enemySlot6;
     public List<Beast> enemySlot = new List<Beast>(6);
+
     List<Beast> thisSquad = new List<Beast>();
     List<Beast> toLoad = new List<Beast>();
     List<Beast> enemyToLoad = new List<Beast>();
     List<Beast> enemySquad = new List<Beast>();
+
     List<HealthBar> activePlayersHealth = new List<HealthBar>();
     List<HealthBar> activeEnemiesHealth = new List<HealthBar>();
+
+    List<DamageOutput> playerDamageBar = new List<DamageOutput>();
+    List<DamageOutput> activePlayerDamageBar = new List<DamageOutput>();
+
+    List<DamageOutput> enemyDamageBar = new List<DamageOutput>();
+    List<DamageOutput> activeEnemyDamageBar = new List<DamageOutput>();
+    
     int squadMissing = 0;
 
     void Start()
@@ -119,6 +146,23 @@ public class LoadMission : MonoBehaviour
         enemyHealthBars.Add(eslot5Health);
         enemyHealthBars.Add(eslot6Health);
 
+
+        playerDamageBar.Add(pSlot1Dmg);
+        playerDamageBar.Add(pSlot2Dmg);
+        playerDamageBar.Add(pSlot3Dmg);
+        playerDamageBar.Add(pSlot4Dmg);
+        playerDamageBar.Add(pSlot5Dmg);
+        playerDamageBar.Add(pSlot6Dmg);
+
+        enemyDamageBar.Add(eSlot1Dmg);
+        enemyDamageBar.Add(eSlot2Dmg);
+        enemyDamageBar.Add(eSlot3Dmg);
+        enemyDamageBar.Add(eSlot4Dmg);
+        enemyDamageBar.Add(eSlot5Dmg);
+        enemyDamageBar.Add(eSlot6Dmg);
+
+
+
         slot1HealthBar.SetActive(false);
         slot2HealthBar.SetActive(false);
         slot3HealthBar.SetActive(false);
@@ -159,12 +203,14 @@ public class LoadMission : MonoBehaviour
                 enemySlot.Add(enemyToLoad[x]);
                 enemySquad.Add(enemyToLoad[x]);
                 activeEnemiesHealth.Add(enemyHealthBars[x]);
+                activeEnemyDamageBar.Add(enemyDamageBar[x]);
             }
             else
             {
                 enemySlotImg[x].gameObject.SetActive(false);
                 enemySlot.Add(null);
                 activeEnemiesHealth.Add(null);
+                activeEnemyDamageBar.Add(null);
             }
         }
     }
@@ -183,7 +229,11 @@ public class LoadMission : MonoBehaviour
                 playerSlotImg[x].sprite = Resources.Load<Sprite>(toLoad[x].static_img);
                 playerSlot.Add(beastManager.getFromName(toLoad[x].name));
                 thisSquad.Add(beastManager.getFromName(toLoad[x].name));
+
                 activePlayersHealth.Add(playerHealthBars[x]);
+                
+                activePlayerDamageBar.Add(playerDamageBar[x]);
+                
 
             }
             else
@@ -191,7 +241,9 @@ public class LoadMission : MonoBehaviour
                 playerSlotImg[x].gameObject.SetActive(false);
                 playerSlot.Add(null);
                 activePlayersHealth.Add(null);
+                activePlayerDamageBar.Add(null);
             }
+            
         }
         slot1HealthBar.SetActive(true);
         slot2HealthBar.SetActive(true);
@@ -213,7 +265,9 @@ public class LoadMission : MonoBehaviour
         enemySlot5 = enemySlot[4];
         enemySlot6 = enemySlot[5];
 
-        battleManager.SendLists(thisSquad, enemySquad, activePlayersHealth, activeEnemiesHealth);
+
+
+        battleManager.SendLists(thisSquad, enemySquad, activePlayersHealth, activeEnemiesHealth, activePlayerDamageBar, activeEnemyDamageBar);
         battleManager.GetSlots(playerSlot[0], playerSlot[1], playerSlot[2], playerSlot[3], playerSlot[4], playerSlot[5], enemySlot[0], enemySlot[1], enemySlot[2], enemySlot[3], enemySlot[4], enemySlot[5]);
     }
 

@@ -20,17 +20,28 @@ public class HealthManager : MonoBehaviour
 
     List<HealthBar> playerHealthBars = new List<HealthBar>();
     List<HealthBar> enemyHealthBars = new List<HealthBar>();
+
+
+    List<DamageOutput> playerDamageBar = new List<DamageOutput>();
+    List<DamageOutput> enemyDamageBar = new List<DamageOutput>();
+
+
     List<Beast> squad = new List<Beast>();
     List<Beast> enemies = new List<Beast>();
 
     //Get the health for each beast in play from BeastDatabase
-    public void GetHealth(List<Beast> players, List<Beast> opposing, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth)
+    public void GetHealth(List<Beast> players, List<Beast> opposing, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth, List<DamageOutput> activePlayerDamage, List<DamageOutput> activeEnemyDamage)
     {
         for (int i = 5; i >= 0; i--)
         {
             if (activePlayersHealth[i] == null)
             {
                 activePlayersHealth.RemoveAt(i);
+            }
+
+            if(activePlayerDamage[i] == null)
+            {
+                activePlayerDamage.RemoveAt(i);
             }
         }
 
@@ -40,6 +51,11 @@ public class HealthManager : MonoBehaviour
             {
                 activeEnemiesHealth.RemoveAt(i);
             }
+
+            if(activeEnemyDamage[i] == null)
+            {
+                activeEnemyDamage.RemoveAt(i);
+            }
         }
 
         squad = players;
@@ -47,24 +63,35 @@ public class HealthManager : MonoBehaviour
         playerHealthBars = activePlayersHealth;
         enemyHealthBars = activeEnemiesHealth;
 
+        print(activePlayerDamage[0]+" - "+ activePlayerDamage[1] + " - " + activePlayerDamage[2] + " - " + activePlayerDamage[3] + " - LIST OF ACTIVE SLOTS");
+
+        playerDamageBar = activePlayerDamage;
+        enemyDamageBar = activeEnemyDamage;
+
         player1 = players[0].hitPoints;
         activePlayersHealth[0].SetMaxHealth(players[0].hitPoints);
+        
+
         if (players[1] != null)
         {
             player2 = players[1].hitPoints;
             activePlayersHealth[1].SetMaxHealth(players[1].hitPoints);
+           
+          
         }
         else playersLeft--;
         if (players[2] != null)
         {
             player3 = players[2].hitPoints;
             activePlayersHealth[2].SetMaxHealth(players[2].hitPoints);
+            
         }
         else playersLeft--;
         if (players[3] != null)
         {
             player4 = players[3].hitPoints;
             activePlayersHealth[3].SetMaxHealth(players[3].hitPoints);
+            
         }
         else playersLeft--;
         if (opposing[0] != null)
@@ -100,6 +127,9 @@ public class HealthManager : MonoBehaviour
         {
             squad[0].hitPoints -= damage;
             playerHealthBars[0].SetHealth(squad[0].hitPoints);
+            print(playerDamageBar[0]+" THIS IS PLAYER DAMAGE BAR INDEX 0");
+            playerDamageBar[0].setText(damage);
+
             if (squad[0].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
@@ -108,6 +138,7 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
+                
                 DisplayHealthLeft(target, squad[0].hitPoints);
             }
         }
@@ -115,6 +146,9 @@ public class HealthManager : MonoBehaviour
         {
             squad[1].hitPoints -= damage;
             playerHealthBars[1].SetHealth(squad[1].hitPoints);
+            print(playerDamageBar[1] + " THIS IS PLAYER DAMAGE BAR INDEX 1");
+            playerDamageBar[1].setText(damage);
+
             if (squad[1].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
@@ -122,7 +156,7 @@ public class HealthManager : MonoBehaviour
                 battleManager.RemoveBeast("player2");
             }
             else
-            {
+            {             
                 DisplayHealthLeft(target, squad[1].hitPoints);
             }
         }
@@ -130,6 +164,10 @@ public class HealthManager : MonoBehaviour
         {
             squad[2].hitPoints -= damage;
             playerHealthBars[2].SetHealth(squad[2].hitPoints);
+            print(playerDamageBar[2] + " THIS IS PLAYER DAMAGE BAR INDEX 2");
+            playerDamageBar[2].setText(damage);
+            
+
             if (squad[2].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
@@ -145,6 +183,9 @@ public class HealthManager : MonoBehaviour
         {
             squad[3].hitPoints -= damage;
             playerHealthBars[3].SetHealth(squad[3].hitPoints);
+            print(playerDamageBar[3] + " THIS IS PLAYER DAMAGE BAR INDEX 2");
+            playerDamageBar[3].setText(damage);
+
             if (squad[3].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
@@ -160,6 +201,9 @@ public class HealthManager : MonoBehaviour
         {
             enemies[0].hitPoints -= damage;
             enemyHealthBars[0].SetHealth(enemies[0].hitPoints);
+            print(enemyDamageBar[0] + " THIS IS ENEMY DAMAGE BAR INDEX 0");
+            enemyDamageBar[0].setText(damage);
+
             if (enemies[0].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
@@ -175,6 +219,9 @@ public class HealthManager : MonoBehaviour
         {
             enemies[1].hitPoints -= damage;
             enemyHealthBars[1].SetHealth(enemies[1].hitPoints);
+            print(enemyDamageBar[1] + " THIS IS ENEMY DAMAGE BAR INDEX 0");
+            enemyDamageBar[1].setText(damage);
+
             if (enemies[1].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
@@ -190,6 +237,9 @@ public class HealthManager : MonoBehaviour
         {
             enemies[2].hitPoints -= damage;
             enemyHealthBars[2].SetHealth(enemies[2].hitPoints);
+            print(enemyDamageBar[2] + " THIS IS ENEMY DAMAGE BAR INDEX 0");
+            enemyDamageBar[2].setText(damage);
+
             if (enemies[2].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
@@ -205,6 +255,9 @@ public class HealthManager : MonoBehaviour
         {
             enemies[3].hitPoints -= damage;
             enemyHealthBars[3].SetHealth(enemies[3].hitPoints);
+            print(enemyDamageBar[3] + " THIS IS ENEMY DAMAGE BAR INDEX 0");
+            enemyDamageBar[3].setText(damage);
+
             if (enemies[3].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
