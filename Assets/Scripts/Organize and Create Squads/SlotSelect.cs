@@ -25,7 +25,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             if (Input.GetMouseButtonDown(0) && !createManager.saveMode)
             {
                 if (createManager.canBePlaced && createManager.placing) SetImage();
-                else if(createManager.moving && !createManager.placing) MoveImage();
+                else if (createManager.moving && !createManager.placing) MoveImage();
                 else EditPlace();
             }
         }
@@ -46,6 +46,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Set the placed beast image to this slot's image
     void SetImage()
     {
+        print("setimage");
         gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex]);
         gameObject.GetComponent<Image>().color = Color.white;
         //gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(125, 125);
@@ -108,6 +109,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Set the CreateManager's variables to reflect the selected beast
     void SetSlot()
     {
+        print("setslot");
         print(createManager.selectedIndex);
         print(createManager.selectedSlotID);
         if (gameObject.name == "Slot1")
@@ -146,47 +148,22 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 return "EmptyRectangle";
             }
         }
-/*
-        if(createManager.selected == "Gaia")
-        {
-            return "EmptyRectangle";
-        }
-        else if(createManager.selected == "Cthulhu")
-        {
-            return "EmptyRectangle";
-        }
-        else if(createManager.selected == "Trogdor")
-        {
-            return "EmptyRectangle";
-        }
-        else if(createManager.selected == "Naglfar")
-        {
-            return "EmptyRectangle";
-        }
-        else if(createManager.selected == "Behemoth")
-        {
-            return "EmptyRectangle";
-        }
-        else if(createManager.selected == "Sunbather")
-        {
-            return "EmptyRectangle";
-        }
-        else
-        {
-            return "";
-        }*/
         return "";
     }
 
     //Select this beast and give options to move to another slot or remove from the grid
     void EditPlace()
     {
-            createManager.selected = thisBeast;
-            createManager.selectedIndex = thisBeastIndex;
-            createManager.selectedSlotID = slotID;
-            createManager.LightUpSlots();
-            createManager.removeButton.SetActive(true);
-            createManager.moving = true;
+        print("editplace");
+        createManager.selected = thisBeast;
+        print(createManager.selected);
+        createManager.selectedIndex = thisBeastIndex;
+        print(createManager.selectedIndex);
+        createManager.selectedSlotID = slotID;
+        print(createManager.selectedSlotID);
+        createManager.LightUpSlots();
+        createManager.removeButton.SetActive(true);
+        createManager.moving = true;
     }
 
     //Move this beast to another slot
@@ -195,12 +172,14 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         //print(createManager.selectedSlotID + " SlotID");
         //print(createManager.selectedIndex+" Index");
         //print(createManager.selected);
+
+        print("moveimage");
         if (slotID != createManager.selectedSlotID)
         {
-                gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex]);
-                gameObject.GetComponent<Image>().color = Color.white;
-                SetSlot();
-                createManager.RemoveSlotImage();
+            gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex]);
+            gameObject.GetComponent<Image>().color = Color.white;
+            SetSlot();
+            createManager.RemoveSlotImage();
         }
     }
 }
