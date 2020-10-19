@@ -16,7 +16,6 @@ public class Attack : MonoBehaviour
 
     public void InitiateAttack(Beast attacker, Beast target, bool inFront)
     {
-        
 
         if (beastManager.moveManager.movesList == null)
         {
@@ -27,7 +26,6 @@ public class Attack : MonoBehaviour
         {
             attacker.Move_A = beastManager.getMove(attacker.moveA);
         }
-        
 
 
         if (attacker != null && target != null)
@@ -35,16 +33,14 @@ public class Attack : MonoBehaviour
             {
                 return;
             }
- //           for (int x = attacker.number_MOVES; x > 0; x--)
-   //         {
                 if (!isMiss(attacker, target))
                 {
                     modifier *= isCrit(attacker, target);
                     modifier *= isGuard(attacker, target);
                     CalculateDamage(attacker, target, inFront);
                 }
-                modifier = 1;
-     //       }
+
+        modifier = 1;
     }
 
     private bool isMiss(Beast attacker, Beast target)
@@ -76,7 +72,7 @@ public class Attack : MonoBehaviour
         //(d20roll) + ({Attacker.Speed/2} + Attacker.Skill)/({Target.Speed/2} + Target.Skill)
         int rand = Random.Range(1, 20);
         float criticalChance = rand + (((attacker.speed / 2) + attacker.dexterity) / (target.speed / 2) + target.dexterity);
-
+        
 
         float ra = (float)(rand + target.defence / attacker.power);
         int critChance = (int)Mathf.Round(ra);
@@ -123,6 +119,7 @@ public class Attack : MonoBehaviour
         attacker.setAttacks();
         float dmg;
         //Calculates the damage if the attacker is in row A
+
         if (inFront)
         {
             dmg = attacker.power * attacker.Move_A.power / target.defence;
@@ -133,6 +130,7 @@ public class Attack : MonoBehaviour
             dmg = attacker.power * attacker.Move_B.power / target.defence;
             print(attacker.Move_B.name);
         }
+
         float vary = 0.89f;
 
         float vary2 = Random.Range(1, 20);
