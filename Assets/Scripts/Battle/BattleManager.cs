@@ -1,6 +1,7 @@
 ﻿//using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -135,18 +136,21 @@ public class BattleManager : MonoBehaviour
         int moves6 = 0;
         int moves7 = 0;
         int moves8 = 0;
+        int[] moves = new int[8];
 
         //Get each players moves per round
-        if (player1Active) moves1 = players[0].number_MOVES;
-        if (player2Active && players[1] != null) moves2 = players[1].number_MOVES;
-        if (player3Active && players[2] != null) moves3 = players[2].number_MOVES;
-        if (player4Active && players[3] != null) moves4 = players[3].number_MOVES;
-        if (enemy1Active) moves5 = enemies[0].number_MOVES;
-        if (enemy2Active) moves6 = enemies[1].number_MOVES;
-        if (enemy3Active) moves7 = enemies[2].number_MOVES;
-        if (enemy4Active) moves8 = enemies[3].number_MOVES;
+        if (player1Active) moves[0] = players[0].number_MOVES;
+        if (player2Active && players[1] != null) moves[1] = players[1].number_MOVES;
+        if (player3Active && players[2] != null) moves[2] = players[2].number_MOVES;
+        if (player4Active && players[3] != null) moves[3] = players[3].number_MOVES;
+        if (enemy1Active) moves[4] = enemies[0].number_MOVES;
+        if (enemy2Active) moves[5] = enemies[1].number_MOVES;
+        if (enemy3Active) moves[6] = enemies[2].number_MOVES;
+        if (enemy4Active) moves[7] = enemies[3].number_MOVES;
 
-        totalMoves = moves1 + moves2 + moves3 + moves4 + moves5 + moves6 + moves7 + moves8;
+
+
+        totalMoves = moves.Sum();
 
         //Get each player's speed
         int speed1 = players[0].speed;
@@ -174,6 +178,8 @@ public class BattleManager : MonoBehaviour
             speed4 = players[3].speed;
         }
 
+        int[] Speed = { speed1, speed2, speed3, speed4, speed5, speed6, speed7, speed8 };
+        bool[] beastActive = { player1Active, player2Active, player3Active, player4Active, enemy1Active, enemy2Active, enemy3Active, enemy4Active };
         int i = 0;
 
         List<string> wave = new List<string>();
@@ -186,87 +192,46 @@ public class BattleManager : MonoBehaviour
         //Clear the previous round order
         roundOrder.Clear();
         roundOrderTypes.Clear();
-
         //Loop through the speed array and find the corresponding beast and add them to the round order
         while (i < totalMoves)
         {
-            for (int x = 0; x < 8; x++)
+            for(int y = 0; y < 8; y++)
             {
-                if (player1Active && speeds[x] == speed1 && moves1 > 0 && !InWave("Player " + players[0].name, wave))
+                for(int x = 0; x < 8; x++)
                 {
-                    print(players[0].name);
-                    roundOrder.Add(players[0]);
-                    roundOrderTypes.Add("Player");
-                    wave.Add("Player " + players[0].name);
-                    moves1--;
-                    i++;
-                }
-                else if (player2Active && speeds[x] == speed2 && moves2 > 0 && !InWave("Player " + players[1].name, wave))
-                {
-                    print(players[1].name);
-                    roundOrder.Add(players[1]);
-                    roundOrderTypes.Add("Player");
-                    wave.Add("Player " + players[1].name);
-                    moves2--;
-                    i++;
-                }
-                else if (player3Active && speeds[x] == speed3 && moves3 > 0 && !InWave("Player " + players[2].name, wave))
-                {
-                    print(players[2].name);
-                    roundOrder.Add(players[2]);
-                    roundOrderTypes.Add("Player");
-                    wave.Add("Player " + players[2].name);
-                    moves3--;
-                    i++;
-                }
-                else if (player4Active && speeds[x] == speed4 && moves4 > 0 && !InWave("Player " + players[3].name, wave))
-                {
-                    print(players[3].name);
-                    roundOrder.Add(players[3]);
-                    roundOrderTypes.Add("Player");
-                    wave.Add("Player " + players[3].name);
-                    moves4--;
-                    i++;
-                }
-                else if (enemy1Active && speeds[x] == speed5 && moves5 > 0 && !InWave("Enemy " + enemies[0].name, wave))
-                {
-                    print(enemies[0].name);
-                    roundOrder.Add(enemies[0]);
-                    roundOrderTypes.Add("Enemy");
-                    wave.Add("Enemy " + enemies[0].name);
-                    moves5--;
-                    i++;
-                }
-                else if (enemy2Active && speeds[x] == speed6 && moves6 > 0 && !InWave("Enemy " + enemies[1].name, wave))
-                {
-                    print(enemies[1].name);
-                    roundOrder.Add(enemies[1]);
-                    roundOrderTypes.Add("Enemy");
-                    wave.Add("Enemy " + enemies[1].name);
-                    moves6--;
-                    i++;
-                }
-                else if (enemy3Active && speeds[x] == speed7 && moves7 > 0 && !InWave("Enemy " + enemies[2].name, wave))
-                {
-                    print(enemies[2].name);
-                    roundOrder.Add(enemies[2]);
-                    roundOrderTypes.Add("Enemy");
-                    wave.Add("Enemy " + enemies[2].name);
-                    moves7--;
-                    i++;
-                }
-                else if (enemy4Active && speeds[x] == speed8 && moves8 > 0 && !InWave("Enemy " + enemies[3].name, wave))
-                {
-                    print(enemies[3].name);
-                    roundOrder.Add(enemies[3]);
-                    roundOrderTypes.Add("Enemy");
-                    wave.Add("Enemy " + enemies[3].name);
-                    moves8--;
-                    i++;
+                    if (x<4 && beastActive[x] && speeds[y] == players[x].speed && moves[x] > 0 && !InWave("Player " + players[x].name, wave))
+                    {
+                        print(players[x]);
+                        print(Speed[x]);
+                        print(speeds[y]);
+                        roundOrder.Add(players[x]);
+                        roundOrderTypes.Add("Player");
+                        wave.Add("Player " + players[x].name);
+                        moves[x]--;
+                        i++;
+                        break;
+                    }
+                    else if(beastActive[x] && speeds[y] == enemies[x%4].speed && moves[x] > 0 && !InWave("Enemy " + enemies[x % 4].name, wave))
+                    {
+                        print(enemies[x%4]);
+                        print(Speed[x]);
+                        print(speeds[y]);
+                        roundOrder.Add(enemies[x % 4]);
+                        roundOrderTypes.Add("Enemy");
+                        wave.Add("Enemy " + enemies[x % 4].name);
+                        moves[x]--;
+                        i++;
+                        break;
+                    }
                 }
             }
             wave.Clear();
         }
+        print(roundOrder.Count);
+        print(turn);
+
+        
+        
 
         currentTurn = roundOrder[turn];
         //print(currentTurn);
@@ -483,363 +448,5 @@ public class BattleManager : MonoBehaviour
     }
 
 
-    /*
-    public HealthManager healthManager;
-    public BeastDatabase beastDatabase;
-    public Attack attack;
-    public LoadMission loadMission;
-
-    public Text txtTurn;
-
-    public List<Beast> players = new List<Beast>(8);
-
-    public List<Beast> roundOrder = new List<Beast>(); //attack order per round
-
-    public List<string> roundOrderTypes = new List<string>();
-
-    public List<Beast> attackPool = new List<Beast>(); //
-
-    public List<Beast> playerSlot = new List<Beast>(6); //what slot your beasts are in
-
-    public List<Beast> enemySlot = new List<Beast>(6); //what slot your enemys beasts are in
-
-    public List<bool> playerActive = new List<bool>(8); //if your beast is still alive
-
-    public List<int> playersTurnTaken = new List<int>();
-
-
-    public int turn = 0;
-    int totalMoves;
-//    int totalBeasts = 8;
-
-    public Beast currentTurn;
-
-
-    string slot1;
-    string slot2;
-    string slot3;
-    string slot4;
-    string slot5;
-    string slot6;
-    public string enemySlot1;
-    public string enemySlot2;
-    public string enemySlot3;
-    public string enemySlot4;
-    public string enemySlot5;
-    public string enemySlot6;
-
-    public bool player1Active = true;
-    public bool player2Active = true;
-    public bool player3Active = true;
-    public bool player4Active = true;
-    public bool enemy1Active = true;
-    public bool enemy2Active = true;
-    public bool enemy3Active = true;
-    public bool enemy4Active = true;
-
-    int player1TurnsTaken;
-    int player2TurnsTaken;
-    int player3TurnsTaken;
-    int player4TurnsTaken;
-    int enemy1TurnsTaken;
-    int enemy2TurnsTaken;
-    int enemy3TurnsTaken;
-    int enemy4TurnsTaken;
-
-    //Get lists from LoadMission and add the players to the attack pool
-    public void SendLists(List<Beast> thisSquad, List<Beast> enemySquad)
-    {
-
-        for (int x = 0; x < thisSquad.Count; x++)
-        {
-
-            players.Add(thisSquad[x]);
-
-            if (players.Count == thisSquad.Count && thisSquad.Count < 4 && x < thisSquad.Count)
-            {
-                if (thisSquad.Count < 2)
-                {
-                    players.Add(null);
-                    attackPool.Add(null);
-                }
-                if (thisSquad.Count < 3)
-                {
-                    players.Add(null);
-                    attackPool.Add(null);
-                }
-
-                players.Add(null);
-                attackPool.Add(null);
-
-            }
-            attackPool.Add(players[x]);
-        }
-        for (int x = 4; x < 4 + enemySquad.Count; x++)
-        {
-            players.Add(enemySquad[x % 4]);
-
-            if (players.Count - 4 == enemySquad.Count && enemySquad.Count < 4 && x % 4 < enemySquad.Count)
-            {
-                if (enemySquad.Count < 2)
-                {
-                    players.Add(null);
-                    attackPool.Add(null);
-                }
-                if (enemySquad.Count < 3)
-                {
-                    players.Add(null);
-                    attackPool.Add(null);
-                }
-
-                players.Add(null);
-                attackPool.Add(null);
-
-            }
-        }
-        for (int x = 0; x < players.Count; x++)
-        {
-            if (players[x] != null)
-                playerActive.Add(true);
-            else
-                playerActive.Add(false);
-        }
-
-        //attack.healthManager.GetHealth(players);
-        LoadOrder();
-        ClearTurns();
-    }
-
-    //Get the slot info for each beast from LoadMission
-    public void GetSlots(List<Beast> playerSlot, List<Beast> enemySlot) 
-    {
-        this.playerSlot = playerSlot;
-        this.enemySlot = enemySlot;
-    }
-
-    //Create attack order
-    void LoadOrder()
-    {
-        List<int> moves = new List<int>();
-
-        //Get each players moves per round
-        for (int x = 0; x < players.Count; x++)
-        {
-            if (playerActive[x] && players[x] != null)
-            { moves.Add(players[x].number_MOVES); }
-            else if (players[x] == null)
-            {
-                moves.Add(0);
-            }
-        }
-
-        for (int x = 0; x < moves.Count; x++)
-        {
-            totalMoves += moves[x];
-        }
-
-        //Get each player's speed
-        int[] speed = new int[8];
-
-        for (int x = 0; x < players.Count; x++)
-        {
-            if (players[x] != null)
-            {
-                speed[x] = players[x].speed;
-            }
-            else
-                speed[x] = 0;
-        }
-
-        int i = 0;
-
-        List<Beast> wave = new List<Beast>();
-
-        //Create an array with each speed and sort it highest to lowest
-
-        System.Array.Sort(speed);
-        System.Array.Reverse(speed);
-
-        //Clear the previous round order
-        roundOrder.Clear();
-        roundOrderTypes.Clear();
-
-        //Loop through the speed array and find the corresponding beast and add them to the round order
-        while (i < totalMoves)
-        {
-            for (int x = 0; x < 8; x++)
-            {
-                for (int y = 0; y < players.Count; y++)
-                {
-
-                    if (players[y] != null && playerActive[y] && players[y].speed == speed[x] && moves[y] > 0 && !InWave(players[y], wave))
-                    {
-                        roundOrder.Add(players[y]);
-                        if (y < 4)
-                            roundOrderTypes.Add("Player");
-                        else
-                            roundOrderTypes.Add("Enemy");
-                        wave.Add(players[y]);
-                        moves[y]--;
-                        i++;
-                        break;
-                    }
-                    else if (players[y] != null)
-                    {
-                        i++;
-                    }
-                    else
-                        roundOrder.Add(null);
-                }
-            }
-            wave.Clear();
-        }
-
-        currentTurn = roundOrder[turn];
-        txtTurn.text = roundOrderTypes[0] + " " + currentTurn + "'s turn";
-    }
-
-    //Check to see of beast is used in the loop yet
-    bool InWave(Beast beast, List<Beast> wave)
-    {
-        for (int i = 0; i < wave.Count; i++)
-        {
-            if (wave[i].Equals(beast))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void TakeTurn()
-    {
-        print("ROUND ORDER COUNT IN TAKE TURNS: "+roundOrder.Count);
-        while (roundOrder.Count - 2 >= turn)
-        {
-            turn++;
-            if (roundOrder[turn % 8] != null)
-            {
-                currentTurn = roundOrder[turn % 8];
-                txtTurn.text = roundOrderTypes[turn] + " " + currentTurn + " 's turn";
-                StartCoroutine(EnemyAttack());
-                break;
-            }
-        }
-    }
-
-    public void Attack(Beast target)
-    {
-        //Check to see if the round is still going and then run an attack
-        if (turn == totalMoves - 1)
-        {
-            attack.InitiateAttack(currentTurn, target);
-            Debug.Log("Round Ended");
-            ClearTurns();
-            currentTurn = roundOrder[0];
-            txtTurn.text = roundOrderTypes[0] + " " + currentTurn + "'s turn";
-            turn = 0;
-        }
-        else
-        {
-            attack.InitiateAttack(currentTurn, target);
-            AddTurn();
-            TakeTurn();
-        }
-    }
-
-    IEnumerator EnemyAttack()
-    {
-        yield return new WaitForSeconds(1f);
-        Attack(GetEnemyTarget());
-    }
-
-    //Enemy targets a random player from a pool of active player beasts
-    Beast GetEnemyTarget()
-    {
-        while (true)
-        {
-            int rand = 0;
-            for (int x = 0; x < players.Count; x++)
-            {
-                if (players[x] != null && currentTurn != null && currentTurn.Equals(players[x]))
-                {
-                    if (x < 4)
-                    {
-                        rand = Random.Range(players.Count - 4, players.Count-1);
-                    }
-                    else
-                    {
-                        rand = Random.Range(0, players.Count - 3);
-                    }
-                }
-            }
-
-            if (players[rand] != null && playerActive[rand])
-            {
-                return players[rand];
-            }
-        }
-    }
-
-    //Get the row to determine whether the attacker is using an A move or a B move
-    Move GetRow()
-    {
-        for (int x = 0; x < playerSlot.Count; x++)
-        {
-            if (currentTurn == playerSlot[x] || currentTurn == enemySlot[x])
-            {
-                if (x < 4)
-                    return currentTurn.Move_A;
-                else
-                    return currentTurn.Move_B;
-            }
-        }
-        return null; //beacause Manoli is super needy
-    }
-
-    //Remove the desired beast by setting its active variable to false and removing image
-    public void RemoveBeast(Beast beast)
-    {
-        for (int x = 0; x < players.Count; x++)
-        {
-
-            if (players[x] != null && beast.id == players[x].id)
-            {
-                playerActive[x] = false;
-                attackPool[x] = null;
-               // loadMission.RemoveImage(players[x], "Player"); COME BACK AND FIX INSIDE LOADMISSION CLASS
-                turn -= playersTurnTaken[x];
-                break;
-            }
-        }
-        LoadOrder(); //Re Create the round order
-    }
-
-    //Add turn to keep track of how many times a beast has went in the round
-    //Used to keep track of how much the turn variable has to be edited by when a beast gets knocked out
-    void AddTurn()
-    {
-        for (int x = 0; x < players.Count; x++)
-        {
-            if (currentTurn.Equals(players[x])) playersTurnTaken[x] += 1;
-        }
-    }
-
-    void ClearTurns()
-    {
-        if (playersTurnTaken.Count < 8)
-        {
-            for (int x = 0; x < players.Count; x++)
-            {
-                playersTurnTaken.Add(0);
-            }
-        }
-        else
-        {
-            for (int x = 0; x < players.Count; x++)
-            {
-                playersTurnTaken[x] = 0;
-            }
-        }
-    }*/
+   
 }
