@@ -63,7 +63,7 @@ public class HealthManager : MonoBehaviour
         playerHealthBars = activePlayersHealth;
         enemyHealthBars = activeEnemiesHealth;
 
-        print(activePlayerDamage[0]+" - "+ activePlayerDamage[1] + " - " + activePlayerDamage[2] + " - " + activePlayerDamage[3] + " - LIST OF ACTIVE SLOTS");
+        
 
         playerDamageBar = activePlayerDamage;
         enemyDamageBar = activeEnemyDamage;
