@@ -7514,6 +7514,145 @@ MonoBehaviour:
       power: 0
       condition_chance: 0
     static_img: 
+  enemySlots:
+  - name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: 0
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
+    moveB: 0
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
+    static_img: 
+  - name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: 0
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
+    moveB: 0
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
+    static_img: 
+  - name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: 0
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
+    moveB: 0
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
+    static_img: 
+  - name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: 0
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
+    moveB: 0
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
+    static_img: 
+  - name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: 0
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
+    moveB: 0
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
+    static_img: 
+  - name: 
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    moveA: 0
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
+    moveB: 0
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      condition_chance: 0
+    static_img: 
   player1Active: 1
   player2Active: 1
   player3Active: 1
