@@ -71,4 +71,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle/BattleSceenes.unity
     guid: dea74c0c5f81181488333c5f1d72091f
+  - enabled: 1
+    path: Assets/Scenes/Battle/RandomFight.unity
+    guid: 5fc1ae34d98b6c14b81dcf9c49c3f7fc
   m_configObjects: {}
