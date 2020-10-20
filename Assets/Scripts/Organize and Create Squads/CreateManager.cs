@@ -6,22 +6,22 @@ public class CreateManager : MonoBehaviour
 {
     public CreatePoolLoader createPoolLoader;
 
-    public GameObject slot1Obj;
+   /* public GameObject slot1Obj;
     public GameObject slot2Obj;
     public GameObject slot3Obj;
     public GameObject slot4Obj;
     public GameObject slot5Obj;
-    public GameObject slot6Obj;
+    public GameObject slot6Obj;*/
     public List<GameObject> slotObjs;
     public GameObject cancelButton;
     public GameObject removeButton;
 
-    public Beast slot1;
+   /* public Beast slot1;
     public Beast slot2;
     public Beast slot3;
     public Beast slot4;
     public Beast slot5;
-    public Beast slot6;
+    public Beast slot6;*/
     public List<Beast> slots;
 
 
@@ -40,12 +40,18 @@ public class CreateManager : MonoBehaviour
     void Start()
     {
         //Set objects inactive to start
-        slot1Obj.SetActive(false);
+
+        foreach(GameObject go in slotObjs)
+        {
+            go.SetActive(false);
+        }
+
+        /*slot1Obj.SetActive(false);
         slot2Obj.SetActive(false);
         slot3Obj.SetActive(false);
         slot4Obj.SetActive(false);
         slot5Obj.SetActive(false);
-        slot6Obj.SetActive(false);
+        slot6Obj.SetActive(false);*/
         cancelButton.SetActive(false);
         removeButton.SetActive(false);
     }
@@ -53,24 +59,35 @@ public class CreateManager : MonoBehaviour
     //Set all slot lights and cancel button active 
     public void LightUpSlots()
     {
-        slot1Obj.SetActive(true);
+
+        foreach (GameObject go in slotObjs)
+        {
+            go.SetActive(true);
+        }
+        /*slot1Obj.SetActive(true);
         slot2Obj.SetActive(true);
         slot3Obj.SetActive(true);
         slot4Obj.SetActive(true);
         slot5Obj.SetActive(true);
-        slot6Obj.SetActive(true);
+        slot6Obj.SetActive(true);*/
         cancelButton.SetActive(true);
     }
 
     //Set all slots that do not have a beast placed in it to inactive
     public void TurnOffSlots()
     {
-
-        if(slot1 == null || slot1.speed == 0)
+        for(int x = 0; x < slots.Count; x++)
+        {
+            if (slots[x] == null || slots[x].speed == 0)
+            {
+                slotObjs[x].SetActive(false);
+            }
+        }
+        /*if (slot1 == null || slot1.speed == 0)
         {
             slot1Obj.SetActive(false);
         }
-        if(slot2 == null || slot2.speed == 0)
+        if (slot2 == null || slot2.speed == 0)
         {
             slot2Obj.SetActive(false);
         }
@@ -89,7 +106,7 @@ public class CreateManager : MonoBehaviour
         if (slot6 == null || slot6.speed == 0)
         {
             slot6Obj.SetActive(false);
-        }
+        }*/
         cancelButton.SetActive(false);
     }
 
@@ -114,8 +131,10 @@ public class CreateManager : MonoBehaviour
     //Remove the image in a slot and remove it from selected variables
     public void RemoveSlotImage()
     {
-        
-        switch (selectedSlotID)
+
+        GameObject.Find("Slot"+selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
+        slots[selectedSlotID-1] = null;
+        /*switch (selectedSlotID)
         {
             case 1:
                 GameObject.Find("Slot1").GetComponent<SlotSelect>().RemoveImage();
@@ -141,7 +160,7 @@ public class CreateManager : MonoBehaviour
                 GameObject.Find("Slot6").GetComponent<SlotSelect>().RemoveImage();
                 slot6 = null;
                 break;
-        }
+        }*/
         selected = null;
         selectedIndex = -1;
         placed -= 1;
@@ -153,7 +172,11 @@ public class CreateManager : MonoBehaviour
 
     public bool isAvailable(int x)
     {
-        switch (x)
+        if (slots[x - 1] != null && slots[x-1].speed ==0)
+        {
+            return true;
+        }
+        /*switch (x)
         {
             case 1: 
                 if(slot1 != null && slot1.speed == 0)
@@ -191,7 +214,7 @@ public class CreateManager : MonoBehaviour
                     return true;
                 }
                 break;
-        }
+        }*/
         return false;
     }
 

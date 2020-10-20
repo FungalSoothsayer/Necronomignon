@@ -42,23 +42,31 @@ public class SaveSquad : MonoBehaviour
         if (squadNumber == 1)
         {
             squadData.ClearList(1);
-            squadData.AddToList(1, createManager.slot1);
+            foreach(Beast b in createManager.slots)
+            {
+                squadData.AddToList(1, b);
+            }
+            /*squadData.AddToList(1, createManager.slot1);
             squadData.AddToList(1, createManager.slot2);
             squadData.AddToList(1, createManager.slot3);
             squadData.AddToList(1, createManager.slot4);
             squadData.AddToList(1, createManager.slot5);
-            squadData.AddToList(1, createManager.slot6);
+            squadData.AddToList(1, createManager.slot6);*/
             squadData.ChangeSquadSavedStatus(1);
         }
         else if (squadNumber == 2)
         {
             squadData.ClearList(2);
-            squadData.AddToList(2, createManager.slot1);
+            foreach (Beast b in createManager.slots)
+            {
+                squadData.AddToList(2, b);
+            }
+            /*squadData.AddToList(2, createManager.slot1);
             squadData.AddToList(2, createManager.slot2);
             squadData.AddToList(2, createManager.slot3);
             squadData.AddToList(2, createManager.slot4);
             squadData.AddToList(2, createManager.slot5);
-            squadData.AddToList(2, createManager.slot6);
+            squadData.AddToList(2, createManager.slot6);*/
             squadData.ChangeSquadSavedStatus(2);
         }
         else
