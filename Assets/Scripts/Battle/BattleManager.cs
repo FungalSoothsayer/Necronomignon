@@ -119,24 +119,24 @@ public class BattleManager : MonoBehaviour
         slot4 = s4;
         slot5 = s5;
         slot6 = s6;
-        slots[0] = s1;
-        slots[1] = s2;
-        slots[2] = s3;
-        slots[3] = s4;
-        slots[4] = s5;
-        slots[5] = s6;
+        slots.Add(s1);
+        slots.Add(s2);
+        slots.Add(s3);
+        slots.Add(s4);
+        slots.Add(s5);
+        slots.Add(s6);
         enemySlot1 = e1;
         enemySlot2 = e2;
         enemySlot3 = e3;
         enemySlot4 = e4;
         enemySlot5 = e5;
         enemySlot6 = e6;
-        enemySlots[0] = e1;
-        enemySlots[1] = e2;
-        enemySlots[2] = e3;
-        enemySlots[3] = e4;
-        enemySlots[4] = e5;
-        enemySlots[5] = e6;
+        enemySlots.Add(e1);
+        enemySlots.Add(e2);
+        enemySlots.Add(e3);
+        enemySlots.Add(e4);
+        enemySlots.Add(e5);
+        enemySlots.Add(e6);
     }
 
     //Create attack order
