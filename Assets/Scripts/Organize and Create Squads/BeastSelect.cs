@@ -54,16 +54,13 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     //Get the index of the beast that is selected
     private int GetThisBeast()
     {
-
-        if (gameObject.name == "Pool1") return 0;
-        else if (gameObject.name == "Pool2") return 1;
-        else if (gameObject.name == "Pool3") return 2;
-        else if (gameObject.name == "Pool4") return 3;
-        else if (gameObject.name == "Pool5") return 4;
-        else if (gameObject.name == "Pool6") return 5;
-        else if (gameObject.name == "Pool7") return 6;
-        else if (gameObject.name == "Pool8") return 7;
-        else if (gameObject.name == "Pool9") return 8;
+        string str = gameObject.name;
+        char chr = str.ToCharArray()[str.Length - 1];
+        int num = int.Parse(chr.ToString());
+        if (num.GetType() == 1.GetType())
+        {
+            return (num - 1);
+        }
         else return 0;
     }
 
