@@ -28,7 +28,6 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                         {
                             createManager.LightUpSlots();
                             createManager.placing = true;
- //                           gameObject.SetActive(false);
                         }
                         createManager.selected = createPoolLoader.summoned[createManager.selectedIndex];
                     }
