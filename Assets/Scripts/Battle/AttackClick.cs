@@ -7,49 +7,39 @@ using UnityEngine.EventSystems;
 public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public BattleManager battleManager;
-//    public BeastManager beastManager;
+    //public BeastManager beastManager;
 
    bool mouse_over;
     
     void Start() 
     {
-//        GetName();
     }
 
     void Update()
     {
-//        OnPointerEnter(null);
-//        print(mouse_over);
         if (mouse_over)
         {
             if (Input.GetMouseButtonDown(0))
             {
-//                print("b");
-
-                //print("THIS IS WHATS BUGGING: " + battleManager.roundOrderTypes[battleManager.turn]);
-                    if (battleManager.roundOrderTypes[battleManager.turn] == "Player")
-                    {
-//                    print(battleManager.turn);
-                    print("c");
-                    //Attack this beast
+                /*
+                if (battleManager.roundOrderTypes[battleManager.turn] == "Player")
+                {
                     battleManager.Attack(GetName());
                 }
+                */
+                battleManager.selectedEnemy = GetName();
             }
         }
     }
- 
-
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //print("d");
         mouse_over = true;
     }
 
     //When cursor leaves this image, make mouse_over false
     public void OnPointerExit(PointerEventData eventData)
     {
-        //print("e");
         mouse_over = false;
     }
 
@@ -64,6 +54,5 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         else if (gameObject.name == "Slot5") return battleManager.enemySlot5;
         else if (gameObject.name == "Slot6") return battleManager.enemySlot6;
         else return null;
-
     }
 }

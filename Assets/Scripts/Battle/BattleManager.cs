@@ -20,13 +20,14 @@ public class BattleManager : MonoBehaviour
     public List<Beast> roundOrder = new List<Beast>();
     public List<string> roundOrderTypes = new List<string>();
     List<Beast> attackPool = new List<Beast>();
-
+    List<Beast> enemyAttackPool = new List<Beast>();
 
     public int turn = 0;
     int totalMoves;
     int totalBeasts = 8;
 
     public Beast currentTurn;
+    public Beast selectedEnemy;
 
     Beast slot1;
     Beast slot2;
@@ -64,16 +65,50 @@ public class BattleManager : MonoBehaviour
     //Get lists from LoadMission and add the players to the attack pool
     public void SendLists(List<Beast> thisSquad, List<Beast> enemySquad, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth, List<DamageOutput> activePlayerDamage, List<DamageOutput> activeEnemyDamage)
     {
-        
+        selectedEnemy = enemySquad[0];
+        enemies = enemySquad;
+        enemies.Add(null);
+        enemies.Add(null);
+        enemies.Add(null);
+
+        enemyAttackPool.Add(enemies[0]);
+        if (enemies[1] != null)
+        {
+            enemyAttackPool.Add(enemies[1]);
+        }
+        else
+        {
+            enemy2Active = false;
+            totalBeasts--;
+        }
+        if (enemies[2] != null)
+        {
+            enemyAttackPool.Add(enemies[2]);
+        }
+        else
+        {
+            enemy3Active = false;
+            totalBeasts--;
+        }
+        if (enemies[3] != null)
+        {
+            enemyAttackPool.Add(enemies[3]);
+        }
+        else
+        {
+            enemy4Active = false;
+            totalBeasts--;
+        }
+
         players = thisSquad;
         players.Add(null);
         players.Add(null);
         players.Add(null);
-        players.Add(null);
-        players.Add(null);
-        players.Add(null);
-        players.Add(null);
-        enemies = enemySquad;
+        //players.Add(null);
+        //players.Add(null);
+        //players.Add(null);
+        //players.Add(null);
+
         attackPool.Add(players[0]);
         if (players[1] != null)
         {
@@ -245,15 +280,16 @@ public class BattleManager : MonoBehaviour
             wave.Clear();
         }
 
-        
-        
-
         currentTurn = roundOrder[turn];
         //print(currentTurn);
         txtTurn.text = roundOrderTypes[0] + " " + currentTurn.name + "'s turn \n HP left: "+currentTurn.hitPoints;
-        if(roundOrderTypes[turn] == "Enemy" && attackPool.Count > 0)
+        if (roundOrderTypes[turn] == "Enemy" && attackPool.Count > 0)
         {
             Attack(GetEnemyTarget());
+        }
+        else if (roundOrderTypes[turn] == "Player" && attackPool.Count > 0)
+        {
+            Attack(selectedEnemy);
         }
     }
 
@@ -280,6 +316,10 @@ public class BattleManager : MonoBehaviour
         if (roundOrderTypes[turn] == "Enemy")
         {
             StartCoroutine(EnemyAttack());
+        }
+        else if (roundOrderTypes[turn] == "Player")
+        {
+            StartCoroutine(PlayerAttack());
         }
     }
 
@@ -323,6 +363,10 @@ public class BattleManager : MonoBehaviour
             {
                 Attack(GetEnemyTarget());
             }
+            else if (healthManager.enemiesLeft > 0 && healthManager.playersLeft > 0 && roundOrderTypes[turn] == "Player")
+            {
+                Attack(selectedEnemy);
+            }
         }
         else
         { 
@@ -335,7 +379,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator EnemyAttack()
     {
         yield return new WaitForSeconds(1f);
-        if(attackPool.Count>0)
+        if(attackPool.Count > 0)
             Attack(GetEnemyTarget());
     }
 
@@ -353,6 +397,21 @@ public class BattleManager : MonoBehaviour
             rand = Random.Range(0, attackPool.Count - 1);
         }*/
         Beast b = attackPool[rand];
+        return b;
+    }
+
+    IEnumerator PlayerAttack()
+    {
+        yield return new WaitForSeconds(1f);
+        if (enemyAttackPool.Count > 0)
+            Attack(selectedEnemy);
+    }
+
+    //Enemy targets a random player from a pool of active player beasts
+    Beast GetPlayerTarget()
+    {
+        int rand = Random.Range(0, enemyAttackPool.Count);
+        Beast b = enemyAttackPool[rand];
         return b;
     }
 
