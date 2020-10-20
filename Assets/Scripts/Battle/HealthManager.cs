@@ -71,27 +71,22 @@ public class HealthManager : MonoBehaviour
         player1 = players[0].hitPoints;
         activePlayersHealth[0].SetMaxHealth(players[0].hitPoints);
         
-
         if (players[1] != null)
         {
             player2 = players[1].hitPoints;
             activePlayersHealth[1].SetMaxHealth(players[1].hitPoints);
-           
-          
         }
         else playersLeft--;
         if (players[2] != null)
         {
             player3 = players[2].hitPoints;
             activePlayersHealth[2].SetMaxHealth(players[2].hitPoints);
-            
         }
         else playersLeft--;
         if (players[3] != null)
         {
             player4 = players[3].hitPoints;
             activePlayersHealth[3].SetMaxHealth(players[3].hitPoints);
-            
         }
         else playersLeft--;
         if (opposing[0] != null)
@@ -134,7 +129,7 @@ public class HealthManager : MonoBehaviour
             {
                 Debug.Log(target.name + " is knocked out.");
                 CheckRemainingPlayers();
-                battleManager.RemoveBeast("player1");
+                battleManager.RemoveBeast(squad[0]);
             }
             else
             {
@@ -153,7 +148,7 @@ public class HealthManager : MonoBehaviour
             {
                 Debug.Log(target.name + " is knocked out.");
                 CheckRemainingPlayers();
-                battleManager.RemoveBeast("player2");
+                battleManager.RemoveBeast(squad[1]);
             }
             else
             {             
@@ -172,7 +167,7 @@ public class HealthManager : MonoBehaviour
             {
                 Debug.Log(target.name + " is knocked out.");
                 CheckRemainingPlayers();
-                battleManager.RemoveBeast("player3");
+                battleManager.RemoveBeast(squad[2]);
             }
             else
             {
@@ -189,8 +184,8 @@ public class HealthManager : MonoBehaviour
             if (squad[3].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
-                battleManager.RemoveBeast("player4");
                 CheckRemainingPlayers();
+                battleManager.RemoveBeast(squad[3]);
             }
             else
             {
@@ -207,8 +202,8 @@ public class HealthManager : MonoBehaviour
             if (enemies[0].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
-                battleManager.RemoveBeast("enemy1");
                 CheckRemainingOpposing();
+                battleManager.RemoveBeast(enemies[0]);
             }
             else
             {
@@ -225,8 +220,8 @@ public class HealthManager : MonoBehaviour
             if (enemies[1].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
-                battleManager.RemoveBeast("enemy2");
                 CheckRemainingOpposing();
+                battleManager.RemoveBeast(enemies[1]);
             }
             else
             {
@@ -243,8 +238,8 @@ public class HealthManager : MonoBehaviour
             if (enemies[2].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
-                battleManager.RemoveBeast("enemy3");
                 CheckRemainingOpposing();
+                battleManager.RemoveBeast(enemies[2]);
             }
             else
             {
@@ -261,8 +256,8 @@ public class HealthManager : MonoBehaviour
             if (enemies[3].hitPoints <= 0)
             {
                 Debug.Log(target.name + " is knocked out.");
-                battleManager.RemoveBeast("enemy4");
                 CheckRemainingOpposing();
+                battleManager.RemoveBeast(enemies[3]);
             }
             else
             {
@@ -287,7 +282,7 @@ public class HealthManager : MonoBehaviour
     //Check to see if there are any enemies left, if not end game
     void CheckRemainingOpposing()
     {
-        enemiesLeft -= 1;
+        enemiesLeft --;
         if (enemiesLeft <= 0)
         {
             Debug.Log("Congratulations! You Win!");

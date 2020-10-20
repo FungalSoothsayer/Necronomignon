@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
 {
+    public bool eRunning = false;
+    public bool pRunning = false;
 
     public HealthManager healthManager;
     public BeastDatabase beastDatabase;
@@ -177,6 +179,11 @@ public class BattleManager : MonoBehaviour
     //Create attack order
     void LoadOrder()
     {
+        if(selectedEnemy == null && enemyAttackPool.Count > 0)
+        {
+            selectedEnemy = enemyAttackPool[0];
+        }
+
         int[] moves = new int[8];
 
         /*int[] Moves = new int[8];
@@ -251,10 +258,6 @@ public class BattleManager : MonoBehaviour
                 {
                     if (x<4 && beastActive[x] && Speed[y] == players[x].speed && moves[x] > 0 && !InWave("Player " + players[x].name, wave))
                     {
-                        print(x);
-                        print(players[x]);
-                        print(players[x].speed + " this is speed");
-                        print(moves[x] + " moves left");
                         roundOrder.Add(players[x]);
                         roundOrderTypes.Add("Player");
                         wave.Add("Player " + players[x].name);
@@ -264,10 +267,6 @@ public class BattleManager : MonoBehaviour
                     }
                     else if(x>=4 && beastActive[x] && Speed[y] == enemies[x%4].speed && moves[x] > 0 && !InWave("Enemy " + enemies[x % 4].name, wave))
                     {
-                        print(x+"must be 4 or more");
-                        print(enemies[x%4]);
-                        print(enemies[x % 4].speed+" this is speed");
-                        print(moves[x]+" moves left");
                         roundOrder.Add(enemies[x % 4]);
                         roundOrderTypes.Add("Enemy");
                         wave.Add("Enemy " + enemies[x % 4].name);
@@ -285,11 +284,17 @@ public class BattleManager : MonoBehaviour
         txtTurn.text = roundOrderTypes[0] + " " + currentTurn.name + "'s turn \n HP left: "+currentTurn.hitPoints;
         if (roundOrderTypes[turn] == "Enemy" && attackPool.Count > 0)
         {
-            Attack(GetEnemyTarget());
+            if (!eRunning && !pRunning)
+            {
+                StartCoroutine(EnemyAttack());
+            }
         }
-        else if (roundOrderTypes[turn] == "Player" && attackPool.Count > 0)
+        else if (roundOrderTypes[turn] == "Player" && enemyAttackPool.Count > 0)
         {
-            Attack(selectedEnemy);
+            if (!eRunning && !pRunning)
+            {
+                StartCoroutine(PlayerAttack());
+            }
         }
     }
 
@@ -315,11 +320,17 @@ public class BattleManager : MonoBehaviour
         //If it is enemy turn, start their attack
         if (roundOrderTypes[turn] == "Enemy")
         {
-            StartCoroutine(EnemyAttack());
+            if (!eRunning && !pRunning)
+            {
+                StartCoroutine(EnemyAttack());
+            }
         }
         else if (roundOrderTypes[turn] == "Player")
         {
-            StartCoroutine(PlayerAttack());
+            if (!eRunning && !pRunning)
+            {
+                StartCoroutine(PlayerAttack());
+            }
         }
     }
 
@@ -361,11 +372,17 @@ public class BattleManager : MonoBehaviour
             turn = 0;
             if (healthManager.playersLeft > 0 && healthManager.enemiesLeft > 0 && roundOrderTypes[turn] == "Enemy")
             {
-                Attack(GetEnemyTarget());
+                if (!eRunning && !pRunning)
+                {
+                    StartCoroutine(EnemyAttack());
+                }
             }
             else if (healthManager.enemiesLeft > 0 && healthManager.playersLeft > 0 && roundOrderTypes[turn] == "Player")
             {
-                Attack(selectedEnemy);
+                if (!eRunning && !pRunning)
+                {
+                    StartCoroutine(PlayerAttack());
+                }
             }
         }
         else
@@ -378,8 +395,10 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator EnemyAttack()
     {
-        yield return new WaitForSeconds(1f);
-        if(attackPool.Count > 0)
+        eRunning = true;
+        yield return new WaitForSeconds(1.5f);
+        eRunning = false;
+        if (attackPool.Count > 0)
             Attack(GetEnemyTarget());
     }
 
@@ -402,18 +421,22 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
-        yield return new WaitForSeconds(1f);
+        pRunning = true;
+        yield return new WaitForSeconds(1.5f);
+        pRunning = false;
         if (enemyAttackPool.Count > 0)
             Attack(selectedEnemy);
     }
 
     //Enemy targets a random player from a pool of active player beasts
+    /*
     Beast GetPlayerTarget()
     {
         int rand = Random.Range(0, enemyAttackPool.Count);
         Beast b = enemyAttackPool[rand];
         return b;
     }
+    */
 
     //Get the row to determine whether the attacker is using an A move or a B move
     string GetRow()
@@ -430,58 +453,67 @@ public class BattleManager : MonoBehaviour
     }
 
     //Remove the desired beast by setting its active variable to false and removing image
-    public void RemoveBeast(string beastID)
+    public void RemoveBeast(Beast target)
     {
+        if(target == selectedEnemy)
+        {
+            selectedEnemy = null;
+        }
+
         totalBeasts -= 1;
-        if (beastID == "player1")
+        if (target == players[0])
         {
             player1Active = false;
             attackPool.Remove(players[0]);
             loadMission.RemoveImage(players[0], "Player");
             turn -= player1TurnsTaken;
         }
-        else if (beastID == "player2")
+        else if (target == players[1])
         {
             player2Active = false;
             attackPool.Remove(players[1]);
             loadMission.RemoveImage(players[1], "Player");
             turn -= player2TurnsTaken;
         }
-        else if (beastID == "player3")
+        else if (target == players[2])
         {
             player3Active = false;
             attackPool.Remove(players[2]);
             loadMission.RemoveImage(players[2], "Player");
             turn -= player3TurnsTaken;
         }
-        else if (beastID == "player4")
+        else if (target == players[3])
         {
             player4Active = false;
             attackPool.Remove(players[3]);
             loadMission.RemoveImage(players[3], "Player");
             turn -= player4TurnsTaken;
         }
-        else if (beastID == "enemy1")
+        else if (target == enemies[0])
         {
             enemy1Active = false;
+            enemyAttackPool.Remove(enemies[0]);
             loadMission.RemoveImage(enemies[0], "Enemy");
             turn -= enemy1TurnsTaken;
         }
-        else if (beastID == "enemy2")
+        else if (target == enemies[1])
         {
             enemy2Active = false;
+            enemyAttackPool.Remove(enemies[1]);
             loadMission.RemoveImage(enemies[1], "Enemy");
             turn -= enemy2TurnsTaken;
         }
-        else if (beastID == "enemy3")
+        else if (target == enemies[2])
         {
             enemy3Active = false;
+            enemyAttackPool.Remove(enemies[2]);
             loadMission.RemoveImage(enemies[2], "Enemy");
             turn -= enemy3TurnsTaken;
         }
-        else if (beastID == "enemy4")
+        else if (target == enemies[3])
         {
             enemy4Active = false;
+            enemyAttackPool.Remove(enemies[3]);
             loadMission.RemoveImage(enemies[3], "Enemy");
             turn -= enemy4TurnsTaken;
         }
