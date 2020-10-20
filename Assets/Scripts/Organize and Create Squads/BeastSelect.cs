@@ -71,11 +71,24 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             return true;
         }
         Beast beast = createPoolLoader.summoned[GetThisBeast()];
-        if (beast != null && !beast.Equals(createManager.slots[0]) && !beast.Equals(createManager.slots[1]) && !beast.Equals(createManager.slots[2])
+
+        if(beast == null)
+        {
+            return false;
+        }
+        for(int x = 0; x < createManager.slots.Count; x++)
+        {
+            if (beast.Equals(createManager.slots[x]))
+            {
+                return false;
+            }
+        }
+        return true;
+        /*if (beast != null && !beast.Equals(createManager.slots[0]) && !beast.Equals(createManager.slots[1]) && !beast.Equals(createManager.slots[2])
         && !beast.Equals(createManager.slots[3]) && !beast.Equals(createManager.slots[4]) && !beast.Equals(createManager.slots[5]))
         {
             return true;
         }
-        else return false;
+        else return false;*/
     }
 }
