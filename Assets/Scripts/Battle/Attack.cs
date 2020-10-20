@@ -48,7 +48,6 @@ public class Attack : MonoBehaviour
         //Calculate the chance that an attack misses
         float missChance = ((float)attacker.dexterity) / (float)target.speed;
 
-
         //Get Random variable 
         int rand = Random.Range(1, 100);
         int rando = Random.Range(1, 20);
