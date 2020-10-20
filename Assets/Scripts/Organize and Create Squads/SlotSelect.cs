@@ -109,10 +109,16 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Set the CreateManager's variables to reflect the selected beast
     void SetSlot()
     {
-        print("setslot");
+        print("set slot");
         print(createManager.selectedIndex);
         print(createManager.selectedSlotID);
-        if (gameObject.name == "Slot1")
+
+        char chr = (gameObject.name).ToCharArray()[gameObject.name.Length - 1];
+        int num = int.Parse(chr.ToString());
+
+        createManager.slots[num-1] = createManager.selected;
+
+       /* if (gameObject.name == "Slot1")
         {
             createManager.slots[0] = createManager.selected;
         }
@@ -120,7 +126,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         else if (gameObject.name == "Slot3") createManager.slots[2] = createManager.selected;
         else if (gameObject.name == "Slot4") createManager.slots[3] = createManager.selected;
         else if (gameObject.name == "Slot5") createManager.slots[4] = createManager.selected;
-        else if (gameObject.name == "Slot6") createManager.slots[5] = createManager.selected;
+        else if (gameObject.name == "Slot6") createManager.slots[5] = createManager.selected;*/
 
         thisBeast = createManager.selected;
         thisBeastIndex = createManager.selectedIndex;
