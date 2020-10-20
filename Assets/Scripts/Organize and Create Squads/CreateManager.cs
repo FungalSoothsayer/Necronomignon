@@ -12,6 +12,7 @@ public class CreateManager : MonoBehaviour
     public GameObject slot4Obj;
     public GameObject slot5Obj;
     public GameObject slot6Obj;
+    public List<GameObject> slotObjs;
     public GameObject cancelButton;
     public GameObject removeButton;
 
@@ -21,6 +22,8 @@ public class CreateManager : MonoBehaviour
     public Beast slot4;
     public Beast slot5;
     public Beast slot6;
+    public List<Beast> slots;
+
 
     public Beast selected;
     public int selectedIndex;
