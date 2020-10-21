@@ -10,7 +10,7 @@ public class LoadSquads : MonoBehaviour
     public Text squad1Text;
     public Text squad2Text;
 
-    public GameObject squad1Slot1;
+    /*public GameObject squad1Slot1;
     public GameObject squad1Slot2;
     public GameObject squad1Slot3;
     public GameObject squad1Slot4;
@@ -21,11 +21,11 @@ public class LoadSquads : MonoBehaviour
     public GameObject squad2Slot3;
     public GameObject squad2Slot4;
     public GameObject squad2Slot5;
-    public GameObject squad2Slot6;
+    public GameObject squad2Slot6;*/
     public List<GameObject> squad1Slots;
     public List<GameObject> squad2Slots;
 
-    public Image s1s1;
+   /* public Image s1s1;
     public Image s1s2;
     public Image s1s3;
     public Image s1s4;
@@ -36,7 +36,7 @@ public class LoadSquads : MonoBehaviour
     public Image s2s3;
     public Image s2s4;
     public Image s2s5;
-    public Image s2s6;
+    public Image s2s6;*/
     public List<Image> S1S;
     public List<Image> S2S;
 
