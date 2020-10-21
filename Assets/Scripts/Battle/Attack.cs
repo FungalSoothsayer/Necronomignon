@@ -20,24 +20,21 @@ public class Attack : MonoBehaviour
         {
             beastManager.moveManager.start();
         }
-        
-        if(attacker.Move_A == null)
-        {
-            attacker.Move_A = beastManager.getMove(attacker.moveA);
-        }
 
 
         if (attacker != null && target != null)
-            if(attacker.speed == 0 || target.speed == 0)
+        {
+            if (attacker.speed == 0 || target.speed == 0)
             {
                 return;
             }
-                if (!isMiss(attacker, target))
-                {
-                    modifier *= isCrit(attacker, target);
-                    modifier *= isGuard(attacker, target);
-                    CalculateDamage(attacker, target, inFront);
-                }
+            if (!isMiss(attacker, target))
+            {
+                modifier *= isCrit(attacker, target);
+                modifier *= isGuard(attacker, target);
+                CalculateDamage(attacker, target, inFront);
+            }
+        }
 
         modifier = 1;
     }
