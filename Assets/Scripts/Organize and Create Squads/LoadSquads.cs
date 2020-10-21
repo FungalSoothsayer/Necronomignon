@@ -71,32 +71,32 @@ public class LoadSquads : MonoBehaviour
 
         if (toLoad[0] != null)
         {
-            s1s1.sprite = Resources.Load<Sprite>(GetImage(toLoad[0].name));
+            s1s1.sprite = Resources.Load<Sprite>(GetImage(toLoad[0]));
             squad1Slot1.SetActive(true);
         }
         if (toLoad[1] != null)
         {
-            s1s2.sprite = Resources.Load<Sprite>(GetImage(toLoad[1].name));
+            s1s2.sprite = Resources.Load<Sprite>(GetImage(toLoad[1]));
             squad1Slot2.SetActive(true);
         }
         if (toLoad[2] != null)
         {
-            s1s3.sprite = Resources.Load<Sprite>(GetImage(toLoad[2].name));
+            s1s3.sprite = Resources.Load<Sprite>(GetImage(toLoad[2]));
             squad1Slot3.SetActive(true);
         }
         if (toLoad[3] != null)
         {
-            s1s4.sprite = Resources.Load<Sprite>(GetImage(toLoad[3].name));
+            s1s4.sprite = Resources.Load<Sprite>(GetImage(toLoad[3]));
             squad1Slot4.SetActive(true);
         }
         if (toLoad[4] != null)
         {
-            s1s5.sprite = Resources.Load<Sprite>(GetImage(toLoad[4].name));
+            s1s5.sprite = Resources.Load<Sprite>(GetImage(toLoad[4]));
             squad1Slot5.SetActive(true);
         }
         if (toLoad[5] != null)
         {
-            s1s6.sprite = Resources.Load<Sprite>(GetImage(toLoad[5].name));
+            s1s6.sprite = Resources.Load<Sprite>(GetImage(toLoad[5]));
             squad1Slot6.SetActive(true);
         }
     }
@@ -107,44 +107,38 @@ public class LoadSquads : MonoBehaviour
         toLoad = squadData.GetSquadList(2);
         if (toLoad[0] != null)
         {
-            s2s1.sprite = Resources.Load<Sprite>(GetImage(toLoad[0].name));
+            s2s1.sprite = Resources.Load<Sprite>(GetImage(toLoad[0]));
             squad2Slot1.SetActive(true);
         }
         if (toLoad[1] != null)
         {
-            s2s2.sprite = Resources.Load<Sprite>(GetImage(toLoad[1].name));
+            s2s2.sprite = Resources.Load<Sprite>(GetImage(toLoad[1]));
             squad2Slot2.SetActive(true);
         }
         if (toLoad[2] != null)
         {
-            s2s3.sprite = Resources.Load<Sprite>(GetImage(toLoad[2].name));
+            s2s3.sprite = Resources.Load<Sprite>(GetImage(toLoad[2]));
             squad2Slot3.SetActive(true);
         }
         if (toLoad[3] != null)
         {
-            s2s4.sprite = Resources.Load<Sprite>(GetImage(toLoad[3].name));
+            s2s4.sprite = Resources.Load<Sprite>(GetImage(toLoad[3]));
             squad2Slot4.SetActive(true);
         }
         if (toLoad[4] != null)
         {
-            s2s5.sprite = Resources.Load<Sprite>(GetImage(toLoad[4].name));
+            s2s5.sprite = Resources.Load<Sprite>(GetImage(toLoad[4]));
             squad2Slot5.SetActive(true);
         }
         if (toLoad[5] != null)
         {
-            s2s6.sprite = Resources.Load<Sprite>(GetImage(toLoad[5].name));
+            s2s6.sprite = Resources.Load<Sprite>(GetImage(toLoad[5]));
             squad2Slot6.SetActive(true);
         }
     }
 
-    string GetImage(string beast)
+    string GetImage(Beast beast)
     {
-        if (beast == "Gaia") return "Boss Nature Titan Tellia-4";
-        else if (beast == "Cthulhu") return "Boss Cthulhu-3";
-        else if (beast == "Trogdor") return "Boss Mythical Stag Kyris-3";
-        else if (beast == "Behemoth") return "Boss Wolfbull Demon Goliath-4";
-        else if (beast == "Naglfar") return "Dragons Hydra-3";
-        else if (beast == "Sunbather") return "Boss Darklord Excelsios-1";
-        else return "";
+        return beast.static_img;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CreatePoolLoader : MonoBehaviour
 {
-    public Image slot1;
+    /*public Image slot1;
     public Image slot2;
     public Image slot3;
     public Image slot4;
@@ -13,7 +13,8 @@ public class CreatePoolLoader : MonoBehaviour
     public Image slot6;
     public Image slot7;
     public Image slot8;
-    public Image slot9;
+    public Image slot9;*/
+    public List<Image> slots;
 
     public List<string> summonedImages = new List<string>();
     public List<Beast> summoned = new List<Beast>();
@@ -77,7 +78,18 @@ public class CreatePoolLoader : MonoBehaviour
     //Fill up the image slots with your summoned beasts
     void SetImages()
     {
-        if(summoned.Count >= 1)
+        for(int x = 0; x < slots.Count; x++)
+        {
+            if (summoned.Count >= x+1)
+            {
+                slots[x].sprite = Resources.Load<Sprite>(summonedImages[x]);
+            }
+            else
+            {
+                slots[x].sprite = Resources.Load<Sprite>("EmptyRectangle");
+            }
+        }
+        /*if(summoned.Count >= 1)
         {
             slot1.sprite = Resources.Load<Sprite>(summonedImages[0]);
         }
@@ -129,13 +141,17 @@ public class CreatePoolLoader : MonoBehaviour
         {
             slot9.sprite = Resources.Load<Sprite>(summonedImages[8]);
         }
-        else slot9.sprite = Resources.Load<Sprite>("EmptyRectangle");
+        else slot9.sprite = Resources.Load<Sprite>("EmptyRectangle");*/
     }
 
     //When a beast is removed from the grid, place the image pack into the pool
     public void PutImageBack()
     {
-        switch (createManager.selectedIndex)
+        int index = createManager.selectedIndex;
+
+        slots[index].gameObject.SetActive(true);
+        slots[index].sprite = Resources.Load<Sprite>(summonedImages[index]);
+        /*switch (createManager.selectedIndex)
         {
             case 0:
                 slot1.gameObject.SetActive(true);
@@ -173,6 +189,6 @@ public class CreatePoolLoader : MonoBehaviour
                 slot9.gameObject.SetActive(true);
                 slot9.sprite = Resources.Load<Sprite>(summonedImages[8]);
                 break;
-        }
+        }*/
     }
 }

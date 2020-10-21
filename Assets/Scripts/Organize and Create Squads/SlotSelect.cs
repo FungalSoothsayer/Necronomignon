@@ -64,7 +64,11 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Change the image of the beast in the pool to a faded image
     void ChangePoolImage()
     {
-        switch (createManager.selectedIndex)
+        int index = createManager.selectedIndex;
+
+        createPoolLoader.slots[index].gameObject.SetActive(false);
+        createPoolLoader.slots[index].sprite = Resources.Load<Sprite>(GetFadedImage());
+        /*switch (createManager.selectedIndex)
         {
             case 0:
                 createPoolLoader.slot1.gameObject.SetActive(false);
@@ -102,7 +106,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 createPoolLoader.slot9.gameObject.SetActive(false);
                 createPoolLoader.slot9.sprite = Resources.Load<Sprite>(GetFadedImage());
                 break;
-        }
+        }*/
         SetSlot();
     }
 
@@ -119,15 +123,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         createManager.slots[num-1] = createManager.selected;
 
-       /* if (gameObject.name == "Slot1")
-        {
-            createManager.slots[0] = createManager.selected;
-        }
-        else if (gameObject.name == "Slot2") createManager.slots[1] = createManager.selected;
-        else if (gameObject.name == "Slot3") createManager.slots[2] = createManager.selected;
-        else if (gameObject.name == "Slot4") createManager.slots[3] = createManager.selected;
-        else if (gameObject.name == "Slot5") createManager.slots[4] = createManager.selected;
-        else if (gameObject.name == "Slot6") createManager.slots[5] = createManager.selected;*/
+
 
         thisBeast = createManager.selected;
         thisBeastIndex = createManager.selectedIndex;

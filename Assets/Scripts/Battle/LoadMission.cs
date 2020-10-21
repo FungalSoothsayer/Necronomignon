@@ -226,7 +226,7 @@ public class LoadMission : MonoBehaviour
             }
             if (toLoad[x] != null)
             {
-                playerSlotImg[x].sprite = Resources.Load<Sprite>(toLoad[x].static_img);
+                playerSlotImg[x].sprite = Resources.Load<Sprite>(GetImage(toLoad[x]));
                 playerSlot.Add(beastManager.getFromName(toLoad[x].name));
                 thisSquad.Add(beastManager.getFromName(toLoad[x].name));
 
@@ -272,15 +272,9 @@ public class LoadMission : MonoBehaviour
     }
 
     //Get the images from the resources folder to be loaded
-    string GetImage(string beast)
+    string GetImage(Beast beast)
     {
-        if (beast == "Gaia") return "Boss Nature Titan Tellia-4";
-        else if (beast == "Cthulhu") return "Boss Cthulhu-3";
-        else if (beast == "Trogdor") return "Boss Mythical Stag Kyris-3";
-        else if (beast == "Behemoth") return "Boss Wolfbull Demon Goliath-4";
-        else if (beast == "Naglfar") return "Dragons Hydra-3";
-        else if (beast == "Sunbather") return "Boss Darklord Excelsios-1";
-        else return "";
+        return beast.static_img;
     }
     //Remove image when beast is knocked out
     public void RemoveImage(Beast toRemove, string owner)
