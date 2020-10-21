@@ -118,15 +118,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         createManager.slots[num-1] = createManager.selected;
 
-       /* if (gameObject.name == "Slot1")
-        {
-            createManager.slots[0] = createManager.selected;
-        }
-        else if (gameObject.name == "Slot2") createManager.slots[1] = createManager.selected;
-        else if (gameObject.name == "Slot3") createManager.slots[2] = createManager.selected;
-        else if (gameObject.name == "Slot4") createManager.slots[3] = createManager.selected;
-        else if (gameObject.name == "Slot5") createManager.slots[4] = createManager.selected;
-        else if (gameObject.name == "Slot6") createManager.slots[5] = createManager.selected;*/
+
 
         thisBeast = createManager.selected;
         thisBeastIndex = createManager.selectedIndex;

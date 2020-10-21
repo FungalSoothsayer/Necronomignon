@@ -14,6 +14,7 @@ public class CreatePoolLoader : MonoBehaviour
     public Image slot7;
     public Image slot8;
     public Image slot9;
+    public List<Image> slots;
 
     public List<string> summonedImages = new List<string>();
     public List<Beast> summoned = new List<Beast>();

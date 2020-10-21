@@ -1451,6 +1451,16 @@ MonoBehaviour:
   slot7: {fileID: 1673544921}
   slot8: {fileID: 1501717742}
   slot9: {fileID: 236958076}
+  slots:
+  - {fileID: 262342446}
+  - {fileID: 1593905787}
+  - {fileID: 37514254}
+  - {fileID: 560744600}
+  - {fileID: 371924514}
+  - {fileID: 1513638788}
+  - {fileID: 1673544921}
+  - {fileID: 1501717742}
+  - {fileID: 236958076}
   summonedImages: []
   summoned: []
   beastDatabase: {fileID: 843462592}
