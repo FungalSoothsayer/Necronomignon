@@ -115,6 +115,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         char chr = (gameObject.name).ToCharArray()[gameObject.name.Length - 1];
         int num = int.Parse(chr.ToString());
+        print(num);
 
         createManager.slots[num-1] = createManager.selected;
 
