@@ -7,7 +7,6 @@ public class DemoBattleManager : MonoBehaviour
 {
     public LoadDemoBattle loadDemoBattle;
     public SquadData squadData;
-    public BeastDatabase beastDatabase;
     public Attack attack;
     public HealthManager healthManager;
 
@@ -50,11 +49,11 @@ public class DemoBattleManager : MonoBehaviour
     {
         Beast b = new Beast();
         b.name = "Target";
-        b.hitPoints = BeastDatabase.targetHitPoints;
-        b.defence = BeastDatabase.targetDefense;
-        b.power = BeastDatabase.targetPower;
-        b.speed = BeastDatabase.targetSpeed;
-        b.dexterity = BeastDatabase.targetSkill;
+        b.hitPoints = 1000000;
+        b.defence = 50;
+        b.power = 1;
+        b.speed = 1;
+        b.dexterity = 1;
         b.number_MOVES = 0;
         enemies.Add(b);
         enemies.Add(null);
@@ -75,57 +74,51 @@ public class DemoBattleManager : MonoBehaviour
 
         if (toLoad[0] != null)
         {
-            slot1Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[0].name));
+            slot1Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[0]));
             slot1 = toLoad[0].name;
             thisSquad.Add(toLoad[0]);
         }
         else slot1Img.gameObject.SetActive(false);
         if (toLoad[1] != null)
         {
-            slot2Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[1].name));
+            slot2Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[1]));
             slot2 = toLoad[1].name;
             thisSquad.Add(toLoad[1]);
         }
         else slot2Img.gameObject.SetActive(false);
         if (toLoad[2] != null)
         {
-            slot3Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[2].name));
+            slot3Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[2]));
             slot3 = toLoad[2].name;
             thisSquad.Add(toLoad[2]);
         }
         else slot3Img.gameObject.SetActive(false);
         if (toLoad[3] != null)
         {
-            slot4Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[3].name));
+            slot4Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[3]));
             slot4 = toLoad[3].name;
             thisSquad.Add(toLoad[3]);
         }
         else slot4Img.gameObject.SetActive(false);
         if (toLoad[4] != null)
         {
-            slot5Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[4].name));
+            slot5Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[4]));
             slot5 = toLoad[4].name;
             thisSquad.Add(toLoad[4]);
         }
         else slot5Img.gameObject.SetActive(false);
         if (toLoad[5] != null)
         {
-            slot6Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[5].name));
+            slot6Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[5]));
             slot6 = toLoad[5].name;
             thisSquad.Add(toLoad[5]);
         }
         else slot6Img.gameObject.SetActive(false);
     }
 
-    string GetImage(string beast)
+    string GetImage(Beast beast)
     {
-        if (beast == "Gaia") return "Boss Nature Titan Tellia-4";
-        else if (beast == "Cthulhu") return "Boss Cthulhu-3";
-        else if (beast == "Trogdor") return "Boss Mythical Stag Kyris-3";
-        else if (beast == "Behemoth") return "Boss Wolfbull Demon Goliath-4";
-        else if (beast == "Naglfar") return "Dragons Hydra-3";
-        else if (beast == "Sunbather") return "Boss Darklord Excelsios-1";
-        else return "";
+        return beast.static_img;
     }
 
     void LoadOrder()
@@ -185,7 +178,7 @@ public class DemoBattleManager : MonoBehaviour
         currentTurn = roundOrder[turn];
         try
         {
-            order1.sprite = Resources.Load<Sprite>(GetImage(roundOrder[0 + turn].name));
+            order1.sprite = Resources.Load<Sprite>(GetImage(roundOrder[0 + turn]));
         }
         catch
         {
@@ -193,7 +186,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order2.sprite = Resources.Load<Sprite>(GetImage(roundOrder[1 + turn].name));
+            order2.sprite = Resources.Load<Sprite>(GetImage(roundOrder[1 + turn]));
         }
         catch
         {
@@ -201,7 +194,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order3.sprite = Resources.Load<Sprite>(GetImage(roundOrder[2 + turn].name));
+            order3.sprite = Resources.Load<Sprite>(GetImage(roundOrder[2 + turn]));
         }
         catch
         {
@@ -209,7 +202,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order4.sprite = Resources.Load<Sprite>(GetImage(roundOrder[3 + turn].name));
+            order4.sprite = Resources.Load<Sprite>(GetImage(roundOrder[3 + turn]));
         }
         catch
         {
@@ -217,7 +210,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order5.sprite = Resources.Load<Sprite>(GetImage(roundOrder[4 + turn].name));
+            order5.sprite = Resources.Load<Sprite>(GetImage(roundOrder[4 + turn]));
         }
         catch
         {
@@ -225,7 +218,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order6.sprite = Resources.Load<Sprite>(GetImage(roundOrder[5 + turn].name));
+            order6.sprite = Resources.Load<Sprite>(GetImage(roundOrder[5 + turn]));
         }
         catch
         {
@@ -233,7 +226,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order7.sprite = Resources.Load<Sprite>(GetImage(roundOrder[6 + turn].name));
+            order7.sprite = Resources.Load<Sprite>(GetImage(roundOrder[6 + turn]));
         }
         catch
         {
@@ -241,7 +234,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order8.sprite = Resources.Load<Sprite>(GetImage(roundOrder[7 + turn].name));
+            order8.sprite = Resources.Load<Sprite>(GetImage(roundOrder[7 + turn]));
         }
         catch
         {
@@ -249,7 +242,7 @@ public class DemoBattleManager : MonoBehaviour
         }
         try
         {
-            order9.sprite = Resources.Load<Sprite>(GetImage(roundOrder[8 + turn].name));
+            order9.sprite = Resources.Load<Sprite>(GetImage(roundOrder[8 + turn]));
         }
         catch
         {

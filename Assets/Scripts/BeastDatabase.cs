@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -270,3 +270,4 @@ public class BeastDatabase : MonoBehaviour
         else if (beast == "Sunbather") sunbatherSkill = change;
     }
 }
+*/

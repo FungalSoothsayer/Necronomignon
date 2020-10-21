@@ -502,6 +502,20 @@ MonoBehaviour:
   squad2Slot4: {fileID: 1015680390}
   squad2Slot5: {fileID: 200855168}
   squad2Slot6: {fileID: 798131338}
+  squad1Slots:
+  - {fileID: 1188080941}
+  - {fileID: 1124029201}
+  - {fileID: 413639200}
+  - {fileID: 1111059678}
+  - {fileID: 1396769114}
+  - {fileID: 269105485}
+  squad2Slots:
+  - {fileID: 1437938325}
+  - {fileID: 305069051}
+  - {fileID: 1122432607}
+  - {fileID: 1015680390}
+  - {fileID: 200855168}
+  - {fileID: 798131338}
   s1s1: {fileID: 1188080943}
   s1s2: {fileID: 1124029203}
   s1s3: {fileID: 413639202}
@@ -514,6 +528,20 @@ MonoBehaviour:
   s2s4: {fileID: 1015680392}
   s2s5: {fileID: 200855170}
   s2s6: {fileID: 798131340}
+  S1S:
+  - {fileID: 1188080943}
+  - {fileID: 1124029203}
+  - {fileID: 413639202}
+  - {fileID: 1111059680}
+  - {fileID: 1396769116}
+  - {fileID: 269105487}
+  S2S:
+  - {fileID: 1437938327}
+  - {fileID: 305069053}
+  - {fileID: 1122432609}
+  - {fileID: 1015680392}
+  - {fileID: 200855170}
+  - {fileID: 798131340}
 --- !u!114 &443206365
 MonoBehaviour:
   m_ObjectHideFlags: 0

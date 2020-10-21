@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class BeastSummon : MonoBehaviour
 {
-    public BeastDatabase beastDatabase;
 
     public bool summoned = false;
     public int rating = 0;
+
+    public BeastManager beastManager;
 
     public Image beastImage;
     public Image statGraph;
@@ -48,27 +49,30 @@ public class BeastSummon : MonoBehaviour
     //Return the rating for the beast that the current scene is for
     int GetCurrentBeastRating(Scene currentScene)
     {
-        if (currentScene.name == "CthulhuMain")
+        List<Beast> beasts = beastManager.beastsList.Beasts;
+        foreach (Beast b in beasts)
+        {
+            if(currentScene.name == b.name + "Main")
+            {
+                return b.tier;
+            }
+        }
+        return 0;
+        /*if (currentScene.name == "CthulhuMain")
         {
             return beastDatabase.GetRating("Cthulhu");
         }
         else
         {
             return 0;
-        }
+        }*/
     }
 
     //Return the summoned status for the beast that the current scene is for
     bool GetCurrentBeastStatus(Scene currentScene)
     {
-        if (currentScene.name == "CthulhuMain")
-        {
-            return beastDatabase.GetStatus("Cthulhu");
-        }
-        else
-        {
-            return false;
-        }
+
+        return GetCurrentBeastRating(currentScene) > 0;
     }
 
     //Check what scene it is and then change the beast image according to the summoned status

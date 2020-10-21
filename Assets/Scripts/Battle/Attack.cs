@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public BeastDatabase beastDatabase;
     public BeastManager beastManager;
 //    public MoveManager moveManager;
     //public EnemyDatabase enemyDatabase;
