@@ -1967,7 +1967,6 @@ GameObject:
   - component: {fileID: 1591450912}
   - component: {fileID: 1591450911}
   - component: {fileID: 1591450915}
-  - component: {fileID: 1591450916}
   - component: {fileID: 1591450917}
   - component: {fileID: 1591450918}
   m_Layer: 0
@@ -2042,7 +2041,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadDemoBattle: {fileID: 1591450911}
   squadData: {fileID: 1591450912}
-  beastDatabase: {fileID: 1591450916}
   attack: {fileID: 1591450917}
   healthManager: {fileID: 1591450918}
   slot1Img: {fileID: 662673942}
@@ -2066,18 +2064,6 @@ MonoBehaviour:
   order7: {fileID: 996642892}
   order8: {fileID: 154357475}
   order9: {fileID: 466893053}
---- !u!114 &1591450916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591450910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382bcd1d52fd04d0d9433edc4890a726, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1591450917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2090,7 +2076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f837badb074406093e893147b77423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beastDatabase: {fileID: 1591450916}
   beastManager: {fileID: 0}
   healthManager: {fileID: 1591450918}
 --- !u!114 &1591450918
@@ -2105,7 +2090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 939483b5bfb324458bbabb0c03786ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beastDatabase: {fileID: 1591450916}
   battleManager: {fileID: 0}
   player1: 0
   player2: 0
