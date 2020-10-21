@@ -28,16 +28,18 @@ public class Attack : MonoBehaviour
 
 
         if (attacker != null && target != null)
-            if(attacker.speed == 0 || target.speed == 0)
+        {
+            if (attacker.speed == 0 || target.speed == 0)
             {
                 return;
             }
-                if (!isMiss(attacker, target))
-                {
-                    modifier *= isCrit(attacker, target);
-                    modifier *= isGuard(attacker, target);
-                    CalculateDamage(attacker, target, inFront);
-                }
+            if (!isMiss(attacker, target))
+            {
+                modifier *= isCrit(attacker, target);
+                modifier *= isGuard(attacker, target);
+                CalculateDamage(attacker, target, inFront);
+            }
+        }
 
         modifier = 1;
     }
