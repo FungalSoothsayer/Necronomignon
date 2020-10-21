@@ -49,7 +49,6 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         print("setimage");
         gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex]);
         gameObject.GetComponent<Image>().color = Color.white;
-        //gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(125, 125);
         ChangePoolImage();
     }
 
@@ -61,52 +60,12 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
 
     //Change the image of the beast in the pool to a faded image
-    //Change the image of the beast in the pool to a faded image
     void ChangePoolImage()
     {
         int index = createManager.selectedIndex;
 
         createPoolLoader.slots[index].gameObject.SetActive(false);
         createPoolLoader.slots[index].sprite = Resources.Load<Sprite>(GetFadedImage());
-        /*switch (createManager.selectedIndex)
-        {
-            case 0:
-                createPoolLoader.slot1.gameObject.SetActive(false);
-                createPoolLoader.slot1.sprite = Resources.Load<Sprite>(GetFadedImage());
-                break;
-            case 1:
-                createPoolLoader.slot2.gameObject.SetActive(false);
-                createPoolLoader.slot2.sprite = Resources.Load<Sprite>(GetFadedImage());
-                break;
-            case 2:
-                createPoolLoader.slot3.gameObject.SetActive(false);
-                createPoolLoader.slot3.sprite = Resources.Load<Sprite>(GetFadedImage());
-                break;
-            case 3:
-                createPoolLoader.slot4.gameObject.SetActive(false);
-                createPoolLoader.slot4.sprite = Resources.Load<Sprite>(GetFadedImage());
-                break;
-            case 4:
-                createPoolLoader.slot5.gameObject.SetActive(false);
-                createPoolLoader.slot5.sprite = Resources.Load<Sprite>(GetFadedImage());
-                break;
-            case 5:
-                createPoolLoader.slot6.gameObject.SetActive(false);
-                createPoolLoader.slot6.sprite = Resources.Load<Sprite>(GetFadedImage());
-                break;
-            case 6:
-                createPoolLoader.slot7.gameObject.SetActive(false);
-                createPoolLoader.slot7.sprite = Resources.Load<Sprite>(GetFadedImage());
-                break;
-            case 7:
-                createPoolLoader.slot8.gameObject.SetActive(false);
-                createPoolLoader.slot8.sprite = Resources.Load<Sprite>(GetFadedImage());
-                break;
-            case 8:
-                createPoolLoader.slot9.gameObject.SetActive(false);
-                createPoolLoader.slot9.sprite = Resources.Load<Sprite>(GetFadedImage());
-                break;
-        }*/
         SetSlot();
     }
 
@@ -122,8 +81,6 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         print(num);
 
         createManager.slots[num-1] = createManager.selected;
-
-
 
         thisBeast = createManager.selected;
         thisBeastIndex = createManager.selectedIndex;
@@ -172,10 +129,6 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Move this beast to another slot
     void MoveImage()
     {
-        //print(createManager.selectedSlotID + " SlotID");
-        //print(createManager.selectedIndex+" Index");
-        //print(createManager.selected);
-
         print("moveimage");
         if (slotID != createManager.selectedSlotID)
         {

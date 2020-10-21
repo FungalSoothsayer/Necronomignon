@@ -5,15 +5,6 @@ using UnityEngine.UI;
 
 public class CreatePoolLoader : MonoBehaviour
 {
-    /*public Image slot1;
-    public Image slot2;
-    public Image slot3;
-    public Image slot4;
-    public Image slot5;
-    public Image slot6;
-    public Image slot7;
-    public Image slot8;
-    public Image slot9;*/
     public List<Image> slots;
 
     public List<string> summonedImages = new List<string>();
@@ -38,39 +29,6 @@ public class CreatePoolLoader : MonoBehaviour
                 summoned.Add(bl.Beasts[x]);
             }
         }
-
-
-/*        //Add the image names to a list if they are summoned
-        if (beastDatabase.GetStatus("Gaia"))
-        {
-            summonedImages.Add("Boss Nature Titan Tellia-4");
-            summoned.Add("Gaia");
-        }
-        if (beastDatabase.GetStatus("Cthulhu"))
-        {
-            summonedImages.Add("Boss Cthulhu-3");
-            summoned.Add("Cthulhu");
-        }
-        if (beastDatabase.GetStatus("Trogdor"))
-        {
-            summonedImages.Add("Boss Mythical Stag Kyris-3");
-            summoned.Add("Trogdor");
-        }
-        if (beastDatabase.GetStatus("Behemoth"))
-        {
-            summonedImages.Add("Boss Wolfbull Demon Goliath-4");
-            summoned.Add("Behemoth");
-        }
-        if (beastDatabase.GetStatus("Naglfar"))
-        {
-            summonedImages.Add("Dragons Hydra-3");
-            summoned.Add("Naglfar");
-        }
-        if (beastDatabase.GetStatus("Sunbather"))
-        {
-            summonedImages.Add("Boss Darklord Excelsios-1");
-            summoned.Add("Sunbather");
-        }*/
 
         SetImages();
     }

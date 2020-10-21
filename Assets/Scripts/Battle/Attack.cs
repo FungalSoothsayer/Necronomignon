@@ -16,7 +16,6 @@ public class Attack : MonoBehaviour
 
     public void InitiateAttack(Beast attacker, Beast target, bool inFront)
     {
-
         if (beastManager.moveManager.movesList == null)
         {
             beastManager.moveManager.start();
@@ -26,7 +25,6 @@ public class Attack : MonoBehaviour
         {
             attacker.Move_A = beastManager.getMove(attacker.moveA);
         }
-
 
         if (attacker != null && target != null)
             if(attacker.speed == 0 || target.speed == 0)
