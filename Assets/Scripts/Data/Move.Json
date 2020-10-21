@@ -74,9 +74,39 @@
 		},
 		{
 			"move_id": "13",
+			"name": "slime",
+			"power": "45",
+			"condition_chance": "0"
+		},
+		{
+			"move_id": "14",
+			"name": "slime slap",
+			"power": "55",
+			"condition_chance": ".5"
+		},
+		{
+			"move_id": "15",
 			"name": "insta-Death",
-			"power": "10000",
-			"condition_chance":  "0"
+			"power": "100",
+			"condition_chance": "0"
+		},
+		{
+			"move_id": "16",
+			"name": "DeVito Punch",
+			"power": "50",
+			"condition_chance": ".5"
+		},
+		{
+			"move_id": "17",
+			"name": "bad motha-fucker",
+			"power": "70",
+			"condition_chance": "0"
+		},
+		{
+			"move_id": "18",
+			"name": "gun",
+			"power": "100",
+			"condition_chance": ".5"
 		}
 	]
 }

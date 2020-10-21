@@ -1481,16 +1481,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   createPoolLoader: {fileID: 843462591}
-  slot1Obj: {fileID: 1048798027}
-  slot2Obj: {fileID: 469339005}
-  slot3Obj: {fileID: 793087384}
-  slot4Obj: {fileID: 304713793}
-  slot5Obj: {fileID: 891539766}
-  slot6Obj: {fileID: 1246635156}
+  slotObjs:
+  - {fileID: 1048798027}
+  - {fileID: 469339005}
+  - {fileID: 793087384}
+  - {fileID: 304713793}
+  - {fileID: 891539766}
+  - {fileID: 1246635156}
   cancelButton: {fileID: 1538440197}
   removeButton: {fileID: 581799512}
-  slot1:
-    name: 
+  slots:
+  - name: 
     hitPoints: 0
     defence: 0
     power: 0
@@ -1500,21 +1501,20 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
-    moveA: -1
+    moveA: 0
     Move_A:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
-    moveB: -1
+    moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
     static_img: 
-  slot2:
-    name: 
+  - name: 
     hitPoints: 0
     defence: 0
     power: 0
@@ -1524,21 +1524,20 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
-    moveA: -1
+    moveA: 0
     Move_A:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
-    moveB: -1
+    moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
     static_img: 
-  slot3:
-    name: 
+  - name: 
     hitPoints: 0
     defence: 0
     power: 0
@@ -1548,21 +1547,20 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
-    moveA: -1
+    moveA: 0
     Move_A:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
-    moveB: -1
+    moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
     static_img: 
-  slot4:
-    name: 
+  - name: 
     hitPoints: 0
     defence: 0
     power: 0
@@ -1572,21 +1570,20 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
-    moveA: -1
+    moveA: 0
     Move_A:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
-    moveB: -1
+    moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
     static_img: 
-  slot5:
-    name: 
+  - name: 
     hitPoints: 0
     defence: 0
     power: 0
@@ -1596,21 +1593,20 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
-    moveA: -1
+    moveA: 0
     Move_A:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
-    moveB: -1
+    moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
     static_img: 
-  slot6:
-    name: 
+  - name: 
     hitPoints: 0
     defence: 0
     power: 0
@@ -1620,13 +1616,13 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
-    moveA: -1
+    moveA: 0
     Move_A:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
-    moveB: -1
+    moveB: 0
     Move_B:
       move_id: 0
       name: 

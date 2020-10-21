@@ -32,13 +32,14 @@ public class MissionList : MonoBehaviour
             {
                 while (beast.Contains(ran) || ran == -1)
                 {
-                    ran = Random.Range(0, 6);
+                    ran = Random.Range(0, beastManager.beastsList.Beasts.Count);
                 }
                 beast.Add(ran);
             }
             beast.Add(-1);
             beast.Add(-1);
 
+            ran = -1;
 
             List<int> position = new List<int>();
 
