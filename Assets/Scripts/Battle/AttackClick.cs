@@ -50,8 +50,9 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         string str = gameObject.name;
         int num = int.Parse((str).ToCharArray()[str.Length - 1].ToString());
 
-        if (num < battleManager.enemySlots.Count && battleManager.enemySlots[num] != null)
+        if (num <= battleManager.enemySlots.Count && battleManager.enemySlots[num-1] != null)
         {
+            print("good");
             return battleManager.enemySlots[num - 1];
         }
 
@@ -62,6 +63,10 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         else if (gameObject.name == "Slot4") return battleManager.enemySlot4;
         else if (gameObject.name == "Slot5") return battleManager.enemySlot5;
         else if (gameObject.name == "Slot6") return battleManager.enemySlot6;*/
-        else return null;
+        else
+        { 
+            print("bad"); 
+            return null; 
+        }
     }
 }

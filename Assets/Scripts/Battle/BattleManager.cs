@@ -56,15 +56,15 @@ public class BattleManager : MonoBehaviour
     public bool enemy4Active = true;*/
     public bool[] enemiesActive= {true, true, true, true};
 
-    int player1TurnsTaken;
+    /*int player1TurnsTaken;
     int player2TurnsTaken;
     int player3TurnsTaken;
-    int player4TurnsTaken;
+    int player4TurnsTaken;*/
     List<int> playersTurnsTaken = new List<int>();
-    int enemy1TurnsTaken;
+    /*int enemy1TurnsTaken;
     int enemy2TurnsTaken;
     int enemy3TurnsTaken;
-    int enemy4TurnsTaken;
+    int enemy4TurnsTaken;*/
     List<int> enemiesTurnsTaken = new List<int>();
 
     //Get lists from LoadMission and add the players to the attack pool
@@ -151,6 +151,14 @@ public class BattleManager : MonoBehaviour
     }
 
     //Get the slot info for each beast from LoadMission
+    public void GetSlots(List<Beast> s, List<Beast> e)
+    {
+        for (int x = 0; x < 6; x++)
+        {
+            slots.Add(s[x]);
+            enemySlots.Add(e[x]);
+        }
+    }
     public void GetSlots(Beast s1, Beast s2, Beast s3, Beast s4, Beast s5, Beast s6, Beast e1, Beast e2, Beast e3, Beast e4, Beast e5, Beast e6)
     {
         /*slot1 = s1;
@@ -159,6 +167,10 @@ public class BattleManager : MonoBehaviour
         slot4 = s4;
         slot5 = s5;
         slot6 = s6;*/
+        for(int x = 0; x < 6; x++)
+        {
+
+        }
         slots.Add(s1);
         slots.Add(s2);
         slots.Add(s3);
