@@ -20,11 +20,6 @@ public class Attack : MonoBehaviour
         {
             beastManager.moveManager.start();
         }
-        
-        if(attacker.Move_A == null)
-        {
-            attacker.Move_A = beastManager.getMove(attacker.moveA);
-        }
 
 
         if (attacker != null && target != null)
