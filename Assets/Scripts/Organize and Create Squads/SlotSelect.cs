@@ -64,7 +64,11 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Change the image of the beast in the pool to a faded image
     void ChangePoolImage()
     {
-        switch (createManager.selectedIndex)
+        int index = createManager.selectedIndex;
+
+        createPoolLoader.slots[index].gameObject.SetActive(false);
+        createPoolLoader.slots[index].sprite = Resources.Load<Sprite>(GetFadedImage());
+        /*switch (createManager.selectedIndex)
         {
             case 0:
                 createPoolLoader.slot1.gameObject.SetActive(false);
@@ -102,7 +106,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 createPoolLoader.slot9.gameObject.SetActive(false);
                 createPoolLoader.slot9.sprite = Resources.Load<Sprite>(GetFadedImage());
                 break;
-        }
+        }*/
         SetSlot();
     }
 
