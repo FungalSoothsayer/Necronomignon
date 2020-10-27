@@ -505,14 +505,14 @@ public class BattleManager : MonoBehaviour
 
         for(int x = 0; x < enemies.Count; x++)
         {
-            if (target.Equals(players[x]))
+            if (target.Equals(players[x]) && roundOrderTypes[turn] != "Player")
             {
                 playersActive[x] = false;
                 attackPool.Remove(players[x]);
                 loadMission.RemoveImage(players[x], "Player");
                 turn -= playersTurnsTaken[x];
             }
-            else if (target.Equals(enemies[x]))
+            else if (target.Equals(enemies[x]) && roundOrderTypes[turn] != "Enemies")
             {
                 enemiesActive[x] = false;
                 enemyAttackPool.Remove(enemies[x]);
