@@ -116,11 +116,8 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         print("editplace");
         createManager.selected = thisBeast;
-        print(createManager.selected);
         createManager.selectedIndex = thisBeastIndex;
-        print(createManager.selectedIndex);
         createManager.selectedSlotID = slotID;
-        print(createManager.selectedSlotID);
         createManager.LightUpSlots();
         createManager.removeButton.SetActive(true);
         createManager.moving = true;

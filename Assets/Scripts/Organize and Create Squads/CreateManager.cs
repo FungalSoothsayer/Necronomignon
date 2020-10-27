@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreateManager : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class CreateManager : MonoBehaviour
 
     public GameObject cancelButton;
     public GameObject removeButton;
-    public GameObject description;
+    public GameObject moveDescription;
+    public Text description;
 
     public List<Beast> slots;
 
@@ -43,8 +45,17 @@ public class CreateManager : MonoBehaviour
     //Set all slot lights and cancel button active 
     public void LightUpSlots()
     {
-        description.SetActive(true);
-        //description.GetComponent<UnityEngine.UI.Text>().text = "In the front row \n" + selected.Move_A.description + "In the back row \n" + selected.Move_B.description;
+        moveDescription.SetActive(true);
+        selected = createPoolLoader.summoned[selectedIndex];
+        for (int x = 0; x < createPoolLoader.summoned.Count; x++)
+        {
+            if (selected.name.Equals(createPoolLoader.summoned[x].name))
+            {
+                description.GetComponent<Text>().text = "\n\nIn the front row \n" + createPoolLoader.summoned[x].Move_A.description + 
+                    "\n\nIn the back row \n" + createPoolLoader.summoned[x].Move_B.description;
+                break;
+            }
+        }
         foreach (GameObject go in slotObjs)
         {
             go.SetActive(true);
@@ -56,8 +67,8 @@ public class CreateManager : MonoBehaviour
     //Set all slots that do not have a beast placed in it to inactive
     public void TurnOffSlots()
     {
-        description.SetActive(false);
-        for(int x = 0; x < slots.Count; x++)
+        moveDescription.SetActive(false);
+        for (int x = 0; x < slots.Count; x++)
         {
             if (slots[x] == null || slots[x].speed == 0)
             {

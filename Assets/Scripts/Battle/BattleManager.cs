@@ -11,7 +11,6 @@ public class BattleManager : MonoBehaviour
     public bool pRunning = false;
 
     public HealthManager healthManager;
-    public BeastDatabase beastDatabase;
     public Attack attack;
     public LoadMission loadMission;
 

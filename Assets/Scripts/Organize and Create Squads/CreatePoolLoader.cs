@@ -21,8 +21,9 @@ public class CreatePoolLoader : MonoBehaviour
             beastManager.Awake();
         }
         BeastList bl = beastManager.beastsList;
-        for (int x =0;x < bl.Beasts.Count; x++)
+        for (int x = 0;x < bl.Beasts.Count; x++)
         {
+            bl.Beasts[x].setAttacks();
             if(bl.Beasts[x].tier > 0)
             {
                 summonedImages.Add(bl.Beasts[x].static_img);

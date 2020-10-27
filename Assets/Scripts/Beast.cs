@@ -26,7 +26,6 @@ public class Beast
     public enum types { Water, Fire, Earth, Air, Dark, Light };
     BeastManager bm = new BeastManager();
 
-
     public Beast()
     {
        
@@ -60,34 +59,6 @@ public class Beast
 
     }
 
-    /*
-    private bool summoned = true;
-    private int rating;
-    private int hitPoints = 700;
-    private int defense = 60;
-    private int power = 50;
-    private int speed = 35;
-    private int skill = 30;
-    private int MOVES = 2;
-    private int moveA = 60;
-    private int moveB = 40;
-    private String name;
-    private String static_image;
-    private int id;
-
-    public bool Summoned { get => summoned; set => summoned = value; }
-    public String Name { get => name; set => name = value; }
-    public int HitPoints { get => hitPoints; set => hitPoints = value; }
-    public int Defense { get => defense; set => defense = value; }
-    public int Power { get => power; set => power = value; }
-    public int Speed { get => speed; set => speed = value; }
-    public int Skill { get => skill; set => skill = value; }
-    public int MOVES_NUMBER { get => MOVES; set => MOVES = value; }
-    public int MoveA { get => moveA; set => moveA = value; }
-    public int MoveB { get => moveB; set => moveB = value; }
-    public string Static_image { get => static_image; set => static_image = value; }
-    public int Rating { get => rating; set => rating = value; }
-    public int Id { get => id; set => id = value; }*/
     override
     public String ToString()
     {
@@ -112,7 +83,7 @@ public class Beast
         {
             Beast b = (Beast)obj;
 
-            if (b.name.Equals(this.name) /*&& b.id == this.id*/)
+            if (b.name.Equals(this.name))
             {
                 return true;
             }
