@@ -153,6 +153,8 @@ public class BattleManager : MonoBehaviour
     //Get the slot info for each beast from LoadMission
     public void GetSlots(List<Beast> s, List<Beast> e)
     {
+        slots.Clear();
+        enemySlots.Clear();
         for (int x = 0; x < 6; x++)
         {
             slots.Add(s[x]);
@@ -167,10 +169,8 @@ public class BattleManager : MonoBehaviour
         slot4 = s4;
         slot5 = s5;
         slot6 = s6;*/
-        for(int x = 0; x < 6; x++)
-        {
-
-        }
+        slots.Clear();
+        enemySlots.Clear();
         slots.Add(s1);
         slots.Add(s2);
         slots.Add(s3);
