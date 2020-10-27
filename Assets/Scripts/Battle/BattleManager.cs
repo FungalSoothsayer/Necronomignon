@@ -527,6 +527,7 @@ public class BattleManager : MonoBehaviour
                     loadMission.RemoveImage(enemies[x], "Enemy");
                     turn -= enemiesTurnsTaken[x];
                 }
+            }
         }
 
         /*for (int x = 0; x < enemies.Count; x++)
