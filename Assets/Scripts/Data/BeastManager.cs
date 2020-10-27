@@ -30,7 +30,7 @@ public class BeastManager : MonoBehaviour
         {          
             foreach (Beast beast in beastsList.Beasts)
             {
-//                print(beast);
+                // print(beast);
                 beast.id = givenId;
                 givenId++;
             }

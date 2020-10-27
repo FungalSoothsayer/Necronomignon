@@ -15,12 +15,10 @@ public class Attack : MonoBehaviour
 
     public void InitiateAttack(Beast attacker, Beast target, bool inFront)
     {
-
         if (beastManager.moveManager.movesList == null)
         {
             beastManager.moveManager.start();
         }
-
 
         if (attacker != null && target != null)
         {
@@ -39,9 +37,12 @@ public class Attack : MonoBehaviour
         modifier = 1;
     }
 
+    // Checks if the attack will miss
     private bool isMiss(Beast attacker, Beast target)
     {
-        //Calculate the chance that an attack misses
+        /*
+         * Old version keeping for reference in the future and because Alex wants us to :)
+         * 
         float missChance = ((float)attacker.dexterity) / (float)target.speed;
 
         //Get Random variable 
@@ -59,8 +60,26 @@ public class Attack : MonoBehaviour
             Debug.Log(attacker.name + " attacked " + target.name);
             return false;
         }
+        */
+        float missChance = 100;
+        missChance += Mathf.Floor(attacker.dexterity / 50);
+        missChance -= Mathf.Floor(target.speed / 50);
+
+        int rand = Random.Range(1, 100);
+
+        if(rand < missChance)
+        {
+            print(attacker.name + " attacked " + target.name);
+            return false;
+        }
+        else
+        {
+            print("Attack Misses");
+            return true;
+        }
     }
 
+    // Checks if the attack will be a critical hit
     private float isCrit(Beast attacker, Beast target)
     {
         //Calculate the chance that an attack is a critical hit
@@ -81,6 +100,7 @@ public class Attack : MonoBehaviour
         return 1;
     }
 
+    // Checks if the defender will guard the attack
     private float isGuard(Beast attacker, Beast target)
     {
         //Calculate the chance that an attack is blocked
@@ -108,6 +128,7 @@ public class Attack : MonoBehaviour
         return 1;
     }
 
+    // Calculates the damage taking the different multipliers into account
     void CalculateDamage(Beast attacker, Beast target, bool inFront)
     {
         //    Random Random = new Random();
@@ -138,6 +159,7 @@ public class Attack : MonoBehaviour
         healthManager.UpdateHealth(target, damage);
     }
 
+    // Checks for type advantages and dissadvantages
     float calculateType(Beast attacker, Beast target)
     {
         if((int)attacker.type < 4)

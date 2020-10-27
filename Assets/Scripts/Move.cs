@@ -9,6 +9,7 @@ public class Move
     public string name;
     public int power;
     public float condition_chance;
+    public string description;
 
     override
     public String ToString()
@@ -18,6 +19,7 @@ public class Move
         str += "ID = " + move_id + "\n";
         str += "Condition Chance = " + condition_chance + "\n";
         str += "Power = " + power + "\n";
+        str += "Description = " + description + "\n";
         return str;
     }
 }

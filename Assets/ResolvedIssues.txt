@@ -11,3 +11,6 @@
 - Change where each slot is.
 - Add type advantages to combat.
 - Need to be able to create squads of less than 4.
+- Add health bars.
+- Battles should run automatically instead of having to click a target each attack.
+- Be able to add new characters.
