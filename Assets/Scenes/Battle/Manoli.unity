@@ -7585,363 +7585,56 @@ MonoBehaviour:
   btnSquad1: {fileID: 329955782}
   btnSquad2: {fileID: 1006836462}
   txtInfo: {fileID: 948815694}
-  slot1HealthBar: {fileID: 798302731}
-  slot2HealthBar: {fileID: 1523846304}
-  slot3HealthBar: {fileID: 456280804}
-  slot4HealthBar: {fileID: 839849657}
-  slot5HealthBar: {fileID: 1024886463}
-  slot6HealthBar: {fileID: 2101279242}
-  slot1Health: {fileID: 1795425308}
-  slot2Health: {fileID: 645719943}
-  slot3Health: {fileID: 596853059}
-  slot4Health: {fileID: 1338653099}
-  slot5Health: {fileID: 813784183}
-  slot6Health: {fileID: 659623061}
-  eslot1Health: {fileID: 798302733}
-  eslot2Health: {fileID: 1523846306}
-  eslot3Health: {fileID: 456280806}
-  eslot4Health: {fileID: 839849659}
-  eslot5Health: {fileID: 1024886465}
-  eslot6Health: {fileID: 2101279244}
-  pSlot1Dmg: {fileID: 1658526040}
-  pSlot2Dmg: {fileID: 1561336916}
-  pSlot3Dmg: {fileID: 825959648}
-  pSlot4Dmg: {fileID: 1867335898}
-  pSlot5Dmg: {fileID: 18757239}
-  pSlot6Dmg: {fileID: 1191904095}
-  eSlot1Dmg: {fileID: 1516660125}
-  eSlot2Dmg: {fileID: 1759363319}
-  eSlot3Dmg: {fileID: 885867578}
-  eSlot4Dmg: {fileID: 139279105}
-  eSlot5Dmg: {fileID: 1425212787}
-  eSlot6Dmg: {fileID: 694550623}
-  slot1Img: {fileID: 1769915129}
-  slot2Img: {fileID: 466154134}
-  slot3Img: {fileID: 509222145}
-  slot4Img: {fileID: 694125228}
-  slot5Img: {fileID: 885060983}
-  slot6Img: {fileID: 1128528523}
-  playerSlotImg: []
-  slot1:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  slot2:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  slot3:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  slot4:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  slot5:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  slot6:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
+  slotHealthBars:
+  - {fileID: 798302731}
+  - {fileID: 1523846304}
+  - {fileID: 456280804}
+  - {fileID: 839849657}
+  - {fileID: 1024886463}
+  - {fileID: 2101279242}
+  playerHealthBars:
+  - {fileID: 1795425308}
+  - {fileID: 645719943}
+  - {fileID: 596853059}
+  - {fileID: 1338653099}
+  - {fileID: 813784183}
+  - {fileID: 659623061}
+  enemyHealthBars:
+  - {fileID: 798302733}
+  - {fileID: 1523846306}
+  - {fileID: 456280806}
+  - {fileID: 839849659}
+  - {fileID: 1024886465}
+  - {fileID: 2101279244}
+  pSlotDmgs:
+  - {fileID: 1658526040}
+  - {fileID: 1561336916}
+  - {fileID: 825959648}
+  - {fileID: 1867335898}
+  - {fileID: 18757239}
+  - {fileID: 1191904095}
+  eSlotDmgs:
+  - {fileID: 1516660125}
+  - {fileID: 1759363319}
+  - {fileID: 885867578}
+  - {fileID: 139279105}
+  - {fileID: 1425212787}
+  - {fileID: 694550623}
+  playerSlotImg:
+  - {fileID: 1769915129}
+  - {fileID: 466154134}
+  - {fileID: 509222145}
+  - {fileID: 694125228}
+  - {fileID: 885060983}
+  - {fileID: 1128528523}
   playerSlot: []
-  enemySlot1Img: {fileID: 1228154454}
-  enemySlot2Img: {fileID: 143569504}
-  enemySlot3Img: {fileID: 689364791}
-  enemySlot4Img: {fileID: 2018557459}
-  enemySlot5Img: {fileID: 433158948}
-  enemySlot6Img: {fileID: 952308843}
-  enemySlotImg: []
-  enemySlot1:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  enemySlot2:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  enemySlot3:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  enemySlot4:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  enemySlot5:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  enemySlot6:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
+  enemySlotImg:
+  - {fileID: 1228154454}
+  - {fileID: 143569504}
+  - {fileID: 689364791}
+  - {fileID: 2018557459}
+  - {fileID: 433158948}
+  - {fileID: 952308843}
   enemySlot: []
 --- !u!114 &1972296795
 MonoBehaviour:
