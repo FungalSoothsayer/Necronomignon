@@ -503,7 +503,33 @@ public class BattleManager : MonoBehaviour
 
         totalBeasts -= 1;
 
-        for(int x = 0; x < enemies.Count; x++)
+        if(roundOrderTypes[turn] != "Player")
+        {
+            for (int x = 0; x < players.Count; x++)
+            {
+                if (target.Equals(players[x]))
+                {
+                    playersActive[x] = false;
+                    attackPool.Remove(players[x]);
+                    loadMission.RemoveImage(players[x], "Player");
+                    turn -= playersTurnsTaken[x];
+                }
+            }
+        }
+        else if (roundOrderTypes[turn] != "Enemy")
+        {
+            for (int x = 0; x < enemies.Count; x++)
+            {
+                if (target.Equals(enemies[x]))
+                {
+                    enemiesActive[x] = false;
+                    enemyAttackPool.Remove(enemies[x]);
+                    loadMission.RemoveImage(enemies[x], "Enemy");
+                    turn -= enemiesTurnsTaken[x];
+                }
+        }
+
+        /*for (int x = 0; x < enemies.Count; x++)
         {
             if (target.Equals(players[x]) && roundOrderTypes[turn] != "Player")
             {
@@ -519,7 +545,7 @@ public class BattleManager : MonoBehaviour
                 loadMission.RemoveImage(enemies[x], "Enemy");
                 turn -= enemiesTurnsTaken[x];
             }
-        }
+        }*/
         /*if (target == players[0])
         {
             player1Active = false;
