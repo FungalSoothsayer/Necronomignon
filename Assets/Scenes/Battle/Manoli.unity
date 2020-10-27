@@ -230,7 +230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 66.2}
+  m_AnchoredPosition: {x: -2, y: 64}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &18757237
@@ -1581,7 +1581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: 56}
+  m_AnchoredPosition: {x: -1, y: 52}
   m_SizeDelta: {x: 100, y: 14.194305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456280806
@@ -2088,7 +2088,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: 57.8}
+  m_AnchoredPosition: {x: 2, y: 52}
   m_SizeDelta: {x: 100, y: 14.194305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &596853059
@@ -2354,7 +2354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.7, y: 53.7}
+  m_AnchoredPosition: {x: 2, y: 53.7}
   m_SizeDelta: {x: 100, y: 14.194305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &659623061
@@ -2803,7 +2803,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 69}
+  m_AnchoredPosition: {x: 0, y: 65}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &694550621
@@ -2897,7 +2897,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2, y: 49}
+  m_AnchoredPosition: {x: -1, y: 51}
   m_SizeDelta: {x: 100, y: 14.194305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &798302733
@@ -3030,7 +3030,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.4, y: 51.6}
+  m_AnchoredPosition: {x: 2, y: 51.6}
   m_SizeDelta: {x: 100, y: 14.194305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &813784183
@@ -3235,7 +3235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.8, y: 64.5}
+  m_AnchoredPosition: {x: -6, y: 64.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &825959646
@@ -3403,7 +3403,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: 48}
+  m_AnchoredPosition: {x: -7, y: 52}
   m_SizeDelta: {x: 100, y: 14.194305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &839849659
@@ -3762,7 +3762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 72}
+  m_AnchoredPosition: {x: 0, y: 66}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885867578
@@ -4158,7 +4158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2, y: 50}
+  m_AnchoredPosition: {x: -2, y: 52}
   m_SizeDelta: {x: 100, y: 14.194305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1024886465
@@ -4819,7 +4819,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.8, y: 70.4}
+  m_AnchoredPosition: {x: -3, y: 66}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1191904093
@@ -5300,7 +5300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.7, y: 50.6}
+  m_AnchoredPosition: {x: 3, y: 50.6}
   m_SizeDelta: {x: 100, y: 14.194305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1338653099
@@ -5653,7 +5653,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 67}
+  m_AnchoredPosition: {x: 0, y: 66}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1425212787
@@ -5825,7 +5825,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 67}
+  m_AnchoredPosition: {x: 6, y: 65}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516660123
@@ -6124,7 +6124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.7, y: 78.5}
+  m_AnchoredPosition: {x: -4, y: 64}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1561336914
@@ -6290,7 +6290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.6, y: 73}
+  m_AnchoredPosition: {x: -4, y: 68}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1658526038
@@ -6456,7 +6456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 66}
+  m_AnchoredPosition: {x: 0, y: 65}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1759363317
@@ -7053,7 +7053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.2, y: 62.8}
+  m_AnchoredPosition: {x: -4, y: 62.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1867335896
@@ -7338,8 +7338,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4b0daa2aed14537a93945558b92225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eRunning: 0
+  pRunning: 0
   healthManager: {fileID: 1972296796}
-  beastDatabase: {fileID: 0}
   attack: {fileID: 1972296797}
   loadMission: {fileID: 1972296794}
   txtTurn: {fileID: 851197171}
@@ -7363,14 +7364,16 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
-  enemySlot1:
+  selectedEnemy:
     name: 
     hitPoints: 0
     defence: 0
@@ -7381,138 +7384,20 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
-    moveA: -1
+    moveA: 0
     Move_A:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
-    moveB: -1
+      description: 
+    moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
-    static_img: 
-  enemySlot2:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    static_img: 
-  enemySlot3:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    static_img: 
-  enemySlot4:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    static_img: 
-  enemySlot5:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    static_img: 
-  enemySlot6:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
+      description: 
     static_img: 
   enemySlots:
   - name: 
@@ -7531,12 +7416,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   - name: 
     hitPoints: 0
@@ -7554,12 +7441,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   - name: 
     hitPoints: 0
@@ -7577,12 +7466,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   - name: 
     hitPoints: 0
@@ -7600,12 +7491,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   - name: 
     hitPoints: 0
@@ -7623,12 +7516,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   - name: 
     hitPoints: 0
@@ -7646,21 +7541,17 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
-  player1Active: 1
-  player2Active: 1
-  player3Active: 1
-  player4Active: 1
-  enemy1Active: 1
-  enemy2Active: 1
-  enemy3Active: 1
-  enemy4Active: 1
+  playersActive: 01010101
+  enemiesActive: 01010101
 --- !u!114 &1972296793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7748,12 +7639,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   slot2:
     name: 
@@ -7772,12 +7665,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   slot3:
     name: 
@@ -7796,12 +7691,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   slot4:
     name: 
@@ -7820,12 +7717,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   slot5:
     name: 
@@ -7844,12 +7743,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   slot6:
     name: 
@@ -7868,12 +7769,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   playerSlot: []
   enemySlot1Img: {fileID: 1228154454}
@@ -7900,12 +7803,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   enemySlot2:
     name: 
@@ -7924,12 +7829,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   enemySlot3:
     name: 
@@ -7948,12 +7855,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   enemySlot4:
     name: 
@@ -7972,12 +7881,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   enemySlot5:
     name: 
@@ -7996,12 +7907,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   enemySlot6:
     name: 
@@ -8020,12 +7933,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   enemySlot: []
 --- !u!114 &1972296795
@@ -8078,7 +7993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f837badb074406093e893147b77423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beastDatabase: {fileID: 0}
   beastManager: {fileID: 1972296791}
   healthManager: {fileID: 1972296796}
 --- !u!114 &1972296798
