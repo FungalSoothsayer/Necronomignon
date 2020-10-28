@@ -100,6 +100,20 @@
 			"moveB": "14"
 		},
 		{
+			"name": "Wyvern",
+			"hitPoints": "1500",
+			"defence": "5",
+			"power": "100",
+			"speed": "120",
+			"dexterity": "40",
+			"number_MOVES": "3",
+			"tier": "1",
+			"type": "3",
+			"static_img": "Boss Wyvern Zefir",
+			"moveA": "9",
+			"moveB": "19"
+		},
+		{
 			"name": "Danny",
 			"hitPoints": "650",
 			"defence": "40",

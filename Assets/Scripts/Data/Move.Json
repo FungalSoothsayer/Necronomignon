@@ -1,5 +1,5 @@
 {
-	"Moves": [
+  "Moves": [
     {
       "move_id": "1",
       "name": "Darkness",
@@ -143,6 +143,14 @@
       "number_of_moves": "2",
       "condition_chance": "0.5",
       "description": "Base damage: 80 Special Condition Chance: 50%"
+    },
+    {
+      "move_id": "19",
+      "name": "Typhoon",
+      "power": "120",
+      "number_of_moves": "1",
+      "condition_chance": "0",
+      "description": "Base damage: 120 Special Condition Chance: 0%"
     }
-	]
+  ]
 }

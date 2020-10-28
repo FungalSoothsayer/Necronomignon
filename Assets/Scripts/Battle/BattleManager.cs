@@ -185,6 +185,7 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
+                    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
                     moves[x + 4] += enemies[x].Move_B.number_of_moves;
                 }
                 print(moves[x+4]);
@@ -345,6 +346,7 @@ public class BattleManager : MonoBehaviour
 
     public void Attack(Beast target)
     {
+        print(currentTurn);
         bool inFront = this.inFront();
 
         //Check to see if the round is still going and then run an attack
@@ -412,7 +414,7 @@ public class BattleManager : MonoBehaviour
 
         for(int x = 0; x< slots.Count; x++)
         {
-            if(x<3 && currentTurn == slots[x] || currentTurn == enemySlots[x])
+            if(x<3 && currentTurn.Equals(slots[x]) || currentTurn.Equals(enemySlots[x]))
             {
                 return true;
             }
@@ -458,6 +460,13 @@ public class BattleManager : MonoBehaviour
         }
         else if (roundOrderTypes[turn] != "Enemy")
         {
+            if(enemiesTurnsTaken.Count() <= 0)
+            {
+                enemiesTurnsTaken.Add(0);
+                enemiesTurnsTaken.Add(0);
+                enemiesTurnsTaken.Add(0);
+                enemiesTurnsTaken.Add(0);
+            }
             for (int x = 0; x < enemies.Count; x++)
             {
                 if (target.Equals(enemies[x]))
@@ -465,6 +474,7 @@ public class BattleManager : MonoBehaviour
                     enemiesActive[x] = false;
                     enemyAttackPool.Remove(enemies[x]);
                     loadMission.RemoveImage(enemies[x], "Enemy");
+                    print(enemiesTurnsTaken.Count());
                     turn -= enemiesTurnsTaken[x];
                 }
             }

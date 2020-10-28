@@ -109,8 +109,10 @@ public class LoadMission : MonoBehaviour
             if (enemyToLoad[x] != null)
             {
                 enemySlotImg[x].sprite = Resources.Load<Sprite>(enemyToLoad[x].static_img);
-                enemySlot.Add(enemyToLoad[x]);
-                enemySquad.Add(enemyToLoad[x]);
+                Beast b = new Beast();
+                b = beastManager.getFromName(enemyToLoad[x].name);
+                enemySlot.Add(b);
+                enemySquad.Add(b);
                 activeEnemiesHealth.Add(enemyHealthBars[x]);
                 activeEnemyDamageBar.Add(eSlotDmgs[x]);
             }

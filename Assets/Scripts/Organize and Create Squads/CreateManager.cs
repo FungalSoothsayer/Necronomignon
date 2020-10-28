@@ -47,7 +47,7 @@ public class CreateManager : MonoBehaviour
     {
         moveDescription.SetActive(true);
         selected = createPoolLoader.summoned[selectedIndex];
-        for (int x = 0; x < createPoolLoader.summoned.Count; x++)
+        for (int x = 0+ (createPoolLoader.counter*9); x < createPoolLoader.summoned.Count; x++)
         {
             if (selected.name.Equals(createPoolLoader.summoned[x].name))
             {
