@@ -100,7 +100,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             beastManager.Awake();
         }
-        BeastList bl = beastManager.beastsList; 
+        BeastList bl = BeastManager.beastsList; 
         for (int x = 0; x< bl.Beasts.Count; x++)
         {
             if (bl.Beasts[x].Equals(createManager.selected))

@@ -8,6 +8,7 @@ public class Move
     public int move_id;
     public string name;
     public int power;
+    public int number_of_moves;
     public float condition_chance;
     public string description;
 

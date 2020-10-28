@@ -135,9 +135,11 @@ public class LoadMission : MonoBehaviour
             }
             if (toLoad[x] != null)
             {
+                Beast b = new Beast();
                 playerSlotImg[x].sprite = Resources.Load<Sprite>(GetImage(toLoad[x]));
-                playerSlot.Add(beastManager.getFromName(toLoad[x].name));
-                thisSquad.Add(beastManager.getFromName(toLoad[x].name));
+                b = beastManager.getFromName(toLoad[x].name);
+                playerSlot.Add(b);
+                thisSquad.Add(b);
 
                 activePlayersHealth.Add(playerHealthBars[x]);
                 

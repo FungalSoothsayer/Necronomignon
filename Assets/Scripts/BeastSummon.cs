@@ -49,7 +49,7 @@ public class BeastSummon : MonoBehaviour
     //Return the rating for the beast that the current scene is for
     int GetCurrentBeastRating(Scene currentScene)
     {
-        List<Beast> beasts = beastManager.beastsList.Beasts;
+        List<Beast> beasts = BeastManager.beastsList.Beasts;
         foreach (Beast b in beasts)
         {
             if(currentScene.name == b.name + "Main")

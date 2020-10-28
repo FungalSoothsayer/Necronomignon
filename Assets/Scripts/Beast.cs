@@ -83,7 +83,7 @@ public class Beast
         {
             Beast b = (Beast)obj;
 
-            if (b.name.Equals(this.name))
+            if (b.name.Equals(this.name) && b.id == this.id)
             {
                 return true;
             }
