@@ -14,3 +14,9 @@
 - Add health bars.
 - Battles should run automatically instead of having to click a target each attack.
 - Be able to add new characters.
+- Reduce miss chance.
+- Round order graphic in the battle scene.
+- When a beast dies, all beasts with the same name die on both sides.
+- Info popup about front row and back row moves when creating squad.
+- In the preset battle, can no longer click on enemies to change targets.
+- Number of moves character has changes in front row vs back row.
