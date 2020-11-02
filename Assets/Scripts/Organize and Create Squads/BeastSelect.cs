@@ -29,7 +29,7 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                             createManager.LightUpSlots();
                             createManager.placing = true;
                         }
-                        createManager.selected = createPoolLoader.summoned[createManager.selectedIndex];
+                        createManager.selected = createPoolLoader.summoned[createManager.selectedIndex+(createPoolLoader.counter*9)];
                     }
                     
 
@@ -70,7 +70,7 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             return true;
         }
-        Beast beast = createPoolLoader.summoned[GetThisBeast()];
+        Beast beast = createPoolLoader.summoned[GetThisBeast() + (createPoolLoader.counter * 9)];
 
         if(beast == null)
         {

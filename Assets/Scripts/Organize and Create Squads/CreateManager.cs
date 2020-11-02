@@ -46,13 +46,13 @@ public class CreateManager : MonoBehaviour
     public void LightUpSlots()
     {
         moveDescription.SetActive(true);
-        selected = createPoolLoader.summoned[selectedIndex];
+        selected = createPoolLoader.summoned[selectedIndex + (createPoolLoader.counter * 9)];
         for (int x = 0+ (createPoolLoader.counter*9); x < createPoolLoader.summoned.Count; x++)
         {
             if (selected.name.Equals(createPoolLoader.summoned[x].name))
             {
-                description.GetComponent<Text>().text = "\n\nIn the front row \n" + createPoolLoader.summoned[x].Move_A.description + 
-                    "\n\nIn the back row \n" + createPoolLoader.summoned[x].Move_B.description;
+                description.GetComponent<Text>().text = "\n\nIn the front row \n" + selected.Move_A.description + 
+                    "\n\nIn the back row \n" + selected.Move_B.description;
                 break;
             }
         }
@@ -93,16 +93,22 @@ public class CreateManager : MonoBehaviour
     //Connected to remove button
     public void Remove()
     {
+        RemoveBeast();
         createPoolLoader.PutImageBack();
         RemoveSlotImage();
+        
     }
-
+    public void RemoveBeast()
+    {
+        GameObject.Find("Slot" + selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
+        slots[selectedSlotID - 1] = null;
+    }
     //Remove the image in a slot and remove it from selected variables
     public void RemoveSlotImage()
     {
 
-        GameObject.Find("Slot"+selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
-        slots[selectedSlotID-1] = null;
+        GameObject.Find("Slot" + selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
+        slots[selectedSlotID - 1] = null;
 
         selected = null;
         selectedIndex = -1;

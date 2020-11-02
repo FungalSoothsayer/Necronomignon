@@ -13,6 +13,7 @@ public class CreatePoolLoader : MonoBehaviour
     public BeastManager beastManager;
     public CreateManager createManager;
 
+
     public GameObject back;
     public GameObject forward;
 
@@ -51,7 +52,7 @@ public class CreatePoolLoader : MonoBehaviour
 
         for(int x = 0+ (counter * 9); x < slots.Count + (counter * 9); x++)
         {
-            if (summoned.Count >= x+1)
+            if (summoned.Count >= x+1 && NotSummoned(x))
             {
                 slots[x%9].gameObject.SetActive(true);
                 print(x % 9);
@@ -93,6 +94,28 @@ public class CreatePoolLoader : MonoBehaviour
         changeImages("Back");
     }
 
+    bool NotSummoned(int y)
+    {
+        if (y >= summoned.Count)
+        {
+            return true;
+        }
+        Beast beast = summoned[y];
+
+        if (beast == null)
+        {
+            return false;
+        }
+        for (int x = 0; x < createManager.slots.Count; x++)
+        {
+            if (beast.Equals(createManager.slots[x]))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void changeImages(string str)
     {
         if(str == "Forward")
@@ -104,6 +127,7 @@ public class CreatePoolLoader : MonoBehaviour
             counter--;
         }
 
+
         SetImages();
     }
 
@@ -112,8 +136,12 @@ public class CreatePoolLoader : MonoBehaviour
     {
         int index = createManager.selectedIndex;
 
-        slots[index].gameObject.SetActive(true);
-        slots[index].sprite = Resources.Load<Sprite>(summonedImages[index]);
+        if (NotSummoned(index))
+        {
+            slots[index].gameObject.SetActive(true);
+            slots[index].sprite = Resources.Load<Sprite>(summonedImages[index+(counter*9)]);
+        }
+        
         
     }
 }
