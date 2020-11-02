@@ -47,7 +47,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void SetImage()
     {
         print("setimage");
-        gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex]);
+        gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex + (createPoolLoader.counter * 9)]);
         gameObject.GetComponent<Image>().color = Color.white;
         ChangePoolImage();
     }
@@ -100,7 +100,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             beastManager.Awake();
         }
-        BeastList bl = beastManager.beastsList; 
+        BeastList bl = BeastManager.beastsList; 
         for (int x = 0; x< bl.Beasts.Count; x++)
         {
             if (bl.Beasts[x].Equals(createManager.selected))

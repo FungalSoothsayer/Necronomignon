@@ -16,8 +16,8 @@ public class BattleManager : MonoBehaviour
 
     public Text txtTurn;
 
-    List<Beast> players = new List<Beast>();
-    List<Beast> enemies = new List<Beast>();
+    public List<Beast> players = new List<Beast>();
+    public List<Beast> enemies = new List<Beast>();
     public List<Beast> roundOrder = new List<Beast>();
     public List<string> roundOrderTypes = new List<string>();
     List<Beast> attackPool = new List<Beast>();
@@ -32,7 +32,7 @@ public class BattleManager : MonoBehaviour
 
     public List<Image> orderBar = new List<Image>();
 
-    List<Beast> slots = new List<Beast>();
+    public List<Beast> slots = new List<Beast>();
     public List<Beast> enemySlots;
 
     public bool[] playersActive = { true, true, true, true };
@@ -160,17 +160,54 @@ public class BattleManager : MonoBehaviour
 
         int[] moves = new int[8];
 
-        if (playersActive[0]) moves[0] = players[0].number_MOVES;
+        for(int x = 0; x < 4; x++)
+        {
+            if (playersActive[x] && players[x] != null)
+            {
+                moves[x] = players[x].number_MOVES;
+                if (inFront(players[x]))
+                {
+                    moves[x] += players[x].Move_A.number_of_moves;
+                }
+                else
+                {
+                    moves[x] += players[x].Move_B.number_of_moves;
+                }
+                print(moves[x]);
+            }
+            if (enemiesActive[x] && enemies[x] != null)
+            {
+                moves[x+4] = enemies[x].number_MOVES;
+                enemies[x].setAttacks();
+                if (inFront(enemies[x]))
+                {
+                    moves[x + 4] += enemies[x].Move_A.number_of_moves;
+                }
+                else
+                {
+                    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                    moves[x + 4] += enemies[x].Move_B.number_of_moves;
+                }
+                print(moves[x+4]);
+
+            }
+        }
+
+        /*if (playersActive[0]) 
+        { 
+            moves[0] = players[0].number_MOVES;
+        }
         if (playersActive[1] && players[1] != null) moves[1] = players[1].number_MOVES;
         if (playersActive[2] && players[2] != null) moves[2] = players[2].number_MOVES;
         if (playersActive[3] && players[3] != null) moves[3] = players[3].number_MOVES;
         if (enemiesActive[0]) moves[4] = enemies[0].number_MOVES;
         if (enemiesActive[1]) moves[5] = enemies[1].number_MOVES;
         if (enemiesActive[2]) moves[6] = enemies[2].number_MOVES;
-        if (enemiesActive[3]) moves[7] = enemies[3].number_MOVES;
+        if (enemiesActive[3]) moves[7] = enemies[3].number_MOVES;*/
 
 
         totalMoves = moves.Sum();
+        print(totalMoves);
 
         List<int> Speed = new List<int>();
 
@@ -309,6 +346,7 @@ public class BattleManager : MonoBehaviour
 
     public void Attack(Beast target)
     {
+        print(currentTurn);
         bool inFront = this.inFront();
 
         //Check to see if the round is still going and then run an attack
@@ -376,7 +414,20 @@ public class BattleManager : MonoBehaviour
 
         for(int x = 0; x< slots.Count; x++)
         {
-            if(x<=3 && currentTurn == slots[x] || currentTurn == enemySlots[x])
+            if(x<3 && currentTurn.Equals(slots[x]) || currentTurn.Equals(enemySlots[x]))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool inFront(Beast b)
+    {
+
+        for (int x = 0; x < slots.Count; x++)
+        {
+            if (x < 3 && b.Equals(slots[x]) || b.Equals(enemySlots[x]))
             {
                 return true;
             }
@@ -409,6 +460,13 @@ public class BattleManager : MonoBehaviour
         }
         else if (roundOrderTypes[turn] != "Enemy")
         {
+            if(enemiesTurnsTaken.Count() <= 0)
+            {
+                enemiesTurnsTaken.Add(0);
+                enemiesTurnsTaken.Add(0);
+                enemiesTurnsTaken.Add(0);
+                enemiesTurnsTaken.Add(0);
+            }
             for (int x = 0; x < enemies.Count; x++)
             {
                 if (target.Equals(enemies[x]))
@@ -416,6 +474,7 @@ public class BattleManager : MonoBehaviour
                     enemiesActive[x] = false;
                     enemyAttackPool.Remove(enemies[x]);
                     loadMission.RemoveImage(enemies[x], "Enemy");
+                    print(enemiesTurnsTaken.Count());
                     turn -= enemiesTurnsTaken[x];
                 }
             }

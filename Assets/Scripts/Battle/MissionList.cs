@@ -32,7 +32,7 @@ public class MissionList : MonoBehaviour
             {
                 while (beast.Contains(ran) || ran == -1)
                 {
-                    ran = Random.Range(0, beastManager.beastsList.Beasts.Count);
+                    ran = Random.Range(0, BeastManager.beastsList.Beasts.Count);
                 }
                 beast.Add(ran);
             }
@@ -56,7 +56,7 @@ public class MissionList : MonoBehaviour
                 }
                 else
                 {
-                    enemies.Add(beastManager.getFromName(beastManager.beastsList.Beasts[beast[ran]].name));
+                    enemies.Add(beastManager.getFromName(BeastManager.beastsList.Beasts[beast[ran]].name));
                 }
             }
         }
