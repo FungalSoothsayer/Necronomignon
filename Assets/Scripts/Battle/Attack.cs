@@ -26,10 +26,15 @@ public class Attack : MonoBehaviour
             {
                 return;
             }
+            if(attacker.statusTurns[(int)Beast.types.Air] > 0)
+            {
+                print(attacker.name + " attacks blindly");
+            }
             if (!isMiss(attacker, target))
             {
                 modifier *= isCrit(attacker, target);
                 modifier *= isGuard(attacker, target);
+                checkIfStatus(attacker, target, inFront);
                 CalculateDamage(attacker, target, inFront);
             }
         }
@@ -61,9 +66,21 @@ public class Attack : MonoBehaviour
             return false;
         }
         */
+        if(attacker.statusTurns[(int)Beast.types.Air] > 0)
+        {
+            if (Random.Range(0, 2) > 0)
+            {
+                print(attacker.name + " was paralized and unable to move");
+            }
+        }
+
         float missChance = 100;
-        missChance += Mathf.Floor(attacker.dexterity / 50);
-        missChance -= Mathf.Floor(target.speed / 50);
+        missChance += Mathf.Floor(attacker.dexterity / 10);
+        missChance -= Mathf.Floor(target.speed / 10);
+        if (attacker.statusTurns[(int)Beast.types.Light] > 0)
+        {
+            missChance *= 1-(float)(attacker.statusTurns[(int)Beast.types.Light] * .2);
+        }
 
         int rand = Random.Range(1, 100);
 
@@ -128,22 +145,49 @@ public class Attack : MonoBehaviour
         return 1;
     }
 
+    void checkIfStatus(Beast attacker, Beast target, bool front)
+    {
+        float effectChance = 0;
+        if (front)
+        {
+            effectChance = (float)attacker.Move_A.condition_chance * 100;
+        }
+        else
+        {
+            effectChance = (float)attacker.Move_B.condition_chance * 100;
+        }
+
+        int rand = Random.Range(1, 100);
+
+        if (rand < effectChance && target.statusTurns[(int)attacker.type]<=0)
+        {
+            print("status effect on " + target.name);
+            target.statusTurns[(int)attacker.type] = 5;
+        }
+    }
+
     // Calculates the damage taking the different multipliers into account
     void CalculateDamage(Beast attacker, Beast target, bool inFront)
     {
         //    Random Random = new Random();
         attacker.setAttacks();
         float dmg;
+        float burnMod = 1;
+        if (target.statusTurns[(int)Beast.types.Fire] >0)
+        {
+            print("burn reduced " + target.name + "'s defence");
+            burnMod = .8f;
+        }
         //Calculates the damage if the attacker is in row A
 
         if (inFront)
         {
-            dmg = attacker.power * attacker.Move_A.power / target.defence;
+            dmg = attacker.power * attacker.Move_A.power / (target.defence*burnMod);
             print(attacker.Move_A.name);
         }
         else
         {
-            dmg = attacker.power * attacker.Move_B.power / target.defence;
+            dmg = attacker.power * attacker.Move_B.power / (target.defence * burnMod);
             print(attacker.Move_B.name);
         }
 

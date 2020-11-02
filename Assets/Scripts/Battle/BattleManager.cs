@@ -185,7 +185,6 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
                     moves[x + 4] += enemies[x].Move_B.number_of_moves;
                 }
                 print(moves[x+4]);
@@ -210,16 +209,34 @@ public class BattleManager : MonoBehaviour
         print(totalMoves);
 
         List<int> Speed = new List<int>();
+        List<float> playZap = new List<float>();
+        List<float> enemZap = new List<float>();
 
-        for(int x = 0; x < 8; x++)
+        for (int x = 0; x < 8; x++)
         {
+            if (x<4 && players[x].statusTurns[(int)Beast.types.Air]>0)
+            {
+                playZap.Add(0.5f);
+            }
+            else
+            {
+                playZap.Add(1);
+            }
+            if(x>=4 && enemies[x%4].statusTurns[(int)Beast.types.Air] > 0)
+            {
+                enemZap.Add(0.5f);
+            }
+            else if (x >= 4)
+            {
+                enemZap.Add(1);
+            }
             if(x<4&&players[x] != null)
             {
-                Speed.Add(players[x].speed);
+                Speed.Add((int)Mathf.Floor((float)players[x].speed*playZap[x]));
             }
             else if(x>3&&enemies[x%4] != null)
             {
-                Speed.Add(enemies[x%4].speed);
+                Speed.Add((int)Mathf.Floor((float)enemies[x%4].speed*enemZap[x%4]));
             }
             else
             {
@@ -247,7 +264,7 @@ public class BattleManager : MonoBehaviour
             {
                 for(int x = 0; x < 8; x++)
                 {
-                    if (x<4 && beastActive[x] && Speed[y] == players[x].speed && moves[x] > 0 && !InWave("Player " + players[x].name, wave))
+                    if (x<4 && beastActive[x] && Speed[y] == players[x].speed*playZap[x] && moves[x] > 0 && !InWave("Player " + players[x].name, wave))
                     {
                         roundOrder.Add(players[x]);
                         roundOrderTypes.Add("Player");
@@ -256,7 +273,7 @@ public class BattleManager : MonoBehaviour
                         i++;
                         break;
                     }
-                    else if(x>=4 && beastActive[x] && Speed[y] == enemies[x%4].speed && moves[x] > 0 && !InWave("Enemy " + enemies[x % 4].name, wave))
+                    else if(x>=4 && beastActive[x] && Speed[y] == enemies[x%4].speed*enemZap[x%4] && moves[x] > 0 && !InWave("Enemy " + enemies[x % 4].name, wave))
                     {
                         roundOrder.Add(enemies[x % 4]);
                         roundOrderTypes.Add("Enemy");
@@ -342,6 +359,24 @@ public class BattleManager : MonoBehaviour
             }
             UpdateOrderBar();
         }
+        bool justNow = false;
+        for(int x =0;x< currentTurn.statusTurns.Length;x++)
+        {
+            justNow = false;
+            if (currentTurn.statusTurns[x] > 0)
+            {
+                currentTurn.statusTurns[x]--;
+                justNow = true;
+            }
+            if(currentTurn.statusTurns[x] > 0 && x == (int)Beast.types.Fire)
+            {
+                healthManager.UpdateHealth(currentTurn, 5);
+            }
+            if(currentTurn.statusTurns[x] == 0 && x == (int)Beast.types.Air && justNow)
+            {
+                LoadOrder();
+            }
+        }
     }
 
     public void Attack(Beast target)
@@ -377,6 +412,15 @@ public class BattleManager : MonoBehaviour
         { 
             attack.InitiateAttack(currentTurn, target, inFront);
             AddTurn();
+            Beast b = new Beast();
+            if(turn+1 >= roundOrder.Count)
+            {
+                while (!b.Equals(currentTurn))
+                {
+                    b = roundOrder[turn];
+                    turn--;
+                }
+            }
             TakeTurn();
         }
     }
@@ -414,7 +458,7 @@ public class BattleManager : MonoBehaviour
 
         for(int x = 0; x< slots.Count; x++)
         {
-            if(x<3 && currentTurn.Equals(slots[x]) || currentTurn.Equals(enemySlots[x]))
+            if(x<3 && (currentTurn.Equals(slots[x]) || currentTurn.Equals(enemySlots[x])))
             {
                 return true;
             }

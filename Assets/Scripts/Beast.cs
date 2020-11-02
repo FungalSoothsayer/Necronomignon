@@ -24,6 +24,8 @@ public class Beast
     public string static_img;
 
     public enum types { Water, Fire, Earth, Air, Dark, Light };
+
+    public int[] statusTurns = new int[6];
     BeastManager bm = new BeastManager();
 
     public Beast()

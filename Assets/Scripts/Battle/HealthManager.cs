@@ -214,7 +214,6 @@ public class HealthManager : MonoBehaviour
         {
             enemies[1].hitPoints -= damage;
             enemyHealthBars[1].SetHealth(enemies[1].hitPoints);
-            print(enemyDamageBar[1] + " THIS IS ENEMY DAMAGE BAR INDEX 0");
             enemyDamageBar[1].setText(damage);
 
             if (enemies[1].hitPoints <= 0)

@@ -53,8 +53,8 @@
       "name": "Burn",
       "power": "30",
       "number_of_moves": "2",
-      "condition_chance": "0.3",
-      "description": "Base damage: 30 Special Condition Chance: 30%"
+      "condition_chance": "0.95",
+      "description": "Base damage: 30 Special Condition Chance: 95%"
     },
     {
       "move_id": "8",
@@ -77,8 +77,8 @@
       "name": "Wind Barrage",
       "power": "45",
       "number_of_moves": "2",
-      "condition_chance": "0",
-      "description": "Base damage: 45 Special Condition Chance: 0%"
+      "condition_chance": "1",
+      "description": "Base damage: 45 Special Condition Chance: 70%"
     },
     {
       "move_id": "11",
