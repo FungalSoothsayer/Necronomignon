@@ -8403,12 +8403,12 @@ MonoBehaviour:
   - {fileID: 813784183}
   - {fileID: 659623061}
   enemyHealthBars:
-  - {fileID: 1795425308}
-  - {fileID: 645719943}
-  - {fileID: 596853059}
-  - {fileID: 1338653099}
-  - {fileID: 813784183}
-  - {fileID: 659623061}
+  - {fileID: 798302733}
+  - {fileID: 1523846306}
+  - {fileID: 456280806}
+  - {fileID: 839849659}
+  - {fileID: 1024886465}
+  - {fileID: 2101279244}
   pSlotDmgs:
   - {fileID: 1658526040}
   - {fileID: 1561336916}
