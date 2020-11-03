@@ -427,7 +427,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator EnemyAttack()
     {
         eRunning = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
         eRunning = false;
         if (attackPool.Count > 0)
             Attack(GetEnemyTarget());
@@ -453,7 +453,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator PlayerAttack()
     {
         pRunning = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
         pRunning = false;
         if (enemyAttackPool.Count > 0)
             Attack(selectedEnemy);

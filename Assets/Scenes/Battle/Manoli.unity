@@ -207,13 +207,14 @@ GameObject:
   - component: {fileID: 18757238}
   - component: {fileID: 18757237}
   - component: {fileID: 18757239}
+  - component: {fileID: 18757240}
   m_Layer: 5
   m_Name: pSlot5Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &18757236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -287,6 +288,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOut: {fileID: 18757237}
+  anim: {fileID: 18757240}
+--- !u!95 &18757240
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18757235}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4378b49ba80ada843a6880acdd1fbe01, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &139279103
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,13 +320,14 @@ GameObject:
   - component: {fileID: 139279107}
   - component: {fileID: 139279106}
   - component: {fileID: 139279105}
+  - component: {fileID: 139279108}
   m_Layer: 5
   m_Name: eSlot4Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &139279104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -338,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOut: {fileID: 139279106}
+  anim: {fileID: 139279108}
 --- !u!114 &139279106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +402,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139279103}
   m_CullTransparentMesh: 0
+--- !u!95 &139279108
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139279103}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: df49a3b3784a8ae4d934a381fb448d84, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &143569501
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,13 +2822,14 @@ GameObject:
   - component: {fileID: 694550622}
   - component: {fileID: 694550621}
   - component: {fileID: 694550623}
+  - component: {fileID: 694550624}
   m_Layer: 5
   m_Name: eSlot6Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &694550620
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2860,6 +2903,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOut: {fileID: 694550621}
+  anim: {fileID: 694550624}
+--- !u!95 &694550624
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694550619}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 990bd4c54580d2348984c173a45fc5f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &798302731
 GameObject:
   m_ObjectHideFlags: 0
@@ -3212,13 +3275,14 @@ GameObject:
   - component: {fileID: 825959647}
   - component: {fileID: 825959646}
   - component: {fileID: 825959648}
+  - component: {fileID: 825959649}
   m_Layer: 5
   m_Name: pSlot3Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &825959645
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3292,6 +3356,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOut: {fileID: 825959646}
+  anim: {fileID: 825959649}
+--- !u!95 &825959649
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825959644}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 60934f5caec589344b57db226af00e51, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &831226927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3739,13 +3823,14 @@ GameObject:
   - component: {fileID: 885867580}
   - component: {fileID: 885867579}
   - component: {fileID: 885867578}
+  - component: {fileID: 885867581}
   m_Layer: 5
   m_Name: eSlot3Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &885867577
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3778,6 +3863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOut: {fileID: 885867579}
+  anim: {fileID: 885867581}
 --- !u!114 &885867579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3819,6 +3905,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885867576}
   m_CullTransparentMesh: 0
+--- !u!95 &885867581
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885867576}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 16e27ce3d3d17ad478b37fba8dbd100a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &948815694
 GameObject:
   m_ObjectHideFlags: 0
@@ -4796,13 +4901,14 @@ GameObject:
   - component: {fileID: 1191904094}
   - component: {fileID: 1191904093}
   - component: {fileID: 1191904095}
+  - component: {fileID: 1191904096}
   m_Layer: 5
   m_Name: pSlot6Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1191904092
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4876,6 +4982,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOut: {fileID: 1191904093}
+  anim: {fileID: 1191904096}
+--- !u!95 &1191904096
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191904091}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4cad2616aab4fb54487664d426810218, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1211844252
 GameObject:
   m_ObjectHideFlags: 0
@@ -5630,13 +5756,14 @@ GameObject:
   - component: {fileID: 1425212789}
   - component: {fileID: 1425212788}
   - component: {fileID: 1425212787}
+  - component: {fileID: 1425212790}
   m_Layer: 5
   m_Name: eSlot5Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1425212786
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5669,6 +5796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOut: {fileID: 1425212788}
+  anim: {fileID: 1425212790}
 --- !u!114 &1425212788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5710,6 +5838,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1425212785}
   m_CullTransparentMesh: 0
+--- !u!95 &1425212790
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425212785}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 27c446a40349fde40b90f3004bcaf542, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1492963954
 GameObject:
   m_ObjectHideFlags: 0
@@ -5802,13 +5949,14 @@ GameObject:
   - component: {fileID: 1516660124}
   - component: {fileID: 1516660123}
   - component: {fileID: 1516660125}
+  - component: {fileID: 1516660126}
   m_Layer: 5
   m_Name: eSlot1Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1516660122
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5882,6 +6030,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOut: {fileID: 1516660123}
+  anim: {fileID: 1516660126}
+--- !u!95 &1516660126
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516660121}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14959808bca16b34fa470ff878d02458, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1523846304
 GameObject:
   m_ObjectHideFlags: 0
@@ -6101,13 +6269,14 @@ GameObject:
   - component: {fileID: 1561336915}
   - component: {fileID: 1561336914}
   - component: {fileID: 1561336916}
+  - component: {fileID: 1561336917}
   m_Layer: 5
   m_Name: pSlot2Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1561336913
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6181,6 +6350,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOut: {fileID: 1561336914}
+  anim: {fileID: 1561336917}
+--- !u!95 &1561336917
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561336912}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b30a36a219b29b34884f022246f3775e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1567261585
 GameObject:
   m_ObjectHideFlags: 0
@@ -6267,13 +6456,14 @@ GameObject:
   - component: {fileID: 1658526039}
   - component: {fileID: 1658526038}
   - component: {fileID: 1658526040}
+  - component: {fileID: 1658526041}
   m_Layer: 5
   m_Name: pSlot1Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1658526037
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6315,7 +6505,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -6347,6 +6537,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOut: {fileID: 1658526038}
+  anim: {fileID: 1658526041}
+--- !u!95 &1658526041
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658526036}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9a1c08dc32437954bab949e66582596e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1749860296
 GameObject:
   m_ObjectHideFlags: 0
@@ -6433,13 +6643,14 @@ GameObject:
   - component: {fileID: 1759363318}
   - component: {fileID: 1759363317}
   - component: {fileID: 1759363319}
+  - component: {fileID: 1759363320}
   m_Layer: 5
   m_Name: eSlot2Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1759363316
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6513,6 +6724,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOut: {fileID: 1759363317}
+  anim: {fileID: 1759363320}
+--- !u!95 &1759363320
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759363315}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2649fe034117b8c4b9355b77acd6f07b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1762079207
 GameObject:
   m_ObjectHideFlags: 0
@@ -7030,13 +7261,14 @@ GameObject:
   - component: {fileID: 1867335897}
   - component: {fileID: 1867335896}
   - component: {fileID: 1867335898}
+  - component: {fileID: 1867335899}
   m_Layer: 5
   m_Name: pSlot4Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1867335895
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7110,6 +7342,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOut: {fileID: 1867335896}
+  anim: {fileID: 1867335899}
+--- !u!95 &1867335899
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867335894}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ae9e1723ce3d9e46b771e22a63485d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1895187996
 GameObject:
   m_ObjectHideFlags: 0
@@ -7338,8 +7590,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4b0daa2aed14537a93945558b92225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eRunning: 0
+  pRunning: 0
   healthManager: {fileID: 1972296796}
-  beastDatabase: {fileID: 0}
   attack: {fileID: 1972296797}
   loadMission: {fileID: 1972296794}
   txtTurn: {fileID: 851197171}
@@ -7363,14 +7616,16 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
-  enemySlot1:
+  selectedEnemy:
     name: 
     hitPoints: 0
     defence: 0
@@ -7381,138 +7636,20 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
-    moveA: -1
+    moveA: 0
     Move_A:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
-    moveB: -1
+      description: 
+    moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
-    static_img: 
-  enemySlot2:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    static_img: 
-  enemySlot3:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    static_img: 
-  enemySlot4:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    static_img: 
-  enemySlot5:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    static_img: 
-  enemySlot6:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
+      description: 
     static_img: 
   enemySlots:
   - name: 
@@ -7531,12 +7668,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   - name: 
     hitPoints: 0
@@ -7554,12 +7693,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   - name: 
     hitPoints: 0
@@ -7577,12 +7718,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   - name: 
     hitPoints: 0
@@ -7600,12 +7743,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   - name: 
     hitPoints: 0
@@ -7623,12 +7768,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   - name: 
     hitPoints: 0
@@ -7646,21 +7793,17 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: 0
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
-  player1Active: 1
-  player2Active: 1
-  player3Active: 1
-  player4Active: 1
-  enemy1Active: 1
-  enemy2Active: 1
-  enemy3Active: 1
-  enemy4Active: 1
+  playersActive: 01010101
+  enemiesActive: 01010101
 --- !u!114 &1972296793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7748,12 +7891,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   slot2:
     name: 
@@ -7772,12 +7917,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   slot3:
     name: 
@@ -7796,12 +7943,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   slot4:
     name: 
@@ -7820,12 +7969,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   slot5:
     name: 
@@ -7844,12 +7995,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   slot6:
     name: 
@@ -7868,12 +8021,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   playerSlot: []
   enemySlot1Img: {fileID: 1228154454}
@@ -7900,12 +8055,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   enemySlot2:
     name: 
@@ -7924,12 +8081,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   enemySlot3:
     name: 
@@ -7948,12 +8107,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   enemySlot4:
     name: 
@@ -7972,12 +8133,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   enemySlot5:
     name: 
@@ -7996,12 +8159,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   enemySlot6:
     name: 
@@ -8020,12 +8185,14 @@ MonoBehaviour:
       name: 
       power: 0
       condition_chance: 0
+      description: 
     moveB: -1
     Move_B:
       move_id: 0
       name: 
       power: 0
       condition_chance: 0
+      description: 
     static_img: 
   enemySlot: []
 --- !u!114 &1972296795
@@ -8078,7 +8245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f837badb074406093e893147b77423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beastDatabase: {fileID: 0}
   beastManager: {fileID: 1972296791}
   healthManager: {fileID: 1972296796}
 --- !u!114 &1972296798
