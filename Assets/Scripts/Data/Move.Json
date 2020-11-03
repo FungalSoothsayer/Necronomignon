@@ -29,7 +29,7 @@
       "name": "Wood Sword",
       "power": "50",
       "number_of_moves": "2",
-      "condition_chance": "0",
+      "condition_chance": "0.99",
       "description": "Base damage: 50 Special Condition Chance: 0%"
     },
     {

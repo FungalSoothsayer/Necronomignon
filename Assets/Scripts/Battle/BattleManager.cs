@@ -376,6 +376,10 @@ public class BattleManager : MonoBehaviour
             {
                 //LoadOrder();
             }
+            if(currentTurn.statusTurns[x] > 0 && x == (int)Beast.types.Earth)
+            {
+                healthManager.UpdateHealth(currentTurn,(int) Mathf.Ceil((float)currentTurn.hitPoints*.05f));
+            }
         }
     }
 

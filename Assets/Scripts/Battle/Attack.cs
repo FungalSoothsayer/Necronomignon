@@ -71,11 +71,17 @@ public class Attack : MonoBehaviour
             if (Random.Range(0, 2) > 0)
             {
                 print(attacker.name + " was paralized and unable to move");
+                return true;
             }
+        }
+        float poisonMod = 1;
+        if (attacker.statusTurns[(int)Beast.types.Earth] > 0)
+        {
+            poisonMod = .85f;
         }
 
         float missChance = 100;
-        missChance += Mathf.Floor(attacker.dexterity / 10);
+        missChance += Mathf.Floor((attacker.dexterity* poisonMod) / 10);
         missChance -= Mathf.Floor(target.speed / 10);
         if (attacker.statusTurns[(int)Beast.types.Light] > 0)
         {
@@ -173,21 +179,27 @@ public class Attack : MonoBehaviour
         attacker.setAttacks();
         float dmg;
         float burnMod = 1;
+        float poisonMod = 1;
         if (target.statusTurns[(int)Beast.types.Fire] >0)
         {
             print("burn reduced " + target.name + "'s defence");
             burnMod = .8f;
         }
+        if (attacker.statusTurns[(int)Beast.types.Earth] > 0)
+        {
+            print("poison reduced " + attacker.name + "'s attack");
+            poisonMod = .85f;
+        }
         //Calculates the damage if the attacker is in row A
 
         if (inFront)
         {
-            dmg = attacker.power * attacker.Move_A.power / (target.defence*burnMod);
+            dmg = (attacker.power* poisonMod) * attacker.Move_A.power / (target.defence*burnMod);
             print(attacker.Move_A.name);
         }
         else
         {
-            dmg = attacker.power * attacker.Move_B.power / (target.defence * burnMod);
+            dmg = (attacker.power * poisonMod) * attacker.Move_B.power / (target.defence * burnMod);
             print(attacker.Move_B.name);
         }
 
