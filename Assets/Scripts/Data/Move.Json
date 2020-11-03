@@ -1,16 +1,18 @@
 {
-	"Moves": [
-		{
-			"move_id": "1",
-			"name": "Darkness",
-			"power": "30",
+  "Moves": [
+    {
+      "move_id": "1",
+      "name": "Darkness",
+      "power": "30",
+      "number_of_moves": "2",
       "condition_chance": "0.3",
       "description": "Base damage: 30 Special Condition Chance: 30%"
-		},
+    },
     {
       "move_id": "2",
       "name": "Shadow Ball",
       "power": "75",
+      "number_of_moves": "2",
       "condition_chance": "0",
       "description": "Base damage: 75 Special Condition Chance: 0%"
     },
@@ -18,6 +20,7 @@
       "move_id": "3",
       "name": "Vine Whip",
       "power": "75",
+      "number_of_moves": "2",
       "condition_chance": "0",
       "description": "Base damage: 75 Special Condition Chance: 0%"
     },
@@ -25,6 +28,7 @@
       "move_id": "4",
       "name": "Wood Sword",
       "power": "50",
+      "number_of_moves": "2",
       "condition_chance": "0",
       "description": "Base damage: 50 Special Condition Chance: 0%"
     },
@@ -32,6 +36,7 @@
       "move_id": "5",
       "name": "Flood",
       "power": "40",
+      "number_of_moves": "2",
       "condition_chance": "0",
       "description": "Base damage: 40 Special Condition Chance: 0%"
     },
@@ -39,6 +44,7 @@
       "move_id": "6",
       "name": "Water Jet",
       "power": "90",
+      "number_of_moves": "2",
       "condition_chance": "0",
       "description": "Base damage: 90 Special Condition Chance: 0%"
     },
@@ -46,6 +52,7 @@
       "move_id": "7",
       "name": "Burn",
       "power": "30",
+      "number_of_moves": "2",
       "condition_chance": "0.3",
       "description": "Base damage: 30 Special Condition Chance: 30%"
     },
@@ -53,6 +60,7 @@
       "move_id": "8",
       "name": "Flame pillar",
       "power": "60",
+      "number_of_moves": "2",
       "condition_chance": "0",
       "description": "Base damage: 60 Special Condition Chance: 0%"
     },
@@ -60,6 +68,7 @@
       "move_id": "9",
       "name": "Sky Scale",
       "power": "75",
+      "number_of_moves": "2",
       "condition_chance": "0",
       "description": "Base damage: 75 Special Condition Chance: 0%"
     },
@@ -67,6 +76,7 @@
       "move_id": "10",
       "name": "Wind Barrage",
       "power": "45",
+      "number_of_moves": "2",
       "condition_chance": "0",
       "description": "Base damage: 45 Special Condition Chance: 0%"
     },
@@ -74,6 +84,7 @@
       "move_id": "11",
       "name": "Holy Blindness",
       "power": "15",
+      "number_of_moves": "2",
       "condition_chance": "0.9",
       "description": "Base damage: 15 Special Condition Chance: 90%"
     },
@@ -81,6 +92,7 @@
       "move_id": "12",
       "name": "Purify",
       "power": "75",
+      "number_of_moves": "2",
       "condition_chance": "0",
       "description": "Base damage: 75 Special Condition Chance: 0%"
     },
@@ -88,6 +100,7 @@
       "move_id": "13",
       "name": "slime",
       "power": "45",
+      "number_of_moves": "2",
       "condition_chance": "0",
       "description": "Base damage: 45 Special Condition Chance: 0%"
     },
@@ -95,6 +108,7 @@
       "move_id": "14",
       "name": "slime slap",
       "power": "55",
+      "number_of_moves": "2",
       "condition_chance": "0.5",
       "description": "Base damage: 55 Special Condition Chance: 50%"
     },
@@ -102,6 +116,7 @@
       "move_id": "15",
       "name": "DeVito Breath",
       "power": "60",
+      "number_of_moves": "2",
       "condition_chance": "0",
       "description": "Base damage: 60 Special Condition Chance: 0%"
     },
@@ -109,6 +124,7 @@
       "move_id": "16",
       "name": "DeVito Punch",
       "power": "50",
+      "number_of_moves": "2",
       "condition_chance": "0.5",
       "description": "Base damage: 50 Special Condition Chance: 50%"
     },
@@ -116,6 +132,7 @@
       "move_id": "17",
       "name": "bad motha-fucker",
       "power": "70",
+      "number_of_moves": "2",
       "condition_chance": "0",
       "description": "Base damage: 70 Special Condition Chance: 0%"
     },
@@ -123,8 +140,17 @@
       "move_id": "18",
       "name": "gun",
       "power": "80",
+      "number_of_moves": "2",
       "condition_chance": "0.5",
       "description": "Base damage: 80 Special Condition Chance: 50%"
+    },
+    {
+      "move_id": "19",
+      "name": "Typhoon",
+      "power": "120",
+      "number_of_moves": "1",
+      "condition_chance": "0",
+      "description": "Base damage: 120 Special Condition Chance: 0%"
     }
-	]
+  ]
 }

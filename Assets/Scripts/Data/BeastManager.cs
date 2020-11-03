@@ -15,7 +15,7 @@ public class BeastManager : MonoBehaviour
     string jsonString;
     public MoveManager moveManager;
 
-    public BeastList beastsList = new BeastList();
+    public static BeastList beastsList = new BeastList();
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class BeastManager : MonoBehaviour
        beastsList = JsonUtility.FromJson<BeastList>(jsonString);
      // print(JsonConvert.DeserializeObject(jsonString)); 
 
-        if (jsonString != null)
+        if (jsonString != null && beastsList.Beasts.Count <=0)
         {          
             foreach (Beast beast in beastsList.Beasts)
             {
