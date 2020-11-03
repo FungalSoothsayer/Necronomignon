@@ -74,6 +74,11 @@ public class Attack : MonoBehaviour
                 return true;
             }
         }
+        if (attacker.statusTurns[(int)Beast.types.Water] > 0)
+        {
+            print(attacker.name + " was asleep and unable to move");
+            return true;
+        }
         float poisonMod = 1;
         if (attacker.statusTurns[(int)Beast.types.Earth] > 0)
         {
