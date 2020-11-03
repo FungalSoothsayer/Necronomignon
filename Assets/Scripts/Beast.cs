@@ -28,6 +28,9 @@ public class Beast
     public int[] statusTurns = new int[6];
     BeastManager bm = new BeastManager();
 
+    public Beast cursed = null;
+    public int curseCharge = 0;
+
     public Beast()
     {
        
@@ -59,6 +62,29 @@ public class Beast
         this.Move_A = bm.getMove(this.moveA);
         this.Move_B = bm.getMove(this.moveB);
 
+    }
+
+    public bool curse(Beast target)
+    {
+        if (this.cursed == null)
+        {
+            this.cursed = target;
+            this.curseCharge = 3;
+            return false;
+        }
+        else if (this.curseCharge > 1)
+        {
+            this.curseCharge--;
+            return false;
+        }
+        else if(this.curseCharge <= 1)
+        {
+            target = this.cursed;
+            this.cursed = null;
+            this.curseCharge = 0;
+            return true;
+        }
+        return false;
     }
 
     override

@@ -388,6 +388,16 @@ public class BattleManager : MonoBehaviour
         print(currentTurn);
         bool inFront = this.inFront();
 
+        if(currentTurn.cursed != null)
+        {
+            if (currentTurn.cursed.hitPoints <= 0)
+            {
+                currentTurn.cursed = null;
+                currentTurn.curseCharge = 0;
+            }
+            target = currentTurn.cursed;
+        }
+
         //Check to see if the round is still going and then run an attack
         if (turn >= totalMoves - 1)
         {
