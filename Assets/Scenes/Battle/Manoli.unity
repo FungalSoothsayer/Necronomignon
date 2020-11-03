@@ -615,7 +615,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287230706}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -909,10 +909,7 @@ RectTransform:
   - {fileID: 1211844253}
   - {fileID: 911406580}
   - {fileID: 1944132728}
-  - {fileID: 774683932}
-  - {fileID: 1448009225}
   - {fileID: 1066381738}
-  - {fileID: 770309505}
   - {fileID: 164696051}
   - {fileID: 1639800137}
   - {fileID: 1924100261}
@@ -1057,7 +1054,7 @@ RectTransform:
   m_Children:
   - {fileID: 1308139411}
   m_Father: {fileID: 287230706}
-  m_RootOrder: 14
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1260,7 +1257,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287230706}
-  m_RootOrder: 11
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2340,7 +2337,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287230706}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2802,6 +2799,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680444380}
   m_CullTransparentMesh: 0
+--- !u!1 &688943829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 911406580}
+  m_Layer: 0
+  m_Name: Recovery GameObject (911406580)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &689364788
 GameObject:
   m_ObjectHideFlags: 0
@@ -3061,8 +3074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOut: {fileID: 694550621}
-
-  anim: {fileID: 694550624}
+  anim: {fileID: 0}
 --- !u!95 &694550624
 Animator:
   serializedVersion: 3
@@ -3070,7 +3082,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-
   m_GameObject: {fileID: 694550619}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
@@ -3083,6 +3094,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &711190770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 711190771}
+  - component: {fileID: 911406582}
+  m_Layer: 0
+  m_Name: Recovery GameObject (911406582)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &711190771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711190770}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &798302731
 GameObject:
   m_ObjectHideFlags: 0
@@ -3773,7 +3815,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287230706}
-  m_RootOrder: 18
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4084,31 +4126,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &948815694
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 911406580}
-  - component: {fileID: 911406582}
-  - component: {fileID: 911406581}
-  m_Layer: 5
-  m_Name: BottomBackground
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!224 &911406580
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911406579}
+  m_GameObject: {fileID: 688943829}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -4121,39 +4145,13 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -498.3}
   m_SizeDelta: {x: 0, y: 175.27939}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &911406581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911406579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 2800000, guid: a089c0b9a0e964d23a7a9520507793bd, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!222 &911406582
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911406579}
+  m_GameObject: {fileID: 711190770}
   m_CullTransparentMesh: 0
 --- !u!1 &948815694
 GameObject:
@@ -4185,7 +4183,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287230706}
-  m_RootOrder: 16
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4359,7 +4357,7 @@ RectTransform:
   m_Children:
   - {fileID: 680444381}
   m_Father: {fileID: 287230706}
-  m_RootOrder: 15
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4694,7 +4692,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287230706}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4774,7 +4772,7 @@ RectTransform:
   - {fileID: 885060982}
   - {fileID: 1128528522}
   m_Father: {fileID: 287230706}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4848,7 +4846,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287230706}
-  m_RootOrder: 17
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6143,7 +6141,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1425212785}
   m_CullTransparentMesh: 0
-
 --- !u!95 &1425212790
 Animator:
   serializedVersion: 3
@@ -6199,7 +6196,7 @@ RectTransform:
   - {fileID: 433158946}
   - {fileID: 952308841}
   m_Father: {fileID: 287230706}
-  m_RootOrder: 13
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6780,7 +6777,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287230706}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7846,7 +7843,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287230706}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8124,6 +8121,8 @@ MonoBehaviour:
   attack: {fileID: 1972296797}
   loadMission: {fileID: 1972296794}
   txtTurn: {fileID: 851197171}
+  players: []
+  enemies: []
   roundOrder: []
   roundOrderTypes: []
   turn: 0
@@ -8143,6 +8142,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     moveB: -1
@@ -8150,6 +8150,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     static_img: 
@@ -8169,6 +8170,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     moveB: 0
@@ -8176,19 +8178,18 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     static_img: 
   orderBar:
   - {fileID: 1944132729}
-  - {fileID: 774683933}
-  - {fileID: 1448009226}
   - {fileID: 1066381739}
-  - {fileID: 770309506}
   - {fileID: 164696052}
   - {fileID: 1639800138}
   - {fileID: 1924100262}
   - {fileID: 636976585}
+  slots: []
   enemySlots:
   - name: 
     hitPoints: 0
@@ -8205,6 +8206,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     moveB: 0
@@ -8212,6 +8214,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     static_img: 
@@ -8230,6 +8233,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     moveB: 0
@@ -8237,6 +8241,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     static_img: 
@@ -8255,6 +8260,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     moveB: 0
@@ -8262,6 +8268,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     static_img: 
@@ -8280,6 +8287,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     moveB: 0
@@ -8287,6 +8295,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     static_img: 
@@ -8305,6 +8314,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     moveB: 0
@@ -8312,6 +8322,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     static_img: 
@@ -8330,6 +8341,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     moveB: 0
@@ -8337,6 +8349,7 @@ MonoBehaviour:
       move_id: 0
       name: 
       power: 0
+      number_of_moves: 0
       condition_chance: 0
       description: 
     static_img: 
@@ -8375,363 +8388,56 @@ MonoBehaviour:
   btnSquad1: {fileID: 329955782}
   btnSquad2: {fileID: 1006836462}
   txtInfo: {fileID: 948815694}
-  slot1HealthBar: {fileID: 798302731}
-  slot2HealthBar: {fileID: 1523846304}
-  slot3HealthBar: {fileID: 456280804}
-  slot4HealthBar: {fileID: 839849657}
-  slot5HealthBar: {fileID: 1024886463}
-  slot6HealthBar: {fileID: 2101279242}
-  slot1Health: {fileID: 1795425308}
-  slot2Health: {fileID: 645719943}
-  slot3Health: {fileID: 596853059}
-  slot4Health: {fileID: 1338653099}
-  slot5Health: {fileID: 813784183}
-  slot6Health: {fileID: 659623061}
-  eslot1Health: {fileID: 798302733}
-  eslot2Health: {fileID: 1523846306}
-  eslot3Health: {fileID: 456280806}
-  eslot4Health: {fileID: 839849659}
-  eslot5Health: {fileID: 1024886465}
-  eslot6Health: {fileID: 2101279244}
-  pSlot1Dmg: {fileID: 1658526040}
-  pSlot2Dmg: {fileID: 1561336916}
-  pSlot3Dmg: {fileID: 825959648}
-  pSlot4Dmg: {fileID: 1867335898}
-  pSlot5Dmg: {fileID: 18757239}
-  pSlot6Dmg: {fileID: 1191904095}
-  eSlot1Dmg: {fileID: 1516660125}
-  eSlot2Dmg: {fileID: 1759363319}
-  eSlot3Dmg: {fileID: 885867578}
-  eSlot4Dmg: {fileID: 139279105}
-  eSlot5Dmg: {fileID: 1425212787}
-  eSlot6Dmg: {fileID: 694550623}
-  slot1Img: {fileID: 1769915129}
-  slot2Img: {fileID: 466154134}
-  slot3Img: {fileID: 509222145}
-  slot4Img: {fileID: 694125228}
-  slot5Img: {fileID: 885060983}
-  slot6Img: {fileID: 1128528523}
-  playerSlotImg: []
-  slot1:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  slot2:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  slot3:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  slot4:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  slot5:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  slot6:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
+  slotHealthBars:
+  - {fileID: 798302731}
+  - {fileID: 1523846304}
+  - {fileID: 456280804}
+  - {fileID: 839849657}
+  - {fileID: 1024886463}
+  - {fileID: 2101279242}
+  playerHealthBars:
+  - {fileID: 1795425308}
+  - {fileID: 645719943}
+  - {fileID: 596853059}
+  - {fileID: 1338653099}
+  - {fileID: 813784183}
+  - {fileID: 659623061}
+  enemyHealthBars:
+  - {fileID: 798302733}
+  - {fileID: 1523846306}
+  - {fileID: 456280806}
+  - {fileID: 839849659}
+  - {fileID: 1024886465}
+  - {fileID: 2101279244}
+  pSlotDmgs:
+  - {fileID: 1658526040}
+  - {fileID: 1561336916}
+  - {fileID: 825959648}
+  - {fileID: 1867335898}
+  - {fileID: 18757239}
+  - {fileID: 1191904095}
+  eSlotDmgs:
+  - {fileID: 1516660125}
+  - {fileID: 1759363319}
+  - {fileID: 885867578}
+  - {fileID: 139279105}
+  - {fileID: 1425212787}
+  - {fileID: 694550623}
+  playerSlotImg:
+  - {fileID: 1769915129}
+  - {fileID: 466154134}
+  - {fileID: 509222145}
+  - {fileID: 694125228}
+  - {fileID: 885060983}
+  - {fileID: 1128528523}
   playerSlot: []
-  enemySlot1Img: {fileID: 1228154454}
-  enemySlot2Img: {fileID: 143569504}
-  enemySlot3Img: {fileID: 689364791}
-  enemySlot4Img: {fileID: 2018557459}
-  enemySlot5Img: {fileID: 433158948}
-  enemySlot6Img: {fileID: 952308843}
-  enemySlotImg: []
-  enemySlot1:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  enemySlot2:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  enemySlot3:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  enemySlot4:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  enemySlot5:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
-  enemySlot6:
-    name: 
-    hitPoints: 0
-    defence: 0
-    power: 0
-    speed: 0
-    dexterity: 0
-    number_MOVES: 0
-    tier: 0
-    id: 0
-    type: 0
-    moveA: -1
-    Move_A:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    moveB: -1
-    Move_B:
-      move_id: 0
-      name: 
-      power: 0
-      condition_chance: 0
-      description: 
-    static_img: 
+  enemySlotImg:
+  - {fileID: 1228154454}
+  - {fileID: 143569504}
+  - {fileID: 689364791}
+  - {fileID: 2018557459}
+  - {fileID: 433158948}
+  - {fileID: 952308843}
   enemySlot: []
 --- !u!114 &1972296795
 MonoBehaviour:
