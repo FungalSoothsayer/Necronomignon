@@ -19,9 +19,9 @@ public class LoadMission : MonoBehaviour
 
     // HEALTH BARS: 
     
-    public List<HealthBar> playerHealthBars = new List<HealthBar>(6);
+    public List<HealthBar> playerHealthBars;
    
-    public List<HealthBar> enemyHealthBars = new List<HealthBar>(6);
+    public List<HealthBar> enemyHealthBars;
 
     // DAMAGE BARS
     
@@ -29,12 +29,12 @@ public class LoadMission : MonoBehaviour
     
     public List<DamageOutput> eSlotDmgs;
    
-    public List<Image> playerSlotImg = new List<Image>(6);
+    public List<Image> playerSlotImg;
 
     
     public List<Beast> playerSlot = new List<Beast>(6);
     
-    public List<Image> enemySlotImg = new List<Image>(6);
+    public List<Image> enemySlotImg;
     
     public List<Beast> enemySlot = new List<Beast>(6);
 

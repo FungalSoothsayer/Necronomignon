@@ -122,7 +122,7 @@ public class HealthManager : MonoBehaviour
         {
             squad[0].hitPoints -= damage;
             playerHealthBars[0].SetHealth(squad[0].hitPoints);
-            print(playerDamageBar[0]+" THIS IS PLAYER DAMAGE BAR INDEX 0");
+            
             playerDamageBar[0].setText(damage);
 
             if (squad[0].hitPoints <= 0)
@@ -141,7 +141,7 @@ public class HealthManager : MonoBehaviour
         {
             squad[1].hitPoints -= damage;
             playerHealthBars[1].SetHealth(squad[1].hitPoints);
-            print(playerDamageBar[1] + " THIS IS PLAYER DAMAGE BAR INDEX 1");
+           
             playerDamageBar[1].setText(damage);
 
             if (squad[1].hitPoints <= 0)
@@ -159,7 +159,7 @@ public class HealthManager : MonoBehaviour
         {
             squad[2].hitPoints -= damage;
             playerHealthBars[2].SetHealth(squad[2].hitPoints);
-            print(playerDamageBar[2] + " THIS IS PLAYER DAMAGE BAR INDEX 2");
+           
             playerDamageBar[2].setText(damage);
             
 
@@ -178,7 +178,7 @@ public class HealthManager : MonoBehaviour
         {
             squad[3].hitPoints -= damage;
             playerHealthBars[3].SetHealth(squad[3].hitPoints);
-            print(playerDamageBar[3] + " THIS IS PLAYER DAMAGE BAR INDEX 2");
+           
             playerDamageBar[3].setText(damage);
 
             if (squad[3].hitPoints <= 0)
@@ -196,7 +196,7 @@ public class HealthManager : MonoBehaviour
         {
             enemies[0].hitPoints -= damage;
             enemyHealthBars[0].SetHealth(enemies[0].hitPoints);
-            print(enemyDamageBar[0] + " THIS IS ENEMY DAMAGE BAR INDEX 0");
+            
             enemyDamageBar[0].setText(damage);
 
             if (enemies[0].hitPoints <= 0)
@@ -231,7 +231,7 @@ public class HealthManager : MonoBehaviour
         {
             enemies[2].hitPoints -= damage;
             enemyHealthBars[2].SetHealth(enemies[2].hitPoints);
-            print(enemyDamageBar[2] + " THIS IS ENEMY DAMAGE BAR INDEX 0");
+            
             enemyDamageBar[2].setText(damage);
 
             if (enemies[2].hitPoints <= 0)
@@ -249,7 +249,7 @@ public class HealthManager : MonoBehaviour
         {
             enemies[3].hitPoints -= damage;
             enemyHealthBars[3].SetHealth(enemies[3].hitPoints);
-            print(enemyDamageBar[3] + " THIS IS ENEMY DAMAGE BAR INDEX 0");
+            
             enemyDamageBar[3].setText(damage);
 
             if (enemies[3].hitPoints <= 0)
