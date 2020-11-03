@@ -218,6 +218,13 @@ public class Attack : MonoBehaviour
         damage = (int)(dmg * vary * modifier); //Convert damage to an integer
         Debug.Log("This is damage done " + damage);
         healthManager.UpdateHealth(target, damage);
+
+        int rand = Random.Range(0, 2);
+        if (target.statusTurns[(int)Beast.types.Water] > 0 && rand > 0)
+        {
+            print(target.name + " woke up");
+            target.statusTurns[(int)Beast.types.Water] = 0;
+        }
     }
 
     // Checks for type advantages and dissadvantages
