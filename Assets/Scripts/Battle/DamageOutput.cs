@@ -21,21 +21,13 @@ public class DamageOutput : MonoBehaviour
         anim = GetComponent<Animator>();
 
 
-        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("damageOutput_Idle"))
-        {
-            // If animation is not running, then runs
 
             damageOut.gameObject.SetActive(true);
-
-
-
 
             anim.SetBool("isActive", true);
 
             damageOut.text = damage.ToString();
 
-
-        }
 
 
         // Checks if the current Animation is running, returns bool 
