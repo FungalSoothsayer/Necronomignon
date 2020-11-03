@@ -374,7 +374,7 @@ public class BattleManager : MonoBehaviour
             }
             if(currentTurn.statusTurns[x] == 0 && x == (int)Beast.types.Air && justNow)
             {
-                LoadOrder();
+                //LoadOrder();
             }
         }
     }
