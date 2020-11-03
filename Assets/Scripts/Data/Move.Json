@@ -37,7 +37,7 @@
       "name": "Flood",
       "power": "40",
       "number_of_moves": "2",
-      "condition_chance": "0",
+      "condition_chance": "0.86",
       "description": "Base damage: 40 Special Condition Chance: 0%"
     },
     {

@@ -220,7 +220,7 @@ public class Attack : MonoBehaviour
         healthManager.UpdateHealth(target, damage);
 
         int rand = Random.Range(0, 2);
-        if (target.statusTurns[(int)Beast.types.Water] > 0 && rand > 0)
+        if (target.statusTurns[(int)Beast.types.Water] > 0 && rand > 0 && rand<5)
         {
             print(target.name + " woke up");
             target.statusTurns[(int)Beast.types.Water] = 0;
