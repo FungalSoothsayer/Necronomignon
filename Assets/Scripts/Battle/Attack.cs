@@ -30,6 +30,23 @@ public class Attack : MonoBehaviour
             {
                 print(attacker.name + " attacks blindly");
             }
+
+            if(attacker.cursed == target)
+            {
+                if (attacker.curse(target))
+                {
+                    print("Doom has consumed " + target.name);
+                    modifier = 1;
+                    healthManager.UpdateHealth(target, target.hitPoints);
+                }
+                else
+                {
+                    print("Doom lingers over " + target.name);
+                    modifier = 1;
+                }
+                
+                return;
+            }
             if (!isMiss(attacker, target))
             {
                 modifier *= isCrit(attacker, target);
@@ -158,6 +175,15 @@ public class Attack : MonoBehaviour
 
     void checkIfStatus(Beast attacker, Beast target, bool front)
     {
+        if(attacker.cursed != null)
+        {
+            
+            if (attacker.curse(target))
+            {
+                healthManager.UpdateHealth(target, target.hitPoints);
+                return;
+            }
+        }
         float effectChance = 0;
         if (front)
         {
@@ -170,10 +196,15 @@ public class Attack : MonoBehaviour
 
         int rand = Random.Range(1, 100);
 
-        if (rand < effectChance && target.statusTurns[(int)attacker.type]<=0)
+        if (rand < effectChance && (int)attacker.type != (int)Beast.types.Dark && target.statusTurns[(int)attacker.type]<=0)
         {
             print("status effect on " + target.name);
             target.statusTurns[(int)attacker.type] = 5;
+        }
+        else if(rand < effectChance && (int)attacker.type == (int)Beast.types.Dark && target.statusTurns[(int)attacker.type] <= 0)
+        {
+            print(target.name + " has been doomed");
+            attacker.curse(target);
         }
     }
 
