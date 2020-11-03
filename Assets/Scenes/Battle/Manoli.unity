@@ -8388,14 +8388,56 @@ MonoBehaviour:
   btnSquad1: {fileID: 329955782}
   btnSquad2: {fileID: 1006836462}
   txtInfo: {fileID: 948815694}
-  slotHealthBars: []
-  playerHealthBars: []
-  enemyHealthBars: []
-  pSlotDmgs: []
-  eSlotDmgs: []
-  playerSlotImg: []
+  slotHealthBars:
+  - {fileID: 798302731}
+  - {fileID: 1523846304}
+  - {fileID: 456280804}
+  - {fileID: 839849657}
+  - {fileID: 1024886463}
+  - {fileID: 2101279242}
+  playerHealthBars:
+  - {fileID: 1795425308}
+  - {fileID: 645719943}
+  - {fileID: 596853059}
+  - {fileID: 1338653099}
+  - {fileID: 813784183}
+  - {fileID: 659623061}
+  enemyHealthBars:
+  - {fileID: 1795425308}
+  - {fileID: 645719943}
+  - {fileID: 596853059}
+  - {fileID: 1338653099}
+  - {fileID: 813784183}
+  - {fileID: 659623061}
+  pSlotDmgs:
+  - {fileID: 1658526040}
+  - {fileID: 1561336916}
+  - {fileID: 825959648}
+  - {fileID: 1867335898}
+  - {fileID: 18757239}
+  - {fileID: 1191904095}
+  eSlotDmgs:
+  - {fileID: 1516660125}
+  - {fileID: 1759363319}
+  - {fileID: 885867578}
+  - {fileID: 139279105}
+  - {fileID: 1425212787}
+  - {fileID: 694550623}
+  playerSlotImg:
+  - {fileID: 1769915129}
+  - {fileID: 466154134}
+  - {fileID: 509222145}
+  - {fileID: 694125228}
+  - {fileID: 885060983}
+  - {fileID: 1128528523}
   playerSlot: []
-  enemySlotImg: []
+  enemySlotImg:
+  - {fileID: 1228154454}
+  - {fileID: 143569504}
+  - {fileID: 689364791}
+  - {fileID: 2018557459}
+  - {fileID: 433158948}
+  - {fileID: 952308843}
   enemySlot: []
 --- !u!114 &1972296795
 MonoBehaviour:
