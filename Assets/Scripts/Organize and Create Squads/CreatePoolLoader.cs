@@ -10,6 +10,17 @@ public class CreatePoolLoader : MonoBehaviour
     public List<string> summonedImages = new List<string>();
     public List<Beast> summoned = new List<Beast>();
 
+
+    // For the Animations 
+
+    public List<string> summonedNames = new List<string>();
+
+    public List<GameObject> poolSlots;
+
+    public List<Animator> anim = new List<Animator>(); 
+
+
+
     public BeastManager beastManager;
     public CreateManager createManager;
 
@@ -34,7 +45,16 @@ public class CreatePoolLoader : MonoBehaviour
             {
                 summonedImages.Add(bl.Beasts[x].static_img);
                 summoned.Add(bl.Beasts[x]);
+                // Set up List of Beasts Names for Animations
+                summonedNames.Add(bl.Beasts[x].name);
             }
+        }
+
+        for(int x=0; x < poolSlots.Count; x++)
+        {
+            print(x);
+            anim.Add(poolSlots[x].GetComponent<Animator>());
+            anim[x].runtimeAnimatorController = Resources.Load("Animations/" + summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
         }
 
         SetImages();
