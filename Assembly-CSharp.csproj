@@ -660,6 +660,9 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
