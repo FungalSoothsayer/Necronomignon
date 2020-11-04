@@ -141,7 +141,5 @@ public class CreatePoolLoader : MonoBehaviour
             slots[index].gameObject.SetActive(true);
             slots[index].sprite = Resources.Load<Sprite>(summonedImages[index+(counter*9)]);
         }
-        
-        
     }
 }
