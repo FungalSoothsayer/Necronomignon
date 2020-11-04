@@ -24,7 +24,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             //When mouse is clicked and cursor is over this image, set the beast to this slot
             if (Input.GetMouseButtonDown(0) && !createManager.saveMode)
             {
-                if (createManager.canBePlaced && createManager.placing) SetImage();
+                if (createManager.canBePlaced && createManager.placing ) SetImage();
                 else if (createManager.moving && !createManager.placing) MoveImage();
                 else EditPlace();
             }
@@ -127,7 +127,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void MoveImage()
     {
         print("moveimage");
-        if (slotID != createManager.selectedSlotID)
+        if (slotID != createManager.selectedSlotID && (createManager.slots[slotID-1] == null || createManager.slots[slotID-1].speed == 0))
         {
             gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex]);
             gameObject.GetComponent<Image>().color = Color.white;
