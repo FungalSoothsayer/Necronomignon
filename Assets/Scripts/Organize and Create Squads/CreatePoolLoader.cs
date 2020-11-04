@@ -52,9 +52,13 @@ public class CreatePoolLoader : MonoBehaviour
 
         for(int x=0; x < poolSlots.Count; x++)
         {
-            print(x);
-            anim.Add(poolSlots[x].GetComponent<Animator>());
-            anim[x].runtimeAnimatorController = Resources.Load("Animations/" + summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
+            if (x < summonedNames.Count)
+            {
+                anim.Add(poolSlots[x].GetComponent<Animator>());
+                anim[x].runtimeAnimatorController = Resources.Load("Animations/" + summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
+            }
+            
+    
         }
 
         SetImages();
