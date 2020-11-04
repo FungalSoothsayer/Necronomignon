@@ -47,9 +47,12 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void SetImage()
     {
         print("setimage");
-        gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex + (createPoolLoader.counter * 9)]);
-        gameObject.GetComponent<Image>().color = Color.white;
-        ChangePoolImage();
+        if (createManager.slots[slotID - 1] == null || createManager.slots[slotID - 1].speed == 0)
+        {
+            gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex + (createPoolLoader.counter * 9)]);
+            gameObject.GetComponent<Image>().color = Color.white;
+            ChangePoolImage();
+        }
     }
 
     //Remove the beast's image from this slot's image
@@ -63,10 +66,11 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void ChangePoolImage()
     {
         int index = createManager.selectedIndex;
-
-        createPoolLoader.slots[index].gameObject.SetActive(false);
-        createPoolLoader.slots[index].sprite = Resources.Load<Sprite>(GetFadedImage());
-        SetSlot();
+        
+            createPoolLoader.slots[index].gameObject.SetActive(false);
+            createPoolLoader.slots[index].sprite = Resources.Load<Sprite>(GetFadedImage());
+            SetSlot();
+        
     }
 
     //Set the CreateManager's variables to reflect the selected beast
@@ -79,18 +83,20 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         char chr = (gameObject.name).ToCharArray()[gameObject.name.Length - 1];
         int num = int.Parse(chr.ToString());
         print(num);
+        
+            createManager.slots[num - 1] = createManager.selected;
 
-        createManager.slots[num-1] = createManager.selected;
+            thisBeast = createManager.selected;
+            thisBeastIndex = createManager.selectedIndex;
 
-        thisBeast = createManager.selected;
-        thisBeastIndex = createManager.selectedIndex;
-
-        createManager.placed += 1;
-        createManager.placing = false;
-        createManager.CheckPlaceable();
-        createManager.selected = null;
-        createManager.selectedIndex = -1;
-        createManager.TurnOffSlots();
+            createManager.placed += 1;
+            createManager.placing = false;
+            createManager.CheckPlaceable();
+            createManager.selected = null;
+            createManager.selectedIndex = -1;
+            createManager.TurnOffSlots();
+        
+            
     }
 
     //Get the faded image of the placed beast
