@@ -26,4 +26,21 @@ public class AnimationPlayer : MonoBehaviour
         anim = image.GetComponent<Animator>();
         anim.runtimeAnimatorController = Resources.Load("Animations/Wyvern/Back/Back") as RuntimeAnimatorController;
     }
+
+    public void DamagedAnimation()
+    {
+        anim = image.GetComponent<Animator>();
+        anim.runtimeAnimatorController = Resources.Load("Animations/Wyvern/Damage/Damage") as RuntimeAnimatorController;
+    }
+
+    public void DeathAnimation()
+    {
+        anim = image.GetComponent<Animator>();
+        anim.runtimeAnimatorController = Resources.Load("Animations/Wyvern/Death/Death") as RuntimeAnimatorController;
+    }
+
+    public void SpawnAnimation()
+    {
+
+    }
 }
