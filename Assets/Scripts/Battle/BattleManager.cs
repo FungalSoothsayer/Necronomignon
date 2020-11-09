@@ -249,7 +249,7 @@ public class BattleManager : MonoBehaviour
             }
             else if (x > 3 && enemies[x % 4] != null)
             {
-                Speed.Add((int)Mathf.Floor((float)enemies[x % 4].speed * enemZap[x]));
+                Speed.Add((int)Mathf.Floor((float)enemies[x % 4].speed * enemZap[x % 4]));
             }
             else
             {
