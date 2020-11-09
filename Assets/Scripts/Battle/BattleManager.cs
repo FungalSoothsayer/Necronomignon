@@ -631,9 +631,6 @@ public class BattleManager : MonoBehaviour
         {
             for(int x =0;x< 4;x++)
             {
-                print((players[x].hitPoints / players[x].maxHP) < (b.hitPoints / b.maxHP));
-                print(players[x].hitPoints / players[x].maxHP);
-                print(b.hitPoints / b.maxHP);
                 if(players[x] != null && b != null && playersActive[x] && ((double)players[x].hitPoints/ (double)players[x].maxHP) < ((double)b.hitPoints/ (double)b.maxHP))
                 {
                     b = players[x];
