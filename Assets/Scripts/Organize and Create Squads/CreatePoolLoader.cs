@@ -19,15 +19,11 @@ public class CreatePoolLoader : MonoBehaviour
 
     public List<Animator> anim = new List<Animator>(); 
 
-
-
     public BeastManager beastManager;
     public CreateManager createManager;
 
-
     public GameObject back;
     public GameObject forward;
-
 
     public int counter = 0;
 
@@ -57,23 +53,14 @@ public class CreatePoolLoader : MonoBehaviour
                 anim.Add(poolSlots[x].GetComponent<Animator>());
                 anim[x].runtimeAnimatorController = Resources.Load("Animations/" + summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
             }
-            
-    
         }
 
         SetImages();
     }
 
-    void Update()
-    {
-        
-    }
-
     //Fill up the image slots with your summoned beasts
     void SetImages()
     {
-
-
         for(int x = 0+ (counter * 9); x < slots.Count + (counter * 9); x++)
         {
             if (summoned.Count >= x+1 && NotSummoned(x))

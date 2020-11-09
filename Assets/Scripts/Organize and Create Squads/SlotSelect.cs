@@ -47,8 +47,15 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void SetImage()
     {
         print("setimage");
-        gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex + (createPoolLoader.counter * 9)]);
-        gameObject.GetComponent<Image>().color = Color.white;
+        for(int x = 0; x < createPoolLoader.summonedNames.Count; x++)
+        {
+            if(createPoolLoader.summonedNames[x].Equals(createManager.selected.name)) {
+                gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + createPoolLoader.summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
+                gameObject.GetComponent<Image>().color = Color.white;
+            }
+        }
+        //gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex + (createPoolLoader.counter * 9)]);
+        //gameObject.GetComponent<Image>().color = Color.white;
         ChangePoolImage();
     }
 

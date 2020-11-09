@@ -741,6 +741,7 @@ GameObject:
   - component: {fileID: 304713796}
   - component: {fileID: 304713795}
   - component: {fileID: 304713797}
+  - component: {fileID: 304713798}
   m_Layer: 5
   m_Name: Slot4
   m_TagString: Untagged
@@ -820,6 +821,25 @@ MonoBehaviour:
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
   slotID: 4
+--- !u!95 &304713798
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304713793}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &365207519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,6 +1091,7 @@ GameObject:
   - component: {fileID: 469339008}
   - component: {fileID: 469339007}
   - component: {fileID: 469339009}
+  - component: {fileID: 469339010}
   m_Layer: 5
   m_Name: Slot2
   m_TagString: Untagged
@@ -1150,6 +1171,25 @@ MonoBehaviour:
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
   slotID: 2
+--- !u!95 &469339010
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469339005}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &560744598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1516,7 @@ GameObject:
   - component: {fileID: 793087387}
   - component: {fileID: 793087386}
   - component: {fileID: 793087388}
+  - component: {fileID: 793087389}
   m_Layer: 5
   m_Name: Slot3
   m_TagString: Untagged
@@ -1555,6 +1596,25 @@ MonoBehaviour:
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
   slotID: 3
+--- !u!95 &793087389
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793087384}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &843462588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,6 +2313,7 @@ GameObject:
   - component: {fileID: 891539769}
   - component: {fileID: 891539768}
   - component: {fileID: 891539770}
+  - component: {fileID: 891539771}
   m_Layer: 5
   m_Name: Slot5
   m_TagString: Untagged
@@ -2332,6 +2393,25 @@ MonoBehaviour:
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
   slotID: 5
+--- !u!95 &891539771
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891539766}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &922934183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,6 +2594,7 @@ GameObject:
   - component: {fileID: 1048798030}
   - component: {fileID: 1048798029}
   - component: {fileID: 1048798031}
+  - component: {fileID: 1048798032}
   m_Layer: 5
   m_Name: Slot1
   m_TagString: Untagged
@@ -2593,6 +2674,25 @@ MonoBehaviour:
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
   slotID: 1
+--- !u!95 &1048798032
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048798027}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1133082749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2883,6 +2983,7 @@ GameObject:
   - component: {fileID: 1246635159}
   - component: {fileID: 1246635158}
   - component: {fileID: 1246635160}
+  - component: {fileID: 1246635161}
   m_Layer: 5
   m_Name: Slot6
   m_TagString: Untagged
@@ -2962,6 +3063,25 @@ MonoBehaviour:
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
   slotID: 6
+--- !u!95 &1246635161
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246635156}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1281084574
 GameObject:
   m_ObjectHideFlags: 0
