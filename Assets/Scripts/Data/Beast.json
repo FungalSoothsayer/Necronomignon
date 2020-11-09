@@ -2,7 +2,7 @@
 	"Beasts": [
 		{
 			"name": "Cthulhu",
-			"hitPoints": "650",
+			"maxHP": "650",
 			"defence": "45",
 			"power": "60",
 			"speed": "50",
@@ -17,7 +17,7 @@
 
 		{
 			"name": "Gaia",
-			"hitPoints": "700",
+			"maxHP": "700",
 			"defence": "60",
 			"power": "50",
 			"speed": "35",
@@ -27,11 +27,11 @@
 			"type": "2",
 			"static_img": "Boss Nature Titan Tellia-4",
 			"moveA": "3",
-			"moveB": "4"
+			"moveB": "20"
 		},
 		{
 			"name": "Trogdor",
-			"hitPoints": "450",
+			"maxHP": "450",
 			"defence": "40",
 			"power": "40",
 			"speed": "74",
@@ -45,7 +45,7 @@
 		},
 		{
 			"name": "Behemoth",
-			"hitPoints": "500",
+			"maxHP": "500",
 			"defence": "35",
 			"power": "45",
 			"speed": "82",
@@ -59,7 +59,7 @@
 		},
 		{
 			"name": "Naglfar",
-			"hitPoints": "800",
+			"maxHP": "800",
 			"defence": "55",
 			"power": "80",
 			"speed": "46",
@@ -73,7 +73,7 @@
 		},
 		{
 			"name": "Sunbather",
-			"hitPoints": "380",
+			"maxHP": "380",
 			"defence": "45",
 			"power": "50",
 			"speed": "61",
@@ -87,7 +87,7 @@
 		},
 		{
 			"name": "Dream Slime",
-			"hitPoints": "500",
+			"maxHP": "500",
 			"defence": "30",
 			"power": "40",
 			"speed": "100",
@@ -101,7 +101,7 @@
 		},
 		{
 			"name": "Wyvern",
-			"hitPoints": "1500",
+			"maxHP": "1500",
 			"defence": "5",
 			"power": "100",
 			"speed": "120",
@@ -115,7 +115,7 @@
 		},
 		{
 			"name": "Danny",
-			"hitPoints": "650",
+			"maxHP": "650",
 			"defence": "40",
 			"power": "50",
 			"speed": "76",
@@ -129,7 +129,7 @@
 		},
 		{
 			"name": "Sammy",
-			"hitPoints": "700",
+			"maxHP": "700",
 			"defence": "72",
 			"power": "100",
 			"speed": "55",

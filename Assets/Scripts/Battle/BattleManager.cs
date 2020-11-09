@@ -116,6 +116,18 @@ public class BattleManager : MonoBehaviour
             totalBeasts--;
         }
 
+        for(int x = 0; x < 4; x++)
+        {
+            if(players[x] != null)
+            {
+                players[x].hitPoints = players[x].maxHP;
+            }
+            if (enemies[x] != null)
+            {
+                enemies[x].hitPoints = enemies[x].maxHP;
+            }
+        }
+
         healthManager.GetHealth(players, enemies, activePlayersHealth, activeEnemiesHealth, activePlayerDamage, activeEnemyDamage);
         LoadOrder();
     }
@@ -388,14 +400,29 @@ public class BattleManager : MonoBehaviour
         print(currentTurn);
         bool inFront = this.inFront();
 
-        if(currentTurn.cursed != null)
+        if (inFront)
+        {
+            if (currentTurn.Move_A.healing)
+            {
+                target = this.getWeakestFriend();
+            }
+        }
+        else if (!inFront)
+        {
+            if (currentTurn.Move_B.healing)
+            {
+                target = this.getWeakestFriend();
+            }
+        }
+        if (currentTurn.cursed != null)
         {
             if (currentTurn.cursed.hitPoints <= 0)
             {
                 currentTurn.cursed = null;
                 currentTurn.curseCharge = 0;
+                target = currentTurn.cursed;
             }
-            target = currentTurn.cursed;
+            
         }
 
         //Check to see if the round is still going and then run an attack
@@ -596,4 +623,29 @@ public class BattleManager : MonoBehaviour
             enemiesTurnsTaken.Add(0);
             enemiesTurnsTaken.Add(0);  
     }  
+    Beast getWeakestFriend()
+    {
+        Beast b = currentTurn;
+        if(roundOrderTypes[turn] == "Player")
+        {
+            for(int x =0;x< 4;x++)
+            {
+                if(players[x] != null && b != null && playersActive[x] && players[x].hitPoints < b.hitPoints)
+                {
+                    b = players[x];
+                }
+            }
+        }
+        else 
+        {
+            for (int x =0; x< 4; x++)
+            {
+                if (enemies[x] != null && b != null && enemiesActive[x] && enemies[x].hitPoints < b.hitPoints)
+                {
+                    b = enemies[x];
+                }
+            }
+        }
+        return b;
+    }
 }
