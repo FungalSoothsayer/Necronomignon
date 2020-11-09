@@ -20,7 +20,7 @@
     },
     {
       "move_id": "3",
-      "name": "Vine Whip",
+      "name": "Scarf wiggle",
       "power": "75",
       "number_of_moves": "2",
       "condition_chance": "0",
@@ -42,7 +42,7 @@
       "power": "40",
       "number_of_moves": "2",
       "condition_chance": "0.86",
-      "description": "Base damage: 40 Special Condition Chance: 0%",
+      "description": "Base damage: 40 Special Condition Chance: 86%",
       "healing": "false"
     },
     {
@@ -174,7 +174,7 @@
     {
       "move_id": "20",
       "name": "HEAL OF DESMOND TINY",
-      "power": "50",
+      "power": "30",
       "number_of_moves": "1",
       "condition_chance": "0",
       "description": "Heal: heals 50% of base hp of a friendly unit",
