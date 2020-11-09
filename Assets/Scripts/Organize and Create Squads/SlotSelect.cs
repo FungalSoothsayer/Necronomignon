@@ -46,8 +46,8 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Set the placed beast image to this slot's image
     void SetImage()
     {
-        print("setimage");
-        for(int x = 0; x < createPoolLoader.summonedNames.Count; x++)
+        gameObject.GetComponent<Animator>().enabled = true;
+        for (int x = 0; x < createPoolLoader.summonedNames.Count; x++)
         {
             if(createPoolLoader.summonedNames[x].Equals(createManager.selected.name)) {
                 gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + createPoolLoader.summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
@@ -60,7 +60,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Remove the beast's image from this slot's image
     public void RemoveImage()
     {
-        //gameObject.GetComponent<Animator>().runtimeAnimatorController = ;
+        gameObject.GetComponent<Animator>().enabled = false;
         gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Ellipse 1");
         gameObject.GetComponent<Image>().color = Color.green;
     }
@@ -78,7 +78,6 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Set the CreateManager's variables to reflect the selected beast
     void SetSlot()
     {
-        print("set slot");
         print(createManager.selectedIndex);
         print(createManager.selectedSlotID);
 
@@ -120,7 +119,6 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Select this beast and give options to move to another slot or remove from the grid
     void EditPlace()
     {
-        print("editplace");
         createManager.selected = thisBeast;
         createManager.selectedIndex = thisBeastIndex;
         createManager.selectedSlotID = slotID;
@@ -132,7 +130,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Move this beast to another slot
     void MoveImage()
     {
-        print("moveimage");
+        gameObject.GetComponent<Animator>().enabled = true;
         if (slotID != createManager.selectedSlotID)
         {
             for (int x = 0; x < createPoolLoader.summonedNames.Count; x++)
