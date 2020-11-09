@@ -11,6 +11,7 @@ public class Move
     public int number_of_moves;
     public float condition_chance;
     public string description;
+    public bool healing;
 
     override
     public String ToString()

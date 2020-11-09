@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -68,50 +69,52 @@ public class HealthManager : MonoBehaviour
         playerDamageBar = activePlayerDamage;
         enemyDamageBar = activeEnemyDamage;
 
-        player1 = players[0].hitPoints;
-        activePlayersHealth[0].SetMaxHealth(players[0].hitPoints);
+
+
+        player1 = players[0].maxHP;
+        activePlayersHealth[0].SetMaxHealth(players[0].maxHP);
         
         if (players[1] != null)
         {
-            player2 = players[1].hitPoints;
-            activePlayersHealth[1].SetMaxHealth(players[1].hitPoints);
+            player2 = players[1].maxHP;
+            activePlayersHealth[1].SetMaxHealth(players[1].maxHP);
         }
         else playersLeft--;
         if (players[2] != null)
         {
-            player3 = players[2].hitPoints;
-            activePlayersHealth[2].SetMaxHealth(players[2].hitPoints);
+            player3 = players[2].maxHP;
+            activePlayersHealth[2].SetMaxHealth(players[2].maxHP);
         }
         else playersLeft--;
         if (players[3] != null)
         {
-            player4 = players[3].hitPoints;
-            activePlayersHealth[3].SetMaxHealth(players[3].hitPoints);
+            player4 = players[3].maxHP;
+            activePlayersHealth[3].SetMaxHealth(players[3].maxHP);
         }
         else playersLeft--;
         if (opposing[0] != null)
         {
             enemiesLeft += 1;
-            enemy1 = opposing[0].hitPoints;
-            activeEnemiesHealth[0].SetMaxHealth(opposing[0].hitPoints);
+            enemy1 = opposing[0].maxHP;
+            activeEnemiesHealth[0].SetMaxHealth(opposing[0].maxHP);
         }
         if (opposing[1] != null)
         {
             enemiesLeft += 1;
-            enemy2 = opposing[1].hitPoints;
-            activeEnemiesHealth[1].SetMaxHealth(opposing[1].hitPoints);
+            enemy2 = opposing[1].maxHP;
+            activeEnemiesHealth[1].SetMaxHealth(opposing[1].maxHP);
         }
         if (opposing[2] != null)
         {
             enemiesLeft += 1;
-            enemy3 = opposing[2].hitPoints;
-            activeEnemiesHealth[2].SetMaxHealth(opposing[2].hitPoints);
+            enemy3 = opposing[2].maxHP;
+            activeEnemiesHealth[2].SetMaxHealth(opposing[2].maxHP);
         }
         if (opposing[3] != null)
         {
             enemiesLeft += 1;
-            enemy4 = opposing[3].hitPoints;
-            activeEnemiesHealth[3].SetMaxHealth(opposing[3].hitPoints);
+            enemy4 = opposing[3].maxHP;
+            activeEnemiesHealth[3].SetMaxHealth(opposing[3].maxHP);
         }
     }
 
@@ -261,6 +264,30 @@ public class HealthManager : MonoBehaviour
             else
             {
                 DisplayHealthLeft(target, enemies[3].hitPoints);
+            }
+        }
+    }
+    public void heal(Beast target, double heal)
+    {
+        for(int x = 0; x < 4; x++)
+        {
+            if(target == squad[x])
+            {
+                squad[x].hitPoints += int.Parse(Math.Floor(heal)+"");
+                if (squad[x].hitPoints > squad[x].maxHP)
+                {
+                    squad[x].hitPoints = squad[x].maxHP;
+                }
+                playerHealthBars[x].SetHealth(squad[x].hitPoints);
+            }
+            else if(target == enemies[x])
+            {
+                enemies[x].hitPoints += int.Parse(Math.Floor(heal)+"");
+                if (enemies[x].hitPoints > enemies[x].maxHP)
+                {
+                    enemies[x].hitPoints = enemies[x].maxHP;
+                }
+                enemyHealthBars[x].SetHealth(enemies[x].hitPoints);
             }
         }
     }

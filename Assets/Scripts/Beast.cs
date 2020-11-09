@@ -8,6 +8,7 @@ using UnityEngine;
 public class Beast
 {
     public string name = "";
+    public int maxHP;
     public int hitPoints;
     public int defence;
     public int power;
@@ -40,6 +41,7 @@ public class Beast
     {
         this.name = b.name;
         this.hitPoints = b.hitPoints;
+        this.maxHP = b.maxHP;
         this.defence = b.defence;
         this.power = b.power;
         this.speed = b.speed;
