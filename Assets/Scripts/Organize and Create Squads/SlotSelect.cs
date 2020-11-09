@@ -54,14 +54,13 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 gameObject.GetComponent<Image>().color = Color.white;
             }
         }
-        //gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex + (createPoolLoader.counter * 9)]);
-        //gameObject.GetComponent<Image>().color = Color.white;
         ChangePoolImage();
     }
 
     //Remove the beast's image from this slot's image
     public void RemoveImage()
     {
+        //gameObject.GetComponent<Animator>().runtimeAnimatorController = ;
         gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Ellipse 1");
         gameObject.GetComponent<Image>().color = Color.green;
     }
@@ -136,8 +135,14 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         print("moveimage");
         if (slotID != createManager.selectedSlotID)
         {
-            gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex]);
-            gameObject.GetComponent<Image>().color = Color.white;
+            for (int x = 0; x < createPoolLoader.summonedNames.Count; x++)
+            {
+                if (createPoolLoader.summonedNames[x].Equals(createManager.selected.name))
+                {
+                    gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + createPoolLoader.summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
+                    gameObject.GetComponent<Image>().color = Color.white;
+                }
+            }
             SetSlot();
             createManager.RemoveSlotImage();
         }
