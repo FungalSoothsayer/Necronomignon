@@ -67,50 +67,49 @@ public class DemoBattleManager : MonoBehaviour
 
     void LoadSquadImages()
     {
-
         List<Beast> toLoad = new List<Beast>();
 
         toLoad = squadData.GetSquadList(squadNumber);
 
         if (toLoad[0] != null)
         {
-            slot1Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[0]));
             slot1 = toLoad[0].name;
+            slot1Img.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[0].name + "/Idle/Idle") as RuntimeAnimatorController;
             thisSquad.Add(toLoad[0]);
         }
         else slot1Img.gameObject.SetActive(false);
         if (toLoad[1] != null)
         {
-            slot2Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[1]));
             slot2 = toLoad[1].name;
+            slot2Img.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[1].name + "/Idle/Idle") as RuntimeAnimatorController;
             thisSquad.Add(toLoad[1]);
         }
         else slot2Img.gameObject.SetActive(false);
         if (toLoad[2] != null)
         {
-            slot3Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[2]));
             slot3 = toLoad[2].name;
+            slot3Img.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[2].name + "/Idle/Idle") as RuntimeAnimatorController;
             thisSquad.Add(toLoad[2]);
         }
         else slot3Img.gameObject.SetActive(false);
         if (toLoad[3] != null)
         {
-            slot4Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[3]));
             slot4 = toLoad[3].name;
+            slot4Img.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[3].name + "/Idle/Idle") as RuntimeAnimatorController;
             thisSquad.Add(toLoad[3]);
         }
         else slot4Img.gameObject.SetActive(false);
         if (toLoad[4] != null)
         {
-            slot5Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[4]));
             slot5 = toLoad[4].name;
+            slot5Img.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[4].name + "/Idle/Idle") as RuntimeAnimatorController;
             thisSquad.Add(toLoad[4]);
         }
         else slot5Img.gameObject.SetActive(false);
         if (toLoad[5] != null)
         {
-            slot6Img.sprite = Resources.Load<Sprite>(GetImage(toLoad[5]));
             slot6 = toLoad[5].name;
+            slot6Img.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[5].name + "/Idle/Idle") as RuntimeAnimatorController;
             thisSquad.Add(toLoad[5]);
         }
         else slot6Img.gameObject.SetActive(false);

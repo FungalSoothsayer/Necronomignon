@@ -15,12 +15,12 @@ public class MissionList : MonoBehaviour
     {
         if (mission == "sample")
         {
-            enemies.Add(beastManager.getFromName("Sunbather")); //A1
-            enemies.Add(beastManager.getFromName("Behemoth")); //B1
-            enemies.Add(beastManager.getFromName("Cthulhu")); //A2
+            enemies.Add(beastManager.getFromName("Dryad")); //A1
+            enemies.Add(beastManager.getFromName("Conglomerate")); //B1
+            enemies.Add(beastManager.getFromName("Wyvern")); //A2
             enemies.Add(null); //B2
             enemies.Add(null); //A3
-            enemies.Add(beastManager.getFromName("Trogdor")); //B3
+            enemies.Add(beastManager.getFromName("Kitsune")); //B3
         }
         if (mission == "random")
         {

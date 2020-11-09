@@ -46,18 +46,21 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Set the placed beast image to this slot's image
     void SetImage()
     {
-        print("setimage");
-        if (createManager.slots[slotID - 1] == null || createManager.slots[slotID - 1].speed == 0)
+        gameObject.GetComponent<Animator>().enabled = true;
+        for (int x = 0; x < createPoolLoader.summonedNames.Count; x++)
         {
-            gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex + (createPoolLoader.counter * 9)]);
-            gameObject.GetComponent<Image>().color = Color.white;
-            ChangePoolImage();
+            if(createPoolLoader.summonedNames[x].Equals(createManager.selected.name)) {
+                gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + createPoolLoader.summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
+                gameObject.GetComponent<Image>().color = Color.white;
+            }
         }
+        ChangePoolImage();
     }
 
     //Remove the beast's image from this slot's image
     public void RemoveImage()
     {
+        gameObject.GetComponent<Animator>().enabled = false;
         gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Ellipse 1");
         gameObject.GetComponent<Image>().color = Color.green;
     }
@@ -76,7 +79,6 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Set the CreateManager's variables to reflect the selected beast
     void SetSlot()
     {
-        print("set slot");
         print(createManager.selectedIndex);
         print(createManager.selectedSlotID);
 
@@ -120,7 +122,6 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Select this beast and give options to move to another slot or remove from the grid
     void EditPlace()
     {
-        print("editplace");
         createManager.selected = thisBeast;
         createManager.selectedIndex = thisBeastIndex;
         createManager.selectedSlotID = slotID;
@@ -132,11 +133,19 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Move this beast to another slot
     void MoveImage()
     {
+
         print("moveimage");
         if (slotID != createManager.selectedSlotID && (createManager.slots[slotID-1] == null || createManager.slots[slotID-1].speed == 0))
+
         {
-            gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(createPoolLoader.summonedImages[createManager.selectedIndex]);
-            gameObject.GetComponent<Image>().color = Color.white;
+            for (int x = 0; x < createPoolLoader.summonedNames.Count; x++)
+            {
+                if (createPoolLoader.summonedNames[x].Equals(createManager.selected.name))
+                {
+                    gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + createPoolLoader.summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
+                    gameObject.GetComponent<Image>().color = Color.white;
+                }
+            }
             SetSlot();
             createManager.RemoveSlotImage();
         }

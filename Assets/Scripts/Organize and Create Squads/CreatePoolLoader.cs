@@ -10,13 +10,20 @@ public class CreatePoolLoader : MonoBehaviour
     public List<string> summonedImages = new List<string>();
     public List<Beast> summoned = new List<Beast>();
 
+
+    // For the Animations 
+
+    public List<string> summonedNames = new List<string>();
+
+    public List<GameObject> poolSlots;
+
+    public List<Animator> anim = new List<Animator>(); 
+
     public BeastManager beastManager;
     public CreateManager createManager;
 
-
     public GameObject back;
     public GameObject forward;
-
 
     public int counter = 0;
 
@@ -34,22 +41,26 @@ public class CreatePoolLoader : MonoBehaviour
             {
                 summonedImages.Add(bl.Beasts[x].static_img);
                 summoned.Add(bl.Beasts[x]);
+                // Set up List of Beasts Names for Animations
+                summonedNames.Add(bl.Beasts[x].name);
+            }
+        }
+
+        for(int x=0; x < poolSlots.Count; x++)
+        {
+            if (x < summonedNames.Count)
+            {
+                anim.Add(poolSlots[x].GetComponent<Animator>());
+                anim[x].runtimeAnimatorController = Resources.Load("Animations/" + summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
             }
         }
 
         SetImages();
     }
 
-    void Update()
-    {
-        
-    }
-
     //Fill up the image slots with your summoned beasts
     void SetImages()
     {
-
-
         for(int x = 0+ (counter * 9); x < slots.Count + (counter * 9); x++)
         {
             if (summoned.Count >= x+1 && NotSummoned(x))
@@ -141,7 +152,5 @@ public class CreatePoolLoader : MonoBehaviour
             slots[index].gameObject.SetActive(true);
             slots[index].sprite = Resources.Load<Sprite>(summonedImages[index+(counter*9)]);
         }
-        
-        
     }
 }

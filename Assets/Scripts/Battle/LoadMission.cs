@@ -108,7 +108,7 @@ public class LoadMission : MonoBehaviour
 
             if (enemyToLoad[x] != null)
             {
-                enemySlotImg[x].sprite = Resources.Load<Sprite>(enemyToLoad[x].static_img);
+                enemySlotImg[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + enemyToLoad[x].name + "/Idle/Idle") as RuntimeAnimatorController;
                 Beast b = new Beast();
                 b = beastManager.getFromName(enemyToLoad[x].name);
                 enemySlot.Add(b);
@@ -137,8 +137,8 @@ public class LoadMission : MonoBehaviour
             }
             if (toLoad[x] != null)
             {
+                playerSlotImg[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/Idle/Idle") as RuntimeAnimatorController;
                 Beast b = new Beast();
-                playerSlotImg[x].sprite = Resources.Load<Sprite>(GetImage(toLoad[x]));
                 b = beastManager.getFromName(toLoad[x].name);
                 playerSlot.Add(b);
                 thisSquad.Add(b);
@@ -146,8 +146,6 @@ public class LoadMission : MonoBehaviour
                 activePlayersHealth.Add(playerHealthBars[x]);
                 
                 activePlayerDamageBar.Add(pSlotDmgs[x]);
-                
-
             }
             else
             {
@@ -155,8 +153,7 @@ public class LoadMission : MonoBehaviour
                 playerSlot.Add(null);
                 activePlayersHealth.Add(null);
                 activePlayerDamageBar.Add(null);
-            }
-            
+            } 
         }
 
         foreach(GameObject healthBar in slotHealthBars)
