@@ -192,19 +192,6 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        /*if (playersActive[0]) 
-        { 
-            moves[0] = players[0].number_MOVES;
-        }
-        if (playersActive[1] && players[1] != null) moves[1] = players[1].number_MOVES;
-        if (playersActive[2] && players[2] != null) moves[2] = players[2].number_MOVES;
-        if (playersActive[3] && players[3] != null) moves[3] = players[3].number_MOVES;
-        if (enemiesActive[0]) moves[4] = enemies[0].number_MOVES;
-        if (enemiesActive[1]) moves[5] = enemies[1].number_MOVES;
-        if (enemiesActive[2]) moves[6] = enemies[2].number_MOVES;
-        if (enemiesActive[3]) moves[7] = enemies[3].number_MOVES;*/
-
-
         totalMoves = moves.Sum();
         print(totalMoves);
 
@@ -442,7 +429,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator EnemyAttack()
     {
         eRunning = true;
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
         eRunning = false;
         if (attackPool.Count > 0)
             Attack(GetEnemyTarget());
@@ -460,7 +447,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator PlayerAttack()
     {
         pRunning = true;
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
         pRunning = false;
         if (enemyAttackPool.Count > 0)
             Attack(selectedEnemy);
