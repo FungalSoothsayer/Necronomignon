@@ -24,7 +24,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             //When mouse is clicked and cursor is over this image, set the beast to this slot
             if (Input.GetMouseButtonDown(0) && !createManager.saveMode)
             {
-                if (createManager.canBePlaced && createManager.placing) SetImage();
+                if (createManager.canBePlaced && createManager.placing ) SetImage();
                 else if (createManager.moving && !createManager.placing) MoveImage();
                 else EditPlace();
             }
@@ -69,10 +69,11 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void ChangePoolImage()
     {
         int index = createManager.selectedIndex;
-
-        createPoolLoader.slots[index].gameObject.SetActive(false);
-        createPoolLoader.slots[index].sprite = Resources.Load<Sprite>(GetFadedImage());
-        SetSlot();
+        
+            createPoolLoader.slots[index].gameObject.SetActive(false);
+            createPoolLoader.slots[index].sprite = Resources.Load<Sprite>(GetFadedImage());
+            SetSlot();
+        
     }
 
     //Set the CreateManager's variables to reflect the selected beast
@@ -84,18 +85,20 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         char chr = (gameObject.name).ToCharArray()[gameObject.name.Length - 1];
         int num = int.Parse(chr.ToString());
         print(num);
+        
+            createManager.slots[num - 1] = createManager.selected;
 
-        createManager.slots[num-1] = createManager.selected;
+            thisBeast = createManager.selected;
+            thisBeastIndex = createManager.selectedIndex;
 
-        thisBeast = createManager.selected;
-        thisBeastIndex = createManager.selectedIndex;
-
-        createManager.placed += 1;
-        createManager.placing = false;
-        createManager.CheckPlaceable();
-        createManager.selected = null;
-        createManager.selectedIndex = -1;
-        createManager.TurnOffSlots();
+            createManager.placed += 1;
+            createManager.placing = false;
+            createManager.CheckPlaceable();
+            createManager.selected = null;
+            createManager.selectedIndex = -1;
+            createManager.TurnOffSlots();
+        
+            
     }
 
     //Get the faded image of the placed beast
@@ -130,8 +133,10 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Move this beast to another slot
     void MoveImage()
     {
-        gameObject.GetComponent<Animator>().enabled = true;
-        if (slotID != createManager.selectedSlotID)
+
+        print("moveimage");
+        if (slotID != createManager.selectedSlotID && (createManager.slots[slotID-1] == null || createManager.slots[slotID-1].speed == 0))
+
         {
             for (int x = 0; x < createPoolLoader.summonedNames.Count; x++)
             {

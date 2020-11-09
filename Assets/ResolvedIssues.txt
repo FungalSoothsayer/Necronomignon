@@ -20,3 +20,9 @@
 - Info popup about front row and back row moves when creating squad.
 - In the preset battle, can no longer click on enemies to change targets.
 - Number of moves character has changes in front row vs back row.
+- Moving a character to a spot that already has a character removes the characters image that was there but the character is still there.
+- Don't allow multiple of the same character in a squad.
+- Add special conditions to certain moves.
+- Damage output only visible for a short time.
+- Scroll through or flip through pages when more characters are available than there is room on the page.
+- Replace available characters to starters.

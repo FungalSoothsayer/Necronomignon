@@ -1626,7 +1626,6 @@ GameObject:
   - component: {fileID: 843462590}
   - component: {fileID: 843462589}
   - component: {fileID: 843462591}
-  - component: {fileID: 843462592}
   - component: {fileID: 843462593}
   - component: {fileID: 843462594}
   - component: {fileID: 843462595}
@@ -1706,18 +1705,6 @@ MonoBehaviour:
   back: {fileID: 1533534737}
   forward: {fileID: 1133082749}
   counter: 0
---- !u!114 &843462592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843462588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382bcd1d52fd04d0d9433edc4890a726, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &843462593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1744,6 +1731,7 @@ MonoBehaviour:
   description: {fileID: 922934185}
   slots:
   - name: 
+    maxHP: 0
     hitPoints: 0
     defence: 0
     power: 0
@@ -1761,6 +1749,7 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -1769,10 +1758,12 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
+    maxHP: 0
     hitPoints: 0
     defence: 0
     power: 0
@@ -1790,6 +1781,7 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -1798,10 +1790,12 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
+    maxHP: 0
     hitPoints: 0
     defence: 0
     power: 0
@@ -1819,6 +1813,7 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -1827,10 +1822,12 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
+    maxHP: 0
     hitPoints: 0
     defence: 0
     power: 0
@@ -1848,6 +1845,7 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -1856,10 +1854,12 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
+    maxHP: 0
     hitPoints: 0
     defence: 0
     power: 0
@@ -1877,6 +1877,7 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -1885,10 +1886,12 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
+    maxHP: 0
     hitPoints: 0
     defence: 0
     power: 0
@@ -1906,6 +1909,7 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -1914,11 +1918,13 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   selected:
     name: 
+    maxHP: 0
     hitPoints: 0
     defence: 0
     power: 0
@@ -1936,6 +1942,7 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     moveB: -1
     Move_B:
       move_id: 0
@@ -1944,6 +1951,7 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0

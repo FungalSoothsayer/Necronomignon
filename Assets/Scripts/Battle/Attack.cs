@@ -20,8 +20,27 @@ public class Attack : MonoBehaviour
             beastManager.moveManager.start();
         }
 
+
         if (attacker != null && target != null)
         {
+            if (inFront)
+            {
+                if (attacker.Move_A.healing)
+                {
+                    healthManager.heal(target, target.maxHP * ((double)attacker.Move_A.power / 100));
+                    print(attacker.name + " has healed " + target.name);
+                    return;
+                }
+            }
+            else if (!inFront)
+            {
+                if (attacker.Move_B.healing)
+                {
+                    healthManager.heal(target, target.maxHP * ((double)attacker.Move_B.power / 100));
+                    print(attacker.name + " has healed " + target.name);
+                    return;
+                }
+            }
             if (attacker.speed == 0 || target.speed == 0)
             {
                 return;
@@ -38,6 +57,7 @@ public class Attack : MonoBehaviour
                     print("Doom has consumed " + target.name);
                     modifier = 1;
                     healthManager.UpdateHealth(target, target.hitPoints);
+                    return;
                 }
                 else
                 {
