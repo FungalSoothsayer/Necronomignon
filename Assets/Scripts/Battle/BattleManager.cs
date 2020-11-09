@@ -213,29 +213,43 @@ public class BattleManager : MonoBehaviour
 
         for (int x = 0; x < 8; x++)
         {
-            if (x<4 && players[x].statusTurns[(int)Beast.types.Air]>0)
+            if (x < 4 && players[x] != null)
             {
-                playZap.Add(0.5f);
+                if (x < 4 && players[x].statusTurns[(int)Beast.types.Air] > 0)
+                {
+                    playZap.Add(0.5f);
+                }
+                else
+                {
+                    playZap.Add(1);
+                }
             }
             else
             {
-                playZap.Add(1);
+                playZap.Add(0);
             }
-            if(x>=4 && enemies[x%4].statusTurns[(int)Beast.types.Air] > 0)
+            if (x > 3 && enemies[x % 4] != null)
             {
-                enemZap.Add(0.5f);
+                if (x >= 4 && enemies[x % 4].statusTurns[(int)Beast.types.Air] > 0)
+                {
+                    enemZap.Add(0.5f);
+                }
+                else if (x >= 4)
+                {
+                    enemZap.Add(1);
+                }
             }
-            else if (x >= 4)
+            else
             {
-                enemZap.Add(1);
+                enemZap.Add(0);
             }
-            if(x<4&&players[x] != null)
+            if (x < 4 && players[x] != null)
             {
-                Speed.Add((int)Mathf.Floor((float)players[x].speed*playZap[x]));
+                Speed.Add((int)Mathf.Floor((float)players[x].speed * playZap[x]));
             }
-            else if(x>3&&enemies[x%4] != null)
+            else if (x > 3 && enemies[x % 4] != null)
             {
-                Speed.Add((int)Mathf.Floor((float)enemies[x%4].speed*enemZap[x%4]));
+                Speed.Add((int)Mathf.Floor((float)enemies[x % 4].speed * enemZap[x]));
             }
             else
             {
