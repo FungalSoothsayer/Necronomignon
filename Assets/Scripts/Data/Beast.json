@@ -2,7 +2,7 @@
   "Beasts": [
     {
       "name": "Wyvern",
-      "hitPoints": "1500",
+      "maxHP": "1500",
       "defence": "5",
       "power": "100",
       "speed": "120",
@@ -16,7 +16,7 @@
     },
     {
       "name": "Dryad",
-      "hitPoints": "1000",
+      "maxHP": "1000",
       "defence": "50",
       "power": "50",
       "speed": "80",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Conglomerate",
-      "hitPoints": "1500",
+      "maxHP": "1500",
       "defence": "5",
       "power": "100",
       "speed": "120",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Kitsune",
-      "hitPoints": "1500",
+      "maxHP": "1500",
       "defence": "5",
       "power": "100",
       "speed": "120",
