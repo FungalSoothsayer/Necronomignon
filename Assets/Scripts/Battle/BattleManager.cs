@@ -421,9 +421,12 @@ public class BattleManager : MonoBehaviour
             {
                 currentTurn.cursed = null;
                 currentTurn.curseCharge = 0;
+                
+            }
+            else
+            {
                 target = currentTurn.cursed;
             }
-            
         }
 
         //Check to see if the round is still going and then run an attack

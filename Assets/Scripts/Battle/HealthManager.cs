@@ -318,6 +318,8 @@ public class HealthManager : MonoBehaviour
     //After 1 second load the Map scene
     IEnumerator LoadMap()
     {
+        print(enemiesLeft +" enemies");
+        print(playersLeft + " friends");
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Map");
     }
