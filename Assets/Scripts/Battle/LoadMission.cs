@@ -108,7 +108,7 @@ public class LoadMission : MonoBehaviour
 
             if (enemyToLoad[x] != null)
             {
-                enemySlotImg[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + enemyToLoad[x].name + "/Idle/Idle") as RuntimeAnimatorController;
+                enemySlotImg[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + enemyToLoad[x].name + "/" + enemyToLoad[x].name + "_Controller") as RuntimeAnimatorController;
                 Beast b = new Beast();
                 b = beastManager.getFromName(enemyToLoad[x].name);
                 enemySlot.Add(b);
@@ -137,7 +137,7 @@ public class LoadMission : MonoBehaviour
             }
             if (toLoad[x] != null)
             {
-                playerSlotImg[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/Idle/Idle") as RuntimeAnimatorController;
+                playerSlotImg[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
                 Beast b = new Beast();
                 b = beastManager.getFromName(toLoad[x].name);
                 playerSlot.Add(b);
@@ -184,7 +184,8 @@ public class LoadMission : MonoBehaviour
     //Remove image when beast is knocked out
     public void RemoveImage(Beast toRemove, string owner)
     {
-        GetImageToRemove(toRemove, owner).gameObject.SetActive(false);
+        GetImageToRemove(toRemove, owner).gameObject.GetComponent<Animator>().SetInteger("Health", 0);
+        StartCoroutine(PlayDeathAnimation(toRemove, owner));
     }
     //Get the slot to remove the image from
     Image GetImageToRemove(Beast beast, string owner)
@@ -192,14 +193,10 @@ public class LoadMission : MonoBehaviour
         print(owner);
         for (int x = 0; x < 6; x++)
         {
-            print(beast);
-            print(enemySlot[x]);
-            print(beast.Equals(enemySlot[x]));
             if (owner.Equals("Player"))
             {
                 if (beast.Equals(playerSlot[x]))
                 {
-                    print("is player");
                     return playerSlotImg[x];
                 }
             }
@@ -207,13 +204,18 @@ public class LoadMission : MonoBehaviour
             {
                 if (beast.Equals(enemySlot[x]))
                 {
-                    print("is enemy");
                     return enemySlotImg[x];
                 }
             }
 
         }
-        print("is bad");
         return null;
+    }
+
+    IEnumerator PlayDeathAnimation(Beast toRemove, string owner)
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        GetImageToRemove(toRemove, owner).gameObject.SetActive(false);
     }
 }

@@ -51,7 +51,7 @@ public class CreatePoolLoader : MonoBehaviour
             if (x < summonedNames.Count)
             {
                 anim.Add(poolSlots[x].GetComponent<Animator>());
-                anim[x].runtimeAnimatorController = Resources.Load("Animations/" + summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
+                anim[x].runtimeAnimatorController = Resources.Load("Animations/" + summonedNames[x] + "/" + summonedNames[x] + "_Controller") as RuntimeAnimatorController;
             }
         }
 

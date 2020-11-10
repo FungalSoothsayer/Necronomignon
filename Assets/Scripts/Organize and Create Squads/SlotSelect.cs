@@ -50,7 +50,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         for (int x = 0; x < createPoolLoader.summonedNames.Count; x++)
         {
             if(createPoolLoader.summonedNames[x].Equals(createManager.selected.name)) {
-                gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + createPoolLoader.summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
+                gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + createPoolLoader.summonedNames[x] + "/" + createPoolLoader.summonedNames[x] + "_Controller") as RuntimeAnimatorController;
                 gameObject.GetComponent<Image>().color = Color.white;
             }
         }
@@ -137,7 +137,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 if (createPoolLoader.summonedNames[x].Equals(createManager.selected.name))
                 {
-                    gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + createPoolLoader.summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
+                    gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + createPoolLoader.summonedNames[x] + "/" +createPoolLoader.summonedNames[x] + "_Controller") as RuntimeAnimatorController;
                     gameObject.GetComponent<Image>().color = Color.white;
                 }
             }
