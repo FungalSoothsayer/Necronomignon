@@ -121,7 +121,50 @@ public class HealthManager : MonoBehaviour
     //Subtract the damage from the target's health
     public void UpdateHealth(Beast target, int damage)
     {
-        if (target == squad[0])
+
+
+        for(int x = 0; x< 4; x++)
+        {
+            if (target == squad[x%squad.Count])
+            {
+                squad[x % squad.Count].hitPoints -= damage;
+                playerHealthBars[x % squad.Count].SetHealth(squad[x % squad.Count].hitPoints);
+
+                playerDamageBar[x % squad.Count].setText(damage);
+
+                if (squad[x % squad.Count].hitPoints <= 0)
+                {
+                    Debug.Log(target.name + " is knocked out.");
+                    CheckRemainingPlayers();
+                    battleManager.RemoveBeast(squad[x % squad.Count]);
+                }
+                else
+                {
+
+                    DisplayHealthLeft(target, squad[x % squad.Count].hitPoints);
+                }
+            }
+            else if(target == enemies[x])
+            {
+                enemies[x].hitPoints -= damage;
+                enemyHealthBars[x].SetHealth(enemies[x].hitPoints);
+
+                enemyDamageBar[x].setText(damage);
+
+                if (enemies[x].hitPoints <= 0)
+                {
+                    Debug.Log(target.name + " is knocked out.");
+                    CheckRemainingOpposing();
+                    battleManager.RemoveBeast(enemies[x]);
+                }
+                else
+                {
+                    DisplayHealthLeft(target, enemies[x].hitPoints);
+                }
+            }
+        }
+
+        /*if (target == squad[0])
         {
             squad[0].hitPoints -= damage;
             playerHealthBars[0].SetHealth(squad[0].hitPoints);
@@ -265,7 +308,7 @@ public class HealthManager : MonoBehaviour
             {
                 DisplayHealthLeft(target, enemies[3].hitPoints);
             }
-        }
+        }*/
     }
     public void heal(Beast target, double heal)
     {

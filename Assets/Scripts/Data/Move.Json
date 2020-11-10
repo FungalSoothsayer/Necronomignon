@@ -3,7 +3,7 @@
     {
       "move_id": "1",
       "name": "Darkness",
-      "power": "30",
+      "power": "10",
       "number_of_moves": "2",
       "condition_chance": "0.8",
       "type": "4",
@@ -13,7 +13,7 @@
     {
       "move_id": "2",
       "name": "Shadow Ball",
-      "power": "75",
+      "power": "25",
       "number_of_moves": "2",
       "condition_chance": "0",
       "type": "4",
@@ -23,7 +23,7 @@
     {
       "move_id": "3",
       "name": "Scarf wiggle",
-      "power": "75",
+      "power": "20",
       "number_of_moves": "2",
       "condition_chance": "0",
       "type": "2",
@@ -33,7 +33,7 @@
     {
       "move_id": "4",
       "name": "Wood Sword",
-      "power": "50",
+      "power": "30",
       "number_of_moves": "2",
       "condition_chance": "0.99",
       "type": "2",
@@ -43,7 +43,7 @@
     {
       "move_id": "5",
       "name": "Flood",
-      "power": "40",
+      "power": "15",
       "number_of_moves": "2",
       "condition_chance": "0.86",
       "type": "0",
@@ -53,7 +53,7 @@
     {
       "move_id": "6",
       "name": "Water Jet",
-      "power": "90",
+      "power": "20",
       "number_of_moves": "2",
       "condition_chance": "0",
       "type": "0",
@@ -63,7 +63,7 @@
     {
       "move_id": "7",
       "name": "Burn",
-      "power": "30",
+      "power": "10",
       "number_of_moves": "2",
       "condition_chance": "0.95",
       "type": "1",
@@ -73,7 +73,7 @@
     {
       "move_id": "8",
       "name": "Flame pillar",
-      "power": "60",
+      "power": "20",
       "number_of_moves": "2",
       "condition_chance": "0",
       "type": "1",
@@ -83,7 +83,7 @@
     {
       "move_id": "9",
       "name": "Sky Scale",
-      "power": "75",
+      "power": "30",
       "number_of_moves": "2",
       "condition_chance": "0",
       "type": "3",
@@ -93,7 +93,7 @@
     {
       "move_id": "10",
       "name": "Wind Barrage",
-      "power": "45",
+      "power": "15",
       "number_of_moves": "2",
       "condition_chance": "1",
       "type": "3",
@@ -103,7 +103,7 @@
     {
       "move_id": "11",
       "name": "Holy Blindness",
-      "power": "15",
+      "power": "5",
       "number_of_moves": "2",
       "condition_chance": "0.9",
       "type": "5",
@@ -113,7 +113,7 @@
     {
       "move_id": "12",
       "name": "Purify",
-      "power": "75",
+      "power": "25",
       "number_of_moves": "2",
       "condition_chance": "0",
       "type": "5",
@@ -123,7 +123,7 @@
     {
       "move_id": "13",
       "name": "Typhoon",
-      "power": "120",
+      "power": "40",
       "number_of_moves": "1",
       "condition_chance": "0",
       "type": "3",
