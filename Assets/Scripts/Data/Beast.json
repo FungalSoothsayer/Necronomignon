@@ -55,6 +55,20 @@
       "static_img": "Boss Feral Kitsune",
       "moveA": "7",
       "moveB": "8"
+    },
+    {
+      "name": "Light Dragon",
+      "maxHP": "700",
+      "defence": "45",
+      "power": "75",
+      "speed": "120",
+      "dexterity": "40",
+      "number_MOVES": "3",
+      "tier": "1",
+      "type": "1",
+      "static_img": "LightDragon_Idle_75",
+      "moveA": "7",
+      "moveB": "19"
     }
   ]
 }
