@@ -79,12 +79,8 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Set the CreateManager's variables to reflect the selected beast
     void SetSlot()
     {
-        print(createManager.selectedIndex);
-        print(createManager.selectedSlotID);
-
         char chr = (gameObject.name).ToCharArray()[gameObject.name.Length - 1];
         int num = int.Parse(chr.ToString());
-        print(num);
         
             createManager.slots[num - 1] = createManager.selected;
 
@@ -133,8 +129,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //Move this beast to another slot
     void MoveImage()
     {
-
-        print("moveimage");
+        gameObject.GetComponent<Animator>().enabled = true;
         if (slotID != createManager.selectedSlotID && (createManager.slots[slotID-1] == null || createManager.slots[slotID-1].speed == 0))
 
         {
