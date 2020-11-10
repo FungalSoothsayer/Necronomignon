@@ -23,6 +23,14 @@ public class Attack : MonoBehaviour
 
         if (attacker != null && target != null && attacker.statusTurns[(int)Beast.types.Water] <=0)
         {
+            if (attacker.statusTurns[(int)Beast.types.Air] > 0)
+            {
+                if (Random.Range(0, 2) > 0)
+                {
+                    print(attacker.name + " was paralized and unable to move");
+                    return;
+                }
+            }
             if (inFront)
             {
                 if (attacker.Move_A.healing)

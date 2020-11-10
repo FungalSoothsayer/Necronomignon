@@ -2,9 +2,9 @@
   "Beasts": [
     {
       "name": "Wyvern",
-      "maxHP": "1500",
+      "maxHP": "500",
       "defence": "54",
-      "power": "100",
+      "power": "80",
       "speed": "79",
       "dexterity": "40",
       "number_MOVES": "3",
@@ -12,14 +12,14 @@
       "type": "3",
       "static_img": "Boss Wyvern Zefir",
       "moveA": "10",
-      "moveB": "19"
+      "moveB": "9"
     },
     {
       "name": "Dryad",
-      "maxHP": "1000",
+      "maxHP": "450",
       "defence": "50",
       "power": "60",
-      "speed": "80",
+      "speed": "50",
       "dexterity": "50",
       "number_MOVES": "3",
       "tier": "1",
@@ -30,9 +30,9 @@
     },
     {
       "name": "Conglomerate",
-      "maxHP": "888",
+      "maxHP": "666",
       "defence": "35",
-      "power": "70",
+      "power": "55",
       "speed": "64",
       "dexterity": "40",
       "number_MOVES": "3",
@@ -40,21 +40,21 @@
       "type": "0",
       "static_img": "Conglomerate",
       "moveA": "5",
-      "moveB": "19"
+      "moveB": "6"
     },
     {
       "name": "Kitsune",
-      "maxHP": "700",
+      "maxHP": "400",
       "defence": "45",
-      "power": "75",
-      "speed": "120",
+      "power": "60",
+      "speed": "90",
       "dexterity": "40",
       "number_MOVES": "3",
       "tier": "1",
       "type": "1",
       "static_img": "Boss Feral Kitsune",
       "moveA": "7",
-      "moveB": "19"
+      "moveB": "8"
     }
   ]
 }
