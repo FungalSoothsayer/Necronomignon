@@ -49,7 +49,7 @@ public class LoadSquads : MonoBehaviour
         {
             if (toLoad[x] != null)
             {
-                S1S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/Idle/Idle") as RuntimeAnimatorController;
+                S1S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
                 squad1Slots[x].SetActive(true);
             }
         }
@@ -64,7 +64,7 @@ public class LoadSquads : MonoBehaviour
         {
             if (toLoad[x] != null)
             {
-                S2S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/Idle/Idle") as RuntimeAnimatorController;
+                S2S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
                 squad2Slots[x].SetActive(true);
             }
         }
