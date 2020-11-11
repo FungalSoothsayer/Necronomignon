@@ -10,6 +10,9 @@ public class BattleManager : MonoBehaviour
     public bool eRunning = false;
     public bool pRunning = false;
 
+    public List<GameObject> playerPadSlots = new List<GameObject>(6);
+    public List<GameObject> enemyPadSlots = new List<GameObject>(6);
+
     public HealthManager healthManager;
     public Attack attack;
     public LoadMission loadMission;
@@ -437,6 +440,7 @@ public class BattleManager : MonoBehaviour
         {
             print("bm 435");
             attack.InitiateAttack(currentTurn, target, inFront);
+            PlayDamagedAnimation(target);
             Debug.Log("Round Ended");
             ClearTurns();
             currentTurn = roundOrder[0];
@@ -463,6 +467,7 @@ public class BattleManager : MonoBehaviour
         {
             print("bm 459");
             attack.InitiateAttack(currentTurn, target, inFront);
+            PlayDamagedAnimation(target);
             AddTurn();
             Beast b = new Beast();
             if(turn+1 >= roundOrder.Count)
@@ -478,10 +483,36 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    void PlayDamagedAnimation(Beast target)
+    {
+        if(roundOrderTypes[turn] == "Player")
+        {
+            for(int x = 0; x < enemySlots.Count; x++)
+            {
+                if(enemySlots[x] != null && enemySlots[x].name == target.name)
+                {
+                    enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
+                    return;
+                }
+            }
+        }
+        else if(roundOrderTypes[turn] == "Enemy")
+        {
+            for (int x = 0; x < slots.Count; x++)
+            {
+                if (slots[x] != null && slots[x].name == target.name)
+                {
+                    playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
+                    return;
+                }
+            }
+        }
+    }
+
     IEnumerator EnemyAttack()
     {
         eRunning = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         eRunning = false;
         print("enem attack pre");
         if (attackPool.Count > 0)
@@ -501,7 +532,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator PlayerAttack()
     {
         pRunning = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         pRunning = false;
         print("play attack pre");
         if (enemyAttackPool.Count > 0)
