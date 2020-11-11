@@ -208,13 +208,14 @@ public class BattleManager : MonoBehaviour
         totalMoves = moves.Sum();
 
         List<int> Speed = new List<int>();
-        List<float> playZap = new List<float>();
+
+        /*List<float> playZap = new List<float>();
         List<float> enemZap = new List<float>();
         playZap.Clear();
-        enemZap.Clear();
+        enemZap.Clear();*/
         for (int x = 0; x < 8; x++)
         {
-            if (x < 4 && players[x] != null)
+            /*if (x < 4 && players[x] != null)
             {
                 if (x < 4 && playersActive[x] && players[x].statusTurns[(int)Beast.types.Air] > 0)
                 {
@@ -229,7 +230,7 @@ public class BattleManager : MonoBehaviour
             {
                 playZap.Add(0);
             }
-            if (x > 3  && enemies[x % 4] != null)
+            if (x > 3 && enemies[x % 4] != null)
             {
                 if (x >= 4 && enemiesActive[x % 4] && enemies[x % 4].statusTurns[(int)Beast.types.Air] > 0)
                 {
@@ -243,14 +244,14 @@ public class BattleManager : MonoBehaviour
             else
             {
                 enemZap.Add(0);
-            }
+            }*/
             if (x < 4 && players[x] != null)
             {
-                Speed.Add((int)Mathf.Floor((float)players[x].speed * playZap[x]));
+                Speed.Add((int)Mathf.Floor((float)players[x].speed/* * playZap[x]*/));
             }
             else if (x > 3 && enemies[x % 4] != null)
             {
-                Speed.Add((int)Mathf.Floor((float)enemies[x % 4].speed * enemZap[x % 4]));
+                Speed.Add((int)Mathf.Floor((float)enemies[x % 4].speed /** enemZap[x % 4]*/));
             }
             else
             {
@@ -277,7 +278,7 @@ public class BattleManager : MonoBehaviour
             {
                 for(int x = 0; x < 8; x++)
                 {
-                    if (x<4 && beastActive[x] && Speed[y] == players[x].speed*playZap[x] && moves[x] > 0 && !InWave("Player " + players[x].name, wave))
+                    if (x<4 && beastActive[x] && Speed[y] == players[x].speed/**playZap[x]*/ && moves[x] > 0 && !InWave("Player " + players[x].name, wave))
                     {
                         roundOrder.Add(players[x]);
                         roundOrderTypes.Add("Player");
@@ -286,7 +287,7 @@ public class BattleManager : MonoBehaviour
                         i++;
                         break;
                     }
-                    else if(x>=4 && beastActive[x] && Speed[y] == enemies[x%4].speed*enemZap[x%4] && moves[x] > 0 && !InWave("Enemy " + enemies[x % 4].name, wave))
+                    else if(x>=4 && beastActive[x] && Speed[y] == enemies[x%4].speed/**enemZap[x%4]*/ && moves[x] > 0 && !InWave("Enemy " + enemies[x % 4].name, wave))
                     {
                         roundOrder.Add(enemies[x % 4]);
                         roundOrderTypes.Add("Enemy");
@@ -307,18 +308,14 @@ public class BattleManager : MonoBehaviour
         {
             if (!eRunning && !pRunning)
             {
-                print("before enem");
                 StartCoroutine(EnemyAttack());
-                print("after enem");
             }
         }
         else if (roundOrderTypes[turn] == "Player" && enemyAttackPool.Count > 0)
         {
             if (!eRunning && !pRunning)
             {
-                print("before play");
                 StartCoroutine(PlayerAttack());
-                print("after play");
             }
         }
         UpdateOrderBar();
@@ -364,9 +361,7 @@ public class BattleManager : MonoBehaviour
         {
             if (!eRunning && !pRunning)
             {
-                print("enem attack pre 364");
                 StartCoroutine(EnemyAttack());
-                print("enem attack pre 366");
             }
             UpdateOrderBar();
         }
@@ -404,7 +399,6 @@ public class BattleManager : MonoBehaviour
 
     public void Attack(Beast target)
     {
-        print(currentTurn);
         bool inFront = this.inFront();
 
         if (inFront)
@@ -438,7 +432,6 @@ public class BattleManager : MonoBehaviour
         //Check to see if the round is still going and then run an attack
         if (turn >= totalMoves - 1)
         {
-            print("bm 435");
             attack.InitiateAttack(currentTurn, target, inFront);
             PlayDamagedAnimation(target);
             Debug.Log("Round Ended");
@@ -450,9 +443,7 @@ public class BattleManager : MonoBehaviour
             {
                 if (!eRunning && !pRunning)
                 {
-                    print("enem attack pre 447");
                     StartCoroutine(EnemyAttack());
-                    print("enem attack post 449");
                 }
             }
             else if (healthManager.enemiesLeft > 0 && healthManager.playersLeft > 0 && roundOrderTypes[turn] == "Player")
@@ -465,7 +456,6 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            print("bm 459");
             attack.InitiateAttack(currentTurn, target, inFront);
             PlayDamagedAnimation(target);
             AddTurn();
@@ -474,7 +464,6 @@ public class BattleManager : MonoBehaviour
             {
                 while (!b.Equals(currentTurn))
                 {
-                    print("I'm an idiot");
                     b = roundOrder[turn];
                     turn--;
                 }
@@ -514,10 +503,8 @@ public class BattleManager : MonoBehaviour
         eRunning = true;
         yield return new WaitForSeconds(2f);
         eRunning = false;
-        print("enem attack pre");
         if (attackPool.Count > 0)
             Attack(GetEnemyTarget());
-        print("enem attack post");
     }
 
     //Enemy targets a random player from a pool of active player beasts
@@ -534,10 +521,8 @@ public class BattleManager : MonoBehaviour
         pRunning = true;
         yield return new WaitForSeconds(2f);
         pRunning = false;
-        print("play attack pre");
         if (enemyAttackPool.Count > 0)
             Attack(selectedEnemy);
-        print("play attack post");
     }
 
     //Get the row to determine whether the attacker is using an A move or a B move
@@ -582,6 +567,13 @@ public class BattleManager : MonoBehaviour
 
         if(roundOrderTypes[turn] != "Player")
         {
+            if (enemiesTurnsTaken.Count() <= 0)
+            {
+                playersTurnsTaken.Add(0);
+                playersTurnsTaken.Add(0);
+                playersTurnsTaken.Add(0);
+                playersTurnsTaken.Add(0);
+            }
             for (int x = 0; x < players.Count; x++)
             {
                 if (target.Equals(players[x]))
