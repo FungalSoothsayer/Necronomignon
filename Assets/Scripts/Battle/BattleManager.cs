@@ -478,7 +478,7 @@ public class BattleManager : MonoBehaviour
         {
             for(int x = 0; x < enemySlots.Count; x++)
             {
-                if(enemySlots[x].name == target.name)
+                if(enemySlots[x] != null && enemySlots[x].name == target.name)
                 {
                     enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
                     return;
@@ -489,7 +489,7 @@ public class BattleManager : MonoBehaviour
         {
             for (int x = 0; x < slots.Count; x++)
             {
-                if (slots[x].name == target.name)
+                if (slots[x] != null && slots[x].name == target.name)
                 {
                     playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
                     return;
