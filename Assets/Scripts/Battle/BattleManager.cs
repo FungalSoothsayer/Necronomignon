@@ -457,6 +457,7 @@ public class BattleManager : MonoBehaviour
         else
         { 
             attack.InitiateAttack(currentTurn, target, inFront);
+            PlayDamagedAnimation(target);
             AddTurn();
             Beast b = new Beast();
             if(turn+1 >= roundOrder.Count)
@@ -475,21 +476,23 @@ public class BattleManager : MonoBehaviour
     {
         if(roundOrderTypes[turn] == "Player")
         {
-            for(int x = 0; x < slots.Count; x++)
+            for(int x = 0; x < enemySlots.Count; x++)
             {
-                if(slots[x].name == target.name)
+                if(enemySlots[x].name == target.name)
                 {
-                    playerPadSlots[x].gameObject.GetComponent<Animator>().SetBool("GetHit", true);
+                    enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
+                    return;
                 }
             }
         }
         else if(roundOrderTypes[turn] == "Enemy")
         {
-            for (int x = 0; x < enemySlots.Count; x++)
+            for (int x = 0; x < slots.Count; x++)
             {
-                if (enemySlots[x].name == target.name)
+                if (slots[x].name == target.name)
                 {
-                    enemyPadSlots[x].gameObject.GetComponent<Animator>().SetBool("GetHit", true);
+                    playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
+                    return;
                 }
             }
         }
@@ -498,7 +501,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator EnemyAttack()
     {
         eRunning = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         eRunning = false;
         if (attackPool.Count > 0)
             Attack(GetEnemyTarget());
@@ -516,7 +519,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator PlayerAttack()
     {
         pRunning = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         pRunning = false;
         if (enemyAttackPool.Count > 0)
             Attack(selectedEnemy);
