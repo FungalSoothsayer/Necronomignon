@@ -23,6 +23,15 @@ public class Attack : MonoBehaviour
 
         if (attacker != null && target != null && attacker.statusTurns[(int)Beast.types.Water] <=0)
         {
+            if (attacker.statusTurns[(int)Beast.types.Air] > 0)
+            {
+                int r = Random.Range(0, 2);
+                if (r > 0)
+                {
+                    print(attacker.name + " was paralized and unable to move");
+                    return;
+                }
+            }
             if (inFront)
             {
                 if (attacker.Move_A.healing)
@@ -56,7 +65,8 @@ public class Attack : MonoBehaviour
                 {
                     print("Doom has consumed " + target.name);
                     modifier = 1;
-                    healthManager.UpdateHealth(target, target.hitPoints);
+                    print("67");
+                    healthManager.UpdateHealth(target, target.maxHP);
                     return;
                 }
                 else
@@ -74,6 +84,10 @@ public class Attack : MonoBehaviour
                 checkIfStatus(attacker, target, inFront);
                 CalculateDamage(attacker, target, inFront);
             }
+        }
+        else if(attacker.statusTurns[(int)Beast.types.Water] <= 0)
+        {
+            print(attacker.name + " was asleep and unable to move");
         }
 
         modifier = 1;
@@ -200,28 +214,32 @@ public class Attack : MonoBehaviour
             
             if (attacker.curse(target))
             {
+                print("215");
                 healthManager.UpdateHealth(target, target.hitPoints);
                 return;
             }
         }
         float effectChance = 0;
+        int type = 0;
         if (front)
         {
             effectChance = (float)attacker.Move_A.condition_chance * 100;
+            type = (int)attacker.Move_A.type;
         }
         else
         {
             effectChance = (float)attacker.Move_B.condition_chance * 100;
+            type = (int)attacker.Move_B.type;
         }
 
         int rand = Random.Range(1, 100);
 
-        if (rand < effectChance && (int)attacker.type != (int)Beast.types.Dark && target.statusTurns[(int)attacker.type]<=0)
+        if (rand < effectChance && type != (int)Beast.types.Dark && target.statusTurns[type]<=0)
         {
             print("status effect on " + target.name);
-            target.statusTurns[(int)attacker.type] = 5;
+            target.statusTurns[type] = 3;
         }
-        else if(rand < effectChance && (int)attacker.type == (int)Beast.types.Dark && target.statusTurns[(int)attacker.type] <= 0)
+        else if(rand < effectChance && type == (int)Beast.types.Dark && target.statusTurns[type] <= 0)
         {
             print(target.name + " has been doomed");
             attacker.curse(target);
@@ -268,6 +286,7 @@ public class Attack : MonoBehaviour
 
         damage = (int)(dmg * vary * modifier); //Convert damage to an integer
         Debug.Log("This is damage done " + damage);
+        print("287");
         healthManager.UpdateHealth(target, damage);
 
         int rand = Random.Range(0, 2);
