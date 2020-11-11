@@ -69,6 +69,20 @@
       "static_img": "LightDragon_Idle_75",
       "moveA": "7",
       "moveB": "19"
+    },
+    {
+      "name": "Cthulhu",
+      "maxHP": "1500",
+      "defence": "60",
+      "power": "100",
+      "speed": "79",
+      "dexterity": "40",
+      "number_MOVES": "3",
+      "tier": "1",
+      "type": "3",
+      "static_img": "Boss Cthulhu-3",
+      "moveA": "2",
+      "moveB": "2"
     }
   ]
 }
