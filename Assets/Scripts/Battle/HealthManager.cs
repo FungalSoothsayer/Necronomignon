@@ -8,15 +8,7 @@ public class HealthManager : MonoBehaviour
 {
     public BattleManager battleManager;
 
-    public int player1 = 0;
-    public int player2 = 0;
-    public int player3 = 0;
-    public int player4 = 0;
     public int playersLeft = 4;
-    public int enemy1 = 0;
-    public int enemy2 = 0;
-    public int enemy3 = 0;
-    public int enemy4 = 0;
     public int enemiesLeft = 0;
 
     List<HealthBar> playerHealthBars = new List<HealthBar>();
@@ -71,49 +63,41 @@ public class HealthManager : MonoBehaviour
 
 
 
-        player1 = players[0].maxHP;
         activePlayersHealth[0].SetMaxHealth(players[0].maxHP);
         
         if (players[1] != null)
         {
-            player2 = players[1].maxHP;
             activePlayersHealth[1].SetMaxHealth(players[1].maxHP);
         }
         else playersLeft--;
         if (players[2] != null)
         {
-            player3 = players[2].maxHP;
             activePlayersHealth[2].SetMaxHealth(players[2].maxHP);
         }
         else playersLeft--;
         if (players[3] != null)
         {
-            player4 = players[3].maxHP;
             activePlayersHealth[3].SetMaxHealth(players[3].maxHP);
         }
         else playersLeft--;
         if (opposing[0] != null)
         {
             enemiesLeft += 1;
-            enemy1 = opposing[0].maxHP;
             activeEnemiesHealth[0].SetMaxHealth(opposing[0].maxHP);
         }
         if (opposing[1] != null)
         {
             enemiesLeft += 1;
-            enemy2 = opposing[1].maxHP;
             activeEnemiesHealth[1].SetMaxHealth(opposing[1].maxHP);
         }
         if (opposing[2] != null)
         {
             enemiesLeft += 1;
-            enemy3 = opposing[2].maxHP;
             activeEnemiesHealth[2].SetMaxHealth(opposing[2].maxHP);
         }
         if (opposing[3] != null)
         {
             enemiesLeft += 1;
-            enemy4 = opposing[3].maxHP;
             activeEnemiesHealth[3].SetMaxHealth(opposing[3].maxHP);
         }
     }
