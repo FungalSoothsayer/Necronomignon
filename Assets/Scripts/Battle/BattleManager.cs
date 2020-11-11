@@ -216,7 +216,7 @@ public class BattleManager : MonoBehaviour
         {
             if (x < 4 && players[x] != null)
             {
-                if (x < 4 && players[x].statusTurns[(int)Beast.types.Air] > 0)
+                if (x < 4 && playersActive[x] && players[x].statusTurns[(int)Beast.types.Air] > 0)
                 {
                     playZap.Add(0.5f);
                 }
@@ -229,7 +229,7 @@ public class BattleManager : MonoBehaviour
             {
                 playZap.Add(0);
             }
-            if (x > 3 && enemies[x % 4] != null)
+            if (x > 3 && enemiesActive[x] && enemies[x % 4] != null)
             {
                 if (x >= 4 && enemies[x % 4].statusTurns[(int)Beast.types.Air] > 0)
                 {
