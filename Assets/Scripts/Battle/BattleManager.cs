@@ -210,7 +210,8 @@ public class BattleManager : MonoBehaviour
         List<int> Speed = new List<int>();
         List<float> playZap = new List<float>();
         List<float> enemZap = new List<float>();
-
+        playZap.Clear();
+        enemZap.Clear();
         for (int x = 0; x < 8; x++)
         {
             if (x < 4 && players[x] != null)
@@ -257,7 +258,6 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        //int[] Speed = { speed1, speed2, speed3, speed4, speed5, speed6, speed7, speed8 };
         bool[] beastActive = { playersActive[0], playersActive[1], playersActive[2], playersActive[3], enemiesActive[0], enemiesActive[1], enemiesActive[2], enemiesActive[3] };
         int i = 0;
 
