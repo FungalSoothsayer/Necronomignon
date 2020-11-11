@@ -8529,6 +8529,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     moveB: -1
     Move_B:
       move_id: 0
@@ -8538,6 +8539,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -8562,6 +8564,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -8571,6 +8574,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -8606,6 +8610,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -8615,6 +8620,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -8638,6 +8644,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -8647,6 +8654,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -8670,6 +8678,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -8679,6 +8688,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -8702,6 +8712,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -8711,6 +8722,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -8734,6 +8746,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -8743,6 +8756,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -8766,6 +8780,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -8775,6 +8790,7 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      type: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
