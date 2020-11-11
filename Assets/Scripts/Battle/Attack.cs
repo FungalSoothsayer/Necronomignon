@@ -25,7 +25,8 @@ public class Attack : MonoBehaviour
         {
             if (attacker.statusTurns[(int)Beast.types.Air] > 0)
             {
-                if (Random.Range(0, 2) > 0)
+                int r = Random.Range(0, 2);
+                if (r > 0)
                 {
                     print(attacker.name + " was paralized and unable to move");
                     return;

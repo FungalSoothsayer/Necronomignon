@@ -185,7 +185,6 @@ public class BattleManager : MonoBehaviour
                 {
                     moves[x] += players[x].Move_B.number_of_moves;
                 }
-                print(moves[x]);
             }
             if (enemiesActive[x] && enemies[x] != null)
             {
@@ -199,13 +198,11 @@ public class BattleManager : MonoBehaviour
                 {
                     moves[x + 4] += enemies[x].Move_B.number_of_moves;
                 }
-                print(moves[x+4]);
 
             }
         }
 
         totalMoves = moves.Sum();
-        print(totalMoves);
 
         List<int> Speed = new List<int>();
         List<float> playZap = new List<float>();
@@ -364,7 +361,9 @@ public class BattleManager : MonoBehaviour
         {
             if (!eRunning && !pRunning)
             {
+                print("enem attack pre 364");
                 StartCoroutine(EnemyAttack());
+                print("enem attack pre 366");
             }
             UpdateOrderBar();
         }
@@ -447,7 +446,9 @@ public class BattleManager : MonoBehaviour
             {
                 if (!eRunning && !pRunning)
                 {
+                    print("enem attack pre 447");
                     StartCoroutine(EnemyAttack());
+                    print("enem attack post 449");
                 }
             }
             else if (healthManager.enemiesLeft > 0 && healthManager.playersLeft > 0 && roundOrderTypes[turn] == "Player")
@@ -468,6 +469,7 @@ public class BattleManager : MonoBehaviour
             {
                 while (!b.Equals(currentTurn))
                 {
+                    print("I'm an idiot");
                     b = roundOrder[turn];
                     turn--;
                 }
@@ -481,8 +483,10 @@ public class BattleManager : MonoBehaviour
         eRunning = true;
         yield return new WaitForSeconds(1.5f);
         eRunning = false;
+        print("enem attack pre");
         if (attackPool.Count > 0)
             Attack(GetEnemyTarget());
+        print("enem attack post");
     }
 
     //Enemy targets a random player from a pool of active player beasts
@@ -499,8 +503,10 @@ public class BattleManager : MonoBehaviour
         pRunning = true;
         yield return new WaitForSeconds(1.5f);
         pRunning = false;
+        print("play attack pre");
         if (enemyAttackPool.Count > 0)
             Attack(selectedEnemy);
+        print("play attack post");
     }
 
     //Get the row to determine whether the attacker is using an A move or a B move
@@ -533,7 +539,10 @@ public class BattleManager : MonoBehaviour
     //Remove the desired beast by setting its active variable to false and removing image
     public void RemoveBeast(Beast target)
     {
-        if(target == selectedEnemy)
+        print(target.name);
+        print(selectedEnemy.name);
+        print(roundOrderTypes[turn]);
+        if (target == selectedEnemy)
         {
             selectedEnemy = null;
         }
@@ -569,7 +578,6 @@ public class BattleManager : MonoBehaviour
                     enemiesActive[x] = false;
                     enemyAttackPool.Remove(enemies[x]);
                     loadMission.RemoveImage(enemies[x], "Enemy");
-                    print(enemiesTurnsTaken.Count());
                     turn -= enemiesTurnsTaken[x];
                 }
             }
