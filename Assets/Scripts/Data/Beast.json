@@ -86,7 +86,7 @@
     },
     {
       "name": "ClockworkQueen",
-      "maxHP": "960",
+      "maxHP": "10",
       "defence": "60",
       "power": "100",
       "speed": "79",
