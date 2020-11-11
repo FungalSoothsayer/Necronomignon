@@ -11,8 +11,8 @@
       "tier": "1",
       "type": "3",
       "static_img": "Boss Wyvern Zefir",
-      "moveA": "10",
-      "moveB": "9"
+      "moveA": "2",
+      "moveB": "2"
     },
     {
       "name": "Dryad",
@@ -23,7 +23,7 @@
       "dexterity": "2",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "3",
+      "type": "5",
       "static_img": "Boss Dryad Yggdrasil",
       "moveA": "1",
       "moveB": "14"
@@ -74,12 +74,12 @@
       "name": "Cthulhu",
       "maxHP": "100",
       "defence": "30",
-      "power": "40",
+      "power": "15",
       "speed": "79",
       "dexterity": "40",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "3",
+      "type": "4",
       "static_img": "Boss Cthulhu-3",
       "moveA": "2",
       "moveB": "2"
@@ -88,12 +88,12 @@
       "name": "ClockworkQueen",
       "maxHP": "78",
       "defence": "25",
-      "power": "35",
+      "power": "15",
       "speed": "79",
       "dexterity": "40",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "3",
+      "type": "4",
       "static_img": "ClockworkQueen_Idle_00",
       "moveA": "2",
       "moveB": "2"
