@@ -10,6 +10,9 @@ public class BattleManager : MonoBehaviour
     public bool eRunning = false;
     public bool pRunning = false;
 
+    public List<GameObject> playerPadSlots = new List<GameObject>(6);
+    public List<GameObject> enemyPadSlots = new List<GameObject>(6);
+
     public HealthManager healthManager;
     public Attack attack;
     public LoadMission loadMission;
@@ -430,6 +433,7 @@ public class BattleManager : MonoBehaviour
         if (turn >= totalMoves - 1)
         {
             attack.InitiateAttack(currentTurn, target, inFront);
+            PlayDamagedAnimation(target);
             Debug.Log("Round Ended");
             ClearTurns();
             currentTurn = roundOrder[0];
@@ -464,6 +468,30 @@ public class BattleManager : MonoBehaviour
                 }
             }
             TakeTurn();
+        }
+    }
+
+    void PlayDamagedAnimation(Beast target)
+    {
+        if(roundOrderTypes[turn] == "Player")
+        {
+            for(int x = 0; x < slots.Count; x++)
+            {
+                if(slots[x].name == target.name)
+                {
+                    playerPadSlots[x].gameObject.GetComponent<Animator>().SetBool("GetHit", true);
+                }
+            }
+        }
+        else if(roundOrderTypes[turn] == "Enemy")
+        {
+            for (int x = 0; x < enemySlots.Count; x++)
+            {
+                if (enemySlots[x].name == target.name)
+                {
+                    enemyPadSlots[x].gameObject.GetComponent<Animator>().SetBool("GetHit", true);
+                }
+            }
         }
     }
 
