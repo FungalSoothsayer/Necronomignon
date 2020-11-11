@@ -8559,6 +8559,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eRunning: 0
   pRunning: 0
+  playerPadSlots:
+  - {fileID: 1769915127}
+  - {fileID: 466154132}
+  - {fileID: 509222143}
+  - {fileID: 694125226}
+  - {fileID: 885060981}
+  - {fileID: 1128528521}
+  enemyPadSlots:
+  - {fileID: 1228154451}
+  - {fileID: 143569501}
+  - {fileID: 689364788}
+  - {fileID: 2018557456}
+  - {fileID: 433158945}
+  - {fileID: 952308840}
   healthManager: {fileID: 1972296796}
   attack: {fileID: 1972296797}
   loadMission: {fileID: 1972296794}
@@ -8570,6 +8584,7 @@ MonoBehaviour:
   turn: 0
   currentTurn:
     name: 
+    maxHP: 0
     hitPoints: 0
     defence: 0
     power: 0
@@ -8587,6 +8602,7 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     moveB: -1
     Move_B:
       move_id: 0
@@ -8595,11 +8611,13 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   selectedEnemy:
     name: 
+    maxHP: 0
     hitPoints: 0
     defence: 0
     power: 0
@@ -8617,6 +8635,7 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     moveB: 0
     Move_B:
       move_id: 0
@@ -8625,6 +8644,7 @@ MonoBehaviour:
       number_of_moves: 0
       condition_chance: 0
       description: 
+      healing: 0
     static_img: 
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
