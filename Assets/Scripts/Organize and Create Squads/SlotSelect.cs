@@ -47,14 +47,18 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void SetImage()
     {
         gameObject.GetComponent<Animator>().enabled = true;
-        for (int x = 0; x < createPoolLoader.summonedNames.Count; x++)
+        if (createManager.slots[slotID - 1] == null || createManager.slots[slotID - 1].speed == 0)
         {
-            if(createPoolLoader.summonedNames[x].Equals(createManager.selected.name)) {
-                gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + createPoolLoader.summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
-                gameObject.GetComponent<Image>().color = Color.white;
+            for (int x = 0; x < createPoolLoader.summonedNames.Count; x++)
+            {
+                if (createPoolLoader.summonedNames[x].Equals(createManager.selected.name))
+                {
+                    gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + createPoolLoader.summonedNames[x] + "/" + createPoolLoader.summonedNames[x] + "_Controller") as RuntimeAnimatorController;
+                    gameObject.GetComponent<Image>().color = Color.white;
+                }
             }
-        }
-        ChangePoolImage();
+            ChangePoolImage();
+        }  
     }
 
     //Remove the beast's image from this slot's image
@@ -137,7 +141,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 if (createPoolLoader.summonedNames[x].Equals(createManager.selected.name))
                 {
-                    gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + createPoolLoader.summonedNames[x] + "/Idle/Idle") as RuntimeAnimatorController;
+                    gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + createPoolLoader.summonedNames[x] + "/" +createPoolLoader.summonedNames[x] + "_Controller") as RuntimeAnimatorController;
                     gameObject.GetComponent<Image>().color = Color.white;
                 }
             }
