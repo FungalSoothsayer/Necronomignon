@@ -58,17 +58,17 @@
     },
     {
       "name": "Light Dragon",
-      "maxHP": "700",
-      "defence": "45",
-      "power": "75",
-      "speed": "120",
-      "dexterity": "40",
+      "maxHP": "70",
+      "defence": "6",
+      "power": "15",
+      "speed": "45",
+      "dexterity": "20",
       "number_MOVES": "3",
       "tier": "1",
       "type": "1",
       "static_img": "LightDragon_Idle_75",
-      "moveA": "7",
-      "moveB": "19"
+      "moveA": "11",
+      "moveB": "12"
     }
   ]
 }

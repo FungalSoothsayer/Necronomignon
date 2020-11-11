@@ -307,14 +307,18 @@ public class BattleManager : MonoBehaviour
         {
             if (!eRunning && !pRunning)
             {
+                print("before enem");
                 StartCoroutine(EnemyAttack());
+                print("after enem");
             }
         }
         else if (roundOrderTypes[turn] == "Player" && enemyAttackPool.Count > 0)
         {
             if (!eRunning && !pRunning)
             {
+                print("before play");
                 StartCoroutine(PlayerAttack());
+                print("after play");
             }
         }
         UpdateOrderBar();
@@ -432,6 +436,7 @@ public class BattleManager : MonoBehaviour
         //Check to see if the round is still going and then run an attack
         if (turn >= totalMoves - 1)
         {
+            print("bm 435");
             attack.InitiateAttack(currentTurn, target, inFront);
             Debug.Log("Round Ended");
             ClearTurns();
@@ -454,7 +459,8 @@ public class BattleManager : MonoBehaviour
             }
         }
         else
-        { 
+        {
+            print("bm 459");
             attack.InitiateAttack(currentTurn, target, inFront);
             AddTurn();
             Beast b = new Beast();

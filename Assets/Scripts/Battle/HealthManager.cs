@@ -122,7 +122,6 @@ public class HealthManager : MonoBehaviour
     public void UpdateHealth(Beast target, int damage)
     {
 
-
         for(int x = 0; x< 4; x++)
         {
             if (target == squad[x%squad.Count])

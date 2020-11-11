@@ -64,6 +64,7 @@ public class Attack : MonoBehaviour
                 {
                     print("Doom has consumed " + target.name);
                     modifier = 1;
+                    print("67");
                     healthManager.UpdateHealth(target, target.maxHP);
                     return;
                 }
@@ -212,6 +213,7 @@ public class Attack : MonoBehaviour
             
             if (attacker.curse(target))
             {
+                print("215");
                 healthManager.UpdateHealth(target, target.hitPoints);
                 return;
             }
@@ -283,6 +285,7 @@ public class Attack : MonoBehaviour
 
         damage = (int)(dmg * vary * modifier); //Convert damage to an integer
         Debug.Log("This is damage done " + damage);
+        print("287");
         healthManager.UpdateHealth(target, damage);
 
         int rand = Random.Range(0, 2);
