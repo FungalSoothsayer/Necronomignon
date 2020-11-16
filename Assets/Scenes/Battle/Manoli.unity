@@ -8908,15 +8908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 1972296792}
-  player1: 0
-  player2: 0
-  player3: 0
-  player4: 0
   playersLeft: 4
-  enemy1: 0
-  enemy2: 0
-  enemy3: 0
-  enemy4: 0
   enemiesLeft: 0
 --- !u!114 &1972296797
 MonoBehaviour:

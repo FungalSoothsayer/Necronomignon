@@ -524,6 +524,7 @@ public class BattleManager : MonoBehaviour
         {
             attack.InitiateAttack(currentTurn, targets, inFront);
             PlayDamagedAnimation(targets);
+            PlayAttackAnimation(inFront);
             Debug.Log("Round Ended");
             ClearTurns();
             currentTurn = roundOrder[0];
@@ -548,6 +549,7 @@ public class BattleManager : MonoBehaviour
         {
             attack.InitiateAttack(currentTurn, targets, inFront);
             PlayDamagedAnimation(targets);
+            PlayAttackAnimation(inFront);
             AddTurn();
             Beast b = new Beast();
             if(turn+1 >= roundOrder.Count)
@@ -559,6 +561,36 @@ public class BattleManager : MonoBehaviour
                 }
             }
             TakeTurn();
+        }
+    }
+
+    void PlayAttackAnimation(bool inFront)
+    {
+        if (roundOrderTypes[turn] == "Player")
+        {
+            for (int x = 0; x < slots.Count; x++)
+            {
+                if (slots[x] != null && currentTurn.name == slots[x].name)
+                {
+                    if(inFront)
+                        playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("Front");
+                    else playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("Back");
+                    return;
+                }
+            }
+        }
+        else if (roundOrderTypes[turn] == "Enemy")
+        {
+            for (int x = 0; x < enemySlots.Count; x++)
+            {
+                if (enemySlots[x] != null && currentTurn.name == enemySlots[x].name)
+                {
+                    if (inFront)
+                        enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("Front");
+                    else enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("Back");
+                    return;
+                }
+            }
         }
     }
 
