@@ -397,15 +397,99 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    List<Beast> findRowTargets()
+    {
+        List<Beast> targets = new List<Beast>();
+        int slot = -1;
+        for(int x =0; x < slots.Count; x++)
+        {
+            if(roundOrderTypes[turn] == "Player" && currentTurn.Equals(slots[x]))
+            {
+                slot = x;
+                break;
+            }
+            else if(roundOrderTypes[turn] == "Enemies" && currentTurn.Equals(enemySlots[x]))
+            {
+                slot = x;
+                break;
+            }
+        }
+        if(roundOrderTypes[turn] == "Player")
+        {
+            for(int x = 0; x < enemySlots.Count; x++)
+            {
+                if (x < 3 && enemySlots[x] != null && enemySlots[x].hitPoints > 0)
+                {
+                    if(slot+1 == x || slot == x || slot-1 == x)
+                    {
+                        targets.Add(enemySlots[x]);
+                    }
+                }
+                else if(x>=3 && enemySlots[x] != null && enemySlots[x].hitPoints > 0)
+                {
+                    if (targets.Count - (x - 3) >= 1)
+                    {
+                        break;
+                    }
+                    if (slot + 1 == x || slot == x || slot - 1 == x)
+                    {
+                        targets.Add(enemySlots[x]);
+                    }
+                }
+            }
+        }
+        else
+        {
+            for (int x = 0; x < slots.Count; x++)
+            {
+                print("sadness " + x);
+                if (x < 3 && slots[x] != null && slots[x].hitPoints >0)
+                {
+                    if (slot + 1 == x || slot == x || slot - 1 == x)
+                    {
+                        print("pre3 " + x);
+                        targets.Add(slots[x]);
+                    }
+                }
+                else if (x >= 3 && slots[x] != null && slots[x].hitPoints > 0)
+                {
+                    if (targets.Count - (x - 3) >= 1)
+                    {
+                        break;
+                    }
+                    if (slot + 1 == x || slot == x || slot - 1 == x)
+                    {
+                        print("post3 " + x);
+                        targets.Add(slots[x]);
+                    }
+                }
+            }
+        }
+        print(targets.Count + "HERE");
+        return targets;
+    }
+
     public void Attack(Beast target)
     {
         bool inFront = this.inFront();
+
+        List<Beast> targets = new List<Beast>();
+
+        targets.Add(target);
+
+        
 
         if (inFront)
         {
             if (currentTurn.Move_A.healing)
             {
-                target = this.getWeakestFriend();
+                targets.Clear();
+                targets.Add(this.getWeakestFriend());
+            }
+            else if (currentTurn.Move_A.rowAttack)
+            {
+                targets.Clear();
+                targets = findRowTargets();
             }
         }
         else if (!inFront)
@@ -413,6 +497,11 @@ public class BattleManager : MonoBehaviour
             if (currentTurn.Move_B.healing)
             {
                 target = this.getWeakestFriend();
+            }
+            else if (currentTurn.Move_B.rowAttack)
+            {
+                targets.Clear();
+                targets = findRowTargets();
             }
         }
         if (currentTurn.cursed != null)
@@ -425,15 +514,16 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
-                target = currentTurn.cursed;
+                targets.Clear();
+                targets.Add(currentTurn.cursed);
             }
         }
 
         //Check to see if the round is still going and then run an attack
         if (turn >= totalMoves - 1)
         {
-            attack.InitiateAttack(currentTurn, target, inFront);
-            PlayDamagedAnimation(target);
+            attack.InitiateAttack(currentTurn, targets, inFront);
+            PlayDamagedAnimation(targets);
             Debug.Log("Round Ended");
             ClearTurns();
             currentTurn = roundOrder[0];
@@ -456,8 +546,8 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            attack.InitiateAttack(currentTurn, target, inFront);
-            PlayDamagedAnimation(target);
+            attack.InitiateAttack(currentTurn, targets, inFront);
+            PlayDamagedAnimation(targets);
             AddTurn();
             Beast b = new Beast();
             if(turn+1 >= roundOrder.Count)
@@ -493,6 +583,34 @@ public class BattleManager : MonoBehaviour
                 {
                     playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
                     return;
+                }
+            }
+        }
+    }
+    void PlayDamagedAnimation(List<Beast> targets)
+    {
+        foreach (Beast target in targets)
+        {
+            if (roundOrderTypes[turn] == "Player")
+            {
+                for (int x = 0; x < enemySlots.Count; x++)
+                {
+                    if (enemySlots[x] != null && enemySlots[x].name == target.name)
+                    {
+                        enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
+                        break;
+                    }
+                }
+            }
+            else if (roundOrderTypes[turn] == "Enemy")
+            {
+                for (int x = 0; x < slots.Count; x++)
+                {
+                    if (slots[x] != null && slots[x].name == target.name)
+                    {
+                        playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
+                        break;
+                    }
                 }
             }
         }

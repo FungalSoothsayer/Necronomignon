@@ -93,6 +93,78 @@ public class Attack : MonoBehaviour
         modifier = 1;
     }
 
+    public void InitiateAttack(Beast attacker, List<Beast> targets, bool inFront)
+    {
+        if (beastManager.moveManager.movesList == null)
+        {
+            beastManager.moveManager.start();
+        }
+
+        foreach (Beast target in targets)
+        {
+            if (attacker != null && target != null && attacker.statusTurns[(int)Beast.types.Water] <= 0)
+            {
+                if (attacker.statusTurns[(int)Beast.types.Air] > 0)
+                {
+                    int r = Random.Range(0, 2);
+                    if (r > 0)
+                    {
+                        print(attacker.name + " was paralized and unable to move");
+                        return;
+                    }
+                }
+                if (inFront)
+                {
+                    if (attacker.Move_A.healing)
+                    {
+                        healthManager.heal(target, target.maxHP * ((double)attacker.Move_A.power / 100));
+                        print(attacker.name + " has healed " + target.name);
+                    }
+                }
+                else if (!inFront)
+                {
+                    if (attacker.Move_B.healing)
+                    {
+                        healthManager.heal(target, target.maxHP * ((double)attacker.Move_B.power / 100));
+                        print(attacker.name + " has healed " + target.name);
+                    }
+                }
+                if (attacker.statusTurns[(int)Beast.types.Light] > 0)
+                {
+                    print(attacker.name + " attacks blindly");
+                }
+
+                if (attacker.cursed == target)
+                {
+                    if (attacker.curse(target))
+                    {
+                        print("Doom has consumed " + target.name);
+                        modifier = 1;
+                        healthManager.UpdateHealth(target, target.maxHP);
+                    }
+                    else
+                    {
+                        print("Doom lingers over " + target.name);
+                        modifier = 1;
+                    }
+                }
+                else if (!isMiss(attacker, target))
+                {
+                    modifier *= isCrit(attacker, target);
+                    modifier *= isGuard(attacker, target);
+                    checkIfStatus(attacker, target, inFront);
+                    CalculateDamage(attacker, target, inFront);
+                }
+            }
+            else if (attacker.statusTurns[(int)Beast.types.Water] <= 0)
+            {
+                print(attacker.name + " was asleep and unable to move");
+            }
+
+            modifier = 1;
+        }
+    }
+
     // Checks if the attack will miss
     private bool isMiss(Beast attacker, Beast target)
     {
