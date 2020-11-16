@@ -8,7 +8,8 @@
       "condition_chance": "0.8",
       "type": "4",
       "description": "Base damage: 30 Special Condition Chance: 30%",
-      "healing": "false"
+      "healing": "false",
+      "rowAttack;": "false"
     },
     {
       "move_id": "2",
@@ -18,7 +19,8 @@
       "condition_chance": "0",
       "type": "4",
       "description": "Base damage: 75 Special Condition Chance: 0%",
-      "healing": "false"
+      "healing": "false",
+      "rowAttack;": "false"
     },
     {
       "move_id": "3",
@@ -27,8 +29,9 @@
       "number_of_moves": "2",
       "condition_chance": "0",
       "type": "2",
-      "description": "Base damage: 75 Special Condition Chance: 0%",
-      "healing": "false"
+      "description": "Base damage: 25 Special Condition Chance: 0%",
+      "healing": "false",
+      "rowAttack": "true"
     },
     {
       "move_id": "4",
@@ -38,7 +41,8 @@
       "condition_chance": "0.99",
       "type": "2",
       "description": "Base damage: 50 Special Condition Chance: 0%",
-      "healing": "false"
+      "healing": "false",
+      "rowAttack;": "false"
     },
     {
       "move_id": "5",
@@ -48,7 +52,8 @@
       "condition_chance": "0.86",
       "type": "0",
       "description": "Base damage: 40 Special Condition Chance: 86%",
-      "healing": "false"
+      "healing": "false",
+      "rowAttack;": "false"
     },
     {
       "move_id": "6",
@@ -58,7 +63,8 @@
       "condition_chance": "0",
       "type": "0",
       "description": "Base damage: 90 Special Condition Chance: 0%",
-      "healing": "false"
+      "healing": "false",
+      "rowAttack;": "false"
     },
     {
       "move_id": "7",
@@ -68,7 +74,8 @@
       "condition_chance": "0.95",
       "type": "1",
       "description": "Base damage: 30 Special Condition Chance: 95%",
-      "healing": "false"
+      "healing": "false",
+      "rowAttack;": "false"
     },
     {
       "move_id": "8",
@@ -78,7 +85,8 @@
       "condition_chance": "0",
       "type": "1",
       "description": "Base damage: 60 Special Condition Chance: 0%",
-      "healing": "false"
+      "healing": "false",
+      "rowAttack;": "false"
     },
     {
       "move_id": "9",
@@ -88,7 +96,8 @@
       "condition_chance": "0",
       "type": "3",
       "description": "Base damage: 75 Special Condition Chance: 0%",
-      "healing": "false"
+      "healing": "false",
+      "rowAttack;": "false"
     },
     {
       "move_id": "10",
@@ -98,7 +107,8 @@
       "condition_chance": "1",
       "type": "3",
       "description": "Base damage: 45 Special Condition Chance: 70%",
-      "healing": "false"
+      "healing": "false",
+      "rowAttack;": "false"
     },
     {
       "move_id": "11",
@@ -108,7 +118,8 @@
       "condition_chance": "0.9",
       "type": "5",
       "description": "Base damage: 15 Special Condition Chance: 90%",
-      "healing": "false"
+      "healing": "false",
+      "rowAttack;": "false"
     },
     {
       "move_id": "12",
@@ -118,7 +129,8 @@
       "condition_chance": "0",
       "type": "5",
       "description": "Base damage: 75 Special Condition Chance: 0%",
-      "healing": "false"
+      "healing": "false",
+      "rowAttack;": "false"
     },
     {
       "move_id": "13",
@@ -128,7 +140,8 @@
       "condition_chance": "0",
       "type": "3",
       "description": "Base damage: 120 Special Condition Chance: 0%",
-      "healing": "false"
+      "healing": "false",
+      "rowAttack;": "false"
     },
     {
       "move_id": "14",
@@ -137,8 +150,9 @@
       "number_of_moves": "1",
       "condition_chance": "0",
       "type": "3",
-      "description": "Heal: heals 50% of base hp of a friendly unit",
-      "healing": "true"
+      "description": "Heal: heals 30% of base hp of a friendly unit",
+      "healing": "true",
+      "rowAttack;": "false"
     }
   ]
 }

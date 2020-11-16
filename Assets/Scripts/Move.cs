@@ -12,6 +12,7 @@ public class Move
     public float condition_chance;
     public string description;
     public bool healing;
+    public bool rowAttack;
     public types type;
 
     public enum types { Water, Fire, Earth, Air, Dark, Light };
