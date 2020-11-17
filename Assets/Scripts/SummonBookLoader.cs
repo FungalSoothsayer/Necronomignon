@@ -31,12 +31,9 @@ public class SummonBookLoader : MonoBehaviour
         for (int x = 0; x < bl.Beasts.Count; x++)
         {
             bl.Beasts[x].setAttacks();
-            if (bl.Beasts[x].tier > 0)
-            {
-                summonedImages.Add(bl.Beasts[x].static_img);
-                beastImages.Add(bl.Beasts[x].static_img);
-                summoned.Add(bl.Beasts[x]);
-            }
+            summonedImages.Add(bl.Beasts[x].static_img);
+            beastImages.Add(bl.Beasts[x].static_img);
+            summoned.Add(bl.Beasts[x]);
         }
 
         SetImages();
