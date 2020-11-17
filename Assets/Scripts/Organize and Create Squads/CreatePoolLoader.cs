@@ -85,11 +85,11 @@ public class CreatePoolLoader : MonoBehaviour
         {
             back.SetActive(true);
         }
-        if (counter + 9 >= summoned.Count)
+        if ((counter * 9) + 9 >= summoned.Count)
         {
             forward.SetActive(false);
         }
-        else if (counter + 9 < summoned.Count)
+        else if ((counter * 9) + 9 < summoned.Count)
         {
             forward.SetActive(true);
         }
