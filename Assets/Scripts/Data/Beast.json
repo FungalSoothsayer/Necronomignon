@@ -36,7 +36,7 @@
       "speed": "43",
       "dexterity": "28",
       "number_MOVES": "3",
-      "tier": "1",
+      "tier": "0",
       "type": "0",
       "static_img": "Conglomerate",
       "moveA": "5",
@@ -78,7 +78,7 @@
       "speed": "79",
       "dexterity": "40",
       "number_MOVES": "3",
-      "tier": "1",
+      "tier": "0",
       "type": "4",
       "static_img": "Boss Cthulhu-3",
       "moveA": "1",
@@ -98,6 +98,5 @@
       "moveA": "2",
       "moveB": "2"
     }
-
   ]
 }

@@ -7,11 +7,10 @@ public class SummonBookLoader : MonoBehaviour
 {
     public BeastManager beastManager;
 
-    public List<string> beastImages;
     public List<GameObject> beastTexts;
-
     public List<Image> slots;
 
+    public List<string> summonedNames = new List<string>();
     public List<string> summonedImages = new List<string>();
     public List<Beast> summoned = new List<Beast>();
 
@@ -30,9 +29,8 @@ public class SummonBookLoader : MonoBehaviour
         BeastList bl = BeastManager.beastsList;
         for (int x = 0; x < bl.Beasts.Count; x++)
         {
-            bl.Beasts[x].setAttacks();
+            summonedNames.Add(bl.Beasts[x].name);
             summonedImages.Add(bl.Beasts[x].static_img);
-            beastImages.Add(bl.Beasts[x].static_img);
             summoned.Add(bl.Beasts[x]);
         }
 
@@ -47,13 +45,19 @@ public class SummonBookLoader : MonoBehaviour
             if (summoned.Count >= x + 1)
             {
                 slots[x % 6].gameObject.SetActive(true);
-                print(x % 6);
                 slots[x % 6].sprite = Resources.Load<Sprite>(summonedImages[x]);
+                beastTexts[x % 6].GetComponent<Text>().text = summonedNames[x];
+                if (summoned[x].tier == 0)
+                {
+                    var tempColor = slots[x].color;
+                    tempColor.a = .5f;
+                    slots[x].color = tempColor;
+                }
             }
             else
             {
-                print(x % 6);
                 slots[x % 6].sprite = Resources.Load<Sprite>("EmptyRectangle");
+                beastTexts[x % 6].GetComponent<Text>().text = "";
             }
         }
 
@@ -65,11 +69,11 @@ public class SummonBookLoader : MonoBehaviour
         {
             back.SetActive(true);
         }
-        if (counter + 6 >= summoned.Count)
+        if ((counter * 6) + 6 >= summoned.Count)
         {
             forward.SetActive(false);
         }
-        else if (counter + 6 < summoned.Count)
+        else if ((counter * 6) + 6 < summoned.Count)
         {
             forward.SetActive(true);
         }
