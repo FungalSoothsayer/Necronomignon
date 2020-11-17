@@ -23,7 +23,7 @@
       "dexterity": "2",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "5",
+      "type": "2",
       "static_img": "ygg_Idle_00",
       "moveA": "3",
       "moveB": "14"
@@ -65,7 +65,7 @@
       "dexterity": "20",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "1",
+      "type": "5",
       "static_img": "LightDragon_Idle_75",
       "moveA": "11",
       "moveB": "12"
@@ -93,7 +93,7 @@
       "dexterity": "40",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "4",
+      "type": "7",
       "static_img": "ClockworkQueen_Idle_00",
       "moveA": "2",
       "moveB": "2"
