@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class SummonBookLoader : MonoBehaviour
 {
@@ -101,5 +103,81 @@ public class SummonBookLoader : MonoBehaviour
         }
 
         SetImages();
+    }
+
+    public void OnClick()
+    {
+        if(EventSystem.current.currentSelectedGameObject.name == "Slot1")
+        {
+            string name = summoned[(counter * 6)].name;
+            if(summoned[(counter * 6)].tier == 0)
+            {
+                SceneManager.LoadScene(name + "Main");
+            }
+            else
+            {
+                SceneManager.LoadScene(name + "View");
+            }
+        }
+        if (EventSystem.current.currentSelectedGameObject.name == "Slot2")
+        {
+            string name = summoned[(counter * 6) + 1].name;
+            if (summoned[(counter * 6)].tier == 0)
+            {
+                SceneManager.LoadScene(name + "Main");
+            }
+            else
+            {
+                SceneManager.LoadScene(name + "View");
+            }
+        }
+        if (EventSystem.current.currentSelectedGameObject.name == "Slot3")
+        {
+            string name = summoned[(counter * 6) + 2].name;
+            if (summoned[(counter * 6)].tier == 0)
+            {
+                SceneManager.LoadScene(name + "Main");
+            }
+            else
+            {
+                SceneManager.LoadScene(name + "View");
+            }
+        }
+        if (EventSystem.current.currentSelectedGameObject.name == "Slot4")
+        {
+            string name = summoned[(counter * 6) + 3].name;
+            if (summoned[(counter * 6)].tier == 0)
+            {
+                SceneManager.LoadScene(name + "Main");
+            }
+            else
+            {
+                SceneManager.LoadScene(name + "View");
+            }
+        }
+        if (EventSystem.current.currentSelectedGameObject.name == "Slot5")
+        {
+            string name = summoned[(counter * 6) + 4].name;
+            if (summoned[(counter * 6)].tier == 0)
+            {
+                SceneManager.LoadScene(name + "Main");
+            }
+            else
+            {
+                SceneManager.LoadScene(name + "View");
+            }
+        }
+        if (EventSystem.current.currentSelectedGameObject.name == "Slot6")
+        {
+            string name = summoned[(counter * 6) + 5].name;
+            if (summoned[(counter * 6)].tier == 0)
+            {
+                SceneManager.LoadScene(name + "Main");
+            }
+            else
+            {
+                SceneManager.LoadScene(name + "View");
+            }
+        }
     }
 }
