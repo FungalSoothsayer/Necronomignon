@@ -49,6 +49,8 @@ public class SummonBookLoader : MonoBehaviour
                 slots[x % 6].gameObject.SetActive(true);
                 slots[x % 6].sprite = Resources.Load<Sprite>(summonedImages[x]);
                 beastTexts[x % 6].GetComponent<Text>().text = summonedNames[x];
+
+                //Make not summoned beasts transparent
                 if (summoned[x].tier == 0)
                 {
                     var tempColor = slots[x].color;
@@ -105,6 +107,7 @@ public class SummonBookLoader : MonoBehaviour
         SetImages();
     }
 
+    //Will fix this long method
     public void OnClick()
     {
         if(EventSystem.current.currentSelectedGameObject.name == "Slot1")
@@ -112,7 +115,7 @@ public class SummonBookLoader : MonoBehaviour
             string name = summoned[(counter * 6)].name;
             if(summoned[(counter * 6)].tier == 0)
             {
-                SceneManager.LoadScene(name + "Main");
+                SceneManager.LoadScene(name + "Page1");
             }
             else
             {
@@ -122,9 +125,9 @@ public class SummonBookLoader : MonoBehaviour
         if (EventSystem.current.currentSelectedGameObject.name == "Slot2")
         {
             string name = summoned[(counter * 6) + 1].name;
-            if (summoned[(counter * 6)].tier == 0)
+            if (summoned[(counter * 6) + 1].tier == 0)
             {
-                SceneManager.LoadScene(name + "Main");
+                SceneManager.LoadScene(name + "Page1");
             }
             else
             {
@@ -134,9 +137,9 @@ public class SummonBookLoader : MonoBehaviour
         if (EventSystem.current.currentSelectedGameObject.name == "Slot3")
         {
             string name = summoned[(counter * 6) + 2].name;
-            if (summoned[(counter * 6)].tier == 0)
+            if (summoned[(counter * 6) + 2].tier == 0)
             {
-                SceneManager.LoadScene(name + "Main");
+                SceneManager.LoadScene(name + "Page1");
             }
             else
             {
@@ -146,9 +149,9 @@ public class SummonBookLoader : MonoBehaviour
         if (EventSystem.current.currentSelectedGameObject.name == "Slot4")
         {
             string name = summoned[(counter * 6) + 3].name;
-            if (summoned[(counter * 6)].tier == 0)
+            if (summoned[(counter * 6) + 3].tier == 0)
             {
-                SceneManager.LoadScene(name + "Main");
+                SceneManager.LoadScene(name + "Page1");
             }
             else
             {
@@ -158,9 +161,9 @@ public class SummonBookLoader : MonoBehaviour
         if (EventSystem.current.currentSelectedGameObject.name == "Slot5")
         {
             string name = summoned[(counter * 6) + 4].name;
-            if (summoned[(counter * 6)].tier == 0)
+            if (summoned[(counter * 6) + 4].tier == 0)
             {
-                SceneManager.LoadScene(name + "Main");
+                SceneManager.LoadScene(name + "Page1");
             }
             else
             {
@@ -170,9 +173,10 @@ public class SummonBookLoader : MonoBehaviour
         if (EventSystem.current.currentSelectedGameObject.name == "Slot6")
         {
             string name = summoned[(counter * 6) + 5].name;
-            if (summoned[(counter * 6)].tier == 0)
+            if (summoned[(counter * 6) + 5].tier == 0)
             {
-                SceneManager.LoadScene(name + "Main");
+                print(name + "Main");
+                SceneManager.LoadScene(name + "Page1");
             }
             else
             {
