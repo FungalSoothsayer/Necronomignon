@@ -400,21 +400,8 @@ public class BattleManager : MonoBehaviour
     List<Beast> findRowTargets()
     {
         List<Beast> targets = new List<Beast>();
-        int slot = -1;
-        for(int x =0; x < slots.Count; x++)
-        {
-            if(roundOrderTypes[turn] == "Player" && currentTurn.Equals(slots[x]))
-            {
-                slot = x;
-                break;
-            }
-            else if(roundOrderTypes[turn] == "Enemy" && currentTurn.Equals(enemySlots[x]))
-            {
-                slot = x;
-                break;
-            }
-        }
-        if(roundOrderTypes[turn] == "Player")
+        int slot = getCurrentBeastSlot();
+        if (roundOrderTypes[turn] == "Player")
         {
             for(int x = 0; x < enemySlots.Count; x++)
             {
@@ -502,6 +489,130 @@ public class BattleManager : MonoBehaviour
         return targets;
     }
 
+    int getCurrentBeastSlot()
+    {
+        int slot = -1;
+        for (int x = 0; x < slots.Count; x++)
+        {
+            if (roundOrderTypes[turn] == "Player" && currentTurn.Equals(slots[x]))
+            {
+                slot = x;
+                break;
+            }
+            else if (roundOrderTypes[turn] == "Enemy" && currentTurn.Equals(enemySlots[x]))
+            {
+                slot = x;
+                break;
+            }
+        }
+        return slot;
+    }
+
+    List<Beast> findColumnTargets()
+    {
+        List<Beast> targets = new List<Beast>();
+        int slot = getCurrentBeastSlot();
+        if (roundOrderTypes[turn] == "Enemy")
+        {
+            switch (slot % 3)
+            {
+                case 0:
+                    do
+                    {
+                        if (slots[slot % 3] != null && slots[slot % 3].hitPoints > 0)
+                        {
+                            targets.Add(slots[slot % 3]);
+                        }
+                        if (slots[(slot % 3) + 3] != null && slots[(slot % 3) +3].hitPoints > 0)
+                        {
+                            targets.Add(slots[(slot % 3) + 3]);
+                        }
+                        slot++;
+                    } while (targets.Count < 1);
+                    break;
+                case 1:
+                    do
+                    {
+                        if (slots[slot % 3] != null && slots[slot % 3].hitPoints > 0)
+                        {
+                            targets.Add(slots[slot % 3]);
+                        }
+                        if (slots[(slot % 3) + 3] != null && slots[(slot % 3) + 3].hitPoints > 0)
+                        {
+                            targets.Add(slots[(slot % 3) + 3]);
+                        }
+                        slot++;
+                    } while (targets.Count < 1);
+                    break;
+                case 2:
+                    do
+                    {
+                        if (slots[slot % 3] != null && slots[slot % 3].hitPoints > 0)
+                        {
+                            targets.Add(slots[slot % 3]);
+                        }
+                        if (slots[(slot % 3) + 3] != null && slots[(slot % 3) +3].hitPoints > 0)
+                        {
+                            targets.Add(slots[(slot % 3) + 3]);
+                        }
+                        slot--;
+                    } while (targets.Count < 1);
+                    break;
+
+            }
+        }
+        else
+        {
+            switch (slot % 3)
+            {
+                case 0:
+                    do
+                    {
+                        if (enemySlots[slot % 3] != null && enemySlots[slot % 3].hitPoints >0)
+                        {
+                            targets.Add(enemySlots[slot % 3]);
+                        }
+                        if (enemySlots[(slot % 3) + 3] != null && enemySlots[(slot % 3)  +  3].hitPoints > 0)
+                        {
+                            targets.Add(enemySlots[slot % 3 + 3]);
+                        }
+                        slot++;
+                    } while (targets.Count < 1);
+                    break;
+                case 1:
+                    do
+                    {
+                        if (enemySlots[slot % 3] != null && enemySlots[slot % 3].hitPoints > 0)
+                        {
+                            targets.Add(enemySlots[slot % 3]);
+                        }
+                        if (enemySlots[(slot % 3) + 3] != null && enemySlots[(slot % 3) + 3].hitPoints > 0)
+                        {
+                            targets.Add(enemySlots[(slot % 3) + 3]);
+                        }
+                        slot++;
+                    } while (targets.Count < 1);
+                    break;
+                case 2:
+                    do
+                    {
+                        if (enemySlots[slot % 3] != null && enemySlots[slot % 3].hitPoints > 0)
+                        {
+                            targets.Add(enemySlots[slot % 3]);
+                        }
+                        if (enemySlots[(slot % 3) + 3] != null && enemySlots[(slot % 3) + 3].hitPoints > 0)
+                        {
+                            targets.Add(enemySlots[(slot % 3) + 3]);
+                        }
+                        slot--;
+                    } while (targets.Count < 1);
+                    break;
+
+            }
+        }
+        return targets;
+    }
+
     public void Attack(Beast target)
     {
         bool inFront = this.inFront();
@@ -523,18 +634,28 @@ public class BattleManager : MonoBehaviour
             {
                 targets.Clear();
                 targets = findRowTargets();
+            }else if (currentTurn.Move_A.columnAttack)
+            {
+                targets.Clear();
+                targets = findColumnTargets();
             }
         }
         else if (!inFront)
         {
             if (currentTurn.Move_B.healing)
             {
-                target = this.getWeakestFriend();
+                targets.Clear();
+                targets.Add(this.getWeakestFriend());
             }
             else if (currentTurn.Move_B.rowAttack)
             {
                 targets.Clear();
                 targets = findRowTargets();
+            }
+            else if (currentTurn.Move_A.columnAttack)
+            {
+                targets.Clear();
+                targets = findColumnTargets();
             }
         }
         if (currentTurn.cursed != null)

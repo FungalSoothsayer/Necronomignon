@@ -119,6 +119,7 @@ public class Attack : MonoBehaviour
                     {
                         healthManager.heal(target, target.maxHP * ((double)attacker.Move_A.power / 100));
                         print(attacker.name + " has healed " + target.name);
+                        break;
                     }
                 }
                 else if (!inFront)
@@ -127,6 +128,7 @@ public class Attack : MonoBehaviour
                     {
                         healthManager.heal(target, target.maxHP * ((double)attacker.Move_B.power / 100));
                         print(attacker.name + " has healed " + target.name);
+                        break;
                     }
                 }
                 if (attacker.statusTurns[(int)Beast.types.Light] > 0)

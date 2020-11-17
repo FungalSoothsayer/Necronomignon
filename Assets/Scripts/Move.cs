@@ -13,6 +13,7 @@ public class Move
     public string description;
     public bool healing;
     public bool rowAttack;
+    public bool columnAttack;
     public types type;
 
     public enum types { Water, Fire, Earth, Air, Dark, Light };

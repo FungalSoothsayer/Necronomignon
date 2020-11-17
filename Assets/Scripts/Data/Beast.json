@@ -11,8 +11,8 @@
       "tier": "1",
       "type": "3",
       "static_img": "Boss Wyvern Zefir",
-      "moveA": "2",
-      "moveB": "2"
+      "moveA": "10",
+      "moveB": "9"
     },
     {
       "name": "Dryad",
