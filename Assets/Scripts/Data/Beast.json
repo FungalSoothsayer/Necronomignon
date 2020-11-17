@@ -10,7 +10,7 @@
       "number_MOVES": "3",
       "tier": "1",
       "type": "3",
-      "static_img": "Boss Wyvern Zefir",
+      "static_img": "Zefir_Idle_00",
       "moveA": "10",
       "moveB": "9"
     },
@@ -80,7 +80,7 @@
       "number_MOVES": "3",
       "tier": "1",
       "type": "4",
-      "static_img": "Boss Cthulhu-3",
+      "static_img": "Cthulhu_Idle_00",
       "moveA": "1",
       "moveB": "2"
     },
