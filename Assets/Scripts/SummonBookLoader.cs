@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class SummonBookLoader : MonoBehaviour
 {
+    static public string beastName;
+
     public BeastManager beastManager;
 
     public List<GameObject> beastTexts;
@@ -112,75 +114,74 @@ public class SummonBookLoader : MonoBehaviour
     {
         if(EventSystem.current.currentSelectedGameObject.name == "Slot1")
         {
-            string name = summoned[(counter * 6)].name;
+            beastName = summoned[(counter * 6)].name;
             if(summoned[(counter * 6)].tier == 0)
             {
-                SceneManager.LoadScene(name + "Page1");
+                SceneManager.LoadScene(beastName + "Page1");
             }
             else
             {
-                SceneManager.LoadScene(name + "View");
+                SceneManager.LoadScene("BeastView");
             }
         }
         if (EventSystem.current.currentSelectedGameObject.name == "Slot2")
         {
-            string name = summoned[(counter * 6) + 1].name;
+            beastName = summoned[(counter * 6) + 1].name;
             if (summoned[(counter * 6) + 1].tier == 0)
             {
-                SceneManager.LoadScene(name + "Page1");
+                SceneManager.LoadScene(beastName + "Page1");
             }
             else
             {
-                SceneManager.LoadScene(name + "View");
+                SceneManager.LoadScene("BeastView");
             }
         }
         if (EventSystem.current.currentSelectedGameObject.name == "Slot3")
         {
-            string name = summoned[(counter * 6) + 2].name;
+            beastName = summoned[(counter * 6) + 2].name;
             if (summoned[(counter * 6) + 2].tier == 0)
             {
-                SceneManager.LoadScene(name + "Page1");
+                SceneManager.LoadScene(beastName + "Page1");
             }
             else
             {
-                SceneManager.LoadScene(name + "View");
+                SceneManager.LoadScene("BeastView");
             }
         }
         if (EventSystem.current.currentSelectedGameObject.name == "Slot4")
         {
-            string name = summoned[(counter * 6) + 3].name;
+            beastName = summoned[(counter * 6) + 3].name;
             if (summoned[(counter * 6) + 3].tier == 0)
             {
-                SceneManager.LoadScene(name + "Page1");
+                SceneManager.LoadScene(beastName + "Page1");
             }
             else
             {
-                SceneManager.LoadScene(name + "View");
+                SceneManager.LoadScene("BeastView");
             }
         }
         if (EventSystem.current.currentSelectedGameObject.name == "Slot5")
         {
-            string name = summoned[(counter * 6) + 4].name;
+            beastName = summoned[(counter * 6) + 4].name;
             if (summoned[(counter * 6) + 4].tier == 0)
             {
-                SceneManager.LoadScene(name + "Page1");
+                SceneManager.LoadScene(beastName + "Page1");
             }
             else
             {
-                SceneManager.LoadScene(name + "View");
+                SceneManager.LoadScene("BeastView");
             }
         }
         if (EventSystem.current.currentSelectedGameObject.name == "Slot6")
         {
-            string name = summoned[(counter * 6) + 5].name;
+            beastName = summoned[(counter * 6) + 5].name;
             if (summoned[(counter * 6) + 5].tier == 0)
             {
-                print(name + "Main");
-                SceneManager.LoadScene(name + "Page1");
+                SceneManager.LoadScene(beastName + "Page1");
             }
             else
             {
-                SceneManager.LoadScene(name + "View");
+                SceneManager.LoadScene("BeastView");
             }
         }
     }

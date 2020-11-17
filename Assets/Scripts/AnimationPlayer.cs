@@ -5,41 +5,36 @@ using UnityEngine.UI;
 
 public class AnimationPlayer : MonoBehaviour
 {
-    Animator anim;
-    public GameObject image;
+    public Image image;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = image.GetComponent<Animator>();
-        anim.runtimeAnimatorController = Resources.Load("Animations/Wyvern/Idle/Idle") as RuntimeAnimatorController;
+        image.GetComponent<Animator>().runtimeAnimatorController = Resources.Load
+            ("Animations/" + SummonBookLoader.beastName + "/" + SummonBookLoader.beastName + "_Controller") as RuntimeAnimatorController;
     }
 
-    public void FrontRowAnimation()
+    public void FrontAttack()
     {
-        anim = image.GetComponent<Animator>();
-        anim.runtimeAnimatorController = Resources.Load("Animations/Wyvern/Front/Front") as RuntimeAnimatorController;
+       image.GetComponent<Animator>().SetTrigger("Front");
     }
 
-    public void BackRowAnimation()
+    public void BackAttack()
     {
-        anim = image.GetComponent<Animator>();
-        anim.runtimeAnimatorController = Resources.Load("Animations/Wyvern/Back/Back") as RuntimeAnimatorController;
+        image.GetComponent<Animator>().SetTrigger("Back");
     }
 
-    public void DamagedAnimation()
+    public void Damaged()
     {
-        anim = image.GetComponent<Animator>();
-        anim.runtimeAnimatorController = Resources.Load("Animations/Wyvern/Damage/Damage") as RuntimeAnimatorController;
+        image.GetComponent<Animator>().SetTrigger("GetHit");
     }
 
-    public void DeathAnimation()
+    public void Death()
     {
-        anim = image.GetComponent<Animator>();
-        anim.runtimeAnimatorController = Resources.Load("Animations/Wyvern/Death/Death") as RuntimeAnimatorController;
+        image.GetComponent<Animator>().SetInteger("Health", 0);
     }
 
-    public void SpawnAnimation()
+    public void Summon()
     {
 
     }
