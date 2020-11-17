@@ -24,7 +24,7 @@
       "number_MOVES": "3",
       "tier": "1",
       "type": "5",
-      "static_img": "Boss Dryad Yggdrasil",
+      "static_img": "ygg_Idle_00",
       "moveA": "3",
       "moveB": "14"
     },
@@ -52,7 +52,7 @@
       "number_MOVES": "3",
       "tier": "1",
       "type": "1",
-      "static_img": "Boss Feral Kitsune",
+      "static_img": "Kitsune_Idle_00",
       "moveA": "7",
       "moveB": "8"
     },
