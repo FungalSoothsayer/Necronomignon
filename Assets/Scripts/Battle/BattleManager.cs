@@ -644,7 +644,8 @@ public class BattleManager : MonoBehaviour
         {
             if (currentTurn.Move_B.healing)
             {
-                target = this.getWeakestFriend();
+                targets.Clear();
+                targets.Add(this.getWeakestFriend());
             }
             else if (currentTurn.Move_B.rowAttack)
             {
