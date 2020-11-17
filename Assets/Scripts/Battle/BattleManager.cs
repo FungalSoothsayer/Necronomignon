@@ -408,7 +408,7 @@ public class BattleManager : MonoBehaviour
                 slot = x;
                 break;
             }
-            else if(roundOrderTypes[turn] == "Enemies" && currentTurn.Equals(enemySlots[x]))
+            else if(roundOrderTypes[turn] == "Enemy" && currentTurn.Equals(enemySlots[x]))
             {
                 slot = x;
                 break;
@@ -437,17 +437,34 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
+            if (targets.Count <= 0)
+            {
+                for (int x = 0; x < enemySlots.Count; x++)
+                {
+                    if (x < 3 && enemySlots[x] != null && enemySlots[x].hitPoints > 0)
+                    {
+                            targets.Add(enemySlots[x]);                        
+                    }
+                    else if (x >= 3 && enemySlots[x] != null && enemySlots[x].hitPoints > 0)
+                    {
+                        if (targets.Count>0)
+                        {
+                            break;
+                        }
+                        targets.Add(enemySlots[x]);
+                        
+                    }
+                }
+            }
         }
         else
         {
             for (int x = 0; x < slots.Count; x++)
             {
-                print("sadness " + x);
                 if (x < 3 && slots[x] != null && slots[x].hitPoints >0)
                 {
                     if (slot + 1 == x || slot == x || slot - 1 == x)
                     {
-                        print("pre3 " + x);
                         targets.Add(slots[x]);
                     }
                 }
@@ -459,13 +476,29 @@ public class BattleManager : MonoBehaviour
                     }
                     if (slot + 1 == x || slot == x || slot - 1 == x)
                     {
-                        print("post3 " + x);
+                        targets.Add(slots[x]);
+                    }
+                }
+            }
+            if (targets.Count <= 0)
+            {
+                for (int x = 0; x < slots.Count; x++)
+                {
+                    if (x < 3 && slots[x] != null && slots[x].hitPoints > 0)
+                    {
+                        targets.Add(slots[x]);
+                    }
+                    else if (x >= 3 && slots[x] != null && slots[x].hitPoints > 0)
+                    {
+                        if (targets.Count >0)
+                        {
+                            break;
+                        }
                         targets.Add(slots[x]);
                     }
                 }
             }
         }
-        print(targets.Count + "HERE");
         return targets;
     }
 
