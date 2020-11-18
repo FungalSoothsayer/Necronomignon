@@ -109,79 +109,22 @@ public class SummonBookLoader : MonoBehaviour
         SetImages();
     }
 
-    //Will fix this long method
+    //Loads animation scene if beast is summoned and summon page if it isn't
     public void OnClick()
     {
-        if(EventSystem.current.currentSelectedGameObject.name == "Slot1")
+        for(int x = 1; x <= poolSlots.Count; x++)
         {
-            beastName = summoned[(counter * 6)].name;
-            if(summoned[(counter * 6)].tier == 0)
+            if (EventSystem.current.currentSelectedGameObject.name == "Slot" + x)
             {
-                SceneManager.LoadScene(beastName + "Page1");
-            }
-            else
-            {
-                SceneManager.LoadScene("BeastView");
-            }
-        }
-        if (EventSystem.current.currentSelectedGameObject.name == "Slot2")
-        {
-            beastName = summoned[(counter * 6) + 1].name;
-            if (summoned[(counter * 6) + 1].tier == 0)
-            {
-                SceneManager.LoadScene(beastName + "Page1");
-            }
-            else
-            {
-                SceneManager.LoadScene("BeastView");
-            }
-        }
-        if (EventSystem.current.currentSelectedGameObject.name == "Slot3")
-        {
-            beastName = summoned[(counter * 6) + 2].name;
-            if (summoned[(counter * 6) + 2].tier == 0)
-            {
-                SceneManager.LoadScene(beastName + "Page1");
-            }
-            else
-            {
-                SceneManager.LoadScene("BeastView");
-            }
-        }
-        if (EventSystem.current.currentSelectedGameObject.name == "Slot4")
-        {
-            beastName = summoned[(counter * 6) + 3].name;
-            if (summoned[(counter * 6) + 3].tier == 0)
-            {
-                SceneManager.LoadScene(beastName + "Page1");
-            }
-            else
-            {
-                SceneManager.LoadScene("BeastView");
-            }
-        }
-        if (EventSystem.current.currentSelectedGameObject.name == "Slot5")
-        {
-            beastName = summoned[(counter * 6) + 4].name;
-            if (summoned[(counter * 6) + 4].tier == 0)
-            {
-                SceneManager.LoadScene(beastName + "Page1");
-            }
-            else
-            {
-                SceneManager.LoadScene("BeastView");
-            }
-        }
-        if (EventSystem.current.currentSelectedGameObject.name == "Slot6")
-        {
-            beastName = summoned[(counter * 6) + 5].name;
-            if (summoned[(counter * 6) + 5].tier == 0)
-            {
-                SceneManager.LoadScene(beastName + "Page1");
-            }
-            else
-            {
-                SceneManager.LoadScene("BeastView");
+                beastName = summoned[(counter * 6) + x - 1].name;
+                if (summoned[(counter * 6) + x - 1].tier == 0)
+                {
+                    SceneManager.LoadScene(beastName + "Page1");
+                }
+                else
+                {
+                    SceneManager.LoadScene("BeastView");
+                }
             }
         }
     }
