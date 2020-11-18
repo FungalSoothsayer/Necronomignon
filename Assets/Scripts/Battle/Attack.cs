@@ -379,12 +379,12 @@ public class Attack : MonoBehaviour
             switch (attacker.type)
             {
                 case Beast.types.Water: 
-                    if(target.type == Beast.types.Fire)
+                    if(target.type == Beast.types.Fire || target.type == Beast.types.Cosmic)
                     {
                         print("super");
                         return 1.5f;
                     }
-                    if(target.type == Beast.types.Air)
+                    if(target.type == Beast.types.Air || target.type == Beast.types.Horror)
                     {
                         print("not so good");
                         return 0.75f;
@@ -392,12 +392,12 @@ public class Attack : MonoBehaviour
                     break;
                     
                 case Beast.types.Fire:
-                    if (target.type == Beast.types.Earth)
+                    if (target.type == Beast.types.Earth || target.type == Beast.types.Horror)
                     {
                         print("super");
                         return 1.5f;
                     }
-                    if (target.type == Beast.types.Water)
+                    if (target.type == Beast.types.Water || target.type == Beast.types.Cosmic)
                     {
                         print("not so good");
                         return 0.75f;
@@ -405,12 +405,12 @@ public class Attack : MonoBehaviour
                     break;
 
                 case Beast.types.Earth:
-                    if (target.type == Beast.types.Air)
+                    if (target.type == Beast.types.Air || target.type == Beast.types.Cosmic)
                     {
                         print("super");
                         return 1.5f;
                     }
-                    if (target.type == Beast.types.Fire)
+                    if (target.type == Beast.types.Fire || target.type == Beast.types.Horror)
                     {
                         print("not so good");
                         return 0.75f;
@@ -418,33 +418,65 @@ public class Attack : MonoBehaviour
                     break;
 
                 case Beast.types.Air:
-                    if (target.type == Beast.types.Water)
+                    if (target.type == Beast.types.Water || target.type == Beast.types.Horror)
                     {
                         print("super");
                         return 1.5f;
                     }
-                    if (target.type == Beast.types.Earth)
+                    if (target.type == Beast.types.Earth || target.type == Beast.types.Cosmic)
                     {
                         print("not so good");
                         return 0.75f;
                     }
                     break;
-            }
-        }
-        if(attacker.type == Beast.types.Dark)
-        {
-            if(target.type == Beast.types.Light)
-            {
-                print("super");
-                return 1.5f;
-            }
-        }
-        if (attacker.type == Beast.types.Light)
-        {
-            if (target.type == Beast.types.Dark)
-            {
-                print("super");
-                return 1.5f;
+                case Beast.types.Dark:
+                    if (target.type == Beast.types.Light || target.type == Beast.types.Horror)
+                    {
+                        print("super");
+                        return 1.5f;
+                    }
+                    if (target.type == Beast.types.Cosmic)
+                    {
+                        print("not so good");
+                        return 0.75f;
+                    }
+                    break;
+                case Beast.types.Light:
+                    if (target.type == Beast.types.Dark || target.type == Beast.types.Cosmic)
+                    {
+                        print("super");
+                        return 1.5f;
+                    }
+                    if (target.type == Beast.types.Horror)
+                    {
+                        print("not so good");
+                        return 0.75f;
+                    }
+                    break;
+                case Beast.types.Horror:
+                    if (target.type == Beast.types.Light || target.type == Beast.types.Earth || target.type == Beast.types.Water)
+                    {
+                        print("super");
+                        return 1.5f;
+                    }
+                    if (target.type == Beast.types.Dark || target.type == Beast.types.Fire || target.type == Beast.types.Air)
+                    {
+                        print("not so good");
+                        return 0.75f;
+                    }
+                    break;
+                case Beast.types.Cosmic:
+                    if (target.type == Beast.types.Fire || target.type == Beast.types.Air || target.type == Beast.types.Dark)
+                    {
+                        print("super");
+                        return 1.5f;
+                    }
+                    if (target.type == Beast.types.Earth || target.type == Beast.types.Water || target.type == Beast.types.Light)
+                    {
+                        print("not so good");
+                        return 0.75f;
+                    }
+                    break;
             }
         }
         return 1;

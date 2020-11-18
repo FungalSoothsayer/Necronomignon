@@ -10,7 +10,7 @@
       "number_MOVES": "3",
       "tier": "1",
       "type": "3",
-      "static_img": "Boss Wyvern Zefir",
+      "static_img": "Zefir_Idle_00",
       "moveA": "10",
       "moveB": "9"
     },
@@ -23,8 +23,8 @@
       "dexterity": "2",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "5",
-      "static_img": "Boss Dryad Yggdrasil",
+      "type": "2",
+      "static_img": "ygg_Idle_00",
       "moveA": "3",
       "moveB": "14"
     },
@@ -52,7 +52,7 @@
       "number_MOVES": "3",
       "tier": "1",
       "type": "1",
-      "static_img": "Boss Feral Kitsune",
+      "static_img": "Kitsune_Idle_00",
       "moveA": "7",
       "moveB": "8"
     },
@@ -65,7 +65,7 @@
       "dexterity": "20",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "1",
+      "type": "5",
       "static_img": "LightDragon_Idle_75",
       "moveA": "11",
       "moveB": "12"
@@ -80,7 +80,7 @@
       "number_MOVES": "3",
       "tier": "1",
       "type": "4",
-      "static_img": "Boss Cthulhu-3",
+      "static_img": "Cthulhu_Idle_00",
       "moveA": "1",
       "moveB": "2"
     },
@@ -93,11 +93,10 @@
       "dexterity": "40",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "4",
+      "type": "7",
       "static_img": "ClockworkQueen_Idle_00",
       "moveA": "2",
       "moveB": "2"
     }
-
   ]
 }

@@ -730,8 +730,8 @@ public class BattleManager : MonoBehaviour
         if (turn >= totalMoves - 1)
         {
             attack.InitiateAttack(currentTurn, targets, inFront);
-            PlayDamagedAnimation(targets);
             PlayAttackAnimation(inFront);
+            PlayDamagedAnimation(targets);
             Debug.Log("Round Ended");
             ClearTurns();
             currentTurn = roundOrder[0];
@@ -755,8 +755,8 @@ public class BattleManager : MonoBehaviour
         else
         {
             attack.InitiateAttack(currentTurn, targets, inFront);
-            PlayDamagedAnimation(targets);
             PlayAttackAnimation(inFront);
+            PlayDamagedAnimation(targets);
             AddTurn();
             Beast b = new Beast();
             if(turn+1 >= roundOrder.Count)
@@ -801,31 +801,6 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    void PlayDamagedAnimation(Beast target)
-    {
-        if(roundOrderTypes[turn] == "Player")
-        {
-            for(int x = 0; x < enemySlots.Count; x++)
-            {
-                if(enemySlots[x] != null && enemySlots[x].name == target.name)
-                {
-                    enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
-                    return;
-                }
-            }
-        }
-        else if(roundOrderTypes[turn] == "Enemy")
-        {
-            for (int x = 0; x < slots.Count; x++)
-            {
-                if (slots[x] != null && slots[x].name == target.name)
-                {
-                    playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
-                    return;
-                }
-            }
-        }
-    }
     void PlayDamagedAnimation(List<Beast> targets)
     {
         foreach (Beast target in targets)
@@ -885,7 +860,6 @@ public class BattleManager : MonoBehaviour
     //Get the row to determine whether the attacker is using an A move or a B move
     bool inFront()
     {
-
         for(int x = 0; x< slots.Count; x++)
         {
             if(x<3 && (currentTurn.Equals(slots[x]) || currentTurn.Equals(enemySlots[x])))
@@ -941,7 +915,6 @@ public class BattleManager : MonoBehaviour
 
     bool inFront(Beast b)
     {
-
         for (int x = 0; x < slots.Count; x++)
         {
             if (x < 3 && (b.Equals(slots[x]) || b.Equals(enemySlots[x])))

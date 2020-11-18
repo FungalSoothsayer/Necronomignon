@@ -74,7 +74,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle/RandomFight.unity
     guid: 5fc1ae34d98b6c14b81dcf9c49c3f7fc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ViewBeast.unity
     guid: 64bff430079405b4d8b2cf6a2775df6a
+  - enabled: 1
+    path: Assets/Scenes/Summon/BeastView.unity
+    guid: e121134691fa65644b648b68431dc12a
   m_configObjects: {}

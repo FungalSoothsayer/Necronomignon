@@ -21,12 +21,6 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             if (Input.GetMouseButtonDown(0))
             {
-                /*
-                if (battleManager.roundOrderTypes[battleManager.turn] == "Player")
-                {
-                    battleManager.Attack(GetName());
-                }
-                */
                 battleManager.selectedEnemy = GetName();
             }
         }
@@ -46,26 +40,15 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     //Get the name of the beast that this slot is holding
     Beast GetName()
     {
-        print(gameObject.name);
         string str = gameObject.name;
         int num = int.Parse((str).ToCharArray()[str.Length - 1].ToString());
 
         if (num <= battleManager.enemySlots.Count && battleManager.enemySlots[num-1] != null)
         {
-            print("good");
             return battleManager.enemySlots[num - 1];
         }
-
-
-        /*if (gameObject.name == "Slot1") return battleManager.enemySlot1;
-        else if (gameObject.name == "Slot2") return battleManager.enemySlot2;
-        else if (gameObject.name == "Slot3") return battleManager.enemySlot3;
-        else if (gameObject.name == "Slot4") return battleManager.enemySlot4;
-        else if (gameObject.name == "Slot5") return battleManager.enemySlot5;
-        else if (gameObject.name == "Slot6") return battleManager.enemySlot6;*/
         else
         { 
-            print("bad"); 
             return null; 
         }
     }

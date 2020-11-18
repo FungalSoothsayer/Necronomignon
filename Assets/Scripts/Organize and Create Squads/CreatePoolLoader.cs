@@ -46,6 +46,7 @@ public class CreatePoolLoader : MonoBehaviour
             }
         }
 
+        /*
         for(int x=0; x < poolSlots.Count; x++)
         {
             if (x < summonedNames.Count)
@@ -54,6 +55,7 @@ public class CreatePoolLoader : MonoBehaviour
                 anim[x].runtimeAnimatorController = Resources.Load("Animations/" + summonedNames[x] + "/" + summonedNames[x] + "_Controller") as RuntimeAnimatorController;
             }
         }
+        */
 
         SetImages();
     }
@@ -84,11 +86,11 @@ public class CreatePoolLoader : MonoBehaviour
         {
             back.SetActive(true);
         }
-        if (counter + 9 >= summoned.Count)
+        if ((counter * 9) + 9 >= summoned.Count)
         {
             forward.SetActive(false);
         }
-        else if (counter + 9 < summoned.Count)
+        else if ((counter * 9) + 9 < summoned.Count)
         {
             forward.SetActive(true);
         }
