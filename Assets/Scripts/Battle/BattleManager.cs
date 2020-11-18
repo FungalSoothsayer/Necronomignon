@@ -658,6 +658,17 @@ public class BattleManager : MonoBehaviour
                 targets = findColumnTargets();
                 cancelGuard = true;
             }
+            else if (currentTurn.Move_A.multiAttack)
+            {
+                targets.Clear();
+
+                int ran = Random.Range(2, 6);
+                for (; ran > 0; ran--)
+                {
+                    targets.Add(target);
+                }
+                cancelGuard = true;
+            }
         }
         else if (!inFront)
         {
@@ -677,6 +688,17 @@ public class BattleManager : MonoBehaviour
             {
                 targets.Clear();
                 targets = findColumnTargets();
+                cancelGuard = true;
+            }
+            else if (currentTurn.Move_B.multiAttack)
+            {
+                targets.Clear();
+
+                int ran = Random.Range(2, 6);
+                for (; ran > 0; ran--)
+                {
+                    targets.Add(target);
+                }
                 cancelGuard = true;
             }
         }
