@@ -26,3 +26,14 @@
 - Damage output only visible for a short time.
 - Scroll through or flip through pages when more characters are available than there is room on the page.
 - Replace available characters to starters.
+
+
+Starting November 16
+- Have certain moves target more than one enemy.
+- Add healing moves.
+- Add targeting rules (front row blocking back row etc...).
+- Be able to see/test a characters moves (with animations).
+- Fix the summon page to display the right beasts not the hardcoded ones.
+- Replace idle animations with static images in create squad.
+- Add Cosmic and Horror types.
+- Add animations to characters in battle.
