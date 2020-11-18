@@ -214,7 +214,7 @@ public class LoadMission : MonoBehaviour
 
     IEnumerator PlayDeathAnimation(Beast toRemove, string owner)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
 
         GetImageToRemove(toRemove, owner).gameObject.SetActive(false);
     }
