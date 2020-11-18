@@ -66,7 +66,6 @@ public class CreatePoolLoader : MonoBehaviour
             if (summoned.Count >= x+1 && NotSummoned(x))
             {
                 slots[x%9].gameObject.SetActive(true);
-                print(x % 9);
                 slots[x%9].sprite = Resources.Load<Sprite>(summonedImages[x]);
             }
             else
