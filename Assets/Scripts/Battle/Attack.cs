@@ -102,7 +102,7 @@ public class Attack : MonoBehaviour
 
         foreach (Beast target in targets)
         {
-            if (attacker != null && target != null && attacker.statusTurns[(int)Beast.types.Water] <= 0)
+            if (attacker != null && target != null && attacker.speed != 0 && target.speed != 0 && attacker.statusTurns[(int)Beast.types.Water] <= 0)
             {
                 if (attacker.statusTurns[(int)Beast.types.Air] > 0)
                 {
@@ -158,7 +158,7 @@ public class Attack : MonoBehaviour
                     CalculateDamage(attacker, target, inFront);
                 }
             }
-            else if (attacker.statusTurns[(int)Beast.types.Water] <= 0)
+            else if (attacker.statusTurns[(int)Beast.types.Water] > 0)
             {
                 print(attacker.name + " was asleep and unable to move");
             }

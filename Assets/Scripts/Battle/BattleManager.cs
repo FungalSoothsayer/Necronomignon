@@ -302,7 +302,6 @@ public class BattleManager : MonoBehaviour
         }
 
         currentTurn = roundOrder[turn];
-        //print(currentTurn);
         txtTurn.text = roundOrderTypes[0] + " " + currentTurn.name + "'s turn \n HP left: "+currentTurn.hitPoints;
         if (roundOrderTypes[turn] == "Enemy" && attackPool.Count > 0)
         {
@@ -507,6 +506,19 @@ public class BattleManager : MonoBehaviour
         }
         return slot;
     }
+    int getCurrentBeastSlot(Beast b)
+    {
+        int slot = -1;
+        for (int x = 0; x < slots.Count; x++)
+        {
+            if (b.Equals(enemySlots[x]) || b.Equals(slots[x]))
+            {
+                slot = x;
+                break;
+            }
+        }
+        return slot;
+    }
 
     List<Beast> findColumnTargets()
     {
@@ -616,12 +628,15 @@ public class BattleManager : MonoBehaviour
     public void Attack(Beast target)
     {
         bool inFront = this.inFront();
+        bool guarded = this.guarded(target);
+
+        bool cancelGuard = false;
 
         List<Beast> targets = new List<Beast>();
 
         targets.Add(target);
 
-        
+
 
         if (inFront)
         {
@@ -629,15 +644,19 @@ public class BattleManager : MonoBehaviour
             {
                 targets.Clear();
                 targets.Add(this.getWeakestFriend());
+                cancelGuard = true;
             }
             else if (currentTurn.Move_A.rowAttack)
             {
                 targets.Clear();
                 targets = findRowTargets();
-            }else if (currentTurn.Move_A.columnAttack)
+                cancelGuard = true;
+            }
+            else if (currentTurn.Move_A.columnAttack)
             {
                 targets.Clear();
                 targets = findColumnTargets();
+                cancelGuard = true;
             }
         }
         else if (!inFront)
@@ -646,17 +665,48 @@ public class BattleManager : MonoBehaviour
             {
                 targets.Clear();
                 targets.Add(this.getWeakestFriend());
+                cancelGuard = true;
             }
             else if (currentTurn.Move_B.rowAttack)
             {
                 targets.Clear();
                 targets = findRowTargets();
+                cancelGuard = true;
             }
             else if (currentTurn.Move_A.columnAttack)
             {
                 targets.Clear();
                 targets = findColumnTargets();
+                cancelGuard = true;
             }
+        }
+        if (guarded && !cancelGuard)
+        {
+            print("am sad");
+            int slot = getCurrentBeastSlot(targets[targets.Count-1]);
+            targets.Clear();
+            Beast b = new Beast();
+            if (roundOrderTypes[turn] == "Player")
+            {
+                for (int x = 3; x < enemySlots.Count; x++)
+                {
+                    if (x == slot && enemySlots[x % 3] != null && enemySlots[x % 3].hitPoints > 0)
+                    {
+                        b = enemySlots[x % 3];
+                    }
+                }
+            }
+            else
+            {
+                for (int x = 3; x < slots.Count; x++)
+                {
+                    if (x == slot && slots[x % 3] != null && slots[x % 3].hitPoints > 0)
+                    {
+                        b = slots[x % 3];
+                    }
+                }
+            }
+            targets.Add(b);
         }
         if (currentTurn.cursed != null)
         {
@@ -664,7 +714,7 @@ public class BattleManager : MonoBehaviour
             {
                 currentTurn.cursed = null;
                 currentTurn.curseCharge = 0;
-                
+
             }
             else
             {
@@ -672,6 +722,9 @@ public class BattleManager : MonoBehaviour
                 targets.Add(currentTurn.cursed);
             }
         }
+
+
+    
 
         //Check to see if the round is still going and then run an attack
         if (turn >= totalMoves - 1)
@@ -817,11 +870,54 @@ public class BattleManager : MonoBehaviour
         return false;
     }
 
+    bool guarded(Beast b)
+    {
+        if (inFront(b))
+        {
+            return false;
+        }
+        int slot = -1;
+        for (int x = 0; x < slots.Count; x++)
+        {
+            if ( b.Equals(slots[x]) )
+            {
+                slot = x;
+                break;
+            }
+            else if (b.Equals(enemySlots[x]))
+            {
+                slot = x;
+                break;
+            }
+        }
+        if (roundOrderTypes[turn] == "Player")
+        {
+            for (int x = 3; x < enemySlots.Count; x++)
+            {
+                if(x==slot && enemySlots[x%3] != null && enemySlots[x%3].hitPoints > 0)
+                {
+                    return true;
+                }
+            }
+        }
+        else
+        {
+            for (int x = 3; x < slots.Count; x++)
+            {
+                if (x == slot && slots[x % 3] != null && slots[x%3].hitPoints > 0)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     bool inFront(Beast b)
     {
         for (int x = 0; x < slots.Count; x++)
         {
-            if (x < 3 && b.Equals(slots[x]) || b.Equals(enemySlots[x]))
+            if (x < 3 && (b.Equals(slots[x]) || b.Equals(enemySlots[x])))
             {
                 return true;
             }
@@ -833,7 +929,6 @@ public class BattleManager : MonoBehaviour
     public void RemoveBeast(Beast target)
     {
         print(target.name);
-        print(selectedEnemy.name);
         print(roundOrderTypes[turn]);
         if (target == selectedEnemy)
         {
@@ -946,10 +1041,13 @@ public class BattleManager : MonoBehaviour
         Beast b = currentTurn;
         if(roundOrderTypes[turn] == "Player")
         {
-            for(int x =0;x< 4;x++)
+            print("aaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            for (int x =0;x< 4;x++)
             {
                 if(players[x] != null && b != null && playersActive[x] && ((double)players[x].hitPoints/ (double)players[x].maxHP) < ((double)b.hitPoints/ (double)b.maxHP))
                 {
+                    print(roundOrderTypes[turn]);
+                    print(players[x].name);
                     b = players[x];
                 }
             }

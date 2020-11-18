@@ -108,8 +108,14 @@ public class HealthManager : MonoBehaviour
 
         for(int x = 0; x< 4; x++)
         {
+
             if (target == squad[x%squad.Count])
             {
+                if(squad[x % squad.Count].hitPoints <= 0)
+                {
+                    battleManager.RemoveBeast(squad[x % squad.Count]);
+                    break;
+                }
                 squad[x % squad.Count].hitPoints -= damage;
                 playerHealthBars[x % squad.Count].SetHealth(squad[x % squad.Count].hitPoints);
 
@@ -129,6 +135,11 @@ public class HealthManager : MonoBehaviour
             }
             else if(target == enemies[x])
             {
+                if(enemies[x].hitPoints < 0)
+                {
+                    battleManager.RemoveBeast(enemies[x]);
+                    break;
+                }
                 enemies[x].hitPoints -= damage;
                 enemyHealthBars[x].SetHealth(enemies[x].hitPoints);
 
