@@ -37,3 +37,4 @@ Starting November 16
 - Replace idle animations with static images in create squad.
 - Add Cosmic and Horror types.
 - Add animations to characters in battle.
+- Enemy squads of less than 4.
