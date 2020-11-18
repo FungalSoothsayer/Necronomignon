@@ -673,7 +673,7 @@ public class BattleManager : MonoBehaviour
                 targets = findRowTargets();
                 cancelGuard = true;
             }
-            else if (currentTurn.Move_A.columnAttack)
+            else if (currentTurn.Move_B.columnAttack)
             {
                 targets.Clear();
                 targets = findColumnTargets();

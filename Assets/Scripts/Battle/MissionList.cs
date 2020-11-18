@@ -60,6 +60,48 @@ public class MissionList : MonoBehaviour
                 }
             }
         }
+        if (mission == "randomer")
+        {
+            List<int> beast = new List<int>();
+
+            int ran = -1;
+
+            int godhimself = Random.Range(1, 5);
+
+            while (beast.Count < godhimself)
+            {
+                while (beast.Contains(ran) || ran == -1)
+                {
+                    ran = Random.Range(0, BeastManager.beastsList.Beasts.Count);
+                }
+                beast.Add(ran);
+            }
+            while (beast.Count < 6)
+            {
+                beast.Add(-1);
+            }
+
+            ran = -1;
+
+            List<int> position = new List<int>();
+
+            while (enemies.Count < 6)
+            {
+                while (position.Contains(ran) || ran == -1)
+                {
+                    ran = Random.Range(0, 6);
+                }
+                position.Add(ran);
+                if (beast[ran] < 0)
+                {
+                    enemies.Add(null);
+                }
+                else
+                {
+                    enemies.Add(beastManager.getFromName(BeastManager.beastsList.Beasts[beast[ran]].name));
+                }
+            }
+        }
 
     }
 }
