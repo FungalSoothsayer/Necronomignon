@@ -23,6 +23,7 @@ public class Beast
     public int moveB;
     public Move Move_B;
     public string static_img;
+    public List<Buff> buffs = new List<Buff>();
 
     public enum types { Water, Fire, Earth, Air, Dark, Light, Horror, Cosmic };
 

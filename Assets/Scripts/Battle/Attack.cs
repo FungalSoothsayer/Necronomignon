@@ -34,6 +34,10 @@ public class Attack : MonoBehaviour
             }
             if (inFront)
             {
+                if(attacker.Move_A.buff != null)
+                {
+                    target.buffs.Add(new Buff(attacker.Move_A.buff));
+                }
                 if (attacker.Move_A.healing)
                 {
                     healthManager.heal(target, target.maxHP * ((double)attacker.Move_A.power / 100));
@@ -43,6 +47,10 @@ public class Attack : MonoBehaviour
             }
             else if (!inFront)
             {
+                if (attacker.Move_B.buff != null)
+                {
+                    target.buffs.Add(new Buff(attacker.Move_B.buff));
+                }
                 if (attacker.Move_B.healing)
                 {
                     healthManager.heal(target, target.maxHP * ((double)attacker.Move_B.power / 100));
@@ -115,6 +123,10 @@ public class Attack : MonoBehaviour
                 }
                 if (inFront)
                 {
+                    if (attacker.Move_A.buff.isActive)
+                    {
+                        target.buffs.Add(new Buff(attacker.Move_A.buff));
+                    }
                     if (attacker.Move_A.healing)
                     {
                         healthManager.heal(target, target.maxHP * ((double)attacker.Move_A.power / 100));
@@ -124,6 +136,10 @@ public class Attack : MonoBehaviour
                 }
                 else if (!inFront)
                 {
+                    if (attacker.Move_B.buff.isActive)
+                    {
+                        target.buffs.Add(new Buff(attacker.Move_B.buff));
+                    }
                     if (attacker.Move_B.healing)
                     {
                         healthManager.heal(target, target.maxHP * ((double)attacker.Move_B.power / 100));
@@ -339,6 +355,39 @@ public class Attack : MonoBehaviour
             poisonMod = .85f;
         }
         //Calculates the damage if the attacker is in row A
+        foreach(Buff bu in attacker.buffs)
+        {
+            if (!bu.defenceBuff)
+            {
+                if (bu.upBuff)
+                {
+                    print("attacker plus");
+                    modifier += modifier * bu.change;
+                }
+                else
+                {
+                    print("attacker minus");
+                    modifier = (modifier * bu.change)- modifier;
+                }
+            }
+        }
+
+        foreach(Buff bu in target.buffs)
+        {
+            if (bu.defenceBuff)
+            {
+                if (bu.upBuff)
+                {
+                    print("target plus");
+                    modifier *= bu.change;
+                }
+                else
+                {
+                    print("target minus");
+                    modifier += modifier * bu.change;
+                }
+            }
+        }
 
         if (inFront)
         {

@@ -154,7 +154,13 @@
       "healing": "false",
       "rowAttack": "false",
       "columnAttack": "false",
-      "multiAttack": "false"
+      "multiAttack": "false",
+      "buff": {
+        "upBuff": false,
+        "defenceBuff": false,
+        "change": ".3f",
+        "isActive": true
+      }
     },
     {
       "move_id": "13",
@@ -180,7 +186,13 @@
       "healing": "true",
       "rowAttack": "false",
       "columnAttack": "false",
-      "multiAttack": "false"
+      "multiAttack": "false",
+      "buff": {
+        "upBuff": true,
+        "defenceBuff": false,
+        "change": ".3f",
+        "isActive":  true
+      }
     },
     {
       "move_id": "15",

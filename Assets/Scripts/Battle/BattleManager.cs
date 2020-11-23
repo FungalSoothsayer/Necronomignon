@@ -387,13 +387,22 @@ public class BattleManager : MonoBehaviour
             {
                 healthManager.UpdateHealth(currentTurn, 5);
             }
-            if(currentTurn.statusTurns[x] == 0 && x == (int)Beast.types.Air && justNow)
-            {
-                //LoadOrder();
-            }
             if(currentTurn.statusTurns[x] > 0 && x == (int)Beast.types.Earth)
             {
                 healthManager.UpdateHealth(currentTurn,(int) Mathf.Ceil((float)currentTurn.hitPoints*.05f));
+            }
+        }
+        for(int x =0; x< currentTurn.buffs.Count; x++)
+        {
+
+            if(currentTurn.buffs[x].turnsLeft <= 0)
+            {
+                currentTurn.buffs.RemoveAt(x);
+                x--;
+            }
+            else
+            {
+                currentTurn.buffs[x].turnsLeft--;
             }
         }
     }
