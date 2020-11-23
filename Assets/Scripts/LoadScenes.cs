@@ -8,6 +8,7 @@ public class LoadScenes : MonoBehaviour
     //Load scene passed to method
     public void LoadSelect(string sceneName)
     {
+        FindObjectOfType<AudioManager>().Play(sceneName);
         SceneManager.LoadScene(sceneName);
     }
 }

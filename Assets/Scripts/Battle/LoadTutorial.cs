@@ -17,6 +17,7 @@ public class LoadTutorial : MonoBehaviour
         else
         {
             tutorialCompleted = true;
+            FindObjectOfType<AudioManager>().Play("TutorialMain");
             SceneManager.LoadScene("TutorialMain");
         }
     }
