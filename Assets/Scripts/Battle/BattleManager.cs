@@ -18,6 +18,7 @@ public class BattleManager : MonoBehaviour
     public LoadMission loadMission;
 
     public Text txtTurn;
+    Animator anim;
 
     public List<Beast> players = new List<Beast>();
     public List<Beast> enemies = new List<Beast>();
@@ -704,7 +705,6 @@ public class BattleManager : MonoBehaviour
         }
         if (guarded && !cancelGuard)
         {
-            print("am sad");
             int slot = getCurrentBeastSlot(targets[targets.Count-1]);
             targets.Clear();
             Beast b = new Beast();
@@ -745,13 +745,17 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-
-    
-
         //Check to see if the round is still going and then run an attack
         if (turn >= totalMoves - 1)
         {
             attack.InitiateAttack(currentTurn, targets, inFront);
+            GameObject slot = getSlot();
+            if (!slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Front") &&
+                !slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Back"))
+            {
+                if (pRunning) pRunning = false;
+                if (eRunning) eRunning = false;
+            }
             PlayAttackAnimation(inFront);
             PlayDamagedAnimation(targets);
             Debug.Log("Round Ended");
@@ -777,6 +781,13 @@ public class BattleManager : MonoBehaviour
         else
         {
             attack.InitiateAttack(currentTurn, targets, inFront);
+            GameObject slot = getSlot();
+            if (!slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Front") &&
+                !slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Back"))
+            {
+                if (pRunning) pRunning = false;
+                if (eRunning) eRunning = false;
+            }
             PlayAttackAnimation(inFront);
             PlayDamagedAnimation(targets);
             AddTurn();
@@ -791,6 +802,33 @@ public class BattleManager : MonoBehaviour
             }
             TakeTurn();
         }
+    }
+
+    //Returns slot GameObject of currentturn.
+    GameObject getSlot()
+    {
+        if (roundOrderTypes[turn] == "Player")
+        {
+            for (int x = 0; x < slots.Count; x++)
+            {
+                if (slots[x] != null && currentTurn.name == slots[x].name)
+                {
+                    return playerPadSlots[x];
+                }
+            }
+        }
+        else if (roundOrderTypes[turn] == "Enemy")
+        {
+            for (int x = 0; x < enemySlots.Count; x++)
+            {
+                if (enemySlots[x] != null && currentTurn.name == enemySlots[x].name)
+                {
+                    return enemyPadSlots[x];
+                }
+            }
+        }
+
+        return null;
     }
 
     void PlayAttackAnimation(bool inFront)
@@ -856,7 +894,7 @@ public class BattleManager : MonoBehaviour
     {
         eRunning = true;
         yield return new WaitForSeconds(2f);
-        eRunning = false;
+        //eRunning = false;
         if (attackPool.Count > 0)
             Attack(GetEnemyTarget());
     }
@@ -874,7 +912,7 @@ public class BattleManager : MonoBehaviour
     {
         pRunning = true;
         yield return new WaitForSeconds(2f);
-        pRunning = false;
+        //pRunning = false;
         if (enemyAttackPool.Count > 0)
             Attack(selectedEnemy);
     }
