@@ -38,3 +38,5 @@ Starting November 16
 - Add Cosmic and Horror types.
 - Add animations to characters in battle.
 - Enemy squads of less than 4.
+- Make multi-damage attacks.
+- Every type able to do every special condition ex. dark type can inflict burn.
