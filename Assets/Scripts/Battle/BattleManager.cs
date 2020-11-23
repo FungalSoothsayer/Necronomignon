@@ -858,32 +858,10 @@ public class BattleManager : MonoBehaviour
 
     void PlayAttackAnimation(bool inFront)
     {
-        if (roundOrderTypes[turn] == "Player")
-        {
-            for (int x = 0; x < slots.Count; x++)
-            {
-                if (slots[x] != null && currentTurn.name == slots[x].name)
-                {
-                    if(inFront)
-                        playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("Front");
-                    else playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("Back");
-                    return;
-                }
-            }
-        }
-        else if (roundOrderTypes[turn] == "Enemy")
-        {
-            for (int x = 0; x < enemySlots.Count; x++)
-            {
-                if (enemySlots[x] != null && currentTurn.name == enemySlots[x].name)
-                {
-                    if (inFront)
-                        enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("Front");
-                    else enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("Back");
-                    return;
-                }
-            }
-        }
+        GameObject slot = getSlot();
+
+        if (inFront) slot.GetComponent<Animator>().SetTrigger("Front");
+        else slot.GetComponent<Animator>().SetTrigger("Back");
     }
 
     void PlayDamagedAnimation(List<Beast> targets)
