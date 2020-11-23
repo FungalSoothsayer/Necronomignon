@@ -300,9 +300,11 @@ public class BattleManager : MonoBehaviour
             }
             wave.Clear();
         }
-
-        currentTurn = roundOrder[turn];
-        txtTurn.text = roundOrderTypes[0] + " " + currentTurn.name + "'s turn \n HP left: "+currentTurn.hitPoints;
+        if (turn < roundOrder.Count)
+        {
+            currentTurn = roundOrder[turn];
+            txtTurn.text = roundOrderTypes[0] + " " + currentTurn.name + "'s turn \n HP left: " + currentTurn.hitPoints;
+        }
         if (roundOrderTypes[turn] == "Enemy" && attackPool.Count > 0)
         {
             if (!eRunning && !pRunning)
@@ -667,7 +669,6 @@ public class BattleManager : MonoBehaviour
                 {
                     targets.Add(target);
                 }
-                cancelGuard = true;
             }
         }
         else if (!inFront)
@@ -699,12 +700,10 @@ public class BattleManager : MonoBehaviour
                 {
                     targets.Add(target);
                 }
-                cancelGuard = true;
             }
         }
         if (guarded && !cancelGuard)
         {
-            print("am sad");
             int slot = getCurrentBeastSlot(targets[targets.Count-1]);
             targets.Clear();
             Beast b = new Beast();
@@ -729,6 +728,22 @@ public class BattleManager : MonoBehaviour
                 }
             }
             targets.Add(b);
+            if (inFront && currentTurn.Move_A.multiAttack)
+            {
+                int ran = Random.Range(1, 5);
+                for (; ran > 0; ran--)
+                {
+                    targets.Add(targets[0]);
+                }
+            }
+            else if (currentTurn.Move_B.multiAttack)
+            {
+                int ran = Random.Range(1, 5);
+                for (; ran > 0; ran--)
+                {
+                    targets.Add(targets[0]);
+                }
+            }
         }
         if (currentTurn.cursed != null)
         {

@@ -189,7 +189,7 @@
       "number_of_moves": "1",
       "condition_chance": "0",
       "type": "3",
-      "description": "Heal: heals 30% of base hp of a friendly unit",
+      "description": "Base damage: 10, does multiple consecutive hits",
       "healing": "false",
       "rowAttack": "false",
       "columnAttack": "false",
