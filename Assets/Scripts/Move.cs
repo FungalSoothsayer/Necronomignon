@@ -15,6 +15,7 @@ public class Move
     public bool rowAttack;
     public bool columnAttack;
     public bool multiAttack;
+    public Buff buff;
 
     public types type;
 

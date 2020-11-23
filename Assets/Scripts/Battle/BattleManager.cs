@@ -301,9 +301,11 @@ public class BattleManager : MonoBehaviour
             }
             wave.Clear();
         }
-
-        currentTurn = roundOrder[turn];
-        txtTurn.text = roundOrderTypes[0] + " " + currentTurn.name + "'s turn \n HP left: "+currentTurn.hitPoints;
+        if (turn < roundOrder.Count)
+        {
+            currentTurn = roundOrder[turn];
+            txtTurn.text = roundOrderTypes[0] + " " + currentTurn.name + "'s turn \n HP left: " + currentTurn.hitPoints;
+        }
         if (roundOrderTypes[turn] == "Enemy" && attackPool.Count > 0)
         {
             if (!eRunning && !pRunning)
@@ -386,13 +388,22 @@ public class BattleManager : MonoBehaviour
             {
                 healthManager.UpdateHealth(currentTurn, 5);
             }
-            if(currentTurn.statusTurns[x] == 0 && x == (int)Beast.types.Air && justNow)
-            {
-                //LoadOrder();
-            }
             if(currentTurn.statusTurns[x] > 0 && x == (int)Beast.types.Earth)
             {
                 healthManager.UpdateHealth(currentTurn,(int) Mathf.Ceil((float)currentTurn.hitPoints*.05f));
+            }
+        }
+        for(int x =0; x< currentTurn.buffs.Count; x++)
+        {
+
+            if(currentTurn.buffs[x].turnsLeft <= 0)
+            {
+                currentTurn.buffs.RemoveAt(x);
+                x--;
+            }
+            else
+            {
+                currentTurn.buffs[x].turnsLeft--;
             }
         }
     }
@@ -668,7 +679,6 @@ public class BattleManager : MonoBehaviour
                 {
                     targets.Add(target);
                 }
-                cancelGuard = true;
             }
         }
         else if (!inFront)
@@ -700,7 +710,6 @@ public class BattleManager : MonoBehaviour
                 {
                     targets.Add(target);
                 }
-                cancelGuard = true;
             }
         }
         if (guarded && !cancelGuard)
@@ -729,6 +738,22 @@ public class BattleManager : MonoBehaviour
                 }
             }
             targets.Add(b);
+            if (inFront && currentTurn.Move_A.multiAttack)
+            {
+                int ran = Random.Range(1, 5);
+                for (; ran > 0; ran--)
+                {
+                    targets.Add(targets[0]);
+                }
+            }
+            else if (currentTurn.Move_B.multiAttack)
+            {
+                int ran = Random.Range(1, 5);
+                for (; ran > 0; ran--)
+                {
+                    targets.Add(targets[0]);
+                }
+            }
         }
         if (currentTurn.cursed != null)
         {
