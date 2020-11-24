@@ -211,6 +211,9 @@ public class HealthManager : MonoBehaviour
     IEnumerator LoadMap()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Map");
+        LoadScenes load = new LoadScenes();
+        load.LoadSelect("Map");
+            
+        //SceneManager.LoadScene("Map");
     }
 }
