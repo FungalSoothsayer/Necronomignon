@@ -62,14 +62,14 @@ public class AudioManager : MonoBehaviour
 
         audio.clip = mainTheme;
 
-        if (name.Equals("Manoli"))
+        if (name.Equals("Manoli") || name.Equals("RandomFight") || name.Equals("RandomerFight"))
         {
             audio.clip = battleTheme;
             audio.Play();
             tempName = name;      
         }
         
-        else if (name.Equals("Map") && tempName.Equals("Manoli"))
+        else if ((name.Equals("Map") && tempName.Equals("Manoli")) || (name.Equals("Map") && tempName.Equals("RandomFight")) || (name.Equals("Map") && tempName.Equals("RandomerFight")))
         {
             tempName = name;
             audio.Play();
