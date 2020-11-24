@@ -8,6 +8,10 @@ public class AudioManager : MonoBehaviour
     //THIS ARRAY HOLDS ALL THE SOUNDS IN THE GAME
     public Sound[] sounds;
 
+    public AudioClip battleTheme;
+    public AudioClip mainTheme;
+
+    public String tempName = "";
 
     void Awake()
     {
@@ -46,12 +50,39 @@ public class AudioManager : MonoBehaviour
     
     public void Play(string name)
     {
+        
+
         print(name + "THIS IS THE STRING NAME");
+
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("music");
+
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s != null)
+
+        AudioSource audio = objs[0].GetComponent<AudioSource>();
+
+        audio.clip = mainTheme;
+
+        if (name.Equals("Manoli"))
         {
-            
-            s.source.Play();
+            audio.clip = battleTheme;
+            audio.Play();
+            tempName = name;      
+        }
+        
+        else if (name.Equals("Map") && tempName.Equals("Manoli"))
+        {
+            tempName = name;
+            audio.Play();
+        }
+
+        else
+        {
+            if (s != null)
+            {
+                tempName = name;
+
+                s.source.Play();               
+            }
         }
     }
     
