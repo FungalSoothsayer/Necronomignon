@@ -50,10 +50,6 @@ public class AudioManager : MonoBehaviour
     
     public void Play(string name)
     {
-        
-
-        print(name + "THIS IS THE STRING NAME");
-
         GameObject[] objs = GameObject.FindGameObjectsWithTag("music");
 
         Sound s = Array.Find(sounds, sound => sound.name == name);
