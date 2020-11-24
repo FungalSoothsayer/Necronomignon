@@ -2123,27 +2123,24 @@ MonoBehaviour:
   squadData: {fileID: 1591450912}
   attack: {fileID: 1591450917}
   healthManager: {fileID: 1591450918}
-  slot1Img: {fileID: 662673942}
-  slot2Img: {fileID: 634120031}
-  slot3Img: {fileID: 1630885798}
-  slot4Img: {fileID: 472726570}
-  slot5Img: {fileID: 2337702}
-  slot6Img: {fileID: 1832768729}
-  slot1: 
-  slot2: 
-  slot3: 
-  slot4: 
-  slot5: 
-  slot6: 
-  order1: {fileID: 1360289586}
-  order2: {fileID: 1557479376}
-  order3: {fileID: 405143369}
-  order4: {fileID: 249520421}
-  order5: {fileID: 636828965}
-  order6: {fileID: 1353736232}
-  order7: {fileID: 996642892}
-  order8: {fileID: 154357475}
-  order9: {fileID: 466893053}
+  slotImgs:
+  - {fileID: 662673942}
+  - {fileID: 634120031}
+  - {fileID: 1630885798}
+  - {fileID: 472726570}
+  - {fileID: 2337702}
+  - {fileID: 1832768729}
+  slots: []
+  orderImgs:
+  - {fileID: 1360289586}
+  - {fileID: 1557479376}
+  - {fileID: 405143369}
+  - {fileID: 249520421}
+  - {fileID: 636828965}
+  - {fileID: 1353736232}
+  - {fileID: 996642892}
+  - {fileID: 154357475}
+  - {fileID: 466893053}
 --- !u!114 &1591450917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2171,15 +2168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 0}
-  player1: 0
-  player2: 0
-  player3: 0
-  player4: 0
   playersLeft: 4
-  enemy1: 0
-  enemy2: 0
-  enemy3: 0
-  enemy4: 0
   enemiesLeft: 0
 --- !u!1 &1630885796
 GameObject:
