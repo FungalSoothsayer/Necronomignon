@@ -6,6 +6,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public BeastManager beastManager;
+    public DemoBattleManager demoBattleManager;
 //    public MoveManager moveManager;
     //public EnemyDatabase enemyDatabase;
     public HealthManager healthManager;
@@ -15,6 +16,7 @@ public class Attack : MonoBehaviour
 
     public void InitiateAttack(Beast attacker, Beast target, bool inFront)
     {
+        print(target);
         if (beastManager.moveManager.movesList == null)
         {
             beastManager.moveManager.start();
@@ -73,8 +75,10 @@ public class Attack : MonoBehaviour
                 {
                     print("Doom has consumed " + target.name);
                     modifier = 1;
-                    print("67");
-                    healthManager.UpdateHealth(target, target.maxHP);
+                    if (target.name != "Target")
+                    {
+                        healthManager.UpdateHealth(target, target.maxHP);
+                    }
                     return;
                 }
                 else
@@ -254,6 +258,7 @@ public class Attack : MonoBehaviour
         //Calculate the chance that an attack is a critical hit
         //(d20roll) + ({Attacker.Speed/2} + Attacker.Skill)/({Target.Speed/2} + Target.Skill)
         int rand = Random.Range(1, 20);
+        print(target.speed + " speed " + target.dexterity + " dexterity");
         float criticalChance = rand + (((attacker.speed / 2) + attacker.dexterity) / (target.speed / 2) + target.dexterity);
         
 
@@ -409,8 +414,14 @@ public class Attack : MonoBehaviour
 
         damage = (int)(dmg * vary * modifier); //Convert damage to an integer
         Debug.Log("This is damage done " + damage);
-        print("287");
-        healthManager.UpdateHealth(target, damage);
+        if (target.name == "Target")
+        {
+            demoBattleManager.totalDamage += damage;
+        }
+        else
+        {
+            healthManager.UpdateHealth(target, damage);
+        }
 
         int rand = Random.Range(0, 2);
         if (target.statusTurns[(int)Beast.types.Water] > 0 && rand > 0 && rand<5)

@@ -62,8 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AudioManager.cs" />
     <Compile Include="Assets\Scripts\AnimationPlayer.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Attack.cs" />
     <Compile Include="Assets\Scripts\Battle\AttackClick.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleManager.cs" />
@@ -77,11 +77,13 @@
     <Compile Include="Assets\Scripts\Beast.cs" />
     <Compile Include="Assets\Scripts\BeastSummon.cs" />
     <Compile Include="Assets\Scripts\Buff.cs" />
+    <Compile Include="Assets\Scripts\CheckLevel.cs" />
     <Compile Include="Assets\Scripts\Data\BeastList.cs" />
     <Compile Include="Assets\Scripts\Data\BeastManager.cs" />
     <Compile Include="Assets\Scripts\Data\MoveList.cs" />
     <Compile Include="Assets\Scripts\Data\MoveManager.cs" />
     <Compile Include="Assets\Scripts\Data\Sound.cs" />
+    <Compile Include="Assets\Scripts\LevelChecker.cs" />
     <Compile Include="Assets\Scripts\LoadScenes.cs" />
     <Compile Include="Assets\Scripts\Move.cs" />
     <Compile Include="Assets\Scripts\Organize and Create Squads\BeastSelect.cs" />

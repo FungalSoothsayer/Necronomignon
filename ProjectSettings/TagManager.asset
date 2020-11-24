@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - music
+  - Level
   layers:
   - Default
   - TransparentFX

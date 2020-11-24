@@ -382,6 +382,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105100473}
   m_CullTransparentMesh: 0
+--- !u!1 &114839616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 114839618}
+  - component: {fileID: 114839617}
+  m_Layer: 0
+  m_Name: LevelData
+  m_TagString: Level
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &114839617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114839616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c5a5d2c2081cb448a093516dc0c519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels: 0
+--- !u!4 &114839618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114839616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 432.47885, y: 271.48618, z: -1.7747192}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &139279103
 GameObject:
   m_ObjectHideFlags: 0
@@ -8529,6 +8573,15 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: -1
     Move_B:
@@ -8539,8 +8592,18 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   selectedEnemy:
@@ -8564,6 +8627,15 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: 0
     Move_B:
@@ -8574,8 +8646,18 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   orderBar:
@@ -8610,6 +8692,15 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: 0
     Move_B:
@@ -8620,8 +8711,18 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -8644,6 +8745,15 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: 0
     Move_B:
@@ -8654,8 +8764,18 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -8678,6 +8798,15 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: 0
     Move_B:
@@ -8688,8 +8817,18 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -8712,6 +8851,15 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: 0
     Move_B:
@@ -8722,8 +8870,18 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -8746,6 +8904,15 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: 0
     Move_B:
@@ -8756,8 +8923,18 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -8780,6 +8957,15 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: 0
     Move_B:
@@ -8790,8 +8976,18 @@ MonoBehaviour:
       condition_chance: 0
       description: 
       healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   playersActive: 01010101
@@ -8908,6 +9104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 1972296792}
+  levelChecker: {fileID: 114839617}
   playersLeft: 4
   enemiesLeft: 0
 --- !u!114 &1972296797
@@ -8923,6 +9120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beastManager: {fileID: 1972296791}
+  demoBattleManager: {fileID: 0}
   healthManager: {fileID: 1972296796}
 --- !u!114 &1972296798
 MonoBehaviour:

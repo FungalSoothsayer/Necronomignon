@@ -10,11 +10,12 @@ public class DemoBattleManager : MonoBehaviour
     public Attack attack;
     public HealthManager healthManager;
 
-    int squadNumber;
-
     public List<Image> slotImgs;
     public List<Beast> slots;
     public List<Image> orderImgs;
+
+    public int totalDamage;
+    public Text totalDamageText;
 
     List<Beast> thisSquad = new List<Beast>();
     List<Beast> roundOrder = new List<Beast>();
@@ -22,18 +23,20 @@ public class DemoBattleManager : MonoBehaviour
 
     int turn = 0;
     int totalMoves;
+    int squadNumber;
 
     Beast currentTurn;
+    Beast b;
 
     void Start()
     {
-        Beast b = new Beast();
+        b = new Beast();
         b.name = "Target";
         b.hitPoints = 1000000;
-        b.defence = 50;
-        b.power = 1;
-        b.speed = 1;
-        b.dexterity = 1;
+        b.defence = 10;
+        b.power = 10;
+        b.speed = 10;
+        b.dexterity = 10;
         b.number_MOVES = 0;
         enemies.Add(b);
         enemies.Add(null);
@@ -136,6 +139,10 @@ public class DemoBattleManager : MonoBehaviour
         GameObject slot = getSlot();
         if (inFront) slot.GetComponent<Animator>().SetTrigger("Front");
         else slot.GetComponent<Animator>().SetTrigger("Back");
+
+        attack.InitiateAttack(currentTurn, b, inFront);
+        totalDamageText.text = totalDamage.ToString();
+
         TakeTurn();
     }
 
