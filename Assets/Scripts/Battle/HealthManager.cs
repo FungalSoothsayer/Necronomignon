@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class HealthManager : MonoBehaviour
 {
     public BattleManager battleManager;
+    public LevelChecker levelChecker;
 
     public int playersLeft = 4;
     public int enemiesLeft = 0;
@@ -204,6 +205,7 @@ public class HealthManager : MonoBehaviour
         if (enemiesLeft <= 0)
         {
             Debug.Log("Congratulations! You Win!");
+            levelChecker.Progess(SceneManager.GetActiveScene().name);
             StartCoroutine(LoadMap());
         }
     }

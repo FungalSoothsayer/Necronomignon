@@ -15,7 +15,7 @@ public class DemoTarget : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             if (Input.GetMouseButtonDown(0))
             {
-                demoBattleManager.TakeTurn();
+                demoBattleManager.Attack();
             }
         }
     }
