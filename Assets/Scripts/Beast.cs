@@ -27,7 +27,7 @@ public class Beast
 
     public enum types { Water, Fire, Earth, Air, Dark, Light, Horror, Cosmic };
 
-    public int[] statusTurns = new int[6];
+    public int[] statusTurns = new int[7];
     BeastManager bm = new BeastManager();
 
     public Beast cursed = null;

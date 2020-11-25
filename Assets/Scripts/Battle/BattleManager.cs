@@ -379,16 +379,16 @@ public class BattleManager : MonoBehaviour
         for(int x =0;x< currentTurn.statusTurns.Length;x++)
         {
             justNow = false;
-            if (currentTurn.statusTurns[x] > 0)
+            if (currentTurn.statusTurns[x] > 0 && (int)Move.types.Corrupt != x)
             {
                 currentTurn.statusTurns[x]--;
                 justNow = true;
             }
-            if(currentTurn.statusTurns[x] > 0 && x == (int)Beast.types.Fire)
+            if(currentTurn.statusTurns[x] > 0 && x == (int)Move.types.Burn)
             {
                 healthManager.UpdateHealth(currentTurn, 5);
             }
-            if(currentTurn.statusTurns[x] > 0 && x == (int)Beast.types.Earth)
+            if(currentTurn.statusTurns[x] > 0 && x == (int)Move.types.Poison)
             {
                 healthManager.UpdateHealth(currentTurn,(int) Mathf.Ceil((float)currentTurn.hitPoints*.05f));
             }

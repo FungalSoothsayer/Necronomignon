@@ -19,7 +19,7 @@ public class Move
 
     public types type;
 
-    public enum types { Water, Fire, Earth, Air, Dark, Light };
+    public enum types { Sleep, Burn, Poison, Paralyze, Doom, Blind, Corrupt };
     override
     public String ToString()
     {

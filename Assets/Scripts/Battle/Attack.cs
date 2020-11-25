@@ -25,7 +25,7 @@ public class Attack : MonoBehaviour
 
         if (attacker != null && target != null && attacker.statusTurns[(int)Beast.types.Water] <=0)
         {
-            if (attacker.statusTurns[(int)Beast.types.Air] > 0)
+            if (attacker.statusTurns[(int)Move.types.Blind] > 0)
             {
                 int r = Random.Range(0, 2);
                 if (r > 0)
@@ -64,7 +64,7 @@ public class Attack : MonoBehaviour
             {
                 return;
             }
-            if(attacker.statusTurns[(int)Beast.types.Light] > 0)
+            if(attacker.statusTurns[(int)Move.types.Blind] > 0)
             {
                 print(attacker.name + " attacks blindly");
             }
@@ -97,7 +97,7 @@ public class Attack : MonoBehaviour
                 CalculateDamage(attacker, target, inFront);
             }
         }
-        else if(attacker.statusTurns[(int)Beast.types.Water] <= 0)
+        else if(attacker.statusTurns[(int)Move.types.Sleep] <= 0)
         {
             print(attacker.name + " was asleep and unable to move");
         }
@@ -114,9 +114,9 @@ public class Attack : MonoBehaviour
 
         foreach (Beast target in targets)
         {
-            if (attacker != null && target != null && attacker.speed != 0 && target.speed != 0 && attacker.statusTurns[(int)Beast.types.Water] <= 0)
+            if (attacker != null && target != null && attacker.speed != 0 && target.speed != 0 && attacker.statusTurns[(int)Beast.types.Water] <= 0 && target.hitPoints > 0)
             {
-                if (attacker.statusTurns[(int)Beast.types.Air] > 0)
+                if (attacker.statusTurns[(int)Move.types.Paralyze] > 0)
                 {
                     int r = Random.Range(0, 2);
                     if (r > 0)
@@ -151,7 +151,7 @@ public class Attack : MonoBehaviour
                         break;
                     }
                 }
-                if (attacker.statusTurns[(int)Beast.types.Light] > 0)
+                if (attacker.statusTurns[(int)Move.types.Blind] > 0)
                 {
                     print(attacker.name + " attacks blindly");
                 }
@@ -178,7 +178,7 @@ public class Attack : MonoBehaviour
                     CalculateDamage(attacker, target, inFront);
                 }
             }
-            else if (attacker.statusTurns[(int)Beast.types.Water] > 0)
+            else if (attacker.statusTurns[(int)Move.types.Sleep] > 0)
             {
                 print(attacker.name + " was asleep and unable to move");
             }
@@ -211,7 +211,7 @@ public class Attack : MonoBehaviour
             return false;
         }
         */
-        if(attacker.statusTurns[(int)Beast.types.Air] > 0)
+        if(attacker.statusTurns[(int)Move.types.Paralyze] > 0)
         {
             if (Random.Range(0, 2) > 0)
             {
@@ -219,13 +219,13 @@ public class Attack : MonoBehaviour
                 return true;
             }
         }
-        if (attacker.statusTurns[(int)Beast.types.Water] > 0)
+        if (attacker.statusTurns[(int)Move.types.Sleep] > 0)
         {
             print(attacker.name + " was asleep and unable to move");
             return true;
         }
         float poisonMod = 1;
-        if (attacker.statusTurns[(int)Beast.types.Earth] > 0)
+        if (attacker.statusTurns[(int)Move.types.Poison] > 0)
         {
             poisonMod = .85f;
         }
@@ -233,9 +233,9 @@ public class Attack : MonoBehaviour
         float missChance = 100;
         missChance += Mathf.Floor((attacker.dexterity* poisonMod) / 10);
         missChance -= Mathf.Floor(target.speed / 10);
-        if (attacker.statusTurns[(int)Beast.types.Light] > 0)
+        if (attacker.statusTurns[(int)Move.types.Blind] > 0)
         {
-            missChance *= 1-(float)(attacker.statusTurns[(int)Beast.types.Light] * .2);
+            missChance *= 1-(float)(attacker.statusTurns[(int)Move.types.Blind] * .2);
         }
 
         int rand = Random.Range(1, 100);
@@ -329,15 +329,23 @@ public class Attack : MonoBehaviour
 
         int rand = Random.Range(1, 100);
 
-        if (rand < effectChance && type != (int)Beast.types.Dark && target.statusTurns[type]<=0)
+        if (rand < effectChance && type != (int)Move.types.Doom && type != (int)Move.types.Corrupt && target.statusTurns[type]<=0)
         {
             print("status effect on " + target.name);
             target.statusTurns[type] = 3;
         }
-        else if(rand < effectChance && type == (int)Beast.types.Dark && target.statusTurns[type] <= 0)
+        else if(rand < effectChance && type != (int)Move.types.Corrupt && type == (int)Move.types.Doom && target.statusTurns[type] <= 0)
         {
             print(target.name + " has been doomed");
             attacker.curse(target);
+        }
+        else if(rand < effectChance && type == (int)Move.types.Corrupt)
+        {
+            target.statusTurns[type]++;
+            if(target.statusTurns[type] > 5)
+            {
+                healthManager.UpdateHealth(target, target.hitPoints);
+            }
         }
     }
 
@@ -349,12 +357,12 @@ public class Attack : MonoBehaviour
         float dmg;
         float burnMod = 1;
         float poisonMod = 1;
-        if (target.statusTurns[(int)Beast.types.Fire] >0)
+        if (target.statusTurns[(int)Move.types.Burn] >0)
         {
             print("burn reduced " + target.name + "'s defence");
             burnMod = .8f;
         }
-        if (attacker.statusTurns[(int)Beast.types.Earth] > 0)
+        if (attacker.statusTurns[(int)Move.types.Poison] > 0)
         {
             print("poison reduced " + attacker.name + "'s attack");
             poisonMod = .85f;
@@ -372,7 +380,7 @@ public class Attack : MonoBehaviour
                 else
                 {
                     print("attacker minus");
-                    modifier = (modifier * bu.change)- modifier;
+                    modifier *= 1- bu.change;
                 }
             }
         }
@@ -424,10 +432,10 @@ public class Attack : MonoBehaviour
         }
 
         int rand = Random.Range(0, 2);
-        if (target.statusTurns[(int)Beast.types.Water] > 0 && rand > 0 && rand<5)
+        if (target.statusTurns[(int)Move.types.Sleep] > 0 && rand > 0 && rand<5)
         {
             print(target.name + " woke up");
-            target.statusTurns[(int)Beast.types.Water] = 0;
+            target.statusTurns[(int)Move.types.Sleep] = 0;
         }
     }
 
