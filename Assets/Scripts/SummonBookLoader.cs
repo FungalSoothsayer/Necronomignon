@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class SummonBookLoader : MonoBehaviour
 {
     static public string beastName;
+    static public int counter = 0;
 
     public BeastManager beastManager;
 
@@ -21,8 +22,6 @@ public class SummonBookLoader : MonoBehaviour
     public List<GameObject> poolSlots;
     public GameObject back;
     public GameObject forward;
-
-    public int counter = 0;
 
     void Start()
     {

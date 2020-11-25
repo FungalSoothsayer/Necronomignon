@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AnimationPlayer : MonoBehaviour
@@ -37,5 +38,10 @@ public class AnimationPlayer : MonoBehaviour
     public void Summon()
     {
 
+    }
+
+    public void BackButton()
+    {
+        SceneManager.LoadScene("SummonMain");
     }
 }
