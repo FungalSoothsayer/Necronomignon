@@ -10,6 +10,7 @@ public class SummonBookLoader : MonoBehaviour
 {
     static public string beastName;
     static public int counter = 0;
+    static public int sortedBy = 0;
 
     public BeastManager beastManager;
 
@@ -24,6 +25,7 @@ public class SummonBookLoader : MonoBehaviour
     public List<GameObject> poolSlots;
     public GameObject back;
     public GameObject forward;
+    public Dropdown dropdown;
 
     void Start()
     {
@@ -34,11 +36,13 @@ public class SummonBookLoader : MonoBehaviour
         BeastList bl = BeastManager.beastsList;
         for (int x = 0; x < bl.Beasts.Count; x++)
         {
-            summonedNames.Add(bl.Beasts[x].name);
-            summonedImages.Add(bl.Beasts[x].static_img);
             summoned.Add(bl.Beasts[x]);
+            summonedImages.Add(bl.Beasts[x].static_img);
+            summonedNames.Add(bl.Beasts[x].name);
             sorted.Add(bl.Beasts[x]);
         }
+        SortImagesDropdown(sortedBy);
+        dropdown.value = sortedBy;
 
         SetImages();
     }
@@ -61,7 +65,6 @@ public class SummonBookLoader : MonoBehaviour
                     tempColor.a = .5f;
                     slots[x % 6].color = tempColor;
                 }
-                
                 else
                 {
                     var tempColor = slots[x % 6].color;
@@ -143,18 +146,22 @@ public class SummonBookLoader : MonoBehaviour
     {
         if(value == 0)
         {
+            sortedBy = 0;
             SortByTier();
         }
         else if (value == 1)
         {
+            sortedBy = 1;
             SortByType();
         }
         else if (value == 2)
         {
+            sortedBy = 2;
             SortByName();
         }
     }
 
+    //Sorts the beasts by tier
     void SortByTier()
     {
         sorted.Clear();
@@ -177,7 +184,7 @@ public class SummonBookLoader : MonoBehaviour
         SetImages();
     }
 
-    //Not sure how to do this better...
+    //Sorts the beasts based on their type
     void SortByType()
     {
         sorted.Clear();
@@ -200,6 +207,7 @@ public class SummonBookLoader : MonoBehaviour
         SetImages();
     }
 
+    //Sorts the beasts in alphabetical order
     void SortByName()
     {
         sorted.Clear();
@@ -210,6 +218,7 @@ public class SummonBookLoader : MonoBehaviour
         {
             names.Add(b.name);
         }
+        names.Sort();
 
         for(int x = 0; x < names.Count; x++)
         {
@@ -224,7 +233,7 @@ public class SummonBookLoader : MonoBehaviour
 
         summonedImages.Sort();
         summonedNames.Sort();
-        
+
         SetImages();
     }
 }
