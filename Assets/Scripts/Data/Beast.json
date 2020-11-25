@@ -10,7 +10,7 @@
       "number_MOVES": "3",
       "tier": "1",
       "type": "3",
-      "static_img": "Zefir_Idle_00",
+      "static_img": "Wyvern_Idle_00",
       "moveA": "10",
       "moveB": "9"
     },
@@ -24,7 +24,7 @@
       "number_MOVES": "3",
       "tier": "1",
       "type": "2",
-      "static_img": "ygg_Idle_00",
+      "static_img": "Dryad_Idle_00",
       "moveA": "3",
       "moveB": "14"
     },
@@ -38,7 +38,7 @@
       "number_MOVES": "3",
       "tier": "1",
       "type": "0",
-      "static_img": "Conglomerate",
+      "static_img": "Conglomerate_Idle_00",
       "moveA": "5",
       "moveB": "6"
     },
@@ -50,7 +50,7 @@
       "speed": "65",
       "dexterity": "38",
       "number_MOVES": "3",
-      "tier": "1",
+      "tier": "0",
       "type": "1",
       "static_img": "Kitsune_Idle_00",
       "moveA": "7",
@@ -66,7 +66,7 @@
       "number_MOVES": "3",
       "tier": "1",
       "type": "5",
-      "static_img": "LightDragon_Idle_75",
+      "static_img": "Drakadin_Idle_75",
       "moveA": "11",
       "moveB": "12"
     },
@@ -78,7 +78,7 @@
       "speed": "64",
       "dexterity": "40",
       "number_MOVES": "3",
-      "tier": "1",
+      "tier": "0",
       "type": "4",
       "static_img": "Cthulhu_Idle_00",
       "moveA": "1",
