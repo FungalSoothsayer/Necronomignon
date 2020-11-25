@@ -755,6 +755,20 @@ public class BattleManager : MonoBehaviour
                 }
             }
         }
+
+        if (currentTurn.statusTurns[(int)Move.types.Confusion] > 0)
+        {
+            targets.Clear();
+            if (roundOrderTypes[turn] == "Player")
+            {
+                targets.Add(GetEnemyTarget());
+            }
+            else
+            {
+                targets.Add(GetPlayerTarget());
+            }
+        }
+
         if (currentTurn.cursed != null)
         {
             if (currentTurn.cursed.hitPoints <= 0)
@@ -802,6 +816,7 @@ public class BattleManager : MonoBehaviour
                     StartCoroutine(PlayerAttack());
                 }
             }
+            turn = 0;
         }
         else
         {
@@ -908,6 +923,13 @@ public class BattleManager : MonoBehaviour
         int rand = Random.Range(0, attackPool.Count);
 
         Beast b = attackPool[rand];
+        return b;
+    }
+    Beast GetPlayerTarget()
+    {
+        int rand = Random.Range(0, enemyAttackPool.Count);
+
+        Beast b = enemyAttackPool[rand];        
         return b;
     }
 
