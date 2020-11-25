@@ -1751,6 +1751,14 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: 0
     Move_B:
@@ -1762,8 +1770,17 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -1787,6 +1804,14 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: 0
     Move_B:
@@ -1798,8 +1823,17 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -1823,6 +1857,14 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: 0
     Move_B:
@@ -1834,8 +1876,17 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -1859,6 +1910,14 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: 0
     Move_B:
@@ -1870,8 +1929,17 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -1895,6 +1963,14 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: 0
     Move_B:
@@ -1906,8 +1982,17 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -1931,6 +2016,14 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: 0
     Move_B:
@@ -1942,8 +2035,17 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   selected:
@@ -1968,6 +2070,14 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     moveB: -1
     Move_B:
@@ -1979,8 +2089,17 @@ MonoBehaviour:
       description: 
       healing: 0
       rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
       type: 0
     static_img: 
+    buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   selectedIndex: 0

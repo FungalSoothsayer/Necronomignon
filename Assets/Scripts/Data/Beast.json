@@ -97,6 +97,34 @@
       "static_img": "ClockworkQueen_Idle_00",
       "moveA": "2",
       "moveB": "15"
+    },
+    {
+      "name": "DreamSlime",
+      "maxHP": "50",
+      "defence": "20",
+      "power": "10",
+      "speed": "99",
+      "dexterity": "50",
+      "number_MOVES": "3",
+      "tier": "1",
+      "type": "8",
+      "static_img": "DreamSlime_Idle_60",
+      "moveA": "2",
+      "moveB": "15"
+    },
+    {
+      "name": "Zeograth",
+      "maxHP": "95",
+      "defence": "24",
+      "power": "15",
+      "speed": "45",
+      "dexterity": "30",
+      "number_MOVES": "2",
+      "tier": "1",
+      "type": "8",
+      "static_img": "Zeograth_Idle_00",
+      "moveA": "2",
+      "moveB": "15"
     }
   ]
 }
