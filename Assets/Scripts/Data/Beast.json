@@ -74,7 +74,7 @@
       "name": "Cthulhu",
       "maxHP": "100",
       "defence": "30",
-      "power": "150",
+      "power": "15",
       "speed": "64",
       "dexterity": "40",
       "number_MOVES": "3",
@@ -95,7 +95,7 @@
       "tier": "1",
       "type": "7",
       "static_img": "ClockworkQueen_Idle_00",
-      "moveA": "2",
+      "moveA": "16",
       "moveB": "15"
     }
   ]
