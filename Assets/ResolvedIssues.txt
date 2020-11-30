@@ -40,3 +40,11 @@ Starting November 16
 - Enemy squads of less than 4.
 - Make multi-damage attacks.
 - Every type able to do every special condition ex. dark type can inflict burn.
+
+- Fix DemoBattleManager script almost completely.
+- Add buff and debuff moves.
+- Fix move descriptions to better reflect special moves ex. column moves.
+- Ranged attacks can attack front or back row.
+- Unlock levels by beating previous levels.
+- Add a counter to demo battle so player can see their damage output per attack or in a round with different team comps.
+- Added sound.
