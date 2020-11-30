@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ public class CreatePoolLoader : MonoBehaviour
 
     public List<string> summonedImages = new List<string>();
     public List<Beast> summoned = new List<Beast>();
-
+    List<Beast> sorted = new List<Beast>();
 
     // For the Animations 
 
@@ -24,6 +25,7 @@ public class CreatePoolLoader : MonoBehaviour
 
     public GameObject back;
     public GameObject forward;
+    public Dropdown dropdown;
 
     public int counter = 0;
 
@@ -153,5 +155,97 @@ public class CreatePoolLoader : MonoBehaviour
             slots[index].gameObject.SetActive(true);
             slots[index].sprite = Resources.Load<Sprite>(summonedImages[index+(counter*9)]);
         }
+    }
+
+    public void SortImagesDropdown(int value)
+    {
+        if (value == 0)
+        {
+            SortByTier();
+        }
+        else if (value == 1)
+        {
+            SortByType();
+        }
+        else if (value == 2)
+        {
+            SortByName();
+        }
+    }
+
+    //Sorts the beasts by tier
+    void SortByTier()
+    {
+        sorted.Clear();
+        summonedImages.Clear();
+        summonedNames.Clear();
+
+        for (int x = 5; x >= 0; x--)
+        {
+            for (int y = 0; y < summoned.Count; y++)
+            {
+                if (summoned[y].tier == x)
+                {
+                    sorted.Add(summoned[y]);
+                    summonedImages.Add(summoned[y].static_img);
+                    summonedNames.Add(summoned[y].name);
+                }
+            }
+        }
+
+        SetImages();
+    }
+
+    //Sorts the beasts based on their type
+    void SortByType()
+    {
+        sorted.Clear();
+        summonedImages.Clear();
+        summonedNames.Clear();
+
+        for (int x = 0; x <= Enum.GetNames(typeof(Beast.types)).Length; x++)
+        {
+            for (int y = 0; y < summoned.Count; y++)
+            {
+                if ((int)summoned[y].type == x)
+                {
+                    sorted.Add(summoned[y]);
+                    summonedImages.Add(summoned[y].static_img);
+                    summonedNames.Add(summoned[y].name);
+                }
+            }
+        }
+
+        SetImages();
+    }
+
+    //Sorts the beasts in alphabetical order
+    void SortByName()
+    {
+        sorted.Clear();
+
+        List<string> names = new List<string>();
+
+        foreach (Beast b in summoned)
+        {
+            names.Add(b.name);
+        }
+        names.Sort();
+
+        for (int x = 0; x < names.Count; x++)
+        {
+            for (int y = 0; y < summoned.Count; y++)
+            {
+                if (names[x] == summoned[y].name)
+                {
+                    sorted.Add(summoned[y]);
+                }
+            }
+        }
+
+        summonedImages.Sort();
+        summonedNames.Sort();
+
+        SetImages();
     }
 }

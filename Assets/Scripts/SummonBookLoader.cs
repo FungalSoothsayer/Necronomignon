@@ -34,6 +34,7 @@ public class SummonBookLoader : MonoBehaviour
             beastManager.Awake();
         }
         BeastList bl = BeastManager.beastsList;
+
         for (int x = 0; x < bl.Beasts.Count; x++)
         {
             summoned.Add(bl.Beasts[x]);
