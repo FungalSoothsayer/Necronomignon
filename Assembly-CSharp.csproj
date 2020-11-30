@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Battle\AttackClick.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Battle\DamageOutput.cs" />
+    <Compile Include="Assets\Scripts\Battle\FriendlyClick.cs" />
     <Compile Include="Assets\Scripts\Battle\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Battle\HealthManager.cs" />
     <Compile Include="Assets\Scripts\Battle\LoadMission.cs" />

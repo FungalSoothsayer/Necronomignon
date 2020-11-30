@@ -1,19 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class FriendlyClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public BattleManager battleManager;
-    //public BeastManager beastManager;
 
     bool mouse_over;
-    
-    void Start() 
-    {
-    }
 
     void Update()
     {
@@ -21,7 +15,10 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             if (Input.GetMouseButtonDown(0))
             {
-                battleManager.selectedEnemy = GetName();
+                battleManager.selectedFriend = GetName();
+                //GameObject slot = GetSlot();
+                //print(slot.transform.GetChild(2));
+
             }
         }
     }
@@ -43,13 +40,26 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         string str = gameObject.name;
         int num = int.Parse((str).ToCharArray()[str.Length - 1].ToString());
 
-        if (num <= battleManager.enemySlots.Count && battleManager.enemySlots[num-1] != null)
+        if (num <= battleManager.slots.Count && battleManager.slots[num - 1] != null)
         {
-            return battleManager.enemySlots[num - 1];
+            return battleManager.slots[num - 1];
         }
         else
-        { 
-            return null; 
+        {
+            return null;
         }
+    }
+
+    GameObject GetSlot()
+    {
+        for (int x = 0; x < battleManager.slots.Count; x++)
+        {
+            if (battleManager.slots[x] != null && battleManager.selectedFriend.name == battleManager.slots[x].name)
+            {
+                return battleManager.playerPadSlots[x];
+            }
+        }
+
+        return null;
     }
 }
