@@ -1641,8 +1641,8 @@ MonoBehaviour:
     pitch: 1.5
     source: {fileID: 0}
   - name: Manoli
-    clip: {fileID: 8300000, guid: 1b34fd1e61b719842a905b6113736715, type: 3}
-    volume: 0.25
+    clip: {fileID: 8300000, guid: 6daa1beebcb434142a0856a0fa49ac0c, type: 3}
+    volume: 1
     pitch: 1.5
     source: {fileID: 0}
   - name: Map
