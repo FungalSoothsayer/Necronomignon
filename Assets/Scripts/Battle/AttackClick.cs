@@ -22,6 +22,11 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             if (Input.GetMouseButtonDown(0))
             {
                 battleManager.selectedEnemy = GetName();
+                GameObject slot = GetSlot();
+                GameObject selector = GameObject.Find("EnemySelected");
+                RectTransform slotTransform = slot.GetComponent<RectTransform>();
+                RectTransform selectorTransform = selector.GetComponent<RectTransform>();
+                selectorTransform.position = slotTransform.position;
             }
         }
     }
@@ -51,5 +56,18 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         { 
             return null; 
         }
+    }
+
+    GameObject GetSlot()
+    {
+        for (int x = 0; x < battleManager.enemySlots.Count; x++)
+        {
+            if (battleManager.enemySlots[x] != null && battleManager.selectedEnemy.name == battleManager.enemySlots[x].name)
+            {
+                return battleManager.enemyPadSlots[x];
+            }
+        }
+
+        return null;
     }
 }

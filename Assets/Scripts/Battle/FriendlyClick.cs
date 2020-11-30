@@ -9,16 +9,31 @@ public class FriendlyClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     bool mouse_over;
 
+    void Start()
+    {
+        disableSelected();
+    }
+
     void Update()
     {
         if (mouse_over)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                battleManager.selectedFriend = GetName();
+                //Trying to make it work when they are child gameobjects
+                //disableSelected();
+                //battleManager.selectedFriend = GetName();
                 //GameObject slot = GetSlot();
-                //print(slot.transform.GetChild(2));
+                //slot.transform.GetChild(2).gameObject.SetActive(true);
 
+                battleManager.selectedFriend = GetName();
+                GameObject slot = GetSlot();
+                GameObject selector = GameObject.Find("FriendlySelected");
+                Transform slotTransform = slot.GetComponent<RectTransform>();
+                Transform selectorTransform = selector.GetComponent<RectTransform>();
+                selectorTransform.position = slotTransform.position;
+                //selectorTransform.position = new Vector3(slotTransform.position.x, slotTransform.position.y, slotTransform.position.z);
+                //selectorTransform.position = new Vector3(0, 0, 0);
             }
         }
     }
@@ -61,5 +76,13 @@ public class FriendlyClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
 
         return null;
+    }
+
+    void disableSelected()
+    {
+        foreach (GameObject slot in battleManager.playerPadSlots)
+        {
+            slot.transform.GetChild(2).gameObject.SetActive(false);
+        }
     }
 }
