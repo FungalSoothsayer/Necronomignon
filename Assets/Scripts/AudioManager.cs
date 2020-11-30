@@ -1,7 +1,9 @@
-﻿using UnityEngine.Audio;
-using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System;
 
 public class AudioManager : MonoBehaviour
 {
@@ -45,15 +47,22 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GameObject go = GameObject.Find("VolumeSlider");
+        if (go != null)
+        {
+            Slider slide = go.GetComponent<Slider>();
+            go = GameObject.Find("Music");
+            AudioSource[] auso = go.GetComponents<AudioSource>();
+            foreach (AudioSource sour in auso)
+            {
+
+                sour.volume = slide.value;
+            }
+        }
     }
     
     public void Play(string name)
     {
-        
-
-        print(name + "THIS IS THE STRING NAME");
-
         GameObject[] objs = GameObject.FindGameObjectsWithTag("music");
 
         Sound s = Array.Find(sounds, sound => sound.name == name);

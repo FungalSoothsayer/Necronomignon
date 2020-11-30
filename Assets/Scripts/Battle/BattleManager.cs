@@ -379,16 +379,16 @@ public class BattleManager : MonoBehaviour
         for(int x =0;x< currentTurn.statusTurns.Length;x++)
         {
             justNow = false;
-            if (currentTurn.statusTurns[x] > 0)
+            if (currentTurn.statusTurns[x] > 0 && (int)Move.types.Corrupt != x)
             {
                 currentTurn.statusTurns[x]--;
                 justNow = true;
             }
-            if(currentTurn.statusTurns[x] > 0 && x == (int)Beast.types.Fire)
+            if(currentTurn.statusTurns[x] > 0 && x == (int)Move.types.Burn)
             {
                 healthManager.UpdateHealth(currentTurn, 5);
             }
-            if(currentTurn.statusTurns[x] > 0 && x == (int)Beast.types.Earth)
+            if(currentTurn.statusTurns[x] > 0 && x == (int)Move.types.Poison)
             {
                 healthManager.UpdateHealth(currentTurn,(int) Mathf.Ceil((float)currentTurn.hitPoints*.05f));
             }
@@ -755,6 +755,20 @@ public class BattleManager : MonoBehaviour
                 }
             }
         }
+
+        if (currentTurn.statusTurns[(int)Move.types.Confusion] > 0)
+        {
+            targets.Clear();
+            if (roundOrderTypes[turn] == "Player")
+            {
+                targets.Add(GetEnemyTarget());
+            }
+            else
+            {
+                targets.Add(GetPlayerTarget());
+            }
+        }
+
         if (currentTurn.cursed != null)
         {
             if (currentTurn.cursed.hitPoints <= 0)
@@ -802,6 +816,7 @@ public class BattleManager : MonoBehaviour
                     StartCoroutine(PlayerAttack());
                 }
             }
+            turn = 0;
         }
         else
         {
@@ -908,6 +923,13 @@ public class BattleManager : MonoBehaviour
         int rand = Random.Range(0, attackPool.Count);
 
         Beast b = attackPool[rand];
+        return b;
+    }
+    Beast GetPlayerTarget()
+    {
+        int rand = Random.Range(0, enemyAttackPool.Count);
+
+        Beast b = enemyAttackPool[rand];        
         return b;
     }
 

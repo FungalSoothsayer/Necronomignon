@@ -191,7 +191,7 @@
         "upBuff": true,
         "defenceBuff": false,
         "change": ".3f",
-        "isActive":  true
+        "isActive": true
       }
     },
     {
@@ -199,13 +199,26 @@
       "name": "Chrono Punch",
       "power": "10",
       "number_of_moves": "1",
-      "condition_chance": "0",
-      "type": "3",
+      "condition_chance": "0.69",
+      "type": "6",
       "description": "Base damage: 10 \n Attacks 2-5 times per attack.",
       "healing": "false",
       "rowAttack": "false",
       "columnAttack": "false",
       "multiAttack": "true"
+    },
+    {
+      "move_id": "16",
+      "name": "confusion polinomial",
+      "power": "35",
+      "number_of_moves": "0",
+      "condition_chance": "1",
+      "type": "7",
+      "description": "Heals 30% of the base hp of a friendly unit.",
+      "healing": "false",
+      "rowAttack": "false",
+      "columnAttack": "false",
+      "multiAttack": "false"
     }
   ]
 }
