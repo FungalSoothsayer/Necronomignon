@@ -48,3 +48,6 @@ Starting November 16
 - Unlock levels by beating previous levels.
 - Add a counter to demo battle so player can see their damage output per attack or in a round with different team comps.
 - Added sound.
+- Phase shift special condition that makes the afflicted user hit their own teammate for a % of damage they do to enemy when they attack.
+
+- Reuse battle scene.
