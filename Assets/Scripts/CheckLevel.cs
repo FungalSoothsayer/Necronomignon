@@ -25,4 +25,14 @@ public class CheckLevel : MonoBehaviour
             GameObject.Find("btnLevel3").SetActive(false);
         }
     }
+    public void sendString(string str)
+    {
+        GameObject name = GameObject.Find("LevelData");
+
+        if (name != null)
+        {
+            levelChecker = name.GetComponent<LevelChecker>();
+            levelChecker.setLastClick(str);
+        }
+    }
 }
