@@ -6,6 +6,8 @@ public class LevelChecker : MonoBehaviour
 {
     static public int levels = 0;
 
+    static public string lastClick;
+
     void Start()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Level");
@@ -18,17 +20,23 @@ public class LevelChecker : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    public void setLastClick(string levelName)
+    {
+        lastClick = levelName;
+        print(lastClick);
+    }
+
     public void Progess(string levelName)
     {
-        if (levelName == "Manoli" && levels <= 0)
+        if (lastClick == "sample" && levels <= 0)
         {
             levels++;
         }
-        else if (levelName == "RandomFight" && levels <= 1)
+        else if (lastClick == "random" && levels <= 1)
         {
             levels++;
         }
-        else if (levelName == "RandomerFight" && levels <= 2)
+        else if (lastClick == "randomer" && levels <= 2)
         {
             levels++;
         }

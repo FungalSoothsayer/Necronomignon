@@ -8,11 +8,22 @@ public class MissionList : MonoBehaviour
     public string mission; //Set in inspector
 
     public BeastManager beastManager;
+    /*public LevelChecker levelChecker;*/
 
     public List<Beast> enemies = new List<Beast>();
 
+    void Start()
+    {
+        mission = LevelChecker.lastClick;
+        print(mission);
+    }
+
     private void Awake()
     {
+        /*GameObject go = GameObject.Find("LevelData");
+        levelChecker = go.GetComponent<LevelChecker>();*/
+        mission = LevelChecker.lastClick;
+        print(mission);
         if (mission == "sample")
         {
             enemies.Add(beastManager.getFromName("Dryad")); //A1

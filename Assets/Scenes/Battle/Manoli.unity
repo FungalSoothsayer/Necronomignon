@@ -411,7 +411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c5a5d2c2081cb448a093516dc0c519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels: 0
 --- !u!4 &114839618
 Transform:
   m_ObjectHideFlags: 0
@@ -9088,7 +9087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cde39c9818840a2a37b6e4dc165015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mission: sample
+  mission: 
   beastManager: {fileID: 1972296791}
   enemies: []
 --- !u!114 &1972296796
