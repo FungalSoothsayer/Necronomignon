@@ -106,7 +106,6 @@ public class CreateManager : MonoBehaviour
     //Remove the image in a slot and remove it from selected variables
     public void RemoveSlotImage()
     {
-
         GameObject.Find("Slot" + selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
         slots[selectedSlotID - 1] = null;
 
