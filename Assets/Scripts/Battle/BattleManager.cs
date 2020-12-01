@@ -804,17 +804,23 @@ public class BattleManager : MonoBehaviour
             turn = 0;
             if (healthManager.playersLeft > 0 && healthManager.enemiesLeft > 0 && roundOrderTypes[turn] == "Enemy")
             {
+                StartCoroutine(EnemyAttack());
+                /*
                 if (!eRunning && !pRunning)
                 {
                     StartCoroutine(EnemyAttack());
                 }
+                */
             }
             else if (healthManager.enemiesLeft > 0 && healthManager.playersLeft > 0 && roundOrderTypes[turn] == "Player")
             {
+                StartCoroutine(PlayerAttack());
+                /*
                 if (!eRunning && !pRunning)
                 {
                     StartCoroutine(PlayerAttack());
                 }
+                */
             }
             turn = 0;
         }

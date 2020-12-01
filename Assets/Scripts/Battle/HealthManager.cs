@@ -15,13 +15,15 @@ public class HealthManager : MonoBehaviour
     List<HealthBar> playerHealthBars = new List<HealthBar>();
     List<HealthBar> enemyHealthBars = new List<HealthBar>();
 
-
     List<DamageOutput> playerDamageBar = new List<DamageOutput>();
     List<DamageOutput> enemyDamageBar = new List<DamageOutput>();
 
-
     List<Beast> squad = new List<Beast>();
     List<Beast> enemies = new List<Beast>();
+
+    public List<GameObject> winners = new List<GameObject>();
+
+    public GameObject victoryScreen;
 
     //Get the health for each beast in play from BeastDatabase
     public void GetHealth(List<Beast> players, List<Beast> opposing, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth, List<DamageOutput> activePlayerDamage, List<DamageOutput> activeEnemyDamage)
@@ -55,14 +57,10 @@ public class HealthManager : MonoBehaviour
         squad = players;
         enemies = opposing;
         playerHealthBars = activePlayersHealth;
-        enemyHealthBars = activeEnemiesHealth;
-
-        
+        enemyHealthBars = activeEnemiesHealth;     
 
         playerDamageBar = activePlayerDamage;
         enemyDamageBar = activeEnemyDamage;
-
-
 
         activePlayersHealth[0].SetMaxHealth(players[0].maxHP);
         
@@ -184,14 +182,16 @@ public class HealthManager : MonoBehaviour
             }
         }
     }
+
     void DisplayHealthLeft(Beast target, int healthLeft)
     {
         Debug.Log(target.name + " has " + healthLeft + " health left.");
     }
+
     //Check to see if there are any players left, if not end game
     void CheckRemainingPlayers()
     {
-        playersLeft -= 1;
+        playersLeft--;
         if (playersLeft <= 0)
         {
             Debug.Log("Opposing Team Wins. Better Luck Nex Time.");
@@ -201,14 +201,51 @@ public class HealthManager : MonoBehaviour
     //Check to see if there are any enemies left, if not end game
     void CheckRemainingOpposing()
     {
-        enemiesLeft --;
+        enemiesLeft--;
         if (enemiesLeft <= 0)
         {
             Debug.Log("Congratulations! You Win!");
             levelChecker.Progess(SceneManager.GetActiveScene().name);
-            StartCoroutine(LoadMap());
+            StartCoroutine(displayVictoryScreen());
         }
     }
+
+    //Display the victory popup with the winning squad and rewards for winning the battle.
+    IEnumerator displayVictoryScreen()
+    {
+        yield return new WaitForSeconds(1.5f);
+        victoryScreen.SetActive(true);
+        for(int x = 0; x < 4; x++)
+        {
+            if(squad[x] != null)
+            {
+                winners[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
+                    ("Animations/" + squad[x].name + "/" + squad[x].name + "_Controller") as RuntimeAnimatorController;
+            }
+            else
+            {
+                winners[x].SetActive(false);
+            }
+        }
+
+        StartCoroutine(winnersAnimations());
+    }
+
+    //Play the 'roaring' animation for the winning team.
+    IEnumerator winnersAnimations()
+    {
+        yield return new WaitForSeconds(2f);
+        foreach(GameObject g in winners)
+        g.GetComponent<Animator>().SetTrigger("Front");
+    }
+
+    //Collect rewards after winning a battle.
+    public void onCollect()
+    {
+        victoryScreen.SetActive(false);
+        StartCoroutine(LoadMap());
+    }
+
     //After 1 second load the Map scene
     IEnumerator LoadMap()
     {
