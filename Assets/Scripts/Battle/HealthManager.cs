@@ -15,13 +15,13 @@ public class HealthManager : MonoBehaviour
     List<HealthBar> playerHealthBars = new List<HealthBar>();
     List<HealthBar> enemyHealthBars = new List<HealthBar>();
 
-
     List<DamageOutput> playerDamageBar = new List<DamageOutput>();
     List<DamageOutput> enemyDamageBar = new List<DamageOutput>();
 
-
     List<Beast> squad = new List<Beast>();
     List<Beast> enemies = new List<Beast>();
+
+    public GameObject victoryScreen;
 
     //Get the health for each beast in play from BeastDatabase
     public void GetHealth(List<Beast> players, List<Beast> opposing, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth, List<DamageOutput> activePlayerDamage, List<DamageOutput> activeEnemyDamage)
@@ -191,7 +191,7 @@ public class HealthManager : MonoBehaviour
     //Check to see if there are any players left, if not end game
     void CheckRemainingPlayers()
     {
-        playersLeft -= 1;
+        playersLeft--;
         if (playersLeft <= 0)
         {
             Debug.Log("Opposing Team Wins. Better Luck Nex Time.");
@@ -201,14 +201,27 @@ public class HealthManager : MonoBehaviour
     //Check to see if there are any enemies left, if not end game
     void CheckRemainingOpposing()
     {
-        enemiesLeft --;
+        enemiesLeft--;
         if (enemiesLeft <= 0)
         {
             Debug.Log("Congratulations! You Win!");
             levelChecker.Progess(SceneManager.GetActiveScene().name);
-            StartCoroutine(LoadMap());
+            StartCoroutine(displayVictoryScreen());
         }
     }
+
+    IEnumerator displayVictoryScreen()
+    {
+        yield return new WaitForSeconds(1.5f);
+        victoryScreen.SetActive(true);
+    }
+
+    public void onCollect()
+    {
+        victoryScreen.SetActive(false);
+        StartCoroutine(LoadMap());
+    }
+
     //After 1 second load the Map scene
     IEnumerator LoadMap()
     {
