@@ -37,7 +37,21 @@ public class AudioManager : MonoBehaviour
         }
         
     }
-
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GameObject go = GameObject.Find("VolumeSlider");
+        if (go != null)
+        {
+            Slider slide = go.GetComponent<Slider>();
+            go = GameObject.Find("Music");
+            AudioSource[] auso = go.GetComponents<AudioSource>();
+            slide.value = auso[auso.Length - 1].volume;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
