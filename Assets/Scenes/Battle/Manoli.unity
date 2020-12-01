@@ -9775,6 +9775,11 @@ MonoBehaviour:
   levelChecker: {fileID: 114839617}
   playersLeft: 4
   enemiesLeft: 0
+  winners:
+  - {fileID: 93803183}
+  - {fileID: 1343231209}
+  - {fileID: 2014929287}
+  - {fileID: 766986341}
   victoryScreen: {fileID: 691586655}
 --- !u!114 &1972296797
 MonoBehaviour:
