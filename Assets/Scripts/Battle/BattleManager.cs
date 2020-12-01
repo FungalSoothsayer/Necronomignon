@@ -33,6 +33,7 @@ public class BattleManager : MonoBehaviour
 
     public Beast currentTurn;
     public Beast selectedEnemy;
+    public Beast selectedFriend;
 
     public List<Image> orderBar = new List<Image>();
 

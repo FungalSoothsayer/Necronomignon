@@ -54,6 +54,12 @@ public class LoadMission : MonoBehaviour
 
     void Start()
     {
+        
+        if(GameObject.Find("btnLvl1"))
+        {
+            missionList.mission = "random";
+        }
+
         playerPad.SetActive(false);
         if (!squadData.GetSquad1Status())
         {

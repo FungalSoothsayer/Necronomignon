@@ -40,7 +40,5 @@ public class LevelChecker : MonoBehaviour
         {
             levels++;
         }
-
-        print(levelName);
     }
 }
