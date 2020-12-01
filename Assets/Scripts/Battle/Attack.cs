@@ -419,7 +419,7 @@ public class Attack : MonoBehaviour
         float vary2 = Random.Range(1, 20);
         vary += vary2 / 100;
         print("Damage before types = " + (int)(dmg * vary * modifier));
-        modifier *= calculateType(attacker, target);
+        /*modifier *=*/ calculateType(attacker, target);
 
         damage = (int)(dmg * vary * modifier); //Convert damage to an integer
         Debug.Log("This is damage done " + damage);
@@ -442,113 +442,130 @@ public class Attack : MonoBehaviour
     }
 
     // Checks for type advantages and dissadvantages
-    float calculateType(Beast attacker, Beast target)
+    void calculateType(Beast attacker, Beast target)
     {
-        if((int)attacker.type < 4)
+        
+        int[] attackertype = new int[2];
+        attackertype[0] = (int)attacker.type;
+        attackertype[1] = (int)attacker.secondType;
+        int[] defendertype = new int[2];
+        defendertype[0] = (int)target.type;
+        defendertype[1] = (int)target.secondType;
+        for(int x = 0; x < attackertype.Length; x++)
         {
-            switch (attacker.type)
+            for(int y = 0; y < defendertype.Length; y++)
             {
-                case Beast.types.Water: 
-                    if(target.type == Beast.types.Fire || target.type == Beast.types.Cosmic)
-                    {
-                        print("super");
-                        return 1.5f;
-                    }
-                    if(target.type == Beast.types.Air || target.type == Beast.types.Horror)
-                    {
-                        print("not so good");
-                        return 0.75f;
-                    }
-                    break;
+                print((Beast.types)attackertype[x]);
+                print((Beast.types)defendertype[y]);
+                if ((attackertype[x] != (int)Beast.types.Normal) && (defendertype[y] != (int)Beast.types.Normal))
+                {
                     
-                case Beast.types.Fire:
-                    if (target.type == Beast.types.Earth || target.type == Beast.types.Horror)
-                    {
-                        print("super");
-                        return 1.5f;
-                    }
-                    if (target.type == Beast.types.Water || target.type == Beast.types.Cosmic)
-                    {
-                        print("not so good");
-                        return 0.75f;
-                    }
-                    break;
+                        switch (attackertype[x])
+                        {
+                            case (int)Beast.types.Water:
+                                if (defendertype[y] == (int)Beast.types.Fire || defendertype[y] == (int)Beast.types.Cosmic)
+                                {
+                                    print("super");
+                                    modifier *= 1.5f;
+                                }
+                                if (defendertype[y] == (int)Beast.types.Air || defendertype[y] == (int)Beast.types.Horror)
+                                {
+                                    print("not so good");
+                                    modifier *= 0.75f;
+                                }
+                                break;
 
-                case Beast.types.Earth:
-                    if (target.type == Beast.types.Air || target.type == Beast.types.Cosmic)
-                    {
-                        print("super");
-                        return 1.5f;
-                    }
-                    if (target.type == Beast.types.Fire || target.type == Beast.types.Horror)
-                    {
-                        print("not so good");
-                        return 0.75f;
-                    }
-                    break;
+                            case (int)Beast.types.Fire:
+                                if (defendertype[y] == (int)Beast.types.Earth || defendertype[y] == (int)Beast.types.Horror)
+                                {
+                                    print("super");
+                                    modifier *= 1.5f;
+                                }
+                                if (defendertype[y] == (int)Beast.types.Water || defendertype[y] == (int)Beast.types.Cosmic)
+                                {
+                                    print("not so good");
+                                    modifier *= 0.75f;
+                                }
+                                break;
 
-                case Beast.types.Air:
-                    if (target.type == Beast.types.Water || target.type == Beast.types.Horror)
-                    {
-                        print("super");
-                        return 1.5f;
-                    }
-                    if (target.type == Beast.types.Earth || target.type == Beast.types.Cosmic)
-                    {
-                        print("not so good");
-                        return 0.75f;
-                    }
-                    break;
-                case Beast.types.Dark:
-                    if (target.type == Beast.types.Light || target.type == Beast.types.Horror)
-                    {
-                        print("super");
-                        return 1.5f;
-                    }
-                    if (target.type == Beast.types.Cosmic)
-                    {
-                        print("not so good");
-                        return 0.75f;
-                    }
-                    break;
-                case Beast.types.Light:
-                    if (target.type == Beast.types.Dark || target.type == Beast.types.Cosmic)
-                    {
-                        print("super");
-                        return 1.5f;
-                    }
-                    if (target.type == Beast.types.Horror)
-                    {
-                        print("not so good");
-                        return 0.75f;
-                    }
-                    break;
-                case Beast.types.Horror:
-                    if (target.type == Beast.types.Light || target.type == Beast.types.Earth || target.type == Beast.types.Water)
-                    {
-                        print("super");
-                        return 1.5f;
-                    }
-                    if (target.type == Beast.types.Dark || target.type == Beast.types.Fire || target.type == Beast.types.Air)
-                    {
-                        print("not so good");
-                        return 0.75f;
-                    }
-                    break;
-                case Beast.types.Cosmic:
-                    if (target.type == Beast.types.Fire || target.type == Beast.types.Air || target.type == Beast.types.Dark)
-                    {
-                        print("super");
-                        return 1.5f;
-                    }
-                    if (target.type == Beast.types.Earth || target.type == Beast.types.Water || target.type == Beast.types.Light)
-                    {
-                        print("not so good");
-                        return 0.75f;
-                    }
-                    break;
+                            case (int)Beast.types.Earth:
+                                if (defendertype[y] == (int)Beast.types.Air || defendertype[y] == (int)Beast.types.Cosmic)
+                                {
+                                    print("super");
+                                    modifier *= 1.5f;
+                                }
+                                if (defendertype[y] == (int)Beast.types.Fire || defendertype[y] == (int)Beast.types.Horror)
+                                {
+                                    print("not so good");
+                                    modifier *= 0.75f;
+                                }
+                                break;
+
+                            case (int)Beast.types.Air:
+                                if (defendertype[y] == (int)Beast.types.Water || defendertype[y] == (int)Beast.types.Horror)
+                                {
+                                    print("super");
+                                    modifier *= 1.5f;
+                                }
+                                if (defendertype[y] == (int)Beast.types.Earth || defendertype[y] == (int)Beast.types.Cosmic)
+                                {
+                                    print("not so good");
+                                    modifier *= 0.75f;
+                                }
+                                break;
+                            case (int)Beast.types.Dark:
+                                if (defendertype[y] == (int)Beast.types.Light || defendertype[y] == (int)Beast.types.Horror)
+                                {
+                                    print("super");
+                                    modifier *= 1.5f;
+                                }
+                                if (defendertype[y] == (int)Beast.types.Cosmic)
+                                {
+                                    print("not so good");
+                                    modifier *= 0.75f;
+                                }
+                                break;
+                            case (int)Beast.types.Light:
+                                if (defendertype[y] == (int)Beast.types.Dark || defendertype[y] == (int)Beast.types.Cosmic)
+                                {
+                                    print("super");
+                                    modifier *= 1.5f;
+                                }
+                                if (defendertype[y] == (int)Beast.types.Horror)
+                                {
+                                    print("not so good");
+                                    modifier *= 0.75f;
+                                }
+                                break;
+                            case (int)Beast.types.Horror:
+                                if (defendertype[y] == (int)Beast.types.Light || defendertype[y] == (int)Beast.types.Earth || defendertype[y] == (int)Beast.types.Water)
+                                {
+                                    print("super");
+                                    modifier *= 1.5f;
+                                }
+                                if (defendertype[y] == (int)Beast.types.Dark || defendertype[y] == (int)Beast.types.Fire || defendertype[y] == (int)Beast.types.Air)
+                                {
+                                    print("not so good");
+                                    modifier *= 0.75f;
+                                }
+                                break;
+                            case (int)Beast.types.Cosmic:
+                                if (defendertype[y] == (int)Beast.types.Fire || defendertype[y] == (int)Beast.types.Air || defendertype[y] == (int)Beast.types.Dark)
+                                {
+                                    print("super");
+                                    modifier *= 1.5f;
+                                }
+                                if (defendertype[y] == (int)Beast.types.Earth || defendertype[y] == (int)Beast.types.Water || defendertype[y] == (int)Beast.types.Light)
+                                {
+                                    print("not so good");
+                                    modifier *= 0.75f;
+                                }
+                                break;
+                        }
+                    
+                }
             }
         }
-        return 1;
+        
     }
 }
