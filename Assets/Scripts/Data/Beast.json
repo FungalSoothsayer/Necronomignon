@@ -9,7 +9,7 @@
       "dexterity": "16",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "3",
+      "type": "4",
       "static_img": "Wyvern_Idle_00",
       "moveA": "10",
       "moveB": "9"
@@ -23,7 +23,7 @@
       "dexterity": "2",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "2",
+      "type": "3",
       "static_img": "Dryad_Idle_00",
       "moveA": "3",
       "moveB": "14"
@@ -37,7 +37,7 @@
       "dexterity": "28",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "0",
+      "type": "1",
       "static_img": "Conglomerate_Idle_00",
       "moveA": "5",
       "moveB": "6"
@@ -51,7 +51,7 @@
       "dexterity": "38",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "1",
+      "type": "2",
       "static_img": "Kitsune_Idle_00",
       "moveA": "7",
       "moveB": "8"
@@ -65,7 +65,7 @@
       "dexterity": "20",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "5",
+      "type": "6",
       "static_img": "Drakadin_Idle_75",
       "moveA": "11",
       "moveB": "12"
@@ -74,12 +74,13 @@
       "name": "Cthulhu",
       "maxHP": "100",
       "defence": "30",
-      "power": "15",
+      "power": "150",
       "speed": "64",
       "dexterity": "40",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "4",
+      "type": "5",
+      "secondType": "1",
       "static_img": "Cthulhu_Idle_00",
       "moveA": "1",
       "moveB": "2"
@@ -93,7 +94,7 @@
       "dexterity": "40",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "7",
+      "type": "8",
       "static_img": "ClockworkQueen_Idle_00",
       "moveA": "16",
       "moveB": "15"
@@ -107,7 +108,7 @@
       "dexterity": "50",
       "number_MOVES": "3",
       "tier": "1",
-      "type": "8",
+      "type": "0",
       "static_img": "DreamSlime_Idle_60",
       "moveA": "2",
       "moveB": "15"

@@ -18,6 +18,7 @@ public class Beast
     public int tier;
     public int id;
     public types type;
+    public types secondType;
     public int moveA;
     public Move Move_A;
     public int moveB;
@@ -25,7 +26,7 @@ public class Beast
     public string static_img;
     public List<Buff> buffs = new List<Buff>();
 
-    public enum types { Water, Fire, Earth, Air, Dark, Light, Horror, Cosmic };
+    public enum types { Normal, Water, Fire, Earth, Air, Dark, Light, Horror, Cosmic };
 
     public int[] statusTurns = new int[8];
     BeastManager bm = new BeastManager();
@@ -50,6 +51,7 @@ public class Beast
         this.number_MOVES = b.number_MOVES;
         this.tier = b.tier;
         this.type = b.type;
+        this.secondType = b.secondType;
         this.moveA = b.moveA;
         this.Move_A = b.Move_A;
         this.moveB = b.moveB;

@@ -73,11 +73,10 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void ChangePoolImage()
     {
         int index = createManager.selectedIndex;
-        
-            createPoolLoader.slots[index].gameObject.SetActive(false);
-            createPoolLoader.slots[index].sprite = Resources.Load<Sprite>(GetFadedImage());
-            SetSlot();
-        
+
+        createPoolLoader.slots[index].gameObject.SetActive(false);
+        createPoolLoader.slots[index].sprite = Resources.Load<Sprite>(GetFadedImage());
+        SetSlot();
     }
 
     //Set the CreateManager's variables to reflect the selected beast
@@ -96,9 +95,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             createManager.CheckPlaceable();
             createManager.selected = null;
             createManager.selectedIndex = -1;
-            createManager.TurnOffSlots();
-        
-            
+            createManager.TurnOffSlots(); 
     }
 
     //Get the faded image of the placed beast

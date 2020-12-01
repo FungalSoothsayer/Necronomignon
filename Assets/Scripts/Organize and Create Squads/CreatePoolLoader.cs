@@ -10,7 +10,7 @@ public class CreatePoolLoader : MonoBehaviour
 
     public List<string> summonedImages = new List<string>();
     public List<Beast> summoned = new List<Beast>();
-    List<Beast> sorted = new List<Beast>();
+    public List<Beast> sorted = new List<Beast>();
 
     // For the Animations 
 
@@ -45,6 +45,7 @@ public class CreatePoolLoader : MonoBehaviour
                 summoned.Add(bl.Beasts[x]);
                 // Set up List of Beasts Names for Animations
                 summonedNames.Add(bl.Beasts[x].name);
+                //sorted.Add(bl.Beasts[x]);
             }
         }
 
@@ -180,7 +181,7 @@ public class CreatePoolLoader : MonoBehaviour
         summonedImages.Clear();
         summonedNames.Clear();
 
-        for (int x = 5; x >= 0; x--)
+        for (int x = 5; x >= 1; x--)
         {
             for (int y = 0; y < summoned.Count; y++)
             {
