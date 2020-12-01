@@ -50,6 +50,14 @@ public class BattleManager : MonoBehaviour
     public void SendLists(List<Beast> thisSquad, List<Beast> enemySquad, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth, List<DamageOutput> activePlayerDamage, List<DamageOutput> activeEnemyDamage)
     {
         selectedEnemy = enemySquad[0];
+        for(int x = 0; x < enemySquad.Count; x++)
+        {
+            if(enemySquad[x].hitPoints < selectedEnemy.hitPoints)
+            {
+                selectedEnemy = enemySquad[x];
+            }
+        }
+
         enemies = enemySquad;
         enemies.Add(null);
         enemies.Add(null);
@@ -170,11 +178,6 @@ public class BattleManager : MonoBehaviour
     //Create attack order
     void LoadOrder()
     {
-        if(selectedEnemy == null && enemyAttackPool.Count > 0)
-        {
-            selectedEnemy = enemyAttackPool[0];
-        }
-
         int[] moves = new int[8];
 
         for(int x = 0; x < 4; x++)
@@ -1020,14 +1023,7 @@ public class BattleManager : MonoBehaviour
     //Remove the desired beast by setting its active variable to false and removing image
     public void RemoveBeast(Beast target)
     {
-        print(target.name);
-        print(roundOrderTypes[turn]);
-        if (target == selectedEnemy)
-        {
-            selectedEnemy = null;
-        }
-
-        totalBeasts -= 1;
+        totalBeasts --;
 
         if(roundOrderTypes[turn] != "Player")
         {
@@ -1066,6 +1062,22 @@ public class BattleManager : MonoBehaviour
                     enemyAttackPool.Remove(enemies[x]);
                     loadMission.RemoveImage(enemies[x], "Enemy");
                     turn -= enemiesTurnsTaken[x];
+                }
+            }
+        }
+
+        //Set selected enemy to lowest hp enemy by default if the previously selected enemy was killed.
+        if (target.Equals(selectedEnemy))
+        {
+            if (enemyAttackPool.Count > 0)
+            {
+                selectedEnemy = enemyAttackPool[0];
+                for (int x = 0; x < enemyAttackPool.Count; x++)
+                {
+                    if (enemyAttackPool[x].hitPoints < selectedEnemy.hitPoints)
+                    {
+                        selectedEnemy = enemyAttackPool[x];
+                    }
                 }
             }
         }
@@ -1133,7 +1145,6 @@ public class BattleManager : MonoBehaviour
         Beast b = currentTurn;
         if(roundOrderTypes[turn] == "Player")
         {
-            print("aaaaaaaaaaaaaaaaaaaaaaaaaaaa");
             for (int x =0;x< 4;x++)
             {
                 if(players[x] != null && b != null && playersActive[x] && ((double)players[x].hitPoints/ (double)players[x].maxHP) < ((double)b.hitPoints/ (double)b.maxHP))
