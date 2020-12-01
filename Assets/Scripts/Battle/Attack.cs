@@ -7,12 +7,12 @@ public class Attack : MonoBehaviour
 {
     public BeastManager beastManager;
     public DemoBattleManager demoBattleManager;
-//    public MoveManager moveManager;
-    //public EnemyDatabase enemyDatabase;
     public HealthManager healthManager;
+
+    readonly Random Random = new Random();
+
     float modifier = 1;
     int damage;
-    readonly Random Random = new Random();
 
     public void InitiateAttack(Beast attacker, Beast target, bool inFront)
     {
@@ -30,7 +30,7 @@ public class Attack : MonoBehaviour
                 int r = Random.Range(0, 2);
                 if (r > 0)
                 {
-                    print(attacker.name + " was paralized and unable to move");
+                    print(attacker.name + " was paralyzed and unable to move");
                     return;
                 }
             }
