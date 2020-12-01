@@ -164,7 +164,7 @@ public class HealthManager : MonoBehaviour
     {
         for(int x = 0; x < 4; x++)
         {
-            if(target == squad[x])
+            if(target == squad[x % squad.Count])
             {
                 squad[x].hitPoints += int.Parse(Math.Floor(heal)+"");
                 if (squad[x].hitPoints > squad[x].maxHP)
@@ -173,7 +173,7 @@ public class HealthManager : MonoBehaviour
                 }
                 playerHealthBars[x].SetHealth(squad[x].hitPoints);
             }
-            else if(target == enemies[x])
+            else if(target == enemies[x%enemies.Count])
             {
                 enemies[x].hitPoints += int.Parse(Math.Floor(heal)+"");
                 if (enemies[x].hitPoints > enemies[x].maxHP)

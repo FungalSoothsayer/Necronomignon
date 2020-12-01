@@ -424,6 +424,7 @@ public class Attack : MonoBehaviour
         Debug.Log("This is damage done " + damage);
         if (target.name == "Target")
         {
+
             demoBattleManager.totalDamage += damage;
         }
         else

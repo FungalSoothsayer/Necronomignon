@@ -47,6 +47,17 @@ public class DemoBattleManager : MonoBehaviour
         LoadOrder();
     }
 
+    private void Update()
+    {
+        GameObject go = GameObject.Find("DefenceSlider");
+        if(go != null)
+        {
+            Slider slide = go.GetComponent<Slider>();
+            enemies[0].defence = (int)slide.value;
+        }
+        
+    }
+
     void LoadSquadImages()
     {
         List<Beast> toLoad = new List<Beast>();
@@ -139,6 +150,8 @@ public class DemoBattleManager : MonoBehaviour
         GameObject slot = getSlot();
         if (inFront) slot.GetComponent<Animator>().SetTrigger("Front");
         else slot.GetComponent<Animator>().SetTrigger("Back");
+        print(currentTurn.name);
+        print(b.defence);
 
         attack.InitiateAttack(currentTurn, b, inFront);
         totalDamageText.text = totalDamage.ToString();
