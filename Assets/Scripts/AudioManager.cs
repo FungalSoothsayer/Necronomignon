@@ -89,7 +89,10 @@ public class AudioManager : MonoBehaviour
         {
             audio.clip = battleTheme;
             audio.Play();
-            tempName = name;      
+            tempName = name;
+
+            if(s != null)
+            s.source.Play();
         }
         
         else if ((name.Equals("Map") && tempName.Equals("Manoli")) || (name.Equals("Map") && tempName.Equals("RandomFight")) || (name.Equals("Map") && tempName.Equals("RandomerFight")))
