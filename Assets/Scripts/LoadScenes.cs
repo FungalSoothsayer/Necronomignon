@@ -14,6 +14,7 @@ public class LoadScenes : MonoBehaviour
         {
             go.Play(sceneName);
             SceneManager.LoadScene(sceneName);
+
         }
     }
 }
