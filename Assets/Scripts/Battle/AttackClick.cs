@@ -23,10 +23,10 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             {
                 battleManager.selectedEnemy = GetName();
                 GameObject slot = GetSlot();
-                GameObject selector = GameObject.Find("EnemySelected");
+                /*GameObject selector = GameObject.Find("EnemySelected");
                 RectTransform slotTransform = slot.GetComponent<RectTransform>();
                 RectTransform selectorTransform = selector.GetComponent<RectTransform>();
-                selectorTransform.position = slotTransform.position;
+                selectorTransform.position = slotTransform.position;*/
             }
         }
     }
