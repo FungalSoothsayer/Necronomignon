@@ -143,7 +143,7 @@ public class LoadMission : MonoBehaviour
             }
             if (toLoad[x] != null)
             {
-                playerSlotImg[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
+                playerSlotImg[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController; 
                 Beast b = new Beast();
                 b = beastManager.getFromName(toLoad[x].name);
                 playerSlot.Add(b);

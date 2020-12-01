@@ -100,8 +100,12 @@
     <Compile Include="Assets\Scripts\QuizChoice.cs" />
     <Compile Include="Assets\Scripts\Summon.cs" />
     <Compile Include="Assets\Scripts\SummonBookLoader.cs" />
+    <None Include="Assets\SimplePixelUI\fonts\Font2\license.txt" />
     <None Include="Assets\ResolvedIssues.txt" />
     <None Include="Assets\JsonDotNet\link.xml" />
+    <None Include="Assets\SimplePixelUI\fonts\Font1\license.txt" />
+    <None Include="Assets\SimplePixelUI\fonts\Font1\readme.txt" />
+    <None Include="Assets\SimplePixelUI\fonts\Font2\readme.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

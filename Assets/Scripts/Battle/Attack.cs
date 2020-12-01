@@ -7,12 +7,12 @@ public class Attack : MonoBehaviour
 {
     public BeastManager beastManager;
     public DemoBattleManager demoBattleManager;
-//    public MoveManager moveManager;
-    //public EnemyDatabase enemyDatabase;
     public HealthManager healthManager;
+
+    readonly Random Random = new Random();
+
     float modifier = 1;
     int damage;
-    readonly Random Random = new Random();
 
     public void InitiateAttack(Beast attacker, Beast target, bool inFront)
     {
@@ -30,7 +30,7 @@ public class Attack : MonoBehaviour
                 int r = Random.Range(0, 2);
                 if (r > 0)
                 {
-                    print(attacker.name + " was paralized and unable to move");
+                    print(attacker.name + " was paralyzed and unable to move");
                     return;
                 }
             }
@@ -89,6 +89,7 @@ public class Attack : MonoBehaviour
                 
                 return;
             }
+
             if (!isMiss(attacker, target))
             {
                 modifier *= isCrit(attacker, target);
@@ -258,17 +259,17 @@ public class Attack : MonoBehaviour
         //Calculate the chance that an attack is a critical hit
         //(d20roll) + ({Attacker.Speed/2} + Attacker.Skill)/({Target.Speed/2} + Target.Skill)
         int rand = Random.Range(1, 20);
-        print(target.speed + " speed " + target.dexterity + " dexterity");
         float criticalChance = rand + (((attacker.speed / 2) + attacker.dexterity) / (target.speed / 2) + target.dexterity);
         
 
         float ra = (float)(rand + target.defence / attacker.power);
         int critChance = (int)Mathf.Round(ra);
 
-        //If random variable is less than critical hit chance, the attack has a modifier of 1.5, otherwise it's modifier is 1
+        //If random variable is more than critical hit chance, the attack has a modifier of 2, otherwise it's modifier is 1
         if (critChance >= 20)
         {
             Debug.Log("Critical Hit!");
+
             return 2;
         }
         return 1;
@@ -424,6 +425,7 @@ public class Attack : MonoBehaviour
         Debug.Log("This is damage done " + damage);
         if (target.name == "Target")
         {
+
             demoBattleManager.totalDamage += damage;
         }
         else

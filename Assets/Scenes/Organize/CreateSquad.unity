@@ -2143,6 +2143,7 @@ MonoBehaviour:
   - {fileID: 236958076}
   summonedImages: []
   summoned: []
+  sorted: []
   summonedNames: []
   poolSlots:
   - {fileID: 262342444}
@@ -4738,7 +4739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1707235378
 RectTransform:
   m_ObjectHideFlags: 0
