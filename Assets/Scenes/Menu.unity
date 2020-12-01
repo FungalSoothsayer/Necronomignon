@@ -1622,32 +1622,32 @@ MonoBehaviour:
   sounds:
   - name: SummonMain
     clip: {fileID: 8300000, guid: bee428bba74450e499653517caa2dacf, type: 3}
-    volume: 1
+    volume: 0.083
     pitch: 1.5
     source: {fileID: 0}
   - name: Menu
     clip: {fileID: 8300000, guid: dce687fef2deb7a4281999021092fbe6, type: 3}
-    volume: 1
+    volume: 0.107
     pitch: 1.5
     source: {fileID: 0}
   - name: OrganizeMain
     clip: {fileID: 8300000, guid: 4c59800689ac30342925ac0888ed9a0d, type: 3}
-    volume: 1
+    volume: 0.132
     pitch: 1.5
     source: {fileID: 0}
   - name: TutorialMain
     clip: {fileID: 8300000, guid: e80ecd4266b015b46ac004546d2f63a7, type: 3}
-    volume: 1
+    volume: 0.107
     pitch: 1.5
     source: {fileID: 0}
   - name: Manoli
     clip: {fileID: 8300000, guid: 1b34fd1e61b719842a905b6113736715, type: 3}
-    volume: 0.25
+    volume: 0.107
     pitch: 1.5
     source: {fileID: 0}
   - name: Map
     clip: {fileID: 8300000, guid: 5be27d78cd2f99442bbf7a54d3a0a455, type: 3}
-    volume: 1
+    volume: 0.12
     pitch: 1.5
     source: {fileID: 0}
   battleTheme: {fileID: 8300000, guid: 1b34fd1e61b719842a905b6113736715, type: 3}
@@ -1679,7 +1679,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 241bab1c21ed070468d24a7f40ad2ead, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.148
   m_Pitch: 1
   Loop: 0
   Mute: 0
