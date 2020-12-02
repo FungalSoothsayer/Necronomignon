@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * 
+ * Handles the saved status of squads 1 and 2
  */
 public class SquadData : MonoBehaviour
 {
