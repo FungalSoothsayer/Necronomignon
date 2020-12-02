@@ -320,11 +320,11 @@ public class BattleManager : MonoBehaviour
         {
             try
             {
-                orderBar[x].sprite = Resources.Load<Sprite>(GetImage(roundOrder[x + turn]));
+                orderBar[x].sprite = Resources.Load<Sprite>("Static_Images/"+GetImage(roundOrder[x + turn]));
             }
             catch
             {
-                orderBar[x].sprite = Resources.Load<Sprite>("EmptyRectangle");
+                orderBar[x].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
             }
         }
     }

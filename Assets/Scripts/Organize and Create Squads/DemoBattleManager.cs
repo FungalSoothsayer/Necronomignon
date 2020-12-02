@@ -134,11 +134,11 @@ public class DemoBattleManager : MonoBehaviour
         {
             try
             {
-                orderImgs[x].sprite = Resources.Load<Sprite>(GetImage(roundOrder[x + turn]));
+                orderImgs[x].sprite = Resources.Load<Sprite>("Static_Images/"+GetImage(roundOrder[x + turn]));
             }
             catch
             {
-                orderImgs[x].sprite = Resources.Load<Sprite>("EmptyRectangle");
+                orderImgs[x].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
             }
         }
     }
