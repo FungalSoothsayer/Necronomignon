@@ -56,7 +56,7 @@ public class SummonBookLoader : MonoBehaviour
             if (sorted.Count >= x + 1)
             {
                 slots[x % 6].gameObject.SetActive(true);
-                slots[x % 6].sprite = Resources.Load<Sprite>(summonedImages[x]);
+                slots[x % 6].sprite = Resources.Load<Sprite>("Static_Images/"+summonedImages[x]);
                 beastTexts[x % 6].GetComponent<Text>().text = summonedNames[x];
 
                 //Make not summoned beasts transparent
