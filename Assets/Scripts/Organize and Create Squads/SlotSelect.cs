@@ -65,6 +65,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                     gameObject.GetComponent<Image>().color = Color.white;
                 }
             }
+
             ChangePoolImage();
         }  
     }
@@ -134,6 +135,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                     gameObject.GetComponent<Image>().color = Color.white;
                 }
             }
+
             SetSlot();
             createManager.RemoveSlotImage();
         }

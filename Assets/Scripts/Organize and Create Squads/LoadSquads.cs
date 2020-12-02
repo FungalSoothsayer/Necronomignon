@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * Handles the images and animations of squads 1 and 2 when they need to be loaded
+ */
 public class LoadSquads : MonoBehaviour
 {
     public SquadData squadData;
 
-    public Text squad1Text;
-    public Text squad2Text;
-
     public List<GameObject> squad1Slots;
     public List<GameObject> squad2Slots;
-
     public List<Image> S1S;
     public List<Image> S2S;
 
+    public Text squad1Text;
+    public Text squad2Text;
+
+    // Start is called before the first frame update
     void Start()
     {
         foreach(GameObject slot in squad1Slots)
@@ -40,6 +43,7 @@ public class LoadSquads : MonoBehaviour
         }
     }
 
+    // Loads the animations of the beasts saved into squad 1
     void LoadSquad1Images()
     {
         List<Beast> toLoad = new List<Beast>();
@@ -49,12 +53,14 @@ public class LoadSquads : MonoBehaviour
         {
             if (toLoad[x] != null)
             {
-                S1S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
+                S1S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
+                    ("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
                 squad1Slots[x].SetActive(true);
             }
         }
     }
 
+    // Loads the animations of the beasts saved into squad 2
     void LoadSquad2Images()
     {
         List<Beast> toLoad = new List<Beast>();
@@ -64,12 +70,14 @@ public class LoadSquads : MonoBehaviour
         {
             if (toLoad[x] != null)
             {
-                S2S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
+                S2S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
+                    ("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
                 squad2Slots[x].SetActive(true);
             }
         }
     }
 
+    // Returns the static image assosiated with the selected beast
     string GetImage(Beast beast)
     {
         return beast.static_img;
