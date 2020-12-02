@@ -7,18 +7,18 @@ using UnityEngine;
  */
 public class SquadData : MonoBehaviour
 {
-    //Holds the names of the beasts in each position of the grid of saved squad 1
+    // Holds the names of the beasts in each position of the grid of saved squad 1
     public static List<Beast> squad1 = new List<Beast>();
     public static bool squad1Saved = false;
 
-    //Holds the names of the beasts in each position of the grid of saved squad 2
+    // Holds the names of the beasts in each position of the grid of saved squad 2
     public static List<Beast> squad2 = new List<Beast>();
     public static bool squad2Saved = false;
 
-    //Saves the selected beasts into the correct squad
+    // Saves the selected beasts into the correct squad
     public void AddToList(int squad, Beast beast)
     {
-        //Makes sure all unused spaces are set to null for future use
+        // Makes sure all unused spaces are set to null for future use
         if(beast != null && beast.speed == 0)
         {
             beast = null;
@@ -38,7 +38,7 @@ public class SquadData : MonoBehaviour
         }
     }
 
-    //Clears the squad that was previously saved
+    // Clears the squad that was previously saved
     public void ClearList(int squad)
     {
         if (squad == 1)
@@ -55,7 +55,7 @@ public class SquadData : MonoBehaviour
         }
     }
 
-    //Returns the selected squad
+    // Returns the selected squad
     public List<Beast> GetSquadList(int squad)
     {
         if (squad == 1)
@@ -73,7 +73,7 @@ public class SquadData : MonoBehaviour
         }
     }
 
-    //Marks that there is a squad saved in squad 1 or 2 to load in other scenes
+    // Marks that there is a squad saved in squad 1 or 2 to load in other scenes
     public void ChangeSquadSavedStatus(int squad)
     {
         if (squad == 1)
@@ -96,13 +96,13 @@ public class SquadData : MonoBehaviour
         }
     }
 
-    //Returns true if squad 1 has been saved to
+    // Returns true if squad 1 has been saved to
     public bool GetSquad1Status()
     {
         return squad1Saved;
     }
 
-    //Returns true if squad 2 has been saved to
+    // Returns true if squad 2 has been saved to
     public bool GetSquad2Status()
     {
         return squad2Saved;

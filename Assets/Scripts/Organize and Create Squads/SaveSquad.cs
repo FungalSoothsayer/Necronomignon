@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/**
+ * Handles the action of saving a squad including which buttons to set active
+ */
 public class SaveSquad : MonoBehaviour
 {
     public CreateManager createManager;
@@ -14,12 +17,14 @@ public class SaveSquad : MonoBehaviour
     public GameObject squad1Button;
     public GameObject squad2Button;
 
+    // Start is called before the first frame update
     private void Start()
     {
         squad1Button.SetActive(false);
         squad2Button.SetActive(false);
     }
 
+    // Handles the buttons being activated or deactivated when saving a squad
     public void SaveButton()
     {
         if (createManager.placed > 0)
@@ -27,16 +32,19 @@ public class SaveSquad : MonoBehaviour
             squad1Button.SetActive(true);
             squad2Button.SetActive(true);
             saveButton.SetActive(false);
+
             if (cancelButton.activeInHierarchy) cancelButton.SetActive(false);
             if (removeButton.activeInHierarchy) removeButton.SetActive(false);
+
             createManager.saveMode = true;
         }
         else
         {
-            Debug.Log("4 beasts must be placed before saving the squad.");
+            Debug.Log("Problem saving the squad");
         }
     }
 
+    // Saves the beasts that are loaded into the squad to the chosen squad number
     public void SaveThisSquad(int squadNumber)
     {
         if (squadNumber == 1)
@@ -46,12 +54,6 @@ public class SaveSquad : MonoBehaviour
             {
                 squadData.AddToList(1, b);
             }
-            /*squadData.AddToList(1, createManager.slot1);
-            squadData.AddToList(1, createManager.slot2);
-            squadData.AddToList(1, createManager.slot3);
-            squadData.AddToList(1, createManager.slot4);
-            squadData.AddToList(1, createManager.slot5);
-            squadData.AddToList(1, createManager.slot6);*/
             squadData.ChangeSquadSavedStatus(1);
         }
         else if (squadNumber == 2)
@@ -61,18 +63,13 @@ public class SaveSquad : MonoBehaviour
             {
                 squadData.AddToList(2, b);
             }
-            /*squadData.AddToList(2, createManager.slot1);
-            squadData.AddToList(2, createManager.slot2);
-            squadData.AddToList(2, createManager.slot3);
-            squadData.AddToList(2, createManager.slot4);
-            squadData.AddToList(2, createManager.slot5);
-            squadData.AddToList(2, createManager.slot6);*/
             squadData.ChangeSquadSavedStatus(2);
         }
         else
         {
             Debug.Log("Error saving squad.");
         }
+
         SceneManager.LoadScene("OrganizeMain");
     }
 }
