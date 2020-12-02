@@ -5,14 +5,18 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+//manages the main battle mechanics
 public class BattleManager : MonoBehaviour
 {
     public bool eRunning = false;
     public bool pRunning = false;
 
+    //These are the slot objects that hold the images for the Beast
     public List<GameObject> playerPadSlots = new List<GameObject>(6);
     public List<GameObject> enemyPadSlots = new List<GameObject>(6);
 
+    //These are Scripts given in unity 
+    //NOTE: this script will crash if these scripts are not added before runtime
     public HealthManager healthManager;
     public Attack attack;
     public LoadMission loadMission;
@@ -176,10 +180,12 @@ public class BattleManager : MonoBehaviour
     }
 
     //Create attack order
+    //This seems to be a big source of issues as it creats what has been dubbed "the Ultimate Crash"
+    //The cause is unknown and this method is entegeral so either the issue must be found or the method must be re created from scratch
     void LoadOrder()
     {
         int[] moves = new int[8];
-
+        //this loop takes the default amount of moves for the beast as well as the move the beast will be using
         for(int x = 0; x < 4; x++)
         {
             if (playersActive[x] && players[x] != null)
@@ -213,50 +219,17 @@ public class BattleManager : MonoBehaviour
         totalMoves = moves.Sum();
 
         List<int> Speed = new List<int>();
-
-        /*List<float> playZap = new List<float>();
-        List<float> enemZap = new List<float>();
-        playZap.Clear();
-        enemZap.Clear();*/
+        //this loop sorts by speed both freindly and enemy beasts with ties being broken by the player
         for (int x = 0; x < 8; x++)
         {
-            /*if (x < 4 && players[x] != null)
-            {
-                if (x < 4 && playersActive[x] && players[x].statusTurns[(int)Beast.types.Air] > 0)
-                {
-                    playZap.Add(0.5f);
-                }
-                else
-                {
-                    playZap.Add(1);
-                }
-            }
-            else
-            {
-                playZap.Add(0);
-            }
-            if (x > 3 && enemies[x % 4] != null)
-            {
-                if (x >= 4 && enemiesActive[x % 4] && enemies[x % 4].statusTurns[(int)Beast.types.Air] > 0)
-                {
-                    enemZap.Add(0.5f);
-                }
-                else if (x >= 4)
-                {
-                    enemZap.Add(1);
-                }
-            }
-            else
-            {
-                enemZap.Add(0);
-            }*/
+            
             if (x < 4 && players[x] != null)
             {
-                Speed.Add((int)Mathf.Floor((float)players[x].speed/* * playZap[x]*/));
+                Speed.Add((int)Mathf.Floor((float)players[x].speed));
             }
             else if (x > 3 && enemies[x % 4] != null)
             {
-                Speed.Add((int)Mathf.Floor((float)enemies[x % 4].speed /** enemZap[x % 4]*/));
+                Speed.Add((int)Mathf.Floor((float)enemies[x % 4].speed ));
             }
             else
             {
@@ -339,7 +312,7 @@ public class BattleManager : MonoBehaviour
         }
         return false;
     }
-
+    //keeps the order bar showing the correct order of attack
     void UpdateOrderBar()
     {
         currentTurn = roundOrder[turn];
@@ -355,7 +328,7 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-
+    //starts the current players, or enemies attack. 
     void TakeTurn()
     {
         turn++;
@@ -379,28 +352,33 @@ public class BattleManager : MonoBehaviour
             }
             UpdateOrderBar();
         }
-        bool justNow = false;
-        for(int x =0;x< currentTurn.statusTurns.Length;x++)
+        decroStatAndBuff();
+    }
+
+    //This method is responsible for decrementing counters for status effects (excluding Doom) and Buffs & debuffs
+    void decroStatAndBuff()
+    {
+        //this is checking if a status effect is still active and decrimenting its counter if it is
+        for (int x = 0; x < currentTurn.statusTurns.Length; x++)
         {
-            justNow = false;
             if (currentTurn.statusTurns[x] > 0 && (int)Move.types.Corrupt != x)
             {
                 currentTurn.statusTurns[x]--;
-                justNow = true;
             }
-            if(currentTurn.statusTurns[x] > 0 && x == (int)Move.types.Burn)
+            if (currentTurn.statusTurns[x] > 0 && x == (int)Move.types.Burn)
             {
                 healthManager.UpdateHealth(currentTurn, 5);
             }
-            if(currentTurn.statusTurns[x] > 0 && x == (int)Move.types.Poison)
+            if (currentTurn.statusTurns[x] > 0 && x == (int)Move.types.Poison)
             {
-                healthManager.UpdateHealth(currentTurn,(int) Mathf.Ceil((float)currentTurn.hitPoints*.05f));
+                healthManager.UpdateHealth(currentTurn, (int)Mathf.Ceil((float)currentTurn.hitPoints * .05f));
             }
         }
-        for(int x =0; x< currentTurn.buffs.Count; x++)
+        //this checks for buffs and decriments them all by 1. if the buff counter hits 0 it is removed
+        for (int x = 0; x < currentTurn.buffs.Count; x++)
         {
 
-            if(currentTurn.buffs[x].turnsLeft <= 0)
+            if (currentTurn.buffs[x].turnsLeft <= 0)
             {
                 currentTurn.buffs.RemoveAt(x);
                 x--;
@@ -412,6 +390,8 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    //this method finds which targets are availible to a beast using a slash attack
+    //it takes into consideration the position of the attacker and the availible targets 
     List<Beast> findRowTargets()
     {
         List<Beast> targets = new List<Beast>();
@@ -503,7 +483,7 @@ public class BattleManager : MonoBehaviour
         }
         return targets;
     }
-
+    //this method goes through both slots untill it finds a mathching beast to the current turn and returning it's slot, and if it finds nothing it returns -1
     int getCurrentBeastSlot()
     {
         int slot = -1;
@@ -522,6 +502,7 @@ public class BattleManager : MonoBehaviour
         }
         return slot;
     }
+    //this method goes through both slots untill it finds a mathching beast the given beast and returning it's slot, and if it finds nothing it returns -1
     int getCurrentBeastSlot(Beast b)
     {
         int slot = -1;
@@ -535,7 +516,8 @@ public class BattleManager : MonoBehaviour
         }
         return slot;
     }
-
+    //this method finds which targets are availible to a beast using a stab attack
+    //it takes into consideration the position of the attacker and the availible targets 
     List<Beast> findColumnTargets()
     {
         List<Beast> targets = new List<Beast>();
@@ -640,7 +622,8 @@ public class BattleManager : MonoBehaviour
         }
         return targets;
     }
-
+    //this method determins whether the attacker is in the front or back row and adjusts targets as neccisary 
+    //it also initiates attacks
     public void Attack(Beast target)
     {
         bool inFront = this.inFront();
@@ -653,27 +636,31 @@ public class BattleManager : MonoBehaviour
         targets.Add(target);
 
 
-
+        //the if and else blocks here are identicle except for Move_A is switched with Move_B
         if (inFront)
         {
+            //determins if the move is healing and gets a freindly target based on lowest health proportional to max health
             if (currentTurn.Move_A.healing)
             {
                 targets.Clear();
                 targets.Add(this.getWeakestFriend());
                 cancelGuard = true;
             }
+            //changes targets to the front row (if there are front row targets) or back row(if there are no front row targets)
             else if (currentTurn.Move_A.rowAttack)
             {
                 targets.Clear();
                 targets = findRowTargets();
                 cancelGuard = true;
             }
+            //changes the targets to the column directly in front of the best, adjusting to the next column over when directly in front is unavailible
             else if (currentTurn.Move_A.columnAttack)
             {
                 targets.Clear();
                 targets = findColumnTargets();
                 cancelGuard = true;
             }
+            //certain attacks hit multiple times (think fury swipe from pokemon) this checks how many times to do the same attack
             else if (currentTurn.Move_A.multiAttack)
             {
                 targets.Clear();
@@ -716,6 +703,8 @@ public class BattleManager : MonoBehaviour
                 }
             }
         }
+        //this checks if there is a beast blocking the current target as well making sure there's nothing that would need to cancel the block 
+        //like healing for example
         if (guarded && !cancelGuard)
         {
             int slot = getCurrentBeastSlot(targets[targets.Count-1]);
@@ -759,7 +748,8 @@ public class BattleManager : MonoBehaviour
                 }
             }
         }
-
+        //this method currently needs improvment
+        //this method checks if the current turn beast is confused and will make them target a friendly beast
         if (currentTurn.statusTurns[(int)Move.types.Confusion] > 0)
         {
             targets.Clear();
@@ -772,7 +762,8 @@ public class BattleManager : MonoBehaviour
                 targets.Add(GetPlayerTarget());
             }
         }
-
+        //this checks if the current beast has a doom target
+        //this is to ensure that whomever has been targeted is still alive as to not kill them twice
         if (currentTurn.cursed != null)
         {
             if (currentTurn.cursed.hitPoints <= 0)
@@ -809,22 +800,12 @@ public class BattleManager : MonoBehaviour
             if (healthManager.playersLeft > 0 && healthManager.enemiesLeft > 0 && roundOrderTypes[turn] == "Enemy")
             {
                 StartCoroutine(EnemyAttack());
-                /*
-                if (!eRunning && !pRunning)
-                {
-                    StartCoroutine(EnemyAttack());
-                }
-                */
+                
             }
             else if (healthManager.enemiesLeft > 0 && healthManager.playersLeft > 0 && roundOrderTypes[turn] == "Player")
             {
                 StartCoroutine(PlayerAttack());
-                /*
-                if (!eRunning && !pRunning)
-                {
-                    StartCoroutine(PlayerAttack());
-                }
-                */
+                
             }
             turn = 0;
         }
@@ -880,7 +861,7 @@ public class BattleManager : MonoBehaviour
 
         return null;
     }
-
+    //plays the attacking animation for either front or back row attack depending on the bool
     void PlayAttackAnimation(bool inFront)
     {
         GameObject slot = getSlot();
@@ -888,7 +869,7 @@ public class BattleManager : MonoBehaviour
         if (inFront) slot.GetComponent<Animator>().SetTrigger("Front");
         else slot.GetComponent<Animator>().SetTrigger("Back");
     }
-
+    //this plays the damage animation for one or many beasts
     void PlayDamagedAnimation(List<Beast> targets)
     {
         foreach (Beast target in targets)
@@ -917,12 +898,11 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-
+    //starts the attacking cycle for the enemy
     IEnumerator EnemyAttack()
     {
         eRunning = true;
         yield return new WaitForSeconds(2f);
-        //eRunning = false;
         if (attackPool.Count > 0)
             Attack(GetEnemyTarget());
     }
@@ -935,6 +915,7 @@ public class BattleManager : MonoBehaviour
         Beast b = attackPool[rand];
         return b;
     }
+    //gets a random target from the enemy team
     Beast GetPlayerTarget()
     {
         int rand = Random.Range(0, enemyAttackPool.Count);
@@ -942,7 +923,7 @@ public class BattleManager : MonoBehaviour
         Beast b = enemyAttackPool[rand];        
         return b;
     }
-
+    //starts the attacking cycle for the player
     IEnumerator PlayerAttack()
     {
         pRunning = true;
@@ -952,7 +933,7 @@ public class BattleManager : MonoBehaviour
             Attack(selectedEnemy);
     }
 
-    //Get the row to determine whether the attacker is using an A move or a B move
+    //Get the row to determine whether the current turn beast is using an A move or a B move
     bool inFront()
     {
         for(int x = 0; x< slots.Count; x++)
@@ -964,7 +945,7 @@ public class BattleManager : MonoBehaviour
         }
         return false;
     }
-
+    //determins if the target has a given beast in front of them 
     bool guarded(Beast b)
     {
         if (inFront(b))
@@ -1007,7 +988,7 @@ public class BattleManager : MonoBehaviour
         }
         return false;
     }
-
+    //Get the row to determine whether a given beast is in the front or back row
     bool inFront(Beast b)
     {
         for (int x = 0; x < slots.Count; x++)
@@ -1121,12 +1102,12 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-
+    //gets the name of the static image for any given beast
     string GetImage(Beast beast)
     {
         return beast.static_img;
     }
-
+    //sets everyones turns to 0
     void ClearTurns()
     {   
             playersTurnsTaken.Clear();
@@ -1140,6 +1121,7 @@ public class BattleManager : MonoBehaviour
             enemiesTurnsTaken.Add(0);
             enemiesTurnsTaken.Add(0);  
     }  
+    //looks for which friendly unit has the lowest amount of health proportional to their max health
     Beast getWeakestFriend()
     {
         Beast b = currentTurn;
