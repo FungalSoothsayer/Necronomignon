@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * Handles the turn order and attacking in the demo battle scene
+ */
 public class DemoBattleManager : MonoBehaviour
 {
     public LoadDemoBattle loadDemoBattle;
@@ -10,24 +13,22 @@ public class DemoBattleManager : MonoBehaviour
     public Attack attack;
     public HealthManager healthManager;
 
-    public List<Image> slotImgs;
-    public List<Beast> slots;
-    public List<Image> orderImgs;
+    public List<Image> slotImgs; // Slots in the squad
+    public List<Beast> slots; // Beast in each slot including nulls
+    public List<Image> orderImgs; // Static images for the battle order
+    List<Beast> thisSquad = new List<Beast>(); // Squad being used in battle not including nulls
+    List<Beast> roundOrder = new List<Beast>(); // Order in which beasts attack
+    List<Beast> enemies = new List<Beast>(); // The target
 
     public int totalDamage;
     public Text totalDamageText;
-
-    List<Beast> thisSquad = new List<Beast>();
-    List<Beast> roundOrder = new List<Beast>();
-    List<Beast> enemies = new List<Beast>();
-
     int turn = 0;
     int totalMoves;
     int squadNumber;
-
     Beast currentTurn;
     Beast b;
 
+    // Start is called before the first frame update
     void Start()
     {
         b = new Beast();
@@ -47,21 +48,23 @@ public class DemoBattleManager : MonoBehaviour
         LoadOrder();
     }
 
+    // Update is called once per frame
     private void Update()
     {
         GameObject go = GameObject.Find("DefenceSlider");
+
+        // Slider used to modify targets defence
         if(go != null)
         {
             Slider slide = go.GetComponent<Slider>();
             enemies[0].defence = (int)slide.value;
         }
-        
     }
 
+    // Loads the animations of the players squad
     void LoadSquadImages()
     {
-        List<Beast> toLoad = new List<Beast>();
-
+        List<Beast> toLoad = new List<Beast>(); // Squad in use
         toLoad = squadData.GetSquadList(squadNumber);
 
         for(int x = 0; x < toLoad.Count; x++)
@@ -81,11 +84,13 @@ public class DemoBattleManager : MonoBehaviour
         }
     }
 
+    // Returns the static image of the beast
     string GetImage(Beast beast)
     {
         return beast.static_img;
     }
 
+    // Loads the order of attacks for a round
     void LoadOrder()
     {
         List<int> moves = new List<int>();
@@ -99,17 +104,20 @@ public class DemoBattleManager : MonoBehaviour
                 speeds.Add(thisSquad[x].speed);
             }
         }
+
         foreach(int x in moves)
         {
             totalMoves += x;
         }
 
-        int i = 0;
-
         speeds.Sort();
         speeds.Reverse();
 
-        while(i < totalMoves)
+        int i = 0;
+
+        // Adds beasts to the order
+        // When everyone has attacked once, repeat until nobody has any moves left
+        while (i < totalMoves)
         {
             for (int x = 0; x < thisSquad.Count; x++)
             {
@@ -124,17 +132,20 @@ public class DemoBattleManager : MonoBehaviour
                 }
             }
         }
+
         UpdateOrderBar();
     }
 
+    // Updates the order bar after each attack to show who is attacking next
     void UpdateOrderBar()
     {
         currentTurn = roundOrder[turn];
+
         for (int x = 0; x < orderImgs.Count; x++)
         {
             try
             {
-                orderImgs[x].sprite = Resources.Load<Sprite>("Static_Images/"+GetImage(roundOrder[x + turn]));
+                orderImgs[x].sprite = Resources.Load<Sprite>("Static_Images/" + GetImage(roundOrder[x + turn]));
             }
             catch
             {
@@ -143,15 +154,15 @@ public class DemoBattleManager : MonoBehaviour
         }
     }
 
+    // Attacks the target with whoevers turn it is
     public void Attack()
     {
         bool inFront = this.inFront();
 
         GameObject slot = getSlot();
+
         if (inFront) slot.GetComponent<Animator>().SetTrigger("Front");
         else slot.GetComponent<Animator>().SetTrigger("Back");
-        print(currentTurn.name);
-        print(b.defence);
 
         attack.InitiateAttack(currentTurn, b, inFront);
         totalDamageText.text = totalDamage.ToString();
@@ -159,6 +170,7 @@ public class DemoBattleManager : MonoBehaviour
         TakeTurn();
     }
 
+    // Uses a beasts turn when they attack and ends the round if they are the last beast in the round order
     void TakeTurn()
     {
         if (turn == totalMoves - 1)
@@ -174,7 +186,8 @@ public class DemoBattleManager : MonoBehaviour
             Debug.Log(currentTurn + "'s turn");
         }
     }
-
+     
+    // Returns true if the beast is in the front row
     bool inFront()
     {
         for (int x = 0; x < slots.Count; x++)
@@ -184,9 +197,11 @@ public class DemoBattleManager : MonoBehaviour
                 return true;
             }
         }
+
         return false;
     }
 
+    // Returns the slot that the current attacker is in
     GameObject getSlot()
     {
         for (int x = 0; x < slots.Count; x++)
