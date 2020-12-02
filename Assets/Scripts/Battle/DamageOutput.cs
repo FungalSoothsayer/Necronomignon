@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//animates the damage output
 public class DamageOutput : MonoBehaviour
 {
     public Text damageOut;
@@ -37,12 +38,6 @@ public class DamageOutput : MonoBehaviour
             anim.SetBool("isActive", false);
             damageOut.gameObject.SetActive(false);
         }
-
-
-
-    
-
-
 
     }
 
