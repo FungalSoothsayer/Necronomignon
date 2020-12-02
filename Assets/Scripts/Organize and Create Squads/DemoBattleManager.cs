@@ -19,6 +19,8 @@ public class DemoBattleManager : MonoBehaviour
     List<Beast> thisSquad = new List<Beast>(); // Squad being used in battle not including nulls
     List<Beast> roundOrder = new List<Beast>(); // Order in which beasts attack
     List<Beast> enemies = new List<Beast>(); // The target
+    List<int> moves = new List<int>(); // Number of moves per beast
+    List<int> speeds = new List<int>(); // Speeds of each beast
 
     public int totalDamage;
     public Text totalDamageText;
@@ -93,9 +95,6 @@ public class DemoBattleManager : MonoBehaviour
     // Loads the order of attacks for a round
     void LoadOrder()
     {
-        List<int> moves = new List<int>();
-        List<int> speeds = new List<int>();
-
         for (int x = 0; x < thisSquad.Count; x++)
         {
             if( thisSquad[x] != null)
