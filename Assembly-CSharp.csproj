@@ -62,31 +62,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AnimationPlayer.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Attack.cs" />
     <Compile Include="Assets\Scripts\Battle\AttackClick.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleManager.cs" />
+    <Compile Include="Assets\Scripts\Battle\Buff.cs" />
+    <Compile Include="Assets\Scripts\Battle\CheckLevel.cs" />
     <Compile Include="Assets\Scripts\Battle\DamageOutput.cs" />
     <Compile Include="Assets\Scripts\Battle\FriendlyClick.cs" />
     <Compile Include="Assets\Scripts\Battle\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Battle\HealthManager.cs" />
+    <Compile Include="Assets\Scripts\Battle\LevelChecker.cs" />
     <Compile Include="Assets\Scripts\Battle\LoadMission.cs" />
     <Compile Include="Assets\Scripts\Battle\LoadTutorial.cs" />
     <Compile Include="Assets\Scripts\Battle\MissionList.cs" />
     <Compile Include="Assets\Scripts\Battle\TutorialManager.cs" />
-    <Compile Include="Assets\Scripts\Beast.cs" />
-    <Compile Include="Assets\Scripts\BeastSummon.cs" />
-    <Compile Include="Assets\Scripts\Buff.cs" />
-    <Compile Include="Assets\Scripts\CheckLevel.cs" />
+    <Compile Include="Assets\Scripts\Data\Beast.cs" />
     <Compile Include="Assets\Scripts\Data\BeastList.cs" />
     <Compile Include="Assets\Scripts\Data\BeastManager.cs" />
+    <Compile Include="Assets\Scripts\Data\Move.cs" />
     <Compile Include="Assets\Scripts\Data\MoveList.cs" />
     <Compile Include="Assets\Scripts\Data\MoveManager.cs" />
     <Compile Include="Assets\Scripts\Data\Sound.cs" />
-    <Compile Include="Assets\Scripts\LevelChecker.cs" />
     <Compile Include="Assets\Scripts\LoadScenes.cs" />
-    <Compile Include="Assets\Scripts\Move.cs" />
     <Compile Include="Assets\Scripts\Organize and Create Squads\BeastSelect.cs" />
     <Compile Include="Assets\Scripts\Organize and Create Squads\CreateManager.cs" />
     <Compile Include="Assets\Scripts\Organize and Create Squads\CreatePoolLoader.cs" />
@@ -97,9 +95,11 @@
     <Compile Include="Assets\Scripts\Organize and Create Squads\SaveSquad.cs" />
     <Compile Include="Assets\Scripts\Organize and Create Squads\SlotSelect.cs" />
     <Compile Include="Assets\Scripts\Organize and Create Squads\SquadData.cs" />
-    <Compile Include="Assets\Scripts\QuizChoice.cs" />
-    <Compile Include="Assets\Scripts\Summon.cs" />
-    <Compile Include="Assets\Scripts\SummonBookLoader.cs" />
+    <Compile Include="Assets\Scripts\Organize and Create Squads\SummonBookLoader.cs" />
+    <Compile Include="Assets\Scripts\Summon\AnimationPlayer.cs" />
+    <Compile Include="Assets\Scripts\Summon\BeastSummon.cs" />
+    <Compile Include="Assets\Scripts\Summon\QuizChoice.cs" />
+    <Compile Include="Assets\Scripts\Summon\Summon.cs" />
     <None Include="Assets\SimplePixelUI\fonts\Font2\license.txt" />
     <None Include="Assets\ResolvedIssues.txt" />
     <None Include="Assets\JsonDotNet\link.xml" />
