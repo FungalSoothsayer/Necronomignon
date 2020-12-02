@@ -3,36 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * Handles all of the processes when creating a squad
+ */
 public class CreateManager : MonoBehaviour
 {
     public CreatePoolLoader createPoolLoader;
-    //public BeastManager beastManager;
 
-    public List<GameObject> slotObjs;
-    //List<Beast> beasts = new List<Beast>();
+    public List<GameObject> slotObjs; // Squad gameobjects
+    public List<Beast> slots; // Beasts that are in the squad slots
 
     public GameObject cancelButton;
     public GameObject removeButton;
     public GameObject moveDescription;
     public Text description;
-
-    public List<Beast> slots;
-
     public Beast selected;
     public int selectedIndex;
-
     public bool canBePlaced = true;
     public bool placing = false;
     public bool moving = false;
     public int placed = 0;
-
     public int selectedSlotID;
-
     public bool saveMode = false;
 
+    // Start is called before the first frame update
     void Start()
     {
-        //Set objects inactive to start
         foreach(GameObject go in slotObjs)
         {
             go.SetActive(false);
@@ -42,12 +38,14 @@ public class CreateManager : MonoBehaviour
         removeButton.SetActive(false);
     }
 
-    //Set all slot lights and cancel button active 
+    // Sets all slot lights and cancel button active for when a beast is being selected
     public void LightUpSlots()
     {
         moveDescription.SetActive(true);
         selected = createPoolLoader.summoned[selectedIndex + (createPoolLoader.counter * 9)];
-        for (int x = 0+ (createPoolLoader.counter*9); x < createPoolLoader.summoned.Count; x++)
+
+        // Sets the description of selected beast
+        for (int x = 0 + (createPoolLoader.counter * 9); x < createPoolLoader.summoned.Count; x++)
         {
             if (selected.name.Equals(createPoolLoader.summoned[x].name))
             {
@@ -56,6 +54,7 @@ public class CreateManager : MonoBehaviour
                 break;
             }
         }
+
         foreach (GameObject go in slotObjs)
         {
             go.SetActive(true);
@@ -64,10 +63,11 @@ public class CreateManager : MonoBehaviour
         cancelButton.SetActive(true);
     }
 
-    //Set all slots that do not have a beast placed in it to inactive
+    // Sets all slots that do not have a beast placed in them to inactive
     public void TurnOffSlots()
     {
         moveDescription.SetActive(false);
+
         for (int x = 0; x < slots.Count; x++)
         {
             if (slots[x] == null || slots[x].speed == 0)
@@ -79,7 +79,7 @@ public class CreateManager : MonoBehaviour
         cancelButton.SetActive(false);
     }
 
-    //Connected to cancel button
+    // Cancels all selections when cancel button is pressed
     public void Cancel()
     {
         TurnOffSlots();
@@ -90,20 +90,22 @@ public class CreateManager : MonoBehaviour
         if (placing) placing = false;
     }
 
-    //Connected to remove button
+    // Removes selected beast when remove button is pressed
     public void Remove()
     {
-        RemoveBeast();
+        RemoveImage();
         createPoolLoader.PutImageBack();
         RemoveSlotImage();
-        
     }
-    public void RemoveBeast()
+
+    // Removes image from a slot
+    public void RemoveImage()
     {
         GameObject.Find("Slot" + selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
         slots[selectedSlotID - 1] = null;
     }
-    //Remove the image in a slot and remove it from selected variables
+
+    // Removes the image in a slot and remove it from selected variables
     public void RemoveSlotImage()
     {
         GameObject.Find("Slot" + selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
@@ -118,17 +120,7 @@ public class CreateManager : MonoBehaviour
         removeButton.SetActive(false);
     }
 
-    public bool isAvailable(int x)
-    {
-        if (slots[x - 1] != null && slots[x-1].speed ==0)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    //Check to see if any more beasts can be placed
+    // Checks to see if any more beasts can be placed
     public void CheckPlaceable()
     {
         if(placed >= 4)
