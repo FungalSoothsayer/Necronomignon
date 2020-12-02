@@ -10,17 +10,17 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public CreatePoolLoader createPoolLoader;
 
     private bool mouse_over = false;
+
+    // Update is called once per frame
     void Update()
     {
         if (mouse_over)
         {
-            
-            //When mouse is clicked and cursor is over this image, light up the slots
+            //When mouse is clicked and cursor is over a beast in the pool, light up the slots
             if (Input.GetMouseButtonDown(0))
             {
                 if (NotSummoned() && !createManager.saveMode)
                 {
-                    
                     createManager.selectedIndex = GetThisBeast();
                     if (createManager.selectedIndex < createPoolLoader.summoned.Count)
                     {
@@ -29,28 +29,26 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                             createManager.LightUpSlots();
                             createManager.placing = true;
                         }
-                        createManager.selected = createPoolLoader.summoned[createManager.selectedIndex+(createPoolLoader.counter*9)];
+                        createManager.selected = createPoolLoader.summoned[createManager.selectedIndex+(createPoolLoader.counter * 9)];
                     }
-                    
-
                 }
             }
         }
     }
 
-    //When the cursor is over this image, make mouse_over true
+    // When the cursor is over this image, make mouse_over true
     public void OnPointerEnter(PointerEventData eventData)
     {
         mouse_over = true;
     }
 
-    //When cursor leaves this image, make mouse_over false
+    // When cursor leaves this image, make mouse_over false
     public void OnPointerExit(PointerEventData eventData)
     {
         mouse_over = false;
     }
 
-    //Get the index of the beast that is selected
+    // Gets the index of the beast that is selected
     private int GetThisBeast()
     {
         string str = gameObject.name;
@@ -63,7 +61,7 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         else return 0;
     }
 
-    //Check to make sure that this beast is not already in the grid
+    // Checks to make sure that this beast is not already in the grid
     bool NotSummoned()
     {
         if (GetThisBeast() >= createPoolLoader.summoned.Count)
@@ -84,11 +82,5 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             }
         }
         return true;
-        /*if (beast != null && !beast.Equals(createManager.slots[0]) && !beast.Equals(createManager.slots[1]) && !beast.Equals(createManager.slots[2])
-        && !beast.Equals(createManager.slots[3]) && !beast.Equals(createManager.slots[4]) && !beast.Equals(createManager.slots[5]))
-        {
-            return true;
-        }
-        else return false;*/
     }
 }
