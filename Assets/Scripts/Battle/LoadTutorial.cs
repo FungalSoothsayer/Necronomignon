@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//just toutorial
 public class LoadTutorial : MonoBehaviour
 {
     public static bool tutorialCompleted = false;

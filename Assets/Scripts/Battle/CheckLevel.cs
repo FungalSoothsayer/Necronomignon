@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//checks which levels are availible for the player
 public class CheckLevel : MonoBehaviour
 {
     public LevelChecker levelChecker;
@@ -25,6 +26,7 @@ public class CheckLevel : MonoBehaviour
             GameObject.Find("btnLevel3").SetActive(false);
         }
     }
+    //sends a string that represents which beasts should be sent as the enemy squad in mission list
     public void sendString(string str)
     {
         GameObject name = GameObject.Find("LevelData");

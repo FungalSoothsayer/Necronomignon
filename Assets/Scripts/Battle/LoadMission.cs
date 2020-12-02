@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+//prepares all information and data for battle
 public class LoadMission : MonoBehaviour
 {
     public SquadData squadData;
@@ -217,7 +219,7 @@ public class LoadMission : MonoBehaviour
         }
         return null;
     }
-
+    //plays death animation whenever someone dies
     IEnumerator PlayDeathAnimation(Beast toRemove, string owner)
     {
         yield return new WaitForSeconds(2f);

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//represents buffs that can be added to a beast
 [System.Serializable]
 public class Buff
 { 
@@ -13,6 +14,7 @@ public class Buff
     public int turnsLeft = 5;
     public bool isActive = false;
 
+    //various constructors 
     public Buff()
     {
 

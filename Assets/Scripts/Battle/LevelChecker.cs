@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//checks which levels are availible and sends the string to mission list
 public class LevelChecker : MonoBehaviour
 {
     static public int levels = 0;
@@ -19,13 +19,13 @@ public class LevelChecker : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
     }
-
+    //sets the lastclick string to whichever value was saved in the button clicked
     public void setLastClick(string levelName)
     {
         lastClick = levelName;
         print(lastClick);
     }
-
+    //unlocks the following level
     public void Progess(string levelName)
     {
         if (lastClick == "sample" && levels <= 0)
