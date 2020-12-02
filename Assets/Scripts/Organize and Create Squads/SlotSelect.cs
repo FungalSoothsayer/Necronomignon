@@ -74,7 +74,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void RemoveImage()
     {
         gameObject.GetComponent<Animator>().enabled = false;
-        gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Ellipse 1");
+        gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Static_Images/Ellipse 1");
         gameObject.GetComponent<Image>().color = Color.green;
     }
 

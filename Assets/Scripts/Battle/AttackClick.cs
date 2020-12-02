@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+//allows the user to click on an enemy to target them
 public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public BattleManager battleManager;
-    //public BeastManager beastManager;
 
     bool mouse_over;
     
@@ -30,7 +29,7 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             }
         }
     }
-
+    //runs whenever the mouse is over an object with this script
     public void OnPointerEnter(PointerEventData eventData)
     {
         mouse_over = true;
@@ -57,7 +56,7 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             return null; 
         }
     }
-
+    //gets the game object representing the beast
     GameObject GetSlot()
     {
         for (int x = 0; x < battleManager.enemySlots.Count; x++)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+//allows the player to click on a friendly target
 public class FriendlyClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public BattleManager battleManager;
@@ -64,7 +65,7 @@ public class FriendlyClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             return null;
         }
     }
-
+    //gets the slot that represents the beast
     GameObject GetSlot()
     {
         for (int x = 0; x < battleManager.slots.Count; x++)

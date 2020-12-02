@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//manages everything related to health
 public class HealthManager : MonoBehaviour
 {
     public BattleManager battleManager;
@@ -158,6 +159,7 @@ public class HealthManager : MonoBehaviour
         }
 
     }
+    //adds health to the given beast upto the beasts maxHP
     public void heal(Beast target, double heal)
     {
         for(int x = 0; x < 4; x++)
@@ -182,7 +184,7 @@ public class HealthManager : MonoBehaviour
             }
         }
     }
-
+    //prints the health left, needs to be updated to implement ui
     void DisplayHealthLeft(Beast target, int healthLeft)
     {
         Debug.Log(target.name + " has " + healthLeft + " health left.");

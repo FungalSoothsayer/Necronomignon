@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 //using System.Diagnostics;
 using UnityEngine;
-
+//organises and calculates damage on one or many beasts
 public class Attack : MonoBehaviour
 {
     public BeastManager beastManager;
@@ -14,6 +14,8 @@ public class Attack : MonoBehaviour
     float modifier = 1;
     int damage;
 
+    //old method, partially outdated and likely to be deleted
+    [System.ObsoleteAttribute("This is an old method, send your beast as a List<Beast> even if it only contains a single beast", true)]
     public void InitiateAttack(Beast attacker, Beast target, bool inFront)
     {
         print(target);
@@ -105,14 +107,14 @@ public class Attack : MonoBehaviour
 
         modifier = 1;
     }
-
+    //takes all beasts in targets and checks and adds status effects, kills if target is too doomed
     public void InitiateAttack(Beast attacker, List<Beast> targets, bool inFront)
     {
         if (beastManager.moveManager.movesList == null)
         {
             beastManager.moveManager.start();
         }
-
+        //running the method for each beast
         foreach (Beast target in targets)
         {
             if (attacker != null && target != null && attacker.speed != 0 && target.speed != 0 && attacker.statusTurns[(int)Beast.types.Water] <= 0 && target.hitPoints > 0)
@@ -303,6 +305,8 @@ public class Attack : MonoBehaviour
         return 1;
     }
 
+    //calculates the chance of status effect and adds it if it works
+    //also checks if the target is currupted enough to die
     void checkIfStatus(Beast attacker, Beast target, bool front)
     {
         if(attacker.cursed != null)
@@ -310,7 +314,6 @@ public class Attack : MonoBehaviour
             
             if (attacker.curse(target))
             {
-                print("215");
                 healthManager.UpdateHealth(target, target.hitPoints);
                 return;
             }
@@ -369,6 +372,8 @@ public class Attack : MonoBehaviour
             poisonMod = .85f;
         }
         //Calculates the damage if the attacker is in row A
+
+        //adjusts the modifier for each status effect on the attacker and target
         foreach(Buff bu in attacker.buffs)
         {
             if (!bu.defenceBuff)
@@ -398,11 +403,11 @@ public class Attack : MonoBehaviour
                 else
                 {
                     print("target minus");
-                    modifier += modifier * bu.change;
+                    modifier = modifier * bu.change;
                 }
             }
         }
-
+        //alters the attack and defence based on poisen or burn
         if (inFront)
         {
             dmg = (attacker.power* poisonMod) * attacker.Move_A.power / (target.defence*burnMod);
@@ -419,7 +424,7 @@ public class Attack : MonoBehaviour
         float vary2 = Random.Range(1, 20);
         vary += vary2 / 100;
         print("Damage before types = " + (int)(dmg * vary * modifier));
-        /*modifier *=*/ calculateType(attacker, target);
+         calculateType(attacker, target);
 
         damage = (int)(dmg * vary * modifier); //Convert damage to an integer
         Debug.Log("This is damage done " + damage);

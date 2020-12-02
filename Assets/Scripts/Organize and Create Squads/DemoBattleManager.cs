@@ -162,8 +162,12 @@ public class DemoBattleManager : MonoBehaviour
 
         if (inFront) slot.GetComponent<Animator>().SetTrigger("Front");
         else slot.GetComponent<Animator>().SetTrigger("Back");
+        print(currentTurn.name);
+        print(b.defence);
+        List<Beast> beThe = new List<Beast>();
+        beThe.Add(b);
 
-        attack.InitiateAttack(currentTurn, b, inFront);
+        attack.InitiateAttack(currentTurn, beThe, inFront);
         totalDamageText.text = totalDamage.ToString();
 
         TakeTurn();
