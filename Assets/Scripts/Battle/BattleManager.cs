@@ -505,6 +505,8 @@ public class BattleManager : MonoBehaviour
         int slot = getCurrentBeastSlot();
         if (roundOrderTypes[turn] == "Enemy")
         {
+            //this switch finds the column the attacker is in and find the most sutible target column determined by distance
+            //the aligned cloumn is always prioritised 
             switch (slot % 3)
             {
                 case 0:
@@ -693,6 +695,7 @@ public class BattleManager : MonoBehaviour
             Beast b = new Beast();
             if (roundOrderTypes[turn] == "Player")
             {
+                //this takes the slot of the targeted beast and finds the beast directly in front of it
                 for (int x = 3; x < enemySlots.Count; x++)
                 {
                     if (x == slot && enemySlots[x % 3] != null && enemySlots[x % 3].hitPoints > 0)
