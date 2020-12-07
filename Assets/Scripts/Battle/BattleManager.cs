@@ -398,6 +398,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
+            //this is to cover situations that would normally have no availible target
             if (targets.Count <= 0)
             {
                 for (int x = 0; x < enemySlots.Count; x++)
@@ -466,6 +467,7 @@ public class BattleManager : MonoBehaviour
     int getCurrentBeastSlot()
     {
         int slot = -1;
+        //loops through the slots for player and enemy beasts untill it finds thematching one
         for (int x = 0; x < slots.Count; x++)
         {
             if (roundOrderTypes[turn] == "Player" && currentTurn.Equals(slots[x]))
