@@ -67,33 +67,18 @@ public class BattleManager : MonoBehaviour
         enemies.Add(null);
         enemies.Add(null);
 
-        enemyAttackPool.Add(enemies[0]);
-        if (enemies[1] != null)
+
+        for(int x =0; x < 4; x++)
         {
-            enemyAttackPool.Add(enemies[1]);
-        }
-        else
-        {
-            enemiesActive[1] = false;
-            totalBeasts--;
-        }
-        if (enemies[2] != null)
-        {
-            enemyAttackPool.Add(enemies[2]);
-        }
-        else
-        {
-            enemiesActive[2] = false;
-            totalBeasts--;
-        }
-        if (enemies[3] != null)
-        {
-            enemyAttackPool.Add(enemies[3]);
-        }
-        else
-        {
-            enemiesActive[3] = false;
-            totalBeasts--;
+            if (enemies[x] != null)
+            {
+                enemyAttackPool.Add(enemies[x]);
+            }
+            else
+            {
+                enemiesActive[x] = false;
+                totalBeasts--;
+            }
         }
 
         players = thisSquad;
@@ -101,37 +86,21 @@ public class BattleManager : MonoBehaviour
         players.Add(null);
         players.Add(null);
 
-        attackPool.Add(players[0]);
-        if (players[1] != null)
+
+        for(int x = 0; x < 4; x++)
         {
-            
-            attackPool.Add(players[1]);
+            if (players[x] != null)
+            {
+
+                attackPool.Add(players[x]);
+            }
+            else
+            {
+                playersActive[x] = false;
+                totalBeasts--;
+            }
         }
-        else
-        {
-            playersActive[1] = false;
-            totalBeasts--;
-        }
-        if (players[2] != null)
-        {
-            
-            attackPool.Add(players[2]);
-        }
-        else
-        {
-            playersActive[2] = false;
-            totalBeasts--;
-        }
-        if (players[3] != null)
-        {
-            
-            attackPool.Add(players[3]);
-        }
-        else
-        {
-            playersActive[3] = false;
-            totalBeasts--;
-        }
+        
 
         for(int x = 0; x < 4; x++)
         {
@@ -160,6 +129,7 @@ public class BattleManager : MonoBehaviour
             enemySlots.Add(e[x]);
         }
     }
+    //old method to be removed
     public void GetSlots(Beast s1, Beast s2, Beast s3, Beast s4, Beast s5, Beast s6, Beast e1, Beast e2, Beast e3, Beast e4, Beast e5, Beast e6)
     {
         slots.Clear();
@@ -250,13 +220,14 @@ public class BattleManager : MonoBehaviour
         roundOrder.Clear();
         roundOrderTypes.Clear();
         //Loop through the speed array and find the corresponding beast and add them to the round order
+        //may also be the root of 'ultiamte crash'
         while (i < totalMoves)
         {
             for(int y = 0; y < 8; y++)
             {
                 for(int x = 0; x < 8; x++)
                 {
-                    if (x<4 && beastActive[x] && Speed[y] == players[x].speed/**playZap[x]*/ && moves[x] > 0 && !InWave("Player " + players[x].name, wave))
+                    if (x<4 && beastActive[x] && Speed[y] == players[x].speed && moves[x] > 0 && !InWave("Player " + players[x].name, wave))
                     {
                         roundOrder.Add(players[x]);
                         roundOrderTypes.Add("Player");
@@ -265,7 +236,7 @@ public class BattleManager : MonoBehaviour
                         i++;
                         break;
                     }
-                    else if(x>=4 && beastActive[x] && Speed[y] == enemies[x%4].speed/**enemZap[x%4]*/ && moves[x] > 0 && !InWave("Enemy " + enemies[x % 4].name, wave))
+                    else if(x>=4 && beastActive[x] && Speed[y] == enemies[x%4].speed && moves[x] > 0 && !InWave("Enemy " + enemies[x % 4].name, wave))
                     {
                         roundOrder.Add(enemies[x % 4]);
                         roundOrderTypes.Add("Enemy");
@@ -398,8 +369,10 @@ public class BattleManager : MonoBehaviour
         int slot = getCurrentBeastSlot();
         if (roundOrderTypes[turn] == "Player")
         {
+            //this for loop will aquier upto three targets from a single row
             for(int x = 0; x < enemySlots.Count; x++)
             {
+                //this if statment tries to get all three beasts in the front row
                 if (x < 3 && enemySlots[x] != null && enemySlots[x].hitPoints > 0)
                 {
                     if(slot+1 == x || slot == x || slot-1 == x)
@@ -407,14 +380,20 @@ public class BattleManager : MonoBehaviour
                         targets.Add(enemySlots[x]);
                     }
                 }
+                //this else if checks to see if any targets from the front row have been added and if so
+                //breaks the loop, if not addes the beasts from the back row
                 else if(x>=3 && enemySlots[x] != null && enemySlots[x].hitPoints > 0)
                 {
-                    if (targets.Count - (x - 3) >= 1)
+                    print("help");
+                    //this is the dynamic if to check for beasts in the front, I had to have it work dynamically or else it would never work
+                    if (x == 3 && targets.Count  >= 1)
                     {
                         break;
                     }
-                    if (slot + 1 == x || slot == x || slot - 1 == x)
+
+                    if (slot%3 + 1 == x%3 || slot%3 == x % 3 || slot % 3 - 1 == x % 3)
                     {
+                        print("slot " + x);
                         targets.Add(enemySlots[x]);
                     }
                 }

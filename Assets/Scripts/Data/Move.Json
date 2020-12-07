@@ -199,7 +199,7 @@
       "name": "Chrono Punch",
       "power": "10",
       "number_of_moves": "1",
-      "condition_chance": "0.69",
+      "condition_chance": "0.30",
       "type": "6",
       "description": "Base damage: 10 \n Attacks 2-5 times per attack.",
       "healing": "false",
