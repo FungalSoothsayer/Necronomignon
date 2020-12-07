@@ -16,7 +16,7 @@
     },
     {
       "name": "Dryad",
-      "maxHP": "45",
+      "maxHP": "450",
       "defence": "17",
       "power": "8",
       "speed": "32",
@@ -74,7 +74,7 @@
       "name": "Cthulhu",
       "maxHP": "100",
       "defence": "30",
-      "power": "150",
+      "power": "15",
       "speed": "64",
       "dexterity": "40",
       "number_MOVES": "3",
@@ -110,7 +110,7 @@
       "tier": "1",
       "type": "0",
       "static_img": "DreamSlime_Idle_60",
-      "moveA": "2",
+      "moveA": "3",
       "moveB": "15"
     },
     {
