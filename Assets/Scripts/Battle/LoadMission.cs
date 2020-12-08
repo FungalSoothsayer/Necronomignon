@@ -163,7 +163,7 @@ public class LoadMission : MonoBehaviour
                 activePlayerDamageBar.Add(null);
             } 
         }
-
+        //sets all health bars as active
         foreach(GameObject healthBar in slotHealthBars)
         {
             healthBar.SetActive(true);

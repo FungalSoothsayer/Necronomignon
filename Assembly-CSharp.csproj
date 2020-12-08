@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Data\MoveList.cs" />
     <Compile Include="Assets\Scripts\Data\MoveManager.cs" />
     <Compile Include="Assets\Scripts\Data\Sound.cs" />
+    <Compile Include="Assets\Scripts\Data\Values.cs" />
     <Compile Include="Assets\Scripts\LoadScenes.cs" />
     <Compile Include="Assets\Scripts\Organize and Create Squads\BeastSelect.cs" />
     <Compile Include="Assets\Scripts\Organize and Create Squads\CreateManager.cs" />

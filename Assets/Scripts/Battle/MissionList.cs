@@ -15,11 +15,12 @@ public class MissionList : MonoBehaviour
     {
         mission = LevelChecker.lastClick;
     }
-
+    //gets the beasts coresponding to the mission
     private void Awake()
     {
         
         mission = LevelChecker.lastClick;
+        //the default and static mission
         if (mission == "sample")
         {
             enemies.Add(beastManager.getFromName("Dryad")); //A1
@@ -29,14 +30,16 @@ public class MissionList : MonoBehaviour
             enemies.Add(null); //A3
             enemies.Add(beastManager.getFromName("Kitsune")); //B3
         }
+        //the mission with 4 randomly placed random beast
         if (mission == "random")
         {
             List<int> beast = new List<int>();
 
             int ran = -1;
 
-            while (beast.Count < 4)
+            while (beast.Count < Values.SQUADMAX)
             {
+                //randomly picks a beast based on it's number in the list
                 while (beast.Contains(ran) || ran == -1)
                 {
                     ran = Random.Range(0, BeastManager.beastsList.Beasts.Count);
@@ -52,6 +55,7 @@ public class MissionList : MonoBehaviour
 
             while (enemies.Count < 6)
             {
+                //loops random numbers that will go on to assigne to each beast a slot
                 while (position.Contains(ran) || ran == -1)
                 {
                     ran = Random.Range(0, 6);
@@ -67,13 +71,14 @@ public class MissionList : MonoBehaviour
                 }
             }
         }
+        //the mission with 1-4 random beast with random placement 
         if (mission == "randomer")
         {
             List<int> beast = new List<int>();
 
             int ran = -1;
 
-            int godhimself = Random.Range(1, 5);
+            int godhimself = Random.Range(1, Values.SQUADMAX+1);
 
             while (beast.Count < godhimself)
             {

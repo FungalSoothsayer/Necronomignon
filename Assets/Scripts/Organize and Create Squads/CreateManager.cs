@@ -123,7 +123,7 @@ public class CreateManager : MonoBehaviour
     // Checks to see if any more beasts can be placed
     public void CheckPlaceable()
     {
-        if(placed >= 4)
+        if(placed >= Values.SQUADMAX)
         {
             canBePlaced = false;
         }

@@ -33,7 +33,7 @@ public class BattleManager : MonoBehaviour
 
     public int turn = 0;
     int totalMoves;
-    int totalBeasts = 8;
+    int totalBeasts = Values.SQUADMAX*2;
 
     public Beast currentTurn;
     public Beast selectedEnemy;
@@ -44,8 +44,8 @@ public class BattleManager : MonoBehaviour
     public List<Beast> slots = new List<Beast>();
     public List<Beast> enemySlots;
 
-    public bool[] playersActive = { true, true, true, true };
-    public bool[] enemiesActive= {true, true, true, true};
+    public List<bool> playersActive = new List<bool>();
+    public List<bool> enemiesActive= new List<bool>();
 
     List<int> playersTurnsTaken = new List<int>();
     List<int> enemiesTurnsTaken = new List<int>();
@@ -54,21 +54,24 @@ public class BattleManager : MonoBehaviour
     public void SendLists(List<Beast> thisSquad, List<Beast> enemySquad, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth, List<DamageOutput> activePlayerDamage, List<DamageOutput> activeEnemyDamage)
     {
         selectedEnemy = enemySquad[0];
-        for(int x = 0; x < enemySquad.Count; x++)
+        for (int x = 0; x < enemySquad.Count; x++)
         {
-            if(enemySquad[x].hitPoints < selectedEnemy.hitPoints)
+            if (enemySquad[x].hitPoints < selectedEnemy.hitPoints)
             {
                 selectedEnemy = enemySquad[x];
             }
         }
 
         enemies = enemySquad;
-        enemies.Add(null);
-        enemies.Add(null);
-        enemies.Add(null);
+        while (enemies.Count < Values.SQUADMAX) { 
+            enemies.Add(null);
+        }
+        while (enemiesActive.Count < Values.SQUADMAX)
+        {
+            enemiesActive.Add(true);
+        }
 
-
-        for(int x =0; x < 4; x++)
+        for (int x =0; x < Values.SQUADMAX; x++)
         {
             if (enemies[x] != null)
             {
@@ -82,12 +85,16 @@ public class BattleManager : MonoBehaviour
         }
 
         players = thisSquad;
-        players.Add(null);
-        players.Add(null);
-        players.Add(null);
+        while (players.Count < Values.SQUADMAX)
+        {
+            players.Add(null);
+        }
+        while (playersActive.Count < Values.SQUADMAX)
+        {
+            playersActive.Add(true);
+        }
 
-
-        for(int x = 0; x < 4; x++)
+        for (int x = 0; x < Values.SQUADMAX; x++)
         {
             if (players[x] != null)
             {
@@ -102,7 +109,7 @@ public class BattleManager : MonoBehaviour
         }
         
 
-        for(int x = 0; x < 4; x++)
+        for(int x = 0; x < Values.SQUADMAX; x++)
         {
             if(players[x] != null)
             {
@@ -154,10 +161,11 @@ public class BattleManager : MonoBehaviour
     //The cause is unknown and this method is entegeral so either the issue must be found or the method must be re created from scratch
     void LoadOrder()
     {
-        int[] moves = new int[8];
+        int[] moves = new int[Values.SQUADMAX*2];
         //this loop takes the default amount of moves for the beast as well as the move the beast will be using
-        for(int x = 0; x < 4; x++)
+        for(int x = 0; x < Values.SQUADMAX; x++)
         {
+            print(playersActive.Count);
             if (playersActive[x] && players[x] != null)
             {
                 moves[x] = players[x].number_MOVES;
@@ -172,15 +180,15 @@ public class BattleManager : MonoBehaviour
             }
             if (enemiesActive[x] && enemies[x] != null)
             {
-                moves[x+4] = enemies[x].number_MOVES;
+                moves[x+ Values.SQUADMAX] = enemies[x].number_MOVES;
                 enemies[x].setAttacks();
                 if (inFront(enemies[x]))
                 {
-                    moves[x + 4] += enemies[x].Move_A.number_of_moves;
+                    moves[x + Values.SQUADMAX] += enemies[x].Move_A.number_of_moves;
                 }
                 else
                 {
-                    moves[x + 4] += enemies[x].Move_B.number_of_moves;
+                    moves[x + Values.SQUADMAX] += enemies[x].Move_B.number_of_moves;
                 }
 
             }
@@ -190,16 +198,16 @@ public class BattleManager : MonoBehaviour
 
         List<int> Speed = new List<int>();
         //this loop sorts by speed both freindly and enemy beasts with ties being broken by the player
-        for (int x = 0; x < 8; x++)
+        for (int x = 0; x < Values.SQUADMAX*2; x++)
         {
             
-            if (x < 4 && players[x] != null)
+            if (x < Values.SQUADMAX && players[x] != null)
             {
                 Speed.Add((int)Mathf.Floor((float)players[x].speed));
             }
-            else if (x > 3 && enemies[x % 4] != null)
+            else if (x > 3 && enemies[x % Values.SQUADMAX] != null)
             {
-                Speed.Add((int)Mathf.Floor((float)enemies[x % 4].speed ));
+                Speed.Add((int)Mathf.Floor((float)enemies[x % Values.SQUADMAX].speed ));
             }
             else
             {
@@ -207,7 +215,19 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        bool[] beastActive = { playersActive[0], playersActive[1], playersActive[2], playersActive[3], enemiesActive[0], enemiesActive[1], enemiesActive[2], enemiesActive[3] };
+       // bool[] beastActive = { playersActive[0], playersActive[1], playersActive[2], playersActive[3], enemiesActive[0], enemiesActive[1], enemiesActive[2], enemiesActive[3] };
+        List<bool> beastActive = new List<bool>();
+        for(int x = 0; x < Values.SQUADMAX*2; x++)
+        {
+            if (x < Values.SQUADMAX)
+            {
+                beastActive.Add(playersActive[x]);
+            }
+            else
+            {
+                beastActive.Add(enemiesActive[x % Values.SQUADMAX]);
+            }
+        }
         int i = 0;
 
         List<string> wave = new List<string>();
@@ -223,11 +243,11 @@ public class BattleManager : MonoBehaviour
         //may also be the root of 'ultiamte crash'
         while (i < totalMoves)
         {
-            for(int y = 0; y < 8; y++)
+            for(int y = 0; y < Values.SQUADMAX*2; y++)
             {
-                for(int x = 0; x < 8; x++)
+                for(int x = 0; x < Values.SQUADMAX * 2; x++)
                 {
-                    if (x<4 && beastActive[x] && Speed[y] == players[x].speed && moves[x] > 0 && !InWave("Player " + players[x].name, wave))
+                    if (x< Values.SQUADMAX && beastActive[x] && Speed[y] == players[x].speed && moves[x] > 0 && !InWave("Player " + players[x].name, wave))
                     {
                         roundOrder.Add(players[x]);
                         roundOrderTypes.Add("Player");
@@ -236,11 +256,11 @@ public class BattleManager : MonoBehaviour
                         i++;
                         break;
                     }
-                    else if(x>=4 && beastActive[x] && Speed[y] == enemies[x%4].speed && moves[x] > 0 && !InWave("Enemy " + enemies[x % 4].name, wave))
+                    else if(x>= Values.SQUADMAX && beastActive[x] && Speed[y] == enemies[x% Values.SQUADMAX].speed && moves[x] > 0 && !InWave("Enemy " + enemies[x % Values.SQUADMAX].name, wave))
                     {
-                        roundOrder.Add(enemies[x % 4]);
+                        roundOrder.Add(enemies[x % Values.SQUADMAX]);
                         roundOrderTypes.Add("Enemy");
-                        wave.Add("Enemy " + enemies[x % 4].name);
+                        wave.Add("Enemy " + enemies[x % Values.SQUADMAX].name);
                         moves[x]--;
                         i++;
                         break;
@@ -1056,21 +1076,22 @@ public class BattleManager : MonoBehaviour
     //Used to keep track of how much the turn variable has to be edited by when a beast gets knocked out
     void AddTurn()
     {
-        if (playersTurnsTaken.Count < 4)
+        if (playersTurnsTaken.Count < Values.SQUADMAX)
         {
             playersTurnsTaken.Clear();
-            playersTurnsTaken.Add(0);
-            playersTurnsTaken.Add(0);
-            playersTurnsTaken.Add(0);
-            playersTurnsTaken.Add(0);
+            while (playersTurnsTaken.Count < Values.SQUADMAX)
+            {
+                playersTurnsTaken.Add(0);
+            }
         }
-        if (enemiesTurnsTaken.Count < 4)
+        if (enemiesTurnsTaken.Count < Values.SQUADMAX)
         {
             enemiesTurnsTaken.Clear();
-            enemiesTurnsTaken.Add(0);
-            enemiesTurnsTaken.Add(0);
-            enemiesTurnsTaken.Add(0);
-            enemiesTurnsTaken.Add(0);
+            while (enemiesTurnsTaken.Count < Values.SQUADMAX)
+            {
+                enemiesTurnsTaken.Add(0);
+            }
+            
         }
 
         if (roundOrderTypes[turn] == "Player")
@@ -1113,7 +1134,7 @@ public class BattleManager : MonoBehaviour
         Beast b = currentTurn;
         if(roundOrderTypes[turn] == "Player")
         {
-            for (int x =0;x< 4;x++)
+            for (int x =0;x< Values.SQUADMAX;x++)
             {
                 //checks each friendly beasts proportional health remaining and campares it to who ever had the the prieviously lowest proportional health
                 //defaults on the healer
@@ -1127,7 +1148,7 @@ public class BattleManager : MonoBehaviour
         }
         else 
         {
-            for (int x =0; x< 4; x++)
+            for (int x =0; x< Values.SQUADMAX; x++)
             {
                 if (enemies[x] != null && b != null && enemiesActive[x] && ((double)enemies[x].hitPoints/ (double)enemies[x].maxHP) < ((double)b.hitPoints/ (double)b.maxHP))
                 {
