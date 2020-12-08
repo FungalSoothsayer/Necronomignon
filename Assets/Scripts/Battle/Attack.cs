@@ -175,8 +175,11 @@ public class Attack : MonoBehaviour
                 }
                 else if (!isMiss(attacker, target))
                 {
+                    //adjusts the modifier for a critical hit
                     modifier *= isCrit(attacker, target);
+                    //adjusts the modifier if the attack is blocked
                     modifier *= isGuard(attacker, target);
+                    //checks if a status effect can be added, or if there is enough corruption to kill the target
                     checkIfStatus(attacker, target, inFront);
                     CalculateDamage(attacker, target, inFront);
                 }
@@ -338,11 +341,13 @@ public class Attack : MonoBehaviour
             print("status effect on " + target.name);
             target.statusTurns[type] = 3;
         }
+        //this is where doom is cast, after this point doom is charged and completed in another place
         else if(rand < effectChance && type != (int)Move.types.Corrupt && type == (int)Move.types.Doom && target.statusTurns[type] <= 0)
         {
             print(target.name + " has been doomed");
             attacker.curse(target);
         }
+        //here is where corruption is added and if neccisary, deleted 
         else if(rand < effectChance && type == (int)Move.types.Corrupt)
         {
             target.statusTurns[type]++;
@@ -374,6 +379,7 @@ public class Attack : MonoBehaviour
         //Calculates the damage if the attacker is in row A
 
         //adjusts the modifier for each status effect on the attacker and target
+        //this checks buffs and debuffs for the attackers power
         foreach(Buff bu in attacker.buffs)
         {
             if (!bu.defenceBuff)
@@ -390,7 +396,7 @@ public class Attack : MonoBehaviour
                 }
             }
         }
-
+        //this checks buff and debuff that affect the targets defence
         foreach(Buff bu in target.buffs)
         {
             if (bu.defenceBuff)
@@ -462,6 +468,7 @@ public class Attack : MonoBehaviour
             {
                 print((Beast.types)attackertype[x]);
                 print((Beast.types)defendertype[y]);
+                //checks to make sure that neither type is normal, which as no strength or weakness
                 if ((attackertype[x] != (int)Beast.types.Normal) && (defendertype[y] != (int)Beast.types.Normal))
                 {
                     
