@@ -8,12 +8,11 @@ using Newtonsoft.Json;
 using System.Runtime.Versioning;
 
 
-/*
- * 
- */
+
 [System.Serializable]
 public class BeastManager : MonoBehaviour
 {
+    //to uniquly identify each beast
     static int givenId = 0;
     string path;
     string jsonString;
@@ -34,7 +33,7 @@ public class BeastManager : MonoBehaviour
         {          
             foreach (Beast beast in beastsList.Beasts)
             {
-                // print(beast);
+                // gives each beast a unique id
                 beast.id = givenId;
                 givenId++;
             }
@@ -63,13 +62,11 @@ public class BeastManager : MonoBehaviour
         jsonString = File.ReadAllText(path);
 
         beastsList = JsonUtility.FromJson<BeastList>(jsonString);
-        // print(JsonConvert.DeserializeObject(jsonString)); 
 
         if (jsonString != null)
         {
             foreach (Beast beast in beastsList.Beasts)
             {
-                //                print(beast);
                 beast.id = givenId;
                 givenId++;
             }
