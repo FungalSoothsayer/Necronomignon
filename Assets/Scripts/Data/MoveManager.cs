@@ -7,6 +7,10 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Runtime.Versioning;
 
+/*
+ * Handles the Json Parsing for Beasts moves in Move.json
+ */
+ 
 [System.Serializable]
 public class MoveManager : MonoBehaviour
 {
@@ -18,6 +22,7 @@ public class MoveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Parse through the Json file and put the moves in a list. 
         path = Application.dataPath + "/Scripts/Data/Move.json";
         jsonString = File.ReadAllText(path);
         movesList = JsonUtility.FromJson<MoveList>(jsonString);

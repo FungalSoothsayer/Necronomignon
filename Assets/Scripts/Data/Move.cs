@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-
+/*
+ * This is the object class for Moves 
+ */
 [System.Serializable]
 public class Move 
 {
+    //Values of a move object, these gets filled from the Move.Json
     public int move_id;
     public string name;
     public int power;
@@ -15,11 +18,13 @@ public class Move
     public bool rowAttack;
     public bool columnAttack;
     public bool multiAttack;
-    public Buff buff;
 
+    //Buff Object from the buff class
+    public Buff buff;
+    // Type object (Elements: Wind,Wate, Earth, Dark....) 
     public types type;
 
-
+    //To string
     public enum types { Sleep, Burn, Poison, Paralyze, Doom, Blind, Corrupt, Confusion};
     override
     public String ToString()
