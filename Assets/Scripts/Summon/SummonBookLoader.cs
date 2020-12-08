@@ -6,6 +6,11 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System;
 
+/*
+ * This class handles most of the logic behind the SummonMain scene
+ * it outputs the list of beasts in the Necronomignon
+ */
+
 public class SummonBookLoader : MonoBehaviour
 {
     static public string beastName;
@@ -99,15 +104,18 @@ public class SummonBookLoader : MonoBehaviour
         }
     }
 
+    //Changes Image set & arrow from the Summon Book
     public void Forward()
     {
         changeImages("Forward");
     }
 
+    //Changes Image set & arrow from the Summon Book
     public void Back()
     {
         changeImages("Back");
     }
+
 
     public void changeImages(string str)
     {
@@ -143,6 +151,7 @@ public class SummonBookLoader : MonoBehaviour
         }
     }
 
+    //Depending on the selected choice in the dropdown menu, will call the appropriate method
     public void SortImagesDropdown(int value)
     {
         if(value == 0)
