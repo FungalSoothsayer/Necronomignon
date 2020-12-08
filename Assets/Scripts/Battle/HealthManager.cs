@@ -11,7 +11,7 @@ public class HealthManager : MonoBehaviour
     public BattleManager battleManager;
     public LevelChecker levelChecker;
 
-    public int playersLeft = 4;
+    public int playersLeft = Values.SQUADMAX;
     public int enemiesLeft = 0;
 
     List<HealthBar> playerHealthBars = new List<HealthBar>();
@@ -64,52 +64,33 @@ public class HealthManager : MonoBehaviour
         playerDamageBar = activePlayerDamage;
         enemyDamageBar = activeEnemyDamage;
 
-        activePlayersHealth[0].SetMaxHealth(players[0].maxHP);
+        //checks if the player is not null and sets the max health of the health bar
+        for(int x = 0; x < activePlayersHealth.Count; x++)
+        {
+            if (players[x] != null)
+            {
+                activePlayersHealth[x].SetMaxHealth(players[x].maxHP);
+            }
+            else playersLeft--;
+        }
+        for(int x =0; x< activeEnemiesHealth.Count; x++)
+        {
+            if (opposing[x] != null)
+            {
+                enemiesLeft += 1;
+                activeEnemiesHealth[x].SetMaxHealth(opposing[x].maxHP);
+            }
+        }
         
-        if (players[1] != null)
-        {
-            activePlayersHealth[1].SetMaxHealth(players[1].maxHP);
-        }
-        else playersLeft--;
-        if (players[2] != null)
-        {
-            activePlayersHealth[2].SetMaxHealth(players[2].maxHP);
-        }
-        else playersLeft--;
-        if (players[3] != null)
-        {
-            activePlayersHealth[3].SetMaxHealth(players[3].maxHP);
-        }
-        else playersLeft--;
-        if (opposing[0] != null)
-        {
-            enemiesLeft += 1;
-            activeEnemiesHealth[0].SetMaxHealth(opposing[0].maxHP);
-        }
-        if (opposing[1] != null)
-        {
-            enemiesLeft += 1;
-            activeEnemiesHealth[1].SetMaxHealth(opposing[1].maxHP);
-        }
-        if (opposing[2] != null)
-        {
-            enemiesLeft += 1;
-            activeEnemiesHealth[2].SetMaxHealth(opposing[2].maxHP);
-        }
-        if (opposing[3] != null)
-        {
-            enemiesLeft += 1;
-            activeEnemiesHealth[3].SetMaxHealth(opposing[3].maxHP);
-        }
     }
 
     //Subtract the damage from the target's health
     public void UpdateHealth(Beast target, int damage)
     {
-
-        for(int x = 0; x< 4; x++)
+        //removes the health from beasts that have been attacked 
+        for(int x = 0; x< Values.SQUADMAX; x++)
         {
-
+            
             if (target == squad[x%squad.Count])
             {
                 if(squad[x % squad.Count].hitPoints <= 0)
@@ -163,7 +144,8 @@ public class HealthManager : MonoBehaviour
     //adds health to the given beast upto the beasts maxHP
     public void heal(Beast target, double heal)
     {
-        for(int x = 0; x < 4; x++)
+        //looks for the beast that needs to be healed and heals it up to it's max hp
+        for(int x = 0; x < Values.SQUADMAX; x++)
         {
             if(target == squad[x % squad.Count])
             {
@@ -218,7 +200,7 @@ public class HealthManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         victoryScreen.SetActive(true);
-        for(int x = 0; x < 4; x++)
+        for(int x = 0; x < Values.SQUADMAX; x++)
         {
             if(squad[x] != null)
             {
