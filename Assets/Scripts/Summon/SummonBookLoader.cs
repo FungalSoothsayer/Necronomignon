@@ -13,15 +13,19 @@ using System;
 
 public class SummonBookLoader : MonoBehaviour
 {
+    //Hold the values for the generating the beasts list
     static public string beastName;
     static public int counter = 0;
     static public int sortedBy = 0;
-
+    
+    //BeastManager Script object
     public BeastManager beastManager;
 
+    //Holds the name and Image of the beast that will be listed on a specific slot
     public List<GameObject> beastTexts;
     public List<Image> slots;
 
+    //Hold values for unlocked beasts 
     List<Beast> sorted = new List<Beast>();
     public List<string> summonedNames = new List<string>();
     public List<string> summonedImages = new List<string>();
@@ -32,6 +36,9 @@ public class SummonBookLoader : MonoBehaviour
     public GameObject forward;
     public Dropdown dropdown;
 
+    /*
+     * Will be called everytime the script is loaded, instantiate values for holding unlocked beasts 
+     */
     void Start()
     {
         if (!beastManager.isLoaded())
@@ -116,7 +123,7 @@ public class SummonBookLoader : MonoBehaviour
         changeImages("Back");
     }
 
-
+    
     public void changeImages(string str)
     {
         if (str == "Forward")
