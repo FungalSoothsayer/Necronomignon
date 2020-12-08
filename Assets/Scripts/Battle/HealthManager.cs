@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-//manages everything related to health
+/*
+ * This Class Manages everything related to health, initialises 
+ */
 public class HealthManager : MonoBehaviour
 {
     public BattleManager battleManager;
