@@ -824,6 +824,7 @@ public class BattleManager : MonoBehaviour
     {
         if (roundOrderTypes[turn] == "Player")
         {
+            //loops untill it finds the matching beast
             for (int x = 0; x < slots.Count; x++)
             {
                 if (slots[x] != null && currentTurn.name == slots[x].name)
@@ -860,6 +861,7 @@ public class BattleManager : MonoBehaviour
         {
             if (roundOrderTypes[turn] == "Player")
             {
+                //loops through the slots until it finds a matching beast to the target
                 for (int x = 0; x < enemySlots.Count; x++)
                 {
                     if (enemySlots[x] != null && enemySlots[x].name == target.name)
@@ -1113,6 +1115,8 @@ public class BattleManager : MonoBehaviour
         {
             for (int x =0;x< 4;x++)
             {
+                //checks each friendly beasts proportional health remaining and campares it to who ever had the the prieviously lowest proportional health
+                //defaults on the healer
                 if(players[x] != null && b != null && playersActive[x] && ((double)players[x].hitPoints/ (double)players[x].maxHP) < ((double)b.hitPoints/ (double)b.maxHP))
                 {
                     print(roundOrderTypes[turn]);
