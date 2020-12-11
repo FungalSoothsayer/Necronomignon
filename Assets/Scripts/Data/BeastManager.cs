@@ -8,13 +8,16 @@ using Newtonsoft.Json;
 using System.Runtime.Versioning;
 
 
+
 /*
  *  This class handles the creation of a Beast Object from the Json File    
  *  it also links Moves and Buffs objects to the Beast Object
  */
+
 [System.Serializable]
 public class BeastManager : MonoBehaviour
 {
+    //to uniquly identify each beast
     static int givenId = 0;
     string path;
     string jsonString;
@@ -35,7 +38,10 @@ public class BeastManager : MonoBehaviour
         {          
             foreach (Beast beast in beastsList.Beasts)
             {
-               
+      
+
+                // gives each beast a unique id
+
                 beast.id = givenId;
                 givenId++;
             }
@@ -65,13 +71,13 @@ public class BeastManager : MonoBehaviour
         jsonString = File.ReadAllText(path);
 
         beastsList = JsonUtility.FromJson<BeastList>(jsonString);
-      
+
 
         if (jsonString != null)
         {
             foreach (Beast beast in beastsList.Beasts)
             {
-                
+
                 beast.id = givenId;
                 givenId++;
             }
