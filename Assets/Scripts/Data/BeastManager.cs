@@ -7,8 +7,6 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Runtime.Versioning;
 
-
-
 /*
  *  This class handles the creation of a Beast Object from the Json File    
  *  it also links Moves and Buffs objects to the Beast Object
