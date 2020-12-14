@@ -29,11 +29,11 @@ public class BeastManager : MonoBehaviour
         path = Application.dataPath + "/Scripts/Data/Beast.json";
         jsonString = File.ReadAllText(path);
 
-       beastsList = JsonUtility.FromJson<BeastList>(jsonString);
 
 
         if (jsonString != null && beastsList.Beasts.Count <=0)
-        {          
+        {
+            beastsList = JsonUtility.FromJson<BeastList>(jsonString);
             foreach (Beast beast in beastsList.Beasts)
             {
       
@@ -68,11 +68,11 @@ public class BeastManager : MonoBehaviour
         path = Application.dataPath + "/Scripts/Data/Beast.json";
         jsonString = File.ReadAllText(path);
 
-        beastsList = JsonUtility.FromJson<BeastList>(jsonString);
 
 
-        if (jsonString != null)
+        if (jsonString != null && beastsList.Beasts.Count <= 0)
         {
+            beastsList = JsonUtility.FromJson<BeastList>(jsonString);
             foreach (Beast beast in beastsList.Beasts)
             {
 
@@ -114,6 +114,23 @@ public class BeastManager : MonoBehaviour
         {
             Start();
         }
+
+        Beast b = new Beast();
+        for (int x = 0; x < beastsList.Beasts.Count; x++)
+        {
+            if (str.Equals(beastsList.Beasts[x].name))
+            {
+                b = new Beast(beastsList.Beasts[x]);
+                b.id = givenId;
+                givenId++;
+                break;
+            }
+        }
+        return b;
+    }
+    public static Beast getFromNameS(String str)
+    {
+        
 
         Beast b = new Beast();
         for (int x = 0; x < beastsList.Beasts.Count; x++)

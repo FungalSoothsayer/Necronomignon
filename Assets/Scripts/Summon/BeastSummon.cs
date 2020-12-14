@@ -82,7 +82,7 @@ public class BeastSummon : MonoBehaviour
         {
             if (summoned)
             {
-                beastImage.sprite = Resources.Load<Sprite>("Boss Cthulhu-3");
+                beastImage.sprite = Resources.Load<Sprite>(beastManager.getFromName("Cthulhu").static_img);
                 if(rating == 1)
                 {
                     statGraph.sprite = Resources.Load<Sprite>("4864465");
