@@ -7,13 +7,15 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Runtime.Versioning;
 
-
 /*
- * 
+ *  This class handles the creation of a Beast Object from the Json File    
+ *  it also links Moves and Buffs objects to the Beast Object
  */
+
 [System.Serializable]
 public class BeastManager : MonoBehaviour
 {
+    //to uniquly identify each beast
     static int givenId = 0;
     string path;
     string jsonString;
@@ -21,25 +23,29 @@ public class BeastManager : MonoBehaviour
 
     public static BeastList beastsList = new BeastList();
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update, Handles the parsing of Beast.json file. 
     void Start()
     {
         path = Application.dataPath + "/Scripts/Data/Beast.json";
         jsonString = File.ReadAllText(path);
 
-     // print(JsonConvert.DeserializeObject(jsonString)); 
+
 
         if (jsonString != null && beastsList.Beasts.Count <=0)
         {
             beastsList = JsonUtility.FromJson<BeastList>(jsonString);
             foreach (Beast beast in beastsList.Beasts)
             {
-                // print(beast);
+      
+
+                // gives each beast a unique id
+
                 beast.id = givenId;
                 givenId++;
             }
         }
 
+        // Gets the Moves and sets them in the right object. 
         foreach(Beast beast in beastsList.Beasts)
         {
             beast.Move_A = getMove(beast.moveA);
@@ -62,14 +68,14 @@ public class BeastManager : MonoBehaviour
         path = Application.dataPath + "/Scripts/Data/Beast.json";
         jsonString = File.ReadAllText(path);
 
-        
-        // print(JsonConvert.DeserializeObject(jsonString)); 
+
 
         if (jsonString != null && beastsList.Beasts.Count <= 0)
         {
             beastsList = JsonUtility.FromJson<BeastList>(jsonString);
             foreach (Beast beast in beastsList.Beasts)
             {
+
                 beast.id = givenId;
                 givenId++;
             }
@@ -101,6 +107,7 @@ public class BeastManager : MonoBehaviour
         return mavi;
     }
 
+    //Returns a beast from the List of Beasts in the game, based on its name 
     public Beast getFromName(String str)
     {
         if(beastsList.Beasts.Count <= 0)

@@ -12,8 +12,8 @@ public class BattleManager : MonoBehaviour
     public bool pRunning = false;
 
     //These are the slot objects that hold the images for the Beast
-    public List<GameObject> playerPadSlots = new List<GameObject>(6);
-    public List<GameObject> enemyPadSlots = new List<GameObject>(6);
+    public List<GameObject> playerPadSlots = new List<GameObject>(Values.SLOTMAX);
+    public List<GameObject> enemyPadSlots = new List<GameObject>(Values.SLOTMAX);
 
     //These are Scripts given in unity 
     //NOTE: this script will crash if these scripts are not added before runtime
@@ -130,7 +130,7 @@ public class BattleManager : MonoBehaviour
     {
         slots.Clear();
         enemySlots.Clear();
-        for (int x = 0; x < 6; x++)
+        for (int x = 0; x < Values.SLOTMAX; x++)
         {
             slots.Add(s[x]);
             enemySlots.Add(e[x]);
@@ -206,6 +206,7 @@ public class BattleManager : MonoBehaviour
                 Speed.Add((int)Mathf.Floor((float)players[x].speed));
             }
             else if (x >= Values.SQUADMAX && enemies[x % Values.SQUADMAX] != null)
+
             {
                 Speed.Add((int)Mathf.Floor((float)enemies[x % Values.SQUADMAX].speed ));
             }
@@ -402,8 +403,8 @@ public class BattleManager : MonoBehaviour
                 }
                 //this else if checks to see if any targets from the front row have been added and if so
                 //breaks the loop, if not addes the beasts from the back row
-                else if(x>=(Values.SLOTMAX/2) && enemySlots[x] != null && enemySlots[x].hitPoints > 0)
-                {
+
+                else if(x>=(Values.SLOTMAX/2) && enemySlots[x] != null && enemySlots[x].hitPoints > 0){
                     print("help");
                     //this is the dynamic if to check for beasts in the front, I had to have it work dynamically or else it would never work
                     if (x == (Values.SLOTMAX/2) && targets.Count  >= 1)
@@ -411,7 +412,8 @@ public class BattleManager : MonoBehaviour
                         break;
                     }
 
-                    if (slot%(Values.SLOTMAX/2) + 1 == x%(Values.SLOTMAX/2) || slot%(Values.SLOTMAX/2) == x % (Values.SLOTMAX/2) || slot % (Values.SLOTMAX/2) - 1 == x % (Values.SLOTMAX/2))
+
+                    if (slot% (Values.SLOTMAX/2) + 1 == x% (Values.SLOTMAX / 2) || slot% (Values.SLOTMAX / 2) == x % (Values.SLOTMAX / 2) || slot % (Values.SLOTMAX / 2) - 1 == x % (Values.SLOTMAX / 2))
                     {
                         print("slot " + x);
                         targets.Add(enemySlots[x]);
@@ -428,6 +430,7 @@ public class BattleManager : MonoBehaviour
                             targets.Add(enemySlots[x]);                        
                     }
                     else if (x >= (Values.SLOTMAX/2) && enemySlots[x] != null && enemySlots[x].hitPoints > 0)
+
                     {
                         if (targets.Count>0)
                         {
@@ -444,6 +447,7 @@ public class BattleManager : MonoBehaviour
             for (int x = 0; x < slots.Count; x++)
             {
                 if (x < (Values.SLOTMAX/2) && slots[x] != null && slots[x].hitPoints >0)
+
                 {
                     if (slot + 1 == x || slot == x || slot - 1 == x)
                     {
@@ -453,6 +457,7 @@ public class BattleManager : MonoBehaviour
                 else if (x >= (Values.SLOTMAX/2) && slots[x] != null && slots[x].hitPoints > 0)
                 {
                     if (targets.Count - (x - (Values.SLOTMAX/2)) >= 1)
+
                     {
                         break;
                     }
@@ -471,6 +476,7 @@ public class BattleManager : MonoBehaviour
                         targets.Add(slots[x]);
                     }
                     else if (x >= (Values.SLOTMAX/2) && slots[x] != null && slots[x].hitPoints > 0)
+
                     {
                         if (targets.Count >0)
                         {
@@ -1036,10 +1042,10 @@ public class BattleManager : MonoBehaviour
         {
             if(enemiesTurnsTaken.Count() <= 0)
             {
-                enemiesTurnsTaken.Add(0);
-                enemiesTurnsTaken.Add(0);
-                enemiesTurnsTaken.Add(0);
-                enemiesTurnsTaken.Add(0);
+                while (enemiesTurnsTaken.Count < Values.SQUADMAX)
+                {
+                    enemiesTurnsTaken.Add(0);
+                }
             }
             for (int x = 0; x < enemies.Count; x++)
             {
