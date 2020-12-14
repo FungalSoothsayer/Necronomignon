@@ -146,9 +146,10 @@ public class SummonBookLoader : MonoBehaviour
             if (EventSystem.current.currentSelectedGameObject.name == "Slot" + x)
             {
                 beastName = summonedNames[(counter * 6) + x - 1];
-                if (sorted[(counter * 6) + x - 1].tier == 0)
+                if (/*sorted[(counter * 6) + x - 1].tier == 0 &&*/ hasAStory(beastName))
                 {
-                    SceneManager.LoadScene(beastName + "Page1");
+                    SummonManager.name = beastName;
+                    SceneManager.LoadScene("BeastStory");
                 }
                 else
                 {
@@ -156,6 +157,22 @@ public class SummonBookLoader : MonoBehaviour
                 }
             }
         }
+    }
+
+    public static bool hasAStory(string name)
+    {
+        for(int x = 0; x< StoryManager.storyList.Stories.Count;x++)
+        {
+            if(name == StoryManager.storyList.Stories[x].beast_name)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public bool hasAStory(Beast b)
+    {
+        return hasAStory(b.name);
     }
 
     //Depending on the selected choice in the dropdown menu, will call the appropriate method

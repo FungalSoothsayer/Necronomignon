@@ -1503,9 +1503,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd73c1056e8fd416bba68d411f519128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beastDatabase: {fileID: 1704188087}
   summoned: 0
   rating: 0
+  beastManager: {fileID: 0}
   beastImage: {fileID: 2067936439}
   statGraph: {fileID: 538764740}
   postSummonedItems: {fileID: 1895119531}

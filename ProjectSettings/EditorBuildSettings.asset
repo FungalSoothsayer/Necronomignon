@@ -62,25 +62,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle/Map.unity
     guid: 7a9f3f08b3bb44e5388c5de957b43470
-  - enabled: 1
-    path: Assets/Scenes/Battle/SampleLevel.unity
-    guid: 950f234063c7044ebbcb432d623ecd40
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Battle/Manoli.unity
     guid: 49f2bb9d65ba861468c16d478879f141
-  - enabled: 1
-    path: Assets/Scenes/Battle/BattleSceenes.unity
-    guid: dea74c0c5f81181488333c5f1d72091f
-  - enabled: 1
-    path: Assets/Scenes/Battle/RandomFight.unity
-    guid: 5fc1ae34d98b6c14b81dcf9c49c3f7fc
   - enabled: 0
-    path: Assets/Scenes/ViewBeast.unity
-    guid: 64bff430079405b4d8b2cf6a2775df6a
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Summon/BeastView.unity
     guid: e121134691fa65644b648b68431dc12a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Battle/RandomerFight.unity
-    guid: 7cd7c83d8466c2b4faf164b6452b862b
+    path: Assets/Scenes/Summon/BeastStory.unity
+    guid: 4f65166dd93462844821facf2c19befa
+  - enabled: 1
+    path: Assets/Scenes/Summon/BeastStats.unity
+    guid: 48121bdc6009c394f883c7f65a62579b
+  - enabled: 1
+    path: Assets/Scenes/Summon/BeastQuiz.unity
+    guid: aa0f68800a731d54eb6eb85db160a3f2
   m_configObjects: {}

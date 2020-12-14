@@ -6,8 +6,9 @@ public class Summon : MonoBehaviour
 {
 
     //Changes the status of the desired beast and set rating to 1
-    public void SummonBeast(Beast beast)
+    public void SummonBeast(string beast)
     {
-        beast.tier = 1;
+        Beast b = BeastManager.getFromNameS(beast);
+        b.tier = 1;
     }
 }
