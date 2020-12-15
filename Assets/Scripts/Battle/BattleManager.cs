@@ -129,7 +129,7 @@ public class BattleManager : MonoBehaviour
     public void GetSlots(List<Beast> s, List<Beast> e)
     {
         slots.Clear();
-        enemySlots.Clear();
+        enemySlots.Clear(); 
         for (int x = 0; x < Values.SLOTMAX; x++)
         {
             slots.Add(s[x]);
