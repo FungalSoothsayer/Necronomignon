@@ -25,6 +25,26 @@ public class CheckLevel : MonoBehaviour
         {
             GameObject.Find("btnLevel3").SetActive(false);
         }
+        if (LevelChecker.levels < 3)
+        {
+            GameObject.Find("btnLevel4").SetActive(false);
+        }
+        if (LevelChecker.levels < 4)
+        {
+            GameObject.Find("btnLevel5").SetActive(false);
+        }
+        if (LevelChecker.levels < 5)
+        {
+            GameObject.Find("btnLevel6").SetActive(false);
+        }
+        if (LevelChecker.levels < 6)
+        {
+            GameObject.Find("btnLevel7").SetActive(false);
+        }
+        if (LevelChecker.levels < 7)
+        {
+            GameObject.Find("btnLevel8").SetActive(false);
+        }
     }
     //sends a string that represents which beasts should be sent as the enemy squad in mission list
     public void sendString(string str)

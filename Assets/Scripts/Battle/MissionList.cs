@@ -21,6 +21,119 @@ public class MissionList : MonoBehaviour
         
         mission = LevelChecker.lastClick;
         //the default and static mission
+        if(mission == "first")
+        {
+            int ran = -1;
+            ran = Random.Range(-1, 5);
+            while(ran >= 0)
+            {
+                enemies.Add(null);
+                ran--;
+            }
+            enemies.Add(beastManager.getFromName("Kitsune"));
+            while (enemies.Count < 6)
+            {
+                enemies.Add(null);
+            }
+        }
+        if(mission == "second")
+        {
+            int ran = -1;
+            ran = Random.Range(-1, 2);
+            while (ran >= 0)
+            {
+                enemies.Add(null);
+                ran--;
+            }
+            enemies.Add(beastManager.getFromName("Dryad"));
+            while (enemies.Count < 3)
+            {
+                enemies.Add(null);
+            }
+            ran = -1;
+            ran = Random.Range(-1, 2);
+            while (ran >= 0)
+            {
+                enemies.Add(null);
+                ran--;
+            }
+            enemies.Add(beastManager.getFromName("Conglomerate"));
+            while (enemies.Count < 6)
+            {
+                enemies.Add(null);
+            }
+        }
+        if(mission == "third")
+        {
+            int poN = -1;
+            int poD = -1;
+            int poW = -1;
+            poN = Random.Range(0, 3);
+            while(poD == -1 || poD == poN)
+            {
+                poD = Random.Range(0, 3);
+            }
+            while(poW == -1 || poW == poN || poW == poD)
+            {
+                poW = Random.Range(0, 3);
+            }
+            for(int x = 0; x < 3; x++)
+            {
+                if (x == poN)
+                {
+                    enemies.Add(null);
+                }
+                else if (x == poD)
+                {
+                    enemies.Add(beastManager.getFromName("Dryad"));
+                }
+                else if (x == poW)
+                {
+                    enemies.Add(beastManager.getFromName("Wyvern"));
+                }
+            }
+            int ran = Random.Range(-1, 2);
+            while (ran >= 0)
+            {
+                enemies.Add(null);
+                ran--;
+            }
+            enemies.Add(beastManager.getFromName("Conglomerate"));
+            while (enemies.Count < 6)
+            {
+                enemies.Add(null);
+            }
+        }
+        if(mission == "fourth")
+        {
+            Beast b = new Beast();
+            int i = -1;
+            while(b.defence < 24)
+            {
+                i = Random.Range(0, BeastManager.beastsList.Beasts.Count);
+                b = BeastManager.getFromNameS(BeastManager.beastsList.Beasts[i].name);
+            }
+            enemies.Add(b);
+            enemies.Add(null);
+            enemies.Add(BeastManager.getFromNameS("DreamSlime"));
+            enemies.Add(BeastManager.getFromNameS("Dryad"));
+            enemies.Add(null);
+            b = new Beast();
+            do
+            {
+                i = Random.Range(0, BeastManager.beastsList.Beasts.Count);
+                b = BeastManager.getFromNameS(BeastManager.beastsList.Beasts[i].name);
+                if (enemies[0].name == b.name)
+                {
+                    print("Senario apocalypse");
+                    b.power = 1;
+                }
+
+
+            } while (b.power < 10 || b.name == "DreamSlime");
+            enemies.Add(b);
+
+        }
         if (mission == "sample")
         {
             enemies.Add(beastManager.getFromName("Dryad")); //A1
@@ -111,6 +224,184 @@ public class MissionList : MonoBehaviour
                 else
                 {
                     enemies.Add(beastManager.getFromName(BeastManager.beastsList.Beasts[beast[ran]].name));
+                }
+            }
+        }
+        if (mission == "bottom")
+        {
+            List<int> position = new List<int>();
+            int ran = -1;
+            while (position.Count < 6)
+            {
+                while (position.Contains(ran) || ran == -1)
+                {
+                    ran = Random.Range(0, 6);
+                }
+                position.Add(ran);
+
+            }
+            ran = Random.Range(0, 4);
+            List<string> beasts = new List<string>();
+            Beast b = new Beast();
+
+            while (beasts.Count < 4)
+            {
+                print(ran);
+
+                switch (ran)
+                {
+                    case 0:
+                        for (int x = 0; x < BeastManager.beastsList.Beasts.Count; x++)
+                        {
+                            if ((b.maxHP > BeastManager.beastsList.Beasts[x].maxHP || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
+                            {
+                                b = BeastManager.beastsList.Beasts[x];
+                            }
+                        }
+                        beasts.Add(b.name);
+                        break;
+                    case 1:
+                        for (int x = 0; x < BeastManager.beastsList.Beasts.Count; x++)
+                        {
+                            if ((b.power > BeastManager.beastsList.Beasts[x].power || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
+                            {
+
+                                b = BeastManager.beastsList.Beasts[x];
+
+                            }
+                        }
+                        print(b.name);
+                        beasts.Add(b.name);
+                        break;
+                    case 2:
+                        for (int x = 0; x < BeastManager.beastsList.Beasts.Count; x++)
+                        {
+                            if ((b.defence > BeastManager.beastsList.Beasts[x].defence || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
+                            {
+                                b = BeastManager.beastsList.Beasts[x];
+                            }
+                        }
+                        print(b.name);
+                        beasts.Add(b.name);
+                        break;
+                    case 3:
+                        for (int x = 0; x < BeastManager.beastsList.Beasts.Count; x++)
+                        {
+                            if ((b.speed > BeastManager.beastsList.Beasts[x].speed || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
+                            {
+                                b = BeastManager.beastsList.Beasts[x];
+                            }
+                        }
+                        print(b.name);
+                        beasts.Add(b.name);
+                        break;
+                }
+                
+                b = new Beast();
+            }
+            beasts.Add(null);
+            beasts.Add(null);
+            foreach(string str in beasts)
+            {
+                print(str);
+            }
+            for (int x = 0; x < beasts.Count; x++)
+            {
+                if (beasts[position[x]] == null || beasts[position[x]] == "")
+                {
+                    enemies.Add(null);
+                }
+                else
+                {
+                    print(beasts[position[x]]);
+                    enemies.Add(BeastManager.getFromNameS(beasts[position[x]]));
+                }
+            }
+        }
+        if (mission == "top")
+        {
+            List<int> position = new List<int>();
+            int ran = -1;
+            while (position.Count < 6)
+            {
+                while (position.Contains(ran) || ran == -1)
+                {
+                    ran = Random.Range(0, 6);
+                }
+                position.Add(ran);
+                
+            }
+            ran = Random.Range(0,4);
+            List<string> beasts = new List<string>();
+            Beast b = new Beast();
+            while (beasts.Count < 4)
+            {
+                print(ran);
+                if (ran == 0)
+                {
+                    for (int x = 0; x < BeastManager.beastsList.Beasts.Count; x++)
+                    {
+                        if ((b.maxHP < BeastManager.beastsList.Beasts[x].maxHP || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
+                        {
+                            b = BeastManager.beastsList.Beasts[x];
+                        }
+                    }
+                    print(b.name);
+                    beasts.Add(b.name);
+                }
+                else if (ran == 1)
+                {
+                    for (int x = 0; x < BeastManager.beastsList.Beasts.Count; x++)
+                    {
+                        if ((b.power < BeastManager.beastsList.Beasts[x].power || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
+                        {
+
+                            b = BeastManager.beastsList.Beasts[x];
+
+                        }
+                    }
+                    print(b.name);
+                    beasts.Add(b.name);
+                }
+                else if (ran == 2)
+                {
+                    for (int x = 0; x < BeastManager.beastsList.Beasts.Count; x++)
+                    {
+                        if ((b.defence < BeastManager.beastsList.Beasts[x].defence || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
+                        {
+                            b = BeastManager.beastsList.Beasts[x];
+                        }
+                    }
+                    print(b.name);
+                    beasts.Add(b.name);
+                }
+                else if (ran == 3)
+                {
+                    for (int x = 0; x < BeastManager.beastsList.Beasts.Count; x++)
+                    {
+                        if ((b.speed < BeastManager.beastsList.Beasts[x].speed || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
+                        {
+                            b = BeastManager.beastsList.Beasts[x];
+                        }
+                    }
+                    print(b.name);
+                    beasts.Add(b.name);
+
+                }
+                b = new Beast();
+            }
+            beasts.Add(null);
+            beasts.Add(null);
+            for (int x = 0; x < beasts.Count; x++)
+            {
+                if (beasts[position[x]] == null || beasts[position[x]] == "")
+                {
+                    enemies.Add(null);
+                }
+                else
+                {
+                    print(beasts[position[x]]);
+                    enemies.Add(BeastManager.getFromNameS(beasts[position[x]]));
                 }
             }
         }

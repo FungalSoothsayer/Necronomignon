@@ -165,7 +165,6 @@ public class BattleManager : MonoBehaviour
         //this loop takes the default amount of moves for the beast as well as the move the beast will be using
         for(int x = 0; x < Values.SQUADMAX; x++)
         {
-            print(playersActive.Count);
             if (playersActive[x] && players[x] != null)
             {
                 moves[x] = players[x].number_MOVES;
@@ -274,6 +273,10 @@ public class BattleManager : MonoBehaviour
         {
             currentTurn = roundOrder[turn];
             txtTurn.text = roundOrderTypes[0] + " " + currentTurn.name + "'s turn \n HP left: " + currentTurn.hitPoints;
+        }
+        if(turn > roundOrderTypes.Count)
+        {
+            turn--;
         }
         if (roundOrderTypes[turn] == "Enemy" && attackPool.Count > 0)
         {

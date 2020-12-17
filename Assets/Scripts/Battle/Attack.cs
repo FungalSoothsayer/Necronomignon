@@ -7,6 +7,7 @@ public class Attack : MonoBehaviour
 {
     public BeastManager beastManager;
     public DemoBattleManager demoBattleManager;
+    public BattleManager battleManager;
     public HealthManager healthManager;
 
     readonly Random Random = new Random();
@@ -113,6 +114,11 @@ public class Attack : MonoBehaviour
         if (beastManager.moveManager.movesList == null)
         {
             beastManager.moveManager.start();
+        }
+        if(attacker.hitPoints <= 0)
+        {
+            battleManager.RemoveBeast(attacker);
+            return;
         }
         //running the method for each beast
         foreach (Beast target in targets)
@@ -466,8 +472,6 @@ public class Attack : MonoBehaviour
         {
             for(int y = 0; y < defendertype.Length; y++)
             {
-                print((Beast.types)attackertype[x]);
-                print((Beast.types)defendertype[y]);
                 //checks to make sure that neither type is normal, which as no strength or weakness
                 if ((attackertype[x] != (int)Beast.types.Normal) && (defendertype[y] != (int)Beast.types.Normal))
                 {

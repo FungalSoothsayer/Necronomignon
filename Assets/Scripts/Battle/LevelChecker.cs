@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //checks which levels are availible and sends the string to mission list
@@ -28,17 +29,67 @@ public class LevelChecker : MonoBehaviour
     //unlocks the following level
     public void Progess(string levelName)
     {
-        if (lastClick == "sample" && levels <= 0)
+        if (lastClick == "first" && levels <= 0)
         {
             levels++;
+            unlock("Kitsune");
         }
-        else if (lastClick == "random" && levels <= 1)
+        else if (lastClick == "second" && levels <= 1)
         {
             levels++;
+            unlock("Dryad");
         }
-        else if (lastClick == "randomer" && levels <= 2)
+        else if (lastClick == "third" && levels <= 2)
         {
             levels++;
+            unlock("Wyvern");
+        }
+        else if (lastClick == "fourth" && levels <= 3)
+        {
+            levels++;
+            unlock("DreamSlime");
+        }
+        /*else if (lastClick == "sample" && levels <= 4)
+        {
+            levels++;
+        }*/
+        else if (lastClick == "randomer" && levels <= 4)
+        {
+            levels++;
+            unlock("Drakadin");
+        }
+        else if (lastClick == "random" && levels <= 5)
+        {
+            levels++;
+            unlock("ClockworkQueen");
+        }
+        else if (lastClick == "bottom" && levels <= 6)
+        {
+            levels++;
+            unlock("Zeograth");
+        }
+        else if (lastClick == "top" && levels <= 7)
+        {
+            levels++;
+            unlock("Cthulhu");
+        }
+    }
+
+    private void unlock(String name)
+    {
+        Beast b = new Beast();
+        int x = 0;
+        for (; x < BeastManager.beastsList.Beasts.Count; x++)
+        {
+            if (BeastManager.beastsList.Beasts[x].name == name)
+            {
+                b = BeastManager.beastsList.Beasts[x];
+                break;
+            }
+        }
+        if (b.tier < 0)
+        {
+            BeastManager.beastsList.Beasts[x].tier = 0;
         }
     }
 }
