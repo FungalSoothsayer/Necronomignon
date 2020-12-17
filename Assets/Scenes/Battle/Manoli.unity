@@ -10122,7 +10122,6 @@ GameObject:
   - component: {fileID: 1972296801}
   - component: {fileID: 1972296800}
   - component: {fileID: 1972296799}
-  - component: {fileID: 1972296798}
   - component: {fileID: 1972296797}
   - component: {fileID: 1972296796}
   - component: {fileID: 1972296795}
@@ -10228,6 +10227,7 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
+    secondType: 0
     moveA: -1
     Move_A:
       move_id: 0
@@ -10282,6 +10282,7 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
+    secondType: 0
     moveA: 0
     Move_A:
       move_id: 0
@@ -10336,6 +10337,7 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
+    secondType: 0
     moveA: 0
     Move_A:
       move_id: 0
@@ -10401,6 +10403,7 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
+    secondType: 0
     moveA: 0
     Move_A:
       move_id: 0
@@ -10454,6 +10457,7 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
+    secondType: 0
     moveA: 0
     Move_A:
       move_id: 0
@@ -10507,6 +10511,7 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
+    secondType: 0
     moveA: 0
     Move_A:
       move_id: 0
@@ -10560,6 +10565,7 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
+    secondType: 0
     moveA: 0
     Move_A:
       move_id: 0
@@ -10613,6 +10619,7 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
+    secondType: 0
     moveA: 0
     Move_A:
       move_id: 0
@@ -10666,6 +10673,7 @@ MonoBehaviour:
     tier: 0
     id: 0
     type: 0
+    secondType: 0
     moveA: 0
     Move_A:
       move_id: 0
@@ -10845,19 +10853,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beastManager: {fileID: 1972296791}
   demoBattleManager: {fileID: 0}
+  battleManager: {fileID: 1972296792}
   healthManager: {fileID: 1972296796}
---- !u!114 &1972296798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972296788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382bcd1d52fd04d0d9433edc4890a726, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1972296799
 MonoBehaviour:
   m_ObjectHideFlags: 0

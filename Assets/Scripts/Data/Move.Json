@@ -16,7 +16,7 @@
     {
       "move_id": "2",
       "name": "Shadow Ball",
-      "power": "30",
+      "power": "17",
       "number_of_moves": "2",
       "condition_chance": "0",
       "type": "4",
@@ -199,7 +199,7 @@
       "name": "Chrono Punch",
       "power": "10",
       "number_of_moves": "1",
-      "condition_chance": "0.30",
+      "condition_chance": "0.10",
       "type": "6",
       "description": "Base damage: 10 \n Attacks 2-5 times per attack.",
       "healing": "false",

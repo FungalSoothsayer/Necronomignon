@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class LoadStory : MonoBehaviour
 {
     int beastIndex = 0;
-    Text txt;
+    public Text txt;
+    public Text title;
     int counter = 0;
     public LoadScenes scenes;
     // Start is called before the first frame update
@@ -27,8 +28,8 @@ public class LoadStory : MonoBehaviour
                     break;
                 }
             }
-            txt = GameObject.Find("txtStory").GetComponent<Text>();
             txt.text = stoList[beastIndex].pages[0];
+            title.text = stoList[beastIndex].title;
         }
     }
 

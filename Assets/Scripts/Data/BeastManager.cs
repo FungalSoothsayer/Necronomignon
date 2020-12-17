@@ -133,6 +133,10 @@ public class BeastManager : MonoBehaviour
         
 
         Beast b = new Beast();
+        if(str == null)
+        {
+            return b;
+        }
         for (int x = 0; x < beastsList.Beasts.Count; x++)
         {
             if (str.Equals(beastsList.Beasts[x].name))
