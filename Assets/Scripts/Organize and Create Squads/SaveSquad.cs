@@ -53,6 +53,7 @@ public class SaveSquad : MonoBehaviour
             Beast be = new Beast();
             foreach(Beast b in createManager.slots)
             {
+                b.power += (int) ((double)b.power * (.25 * ((double)5 - (double)b.tier)));
                 squadData.AddToList(1, b);
             }
             squadData.ChangeSquadSavedStatus(1);
