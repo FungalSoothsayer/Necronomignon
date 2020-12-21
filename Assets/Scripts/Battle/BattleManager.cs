@@ -752,7 +752,7 @@ public class BattleManager : MonoBehaviour
                     targets.Add(targets[0]);
                 }
             }
-            else if (currentTurn.Move_B.multiAttack)
+            else if (!inFront && currentTurn.Move_B.multiAttack)
             {
                 int ran = Random.Range(1, 5);
                 for (; ran > 0; ran--)

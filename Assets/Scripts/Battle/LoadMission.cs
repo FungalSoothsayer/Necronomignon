@@ -175,6 +175,11 @@ public class LoadMission : MonoBehaviour
 
         for (int x = 0; x< playerSlot.Count; x++)
         {
+            //gives the players beasts a boost based on their tier
+            if(playerSlot[x] != null)
+            {
+                playerSlot[x].power += (int)(playerSlot[x].power * (.1 * (playerSlot[x].tier - 1)));
+            }
             pb.Add(playerSlot[x]);
             eb.Add(enemySlot[x]);
         }

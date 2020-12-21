@@ -42,7 +42,7 @@ public class CreateManager : MonoBehaviour
     public void LightUpSlots()
     {
         moveDescription.SetActive(true);
-        selected = createPoolLoader.summoned[selectedIndex + (createPoolLoader.counter * 9)];
+        selected = BeastManager.getFromNameS(createPoolLoader.summoned[selectedIndex + (createPoolLoader.counter * 9)].name);
 
         // Sets the description of selected beast
         for (int x = 0 + (createPoolLoader.counter * 9); x < createPoolLoader.summoned.Count; x++)

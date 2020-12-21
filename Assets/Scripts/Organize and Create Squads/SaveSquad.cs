@@ -50,6 +50,7 @@ public class SaveSquad : MonoBehaviour
         if (squadNumber == 1)
         {
             squadData.ClearList(1);
+            Beast be = new Beast();
             foreach(Beast b in createManager.slots)
             {
                 squadData.AddToList(1, b);
