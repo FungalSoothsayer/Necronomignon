@@ -942,7 +942,7 @@ MonoBehaviour:
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
-  slotID: 4
+  slotID: 5
 --- !u!95 &304713798
 Animator:
   serializedVersion: 3
@@ -2167,10 +2167,120 @@ MonoBehaviour:
   - {fileID: 1048798027}
   - {fileID: 469339005}
   - {fileID: 793087384}
+  - {fileID: 853755508}
   - {fileID: 304713793}
   - {fileID: 891539766}
   - {fileID: 1246635156}
+  - {fileID: 936611700}
   slots:
+  - name: 
+    maxHP: 0
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    secondType: 0
+    moveA: 0
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      number_of_moves: 0
+      condition_chance: 0
+      description: 
+      healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
+      type: 0
+    moveB: 0
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      number_of_moves: 0
+      condition_chance: 0
+      description: 
+      healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
+      type: 0
+    static_img: 
+    buffs: []
+    statusTurns: 000000000000000000000000000000000000000000000000
+    curseCharge: 0
+  - name: 
+    maxHP: 0
+    hitPoints: 0
+    defence: 0
+    power: 0
+    speed: 0
+    dexterity: 0
+    number_MOVES: 0
+    tier: 0
+    id: 0
+    type: 0
+    secondType: 0
+    moveA: 0
+    Move_A:
+      move_id: 0
+      name: 
+      power: 0
+      number_of_moves: 0
+      condition_chance: 0
+      description: 
+      healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
+      type: 0
+    moveB: 0
+    Move_B:
+      move_id: 0
+      name: 
+      power: 0
+      number_of_moves: 0
+      condition_chance: 0
+      description: 
+      healing: 0
+      rowAttack: 0
+      columnAttack: 0
+      multiAttack: 0
+      buff:
+        upBuff: 0
+        defenceBuff: 0
+        change: 0
+        turnsLeft: 5
+        isActive: 0
+      type: 0
+    static_img: 
+    buffs: []
+    statusTurns: 000000000000000000000000000000000000000000000000
+    curseCharge: 0
   - name: 
     maxHP: 0
     hitPoints: 0
@@ -2768,7 +2878,7 @@ MonoBehaviour:
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
-  slotID: 6
+  slotID: 4
 --- !u!114 &853755512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3110,7 +3220,7 @@ MonoBehaviour:
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
-  slotID: 5
+  slotID: 6
 --- !u!95 &891539771
 Animator:
   serializedVersion: 3
@@ -3373,7 +3483,7 @@ MonoBehaviour:
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
-  slotID: 6
+  slotID: 8
 --- !u!114 &936611704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4001,7 +4111,7 @@ MonoBehaviour:
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
-  slotID: 6
+  slotID: 7
 --- !u!95 &1246635161
 Animator:
   serializedVersion: 3
