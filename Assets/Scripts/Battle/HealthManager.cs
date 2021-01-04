@@ -30,7 +30,7 @@ public class HealthManager : MonoBehaviour
     //Get the health for each beast in play from BeastDatabase
     public void GetHealth(List<Beast> players, List<Beast> opposing, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth, List<DamageOutput> activePlayerDamage, List<DamageOutput> activeEnemyDamage)
     {
-        for (int i = 5; i >= 0; i--)
+        for (int i = 7; i >= 0; i--)
         {
             if (activePlayersHealth[i] == null)
             {
@@ -43,7 +43,7 @@ public class HealthManager : MonoBehaviour
             }
         }
 
-        for (int i = 5; i >= 0; i--)
+        for (int i = 7; i >= 0; i--)
         {
             if (activeEnemiesHealth[i] == null)
             {
@@ -73,7 +73,7 @@ public class HealthManager : MonoBehaviour
             }
             else playersLeft--;
         }
-        for(int x =0; x< activeEnemiesHealth.Count; x++)
+        for(int x = 0; x< activeEnemiesHealth.Count; x++)
         {
             if (opposing[x] != null)
             {

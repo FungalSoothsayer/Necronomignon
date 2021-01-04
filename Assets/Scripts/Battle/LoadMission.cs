@@ -34,11 +34,11 @@ public class LoadMission : MonoBehaviour
     public List<Image> playerSlotImg;
 
     
-    public List<Beast> playerSlot = new List<Beast>(6);
+    public List<Beast> playerSlot = new List<Beast>(8);
     
     public List<Image> enemySlotImg;
     
-    public List<Beast> enemySlot = new List<Beast>(6);
+    public List<Beast> enemySlot = new List<Beast>(8);
 
     List<Beast> thisSquad = new List<Beast>();
     List<Beast> toLoad = new List<Beast>();

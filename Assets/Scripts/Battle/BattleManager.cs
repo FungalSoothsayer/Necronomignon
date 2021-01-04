@@ -33,7 +33,7 @@ public class BattleManager : MonoBehaviour
 
     public int turn = 0;
     int totalMoves;
-    int totalBeasts = Values.SQUADMAX*2;
+    int totalBeasts = Values.SQUADMAX * 2;
 
     public Beast currentTurn;
     public Beast selectedEnemy;
@@ -161,7 +161,7 @@ public class BattleManager : MonoBehaviour
     //The cause is unknown and this method is entegeral so either the issue must be found or the method must be re created from scratch
     void LoadOrder()
     {
-        int[] moves = new int[Values.SQUADMAX*2];
+        int[] moves = new int[Values.SQUADMAX * 2];
         //this loop takes the default amount of moves for the beast as well as the move the beast will be using
         for(int x = 0; x < Values.SQUADMAX; x++)
         {
