@@ -42,18 +42,8 @@ public class CreateManager : MonoBehaviour
     public void LightUpSlots()
     {
         moveDescription.SetActive(true);
-        selected = BeastManager.getFromNameS(createPoolLoader.summoned[selectedIndex + (createPoolLoader.counter * 9)].name);
-
-        // Sets the description of selected beast
-        for (int x = 0 + (createPoolLoader.counter * 9); x < createPoolLoader.summoned.Count; x++)
-        {
-            if (selected.name.Equals(createPoolLoader.summoned[x].name))
-            {
-                description.GetComponent<Text>().text = "\n\nIn the front row \n" + selected.Move_A.description + 
-                    "\n\nIn the back row \n" + selected.Move_B.description;
-                break;
-            }
-        }
+        selected = createPoolLoader.summoned[selectedIndex + (createPoolLoader.counter * 9)];
+        selected.setAttacks();
 
         foreach (GameObject go in slotObjs)
         {
@@ -61,6 +51,21 @@ public class CreateManager : MonoBehaviour
         }
 
         cancelButton.SetActive(true);
+    }
+
+    public void ShowMoveDescription()
+    {
+        // Sets the description of selected beast
+        print(selected);
+        for (int x = 0 + (createPoolLoader.counter * 9); x < createPoolLoader.summoned.Count; x++)
+        {
+            if (selected.name.Equals(createPoolLoader.summoned[x].name))
+            {
+                description.GetComponent<Text>().text = "\n\nIn the front row \n" + selected.Move_A.description +
+                    "\n\nIn the back row \n" + selected.Move_B.description;
+                break;
+            }
+        }
     }
 
     // Sets all slots that do not have a beast placed in them to inactive
