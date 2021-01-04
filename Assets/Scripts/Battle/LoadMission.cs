@@ -178,7 +178,11 @@ public class LoadMission : MonoBehaviour
             //gives the players beasts a boost based on their tier
             if(playerSlot[x] != null)
             {
-                playerSlot[x].power += (int)(playerSlot[x].power * (.1 * (playerSlot[x].tier - 1)));
+                playerSlot[x].power += (int)(playerSlot[x].power * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
+                playerSlot[x].defence += (int)(playerSlot[x].defence * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
+                playerSlot[x].speed += (int)(playerSlot[x].speed * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
+                playerSlot[x].dexterity += (int)(playerSlot[x].dexterity * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
+                playerSlot[x].maxHP += (int)(playerSlot[x].maxHP * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
             }
             pb.Add(playerSlot[x]);
             eb.Add(enemySlot[x]);
