@@ -66,7 +66,6 @@ public class Beast
         bm.moveManager.start();
         this.Move_A = bm.getMove(this.moveA);
         this.Move_B = bm.getMove(this.moveB);
-
     }
 
     public bool curse(Beast target)
@@ -105,6 +104,8 @@ public class Beast
         str += "Moves = " + number_MOVES + "\n";
         str += "Tier = " + tier + "\n";
         str += "img = " + static_img + "\n";
+        str += "Move A = " + Move_A + "\n";
+        str += "Move B = " + Move_B + "\n";
         return str;
     }
     override

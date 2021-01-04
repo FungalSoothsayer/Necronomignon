@@ -92,7 +92,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         char chr = (gameObject.name).ToCharArray()[gameObject.name.Length - 1];
         int num = int.Parse(chr.ToString());
-        
+
         createManager.slots[num - 1] = createManager.selected;
 
         thisBeast = createManager.selected;
@@ -113,6 +113,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         createManager.selectedIndex = thisBeastIndex;
         createManager.selectedSlotID = slotID;
         createManager.LightUpSlots();
+        createManager.ShowMoveDescription();
         createManager.removeButton.SetActive(true);
         createManager.moving = true;
     }
