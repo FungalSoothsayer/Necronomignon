@@ -572,30 +572,38 @@ MonoBehaviour:
   - {fileID: 1188080941}
   - {fileID: 1124029201}
   - {fileID: 413639200}
+  - {fileID: 1092314513}
   - {fileID: 1111059678}
   - {fileID: 1396769114}
   - {fileID: 269105485}
+  - {fileID: 561004917}
   squad2Slots:
   - {fileID: 1437938325}
   - {fileID: 305069051}
   - {fileID: 1122432607}
+  - {fileID: 1856350090}
   - {fileID: 1015680390}
   - {fileID: 200855168}
   - {fileID: 798131338}
+  - {fileID: 1157850929}
   S1S:
   - {fileID: 1188080943}
   - {fileID: 1124029203}
   - {fileID: 413639202}
+  - {fileID: 1092314516}
   - {fileID: 1111059680}
   - {fileID: 1396769116}
   - {fileID: 269105487}
+  - {fileID: 561004920}
   S2S:
   - {fileID: 1437938327}
   - {fileID: 305069053}
   - {fileID: 1122432609}
+  - {fileID: 1856350093}
   - {fileID: 1015680392}
   - {fileID: 200855170}
   - {fileID: 798131340}
+  - {fileID: 1157850932}
   squad1Text: {fileID: 1549405926}
   squad2Text: {fileID: 1390161496}
 --- !u!114 &443206365
