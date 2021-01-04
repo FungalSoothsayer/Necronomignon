@@ -65,7 +65,7 @@ public class HealthManager : MonoBehaviour
         enemyDamageBar = activeEnemyDamage;
 
         //checks if the player is not null and sets the max health of the health bar
-        for(int x = 0; x < activePlayersHealth.Count; x++)
+        for(int x = 0; x < players.Count; x++)
         {
             if (players[x] != null)
             {
@@ -179,7 +179,7 @@ public class HealthManager : MonoBehaviour
         playersLeft--;
         if (playersLeft <= 0)
         {
-            Debug.Log("Opposing Team Wins. Better Luck Nex Time.");
+            Debug.Log("Opposing Team Wins. Better Luck Next Time.");
             StartCoroutine(LoadMap());
         }
     }
