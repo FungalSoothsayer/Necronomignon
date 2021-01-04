@@ -87,7 +87,7 @@ public class LevelChecker : MonoBehaviour
                 break;
             }
         }
-        if (b.tier < 0)
+        if (b.tier == -1)
         {
             BeastManager.beastsList.Beasts[x].tier = 0;
         }
