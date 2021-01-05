@@ -62,7 +62,7 @@ public class LoadMission : MonoBehaviour
             missionList.mission = "random";
         }
 
-        playerPad.SetActive(false);
+        //playerPad.SetActive(false);
         if (!squadData.GetSquad1Status())
         {
             btnSquad1.SetActive(false);
@@ -75,7 +75,7 @@ public class LoadMission : MonoBehaviour
         }
         if (squadMissing == 2)
         {
-            txtInfo.SetActive(true);
+            //txtInfo.SetActive(true);
         }
         else
         {
