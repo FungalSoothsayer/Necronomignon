@@ -274,7 +274,7 @@ public class BattleManager : MonoBehaviour
             currentTurn = roundOrder[turn];
             txtTurn.text = roundOrderTypes[0] + " " + currentTurn.name + "'s turn \n HP left: " + currentTurn.hitPoints;
         }
-        if(turn > roundOrderTypes.Count)
+        while((1+turn) > roundOrderTypes.Count)
         {
             turn--;
         }
