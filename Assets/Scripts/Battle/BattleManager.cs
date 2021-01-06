@@ -40,6 +40,7 @@ public class BattleManager : MonoBehaviour
     public Beast selectedFriend;
 
     public List<Image> orderBar = new List<Image>();
+    public List<Image> orderBarOutlines = new List<Image>();
 
     public List<Beast> slots = new List<Beast>();
     public List<Beast> enemySlots;
@@ -312,6 +313,11 @@ public class BattleManager : MonoBehaviour
     {
         currentTurn = roundOrder[turn];
 
+        foreach(Image outline in orderBarOutlines)
+        {
+            outline.gameObject.SetActive(true);
+        }
+
         for (int x = 0; x < orderBar.Count; x++)
         {
             try
@@ -321,21 +327,17 @@ public class BattleManager : MonoBehaviour
                 //Work in progress to get an outline to show player or enemy
                 if (roundOrderTypes[x + turn].Equals("Player"))
                 {
-                    orderBar[x].GetComponent<Outline>().effectColor = Color.blue;
+                    orderBarOutlines[x].GetComponent<Outline>().effectColor = Color.blue;
                 }
                 else if (roundOrderTypes[x + turn].Equals("Enemy"))
                 {
-                    orderBar[x].GetComponent<Outline>().effectColor = Color.red;
+                    orderBarOutlines[x].GetComponent<Outline>().effectColor = Color.red;
                 }
-                else
-                {
-                    orderBar[x].GetComponent<Outline>().effectColor = Color.clear;
-                }
-
             }
             catch
             {
                 orderBar[x].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
+                orderBarOutlines[x].gameObject.SetActive(false);
             }
         }
     }
