@@ -212,7 +212,7 @@ public class LoadMission : MonoBehaviour
     //Get the slot to remove the image from
     Image GetImageToRemove(Beast beast, string owner)
     {
-        for (int x = 0; x < 6; x++)
+        for (int x = 0; x < 8; x++)
         {
             if (owner.Equals("Player"))
             {
