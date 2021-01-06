@@ -34,11 +34,11 @@ public class LoadMission : MonoBehaviour
     public List<Image> playerSlotImg;
 
     
-    public List<Beast> playerSlot = new List<Beast>(6);
+    public List<Beast> playerSlot = new List<Beast>(8);
     
     public List<Image> enemySlotImg;
     
-    public List<Beast> enemySlot = new List<Beast>(6);
+    public List<Beast> enemySlot = new List<Beast>(8);
 
     List<Beast> thisSquad = new List<Beast>();
     List<Beast> toLoad = new List<Beast>();
@@ -136,7 +136,12 @@ public class LoadMission : MonoBehaviour
     //If beast is in slot, load the corresponding image
     void LoadSquadImages()
     {
-        playerPad.SetActive(true);
+        //playerPad.SetActive(true);
+        foreach(Image slot in playerSlotImg)
+        {
+            slot.gameObject.SetActive(true);
+        }
+
         for (int x = 0; x < toLoad.Count; x++)
         {
             if (toLoad[x] != null && toLoad[x].speed == 0)

@@ -11,6 +11,8 @@ public class MissionList : MonoBehaviour
 
     public List<Beast> enemies = new List<Beast>();
 
+    public int totalEnemies = 8;
+
     void Start()
     {
         mission = LevelChecker.lastClick;
@@ -24,14 +26,14 @@ public class MissionList : MonoBehaviour
         if(mission == "first")
         {
             int ran = -1;
-            ran = Random.Range(-1, 5);
+            ran = Random.Range(-1, totalEnemies - 1);
             while(ran >= 0)
             {
                 enemies.Add(null);
                 ran--;
             }
             enemies.Add(beastManager.getFromName("Kitsune"));
-            while (enemies.Count < 6)
+            while (enemies.Count < totalEnemies)
             {
                 enemies.Add(null);
             }
@@ -39,7 +41,7 @@ public class MissionList : MonoBehaviour
         if(mission == "second")
         {
             int ran = -1;
-            ran = Random.Range(-1, 2);
+            ran = Random.Range(-1, 3);
             while (ran >= 0)
             {
                 enemies.Add(null);
@@ -51,14 +53,14 @@ public class MissionList : MonoBehaviour
                 enemies.Add(null);
             }
             ran = -1;
-            ran = Random.Range(-1, 2);
+            ran = Random.Range(-1, 3);
             while (ran >= 0)
             {
                 enemies.Add(null);
                 ran--;
             }
             enemies.Add(beastManager.getFromName("Conglomerate"));
-            while (enemies.Count < 6)
+            while (enemies.Count < totalEnemies)
             {
                 enemies.Add(null);
             }
@@ -68,16 +70,16 @@ public class MissionList : MonoBehaviour
             int poN = -1;
             int poD = -1;
             int poW = -1;
-            poN = Random.Range(0, 3);
+            poN = Random.Range(0, 4);
             while(poD == -1 || poD == poN)
             {
                 poD = Random.Range(0, 3);
             }
             while(poW == -1 || poW == poN || poW == poD)
             {
-                poW = Random.Range(0, 3);
+                poW = Random.Range(0, 4);
             }
-            for(int x = 0; x < 3; x++)
+            for(int x = 0; x < 4; x++)
             {
                 if (x == poN)
                 {
@@ -92,14 +94,14 @@ public class MissionList : MonoBehaviour
                     enemies.Add(beastManager.getFromName("Wyvern"));
                 }
             }
-            int ran = Random.Range(-1, 2);
+            int ran = Random.Range(-1, 3);
             while (ran >= 0)
             {
                 enemies.Add(null);
                 ran--;
             }
             enemies.Add(beastManager.getFromName("Conglomerate"));
-            while (enemies.Count < 6)
+            while (enemies.Count < totalEnemies)
             {
                 enemies.Add(null);
             }
@@ -117,6 +119,8 @@ public class MissionList : MonoBehaviour
             enemies.Add(null);
             enemies.Add(BeastManager.getFromNameS("DreamSlime"));
             enemies.Add(BeastManager.getFromNameS("Dryad"));
+            enemies.Add(null);
+            enemies.Add(null);
             enemies.Add(null);
             b = new Beast();
             do
@@ -141,7 +145,9 @@ public class MissionList : MonoBehaviour
             enemies.Add(beastManager.getFromName("Wyvern")); //A2
             enemies.Add(null); //B2
             enemies.Add(null); //A3
-            enemies.Add(beastManager.getFromName("Kitsune")); //B3
+            enemies.Add(null); //B3
+            enemies.Add(null); //A4
+            enemies.Add(beastManager.getFromName("Kitsune")); //B4
         }
         //the mission with 4 randomly placed random beast
         if (mission == "random")
@@ -166,12 +172,12 @@ public class MissionList : MonoBehaviour
 
             List<int> position = new List<int>();
 
-            while (enemies.Count < 6)
+            while (enemies.Count < totalEnemies)
             {
                 //loops random numbers that will go on to assigne to each beast a slot
                 while (position.Contains(ran) || ran == -1)
                 {
-                    ran = Random.Range(0, 6);
+                    ran = Random.Range(0, totalEnemies);
                 }
                 position.Add(ran);
                 if (beast[ran] < 0)
@@ -201,7 +207,7 @@ public class MissionList : MonoBehaviour
                 }
                 beast.Add(ran);
             }
-            while (beast.Count < 6)
+            while (beast.Count < totalEnemies)
             {
                 beast.Add(-1);
             }
@@ -210,11 +216,11 @@ public class MissionList : MonoBehaviour
 
             List<int> position = new List<int>();
 
-            while (enemies.Count < 6)
+            while (enemies.Count < totalEnemies)
             {
                 while (position.Contains(ran) || ran == -1)
                 {
-                    ran = Random.Range(0, 6);
+                    ran = Random.Range(0, totalEnemies);
                 }
                 position.Add(ran);
                 if (beast[ran] < 0)
@@ -231,11 +237,11 @@ public class MissionList : MonoBehaviour
         {
             List<int> position = new List<int>();
             int ran = -1;
-            while (position.Count < 6)
+            while (position.Count < totalEnemies)
             {
                 while (position.Contains(ran) || ran == -1)
                 {
-                    ran = Random.Range(0, 6);
+                    ran = Random.Range(0, totalEnemies);
                 }
                 position.Add(ran);
 
@@ -246,8 +252,6 @@ public class MissionList : MonoBehaviour
 
             while (beasts.Count < 4)
             {
-                print(ran);
-
                 switch (ran)
                 {
                     case 0:
@@ -301,6 +305,8 @@ public class MissionList : MonoBehaviour
             }
             beasts.Add(null);
             beasts.Add(null);
+            beasts.Add(null);
+            beasts.Add(null);
             foreach(string str in beasts)
             {
                 print(str);
@@ -322,16 +328,16 @@ public class MissionList : MonoBehaviour
         {
             List<int> position = new List<int>();
             int ran = -1;
-            while (position.Count < 6)
+            while (position.Count < totalEnemies)
             {
                 while (position.Contains(ran) || ran == -1)
                 {
-                    ran = Random.Range(0, 6);
+                    ran = Random.Range(0, totalEnemies);
                 }
                 position.Add(ran);
                 
             }
-            ran = Random.Range(0,4);
+            ran = Random.Range(0, 4);
             List<string> beasts = new List<string>();
             Beast b = new Beast();
             while (beasts.Count < 4)
@@ -390,6 +396,8 @@ public class MissionList : MonoBehaviour
                 }
                 b = new Beast();
             }
+            beasts.Add(null);
+            beasts.Add(null);
             beasts.Add(null);
             beasts.Add(null);
             for (int x = 0; x < beasts.Count; x++)
