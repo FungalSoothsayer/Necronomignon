@@ -324,7 +324,6 @@ public class BattleManager : MonoBehaviour
             {
                 orderBar[x].sprite = Resources.Load<Sprite>("Static_Images/"+GetImage(roundOrder[x + turn]));
 
-                //Work in progress to get an outline to show player or enemy
                 if (roundOrderTypes[x + turn].Equals("Player"))
                 {
                     orderBarOutlines[x].GetComponent<Outline>().effectColor = Color.blue;
