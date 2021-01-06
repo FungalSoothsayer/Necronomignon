@@ -17,6 +17,7 @@ public class Beast
     public int number_MOVES;
     public int tier;
     public int id;
+    public int size;
     public types type;
     public types secondType;
     public int moveA;
@@ -50,6 +51,7 @@ public class Beast
         this.dexterity = b.dexterity;
         this.number_MOVES = b.number_MOVES;
         this.tier = b.tier;
+        this.size = b.size;
         this.type = b.type;
         this.secondType = b.secondType;
         this.moveA = b.moveA;

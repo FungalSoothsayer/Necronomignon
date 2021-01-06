@@ -10,7 +10,8 @@ public class CreateManager : MonoBehaviour
 {
     public CreatePoolLoader createPoolLoader;
 
-    public List<GameObject> slotObjs; // Squad gameobjects
+    public List<GameObject> normalSlots; // Squad gameobjects for normal characters
+    public List<GameObject> bigSlots; // Squad gameobjects for big characters
     public List<Beast> slots; // Beasts that are in the squad slots
 
     public GameObject cancelButton;
@@ -29,7 +30,12 @@ public class CreateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach(GameObject go in slotObjs)
+        foreach(GameObject go in normalSlots)
+        {
+            go.SetActive(false);
+        }
+
+        foreach(GameObject go in bigSlots)
         {
             go.SetActive(false);
         }
@@ -45,7 +51,12 @@ public class CreateManager : MonoBehaviour
         selected = createPoolLoader.summoned[selectedIndex + (createPoolLoader.counter * 9)];
         selected.setAttacks();
 
-        foreach (GameObject go in slotObjs)
+        foreach (GameObject go in normalSlots)
+        {
+            go.SetActive(true);
+        }
+
+        foreach (GameObject go in bigSlots)
         {
             go.SetActive(true);
         }
@@ -75,9 +86,19 @@ public class CreateManager : MonoBehaviour
 
         for (int x = 0; x < slots.Count; x++)
         {
-            if (slots[x] == null || slots[x].speed == 0)
+            if (x < normalSlots.Count)
             {
-                slotObjs[x].SetActive(false);
+                if (slots[x] == null || slots[x].speed == 0)
+                {
+                    normalSlots[x].SetActive(false);
+                }
+            }
+            else
+            {
+                if (slots[x] == null || slots[x].speed == 0)
+                {
+                    bigSlots[x - normalSlots.Count].SetActive(false);
+                }
             }
         }
 
