@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 /*
- * This Class Manages everything related to health, initialises 
- */
+* This Class Manages everything related to health, initialises 
+*/
 public class HealthManager : MonoBehaviour
 {
     public BattleManager battleManager;
@@ -19,6 +20,9 @@ public class HealthManager : MonoBehaviour
 
     List<DamageOutput> playerDamageBar = new List<DamageOutput>();
     List<DamageOutput> enemyDamageBar = new List<DamageOutput>();
+
+    public List<Text> playerHealths = new List<Text>();
+    public List<Text> enemyHealths = new List<Text>();
 
     List<Beast> squad = new List<Beast>();
     List<Beast> enemies = new List<Beast>();
@@ -35,6 +39,8 @@ public class HealthManager : MonoBehaviour
             if (activePlayersHealth[i] == null)
             {
                 activePlayersHealth.RemoveAt(i);
+                playerHealths[i].gameObject.SetActive(false);
+                playerHealths.RemoveAt(i);
             }
 
             if(activePlayerDamage[i] == null)
@@ -48,6 +54,8 @@ public class HealthManager : MonoBehaviour
             if (activeEnemiesHealth[i] == null)
             {
                 activeEnemiesHealth.RemoveAt(i);
+                enemyHealths[i].gameObject.SetActive(false);
+                enemyHealths.RemoveAt(i);
             }
 
             if(activeEnemyDamage[i] == null)
@@ -70,8 +78,12 @@ public class HealthManager : MonoBehaviour
             if (players[x] != null)
             {
                 activePlayersHealth[x].SetMaxHealth(players[x].maxHP);
+                playerHealths[x].text = players[x].maxHP.ToString();
             }
-            else playersLeft--;
+            else
+            {
+                playersLeft--;
+            }
         }
         for(int x = 0; x< activeEnemiesHealth.Count; x++)
         {
@@ -79,9 +91,9 @@ public class HealthManager : MonoBehaviour
             {
                 enemiesLeft += 1;
                 activeEnemiesHealth[x].SetMaxHealth(opposing[x].maxHP);
+                enemyHealths[x].text = enemies[x].maxHP.ToString();
             }
         }
-        
     }
 
     //Subtract the damage from the target's health
@@ -99,6 +111,7 @@ public class HealthManager : MonoBehaviour
                     break;
                 }
                 squad[x % squad.Count].hitPoints -= damage;
+                playerHealths[x % squad.Count].text = squad[x % squad.Count].hitPoints.ToString();
                 playerHealthBars[x % squad.Count].SetHealth(squad[x % squad.Count].hitPoints);
 
                 playerDamageBar[x % squad.Count].setText(damage);
@@ -106,12 +119,12 @@ public class HealthManager : MonoBehaviour
                 if (squad[x % squad.Count].hitPoints <= 0)
                 {
                     Debug.Log(target.name + " is knocked out.");
+                    playerHealths[x % squad.Count].gameObject.SetActive(false);
                     CheckRemainingPlayers();
                     battleManager.RemoveBeast(squad[x % squad.Count]);
                 }
                 else
                 {
-
                     DisplayHealthLeft(target, squad[x % squad.Count].hitPoints);
                 }
             }
@@ -123,6 +136,7 @@ public class HealthManager : MonoBehaviour
                     break;
                 }
                 enemies[x].hitPoints -= damage;
+                enemyHealths[x].text = enemies[x].hitPoints.ToString();
                 enemyHealthBars[x].SetHealth(enemies[x].hitPoints);
 
                 enemyDamageBar[x].setText(damage);
@@ -130,6 +144,7 @@ public class HealthManager : MonoBehaviour
                 if (enemies[x].hitPoints <= 0)
                 {
                     Debug.Log(target.name + " is knocked out.");
+                    enemyHealths[x].gameObject.SetActive(false);
                     CheckRemainingOpposing();
                     battleManager.RemoveBeast(enemies[x]);
                 }
