@@ -16,6 +16,7 @@ public class LoadMission : MonoBehaviour
     public GameObject btnSquad1;
     public GameObject btnSquad2;
     public GameObject txtInfo;
+    public GameObject orderBar;
     
     public List<GameObject> slotHealthBars;
 
@@ -136,7 +137,7 @@ public class LoadMission : MonoBehaviour
     //If beast is in slot, load the corresponding image
     void LoadSquadImages()
     {
-        //playerPad.SetActive(true);
+        orderBar.SetActive(true);
         foreach(Image slot in playerSlotImg)
         {
             slot.gameObject.SetActive(true);
