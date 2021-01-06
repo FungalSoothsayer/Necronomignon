@@ -62,7 +62,7 @@ public class LoadMission : MonoBehaviour
             missionList.mission = "random";
         }
 
-        //playerPad.SetActive(false);
+        playerPad.SetActive(false);
         if (!squadData.GetSquad1Status())
         {
             btnSquad1.SetActive(false);
@@ -75,7 +75,7 @@ public class LoadMission : MonoBehaviour
         }
         if (squadMissing == 2)
         {
-            //txtInfo.SetActive(true);
+            txtInfo.SetActive(true);
         }
         else
         {
@@ -136,7 +136,12 @@ public class LoadMission : MonoBehaviour
     //If beast is in slot, load the corresponding image
     void LoadSquadImages()
     {
-        playerPad.SetActive(true);
+        //playerPad.SetActive(true);
+        foreach(Image slot in playerSlotImg)
+        {
+            slot.gameObject.SetActive(true);
+        }
+
         for (int x = 0; x < toLoad.Count; x++)
         {
             if (toLoad[x] != null && toLoad[x].speed == 0)
