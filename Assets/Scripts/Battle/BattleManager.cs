@@ -311,11 +311,27 @@ public class BattleManager : MonoBehaviour
     void UpdateOrderBar()
     {
         currentTurn = roundOrder[turn];
+
         for (int x = 0; x < orderBar.Count; x++)
         {
             try
             {
                 orderBar[x].sprite = Resources.Load<Sprite>("Static_Images/"+GetImage(roundOrder[x + turn]));
+
+                //Work in progress to get an outline to show player or enemy
+                if (roundOrderTypes[x + turn].Equals("Player"))
+                {
+                    orderBar[x].GetComponent<Outline>().effectColor = Color.blue;
+                }
+                else if (roundOrderTypes[x + turn].Equals("Enemy"))
+                {
+                    orderBar[x].GetComponent<Outline>().effectColor = Color.red;
+                }
+                else
+                {
+                    orderBar[x].GetComponent<Outline>().effectColor = Color.clear;
+                }
+
             }
             catch
             {
