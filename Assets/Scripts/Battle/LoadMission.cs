@@ -17,6 +17,7 @@ public class LoadMission : MonoBehaviour
     public GameObject btnSquad2;
     public GameObject txtInfo;
     public GameObject orderBar;
+    public GameObject healthDisplay;
     
     public List<GameObject> slotHealthBars;
 
@@ -138,6 +139,7 @@ public class LoadMission : MonoBehaviour
     void LoadSquadImages()
     {
         orderBar.SetActive(true);
+        healthDisplay.SetActive(true);
         foreach(Image slot in playerSlotImg)
         {
             slot.gameObject.SetActive(true);
