@@ -67,14 +67,12 @@ public class CreateManager : MonoBehaviour
     public void ShowMoveDescription()
     {
         // Sets the description of selected beast
-        print(selected);
         for (int x = 0 + (createPoolLoader.counter * 9); x < createPoolLoader.summoned.Count; x++)
         {
             if (selected.name.Equals(createPoolLoader.summoned[x].name))
             {
                 description.GetComponent<Text>().text = "\n\nIn the front row \n" + selected.Move_A.description +
                     "\n\nIn the back row \n" + selected.Move_B.description;
-                break;
             }
         }
     }
