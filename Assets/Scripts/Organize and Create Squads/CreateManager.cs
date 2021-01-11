@@ -57,23 +57,22 @@ public class CreateManager : MonoBehaviour
             {
                 go.SetActive(true);
             }
-
-            
-            if (bigSlots[0] != null)
+       
+            if (slots[8].speed != 0)
             {
                 normalSlots[0].SetActive(false);
                 normalSlots[1].SetActive(false);
                 normalSlots[4].SetActive(false);
                 normalSlots[5].SetActive(false);
             }
-            if (bigSlots[1] != null)
+            if (slots[9].speed != 0)
             {
                 normalSlots[1].SetActive(false);
                 normalSlots[2].SetActive(false);
                 normalSlots[5].SetActive(false);
                 normalSlots[6].SetActive(false);
             }
-            if (bigSlots[2] != null)
+            if (slots[10].speed != 0)
             {
                 normalSlots[2].SetActive(false);
                 normalSlots[3].SetActive(false);
@@ -89,18 +88,17 @@ public class CreateManager : MonoBehaviour
                 go.SetActive(true);
             }
 
-            
-            if (normalSlots[0] != null || normalSlots[1] != null || normalSlots[4] != null || normalSlots[5] != null)
+            if (slots[0].speed != 0 || slots[1].speed != 0 || slots[4].speed != 0 || slots[5].speed != 0)
             {
                 bigSlots[0].SetActive(false);
             }
-            if (normalSlots[1] != null || normalSlots[2] != null || normalSlots[5] != null || normalSlots[6] != null)
+            if (slots[1].speed != 0 || slots[2].speed != 0 || slots[5].speed != 0 || slots[6].speed != 0)
             {
-                bigSlots[0].SetActive(false);
+                bigSlots[1].SetActive(false);
             }
-            if (normalSlots[2] != null || normalSlots[3] != null || normalSlots[6] != null || normalSlots[7] != null)
+            if (slots[2].speed != 0 || slots[3].speed != 0 || slots[6].speed != 0 || slots[7].speed != 0)
             {
-                bigSlots[0].SetActive(false);
+                bigSlots[2].SetActive(false);
             }
         }
 
