@@ -25,6 +25,8 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (mouse_over)
         {
+            //createManager.TurnOffSlots();
+            //createManager.LightUpSlots();
             // When mouse is clicked and cursor is over this image, set the beast to this slot
             if (Input.GetMouseButtonDown(0) && !createManager.saveMode)
             {
@@ -92,8 +94,16 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         char chr = (gameObject.name).ToCharArray()[gameObject.name.Length - 1];
         int num = int.Parse(chr.ToString());
+        print(chr + " chr" + num + " num");
 
-        createManager.slots[num - 1] = createManager.selected;
+        if (createManager.selected.size == 0)
+        {
+            createManager.slots[num - 1] = createManager.selected;
+        }
+        else if(createManager.selected.size == 1)
+        {
+            createManager.slots[num + 7] = createManager.selected;
+        }
 
         thisBeast = createManager.selected;
         thisBeastIndex = createManager.selectedIndex;

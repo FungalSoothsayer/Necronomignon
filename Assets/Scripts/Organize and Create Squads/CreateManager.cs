@@ -51,14 +51,57 @@ public class CreateManager : MonoBehaviour
         selected = createPoolLoader.summoned[selectedIndex + (createPoolLoader.counter * 9)];
         selected.setAttacks();
 
-        foreach (GameObject go in normalSlots)
+        if (selected.size == 0)
         {
-            go.SetActive(true);
-        }
+            foreach (GameObject go in normalSlots)
+            {
+                go.SetActive(true);
+            }
 
-        foreach (GameObject go in bigSlots)
+            
+            if (bigSlots[0] != null)
+            {
+                normalSlots[0].SetActive(false);
+                normalSlots[1].SetActive(false);
+                normalSlots[4].SetActive(false);
+                normalSlots[5].SetActive(false);
+            }
+            if (bigSlots[1] != null)
+            {
+                normalSlots[1].SetActive(false);
+                normalSlots[2].SetActive(false);
+                normalSlots[5].SetActive(false);
+                normalSlots[6].SetActive(false);
+            }
+            if (bigSlots[2] != null)
+            {
+                normalSlots[2].SetActive(false);
+                normalSlots[3].SetActive(false);
+                normalSlots[6].SetActive(false);
+                normalSlots[7].SetActive(false);
+            }
+            
+        }
+        else if (selected.size == 1)
         {
-            go.SetActive(true);
+            foreach (GameObject go in bigSlots)
+            {
+                go.SetActive(true);
+            }
+
+            
+            if (normalSlots[0] != null || normalSlots[1] != null || normalSlots[4] != null || normalSlots[5] != null)
+            {
+                bigSlots[0].SetActive(false);
+            }
+            if (normalSlots[1] != null || normalSlots[2] != null || normalSlots[5] != null || normalSlots[6] != null)
+            {
+                bigSlots[0].SetActive(false);
+            }
+            if (normalSlots[2] != null || normalSlots[3] != null || normalSlots[6] != null || normalSlots[7] != null)
+            {
+                bigSlots[0].SetActive(false);
+            }
         }
 
         cancelButton.SetActive(true);
