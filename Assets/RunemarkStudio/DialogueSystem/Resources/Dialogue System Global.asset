@@ -13,5 +13,16 @@ MonoBehaviour:
   m_Name: Dialogue System Global
   m_EditorClassIdentifier: 
   Variables:
-    _variables: []
+    _variables:
+    - _name: Level
+      _idSuffix: -2021-01-11 11:45:50 AM-5948
+      _group: Default
+      _type: System.Int32
+      Save: 0
+      DefaultValue:
+        _serializedObject: {fileID: 0}
+        _serializedString: AAEAAAD/////AQAAAAAAAAAEAQAAAAxTeXN0ZW0uSW50MzIBAAAAB21fdmFsdWUACAEAAAAL
+      _value:
+        _serializedObject: {fileID: 0}
+        _serializedString: AAEAAAD/////AQAAAAAAAAAEAQAAAAxTeXN0ZW0uSW50MzIBAAAAB21fdmFsdWUACAEAAAAL
     owner: {fileID: 0}
