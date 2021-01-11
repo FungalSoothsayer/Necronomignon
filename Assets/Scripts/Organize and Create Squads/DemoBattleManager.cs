@@ -27,7 +27,7 @@ public class DemoBattleManager : MonoBehaviour
     int turn = 0;
     int totalMoves;
     int squadNumber;
-    Beast currentTurn;
+    public Beast currentTurn;
     Beast b;
 
     // Start is called before the first frame update
@@ -162,8 +162,7 @@ public class DemoBattleManager : MonoBehaviour
 
         if (inFront) slot.GetComponent<Animator>().SetTrigger("Front");
         else slot.GetComponent<Animator>().SetTrigger("Back");
-        print(currentTurn.name);
-        print(b.defence);
+
         List<Beast> beThe = new List<Beast>();
         beThe.Add(b);
 

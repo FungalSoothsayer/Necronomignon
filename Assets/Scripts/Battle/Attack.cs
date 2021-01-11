@@ -115,7 +115,7 @@ public class Attack : MonoBehaviour
         {
             beastManager.moveManager.start();
         }
-        if(attacker.hitPoints <= 0)
+        if (attacker.hitPoints <= 0)
         {
             battleManager.RemoveBeast(attacker);
             return;
