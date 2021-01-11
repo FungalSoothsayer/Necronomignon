@@ -592,7 +592,7 @@ MonoBehaviour:
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
-  slotID: 8
+  slotID: 9
 --- !u!114 &161280063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3919,7 +3919,7 @@ MonoBehaviour:
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
-  slotID: 8
+  slotID: 10
 --- !u!114 &1016431559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4935,7 +4935,7 @@ MonoBehaviour:
   createManager: {fileID: 843462593}
   createPoolLoader: {fileID: 843462591}
   beastManager: {fileID: 843462596}
-  slotID: 8
+  slotID: 11
 --- !u!114 &1506920203
 MonoBehaviour:
   m_ObjectHideFlags: 0

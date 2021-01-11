@@ -25,8 +25,6 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (mouse_over)
         {
-            //createManager.TurnOffSlots();
-            //createManager.LightUpSlots();
             // When mouse is clicked and cursor is over this image, set the beast to this slot
             if (Input.GetMouseButtonDown(0) && !createManager.saveMode)
             {
@@ -94,7 +92,6 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         char chr = (gameObject.name).ToCharArray()[gameObject.name.Length - 1];
         int num = int.Parse(chr.ToString());
-        print(chr + " chr" + num + " num");
 
         if (createManager.selected.size == 0)
         {
@@ -102,7 +99,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
         else if(createManager.selected.size == 1)
         {
-            createManager.slots[num + 7] = createManager.selected;
+            createManager.slots[num + createManager.normalSlots.Count - 1] = createManager.selected;
         }
 
         thisBeast = createManager.selected;
@@ -134,7 +131,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         gameObject.GetComponent<Animator>().enabled = true;
 
         // Make sure the spot to move to is empty before allowing to move
-        if (slotID != createManager.selectedSlotID && (createManager.slots[slotID-1] == null || createManager.slots[slotID-1].speed == 0))
+        if (slotID != createManager.selectedSlotID && (createManager.slots[slotID - 1] == null || createManager.slots[slotID - 1].speed == 0))
         {
             for (int x = 0; x < createPoolLoader.summonedNames.Count; x++)
             {

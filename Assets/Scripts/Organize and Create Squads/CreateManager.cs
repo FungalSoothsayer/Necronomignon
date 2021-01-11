@@ -57,7 +57,8 @@ public class CreateManager : MonoBehaviour
             {
                 go.SetActive(true);
             }
-       
+
+            print(slots[8] + " slot 9" + slots[9] + " slot 10" + slots[10] + " slot 11");
             if (slots[8].speed != 0)
             {
                 normalSlots[0].SetActive(false);
@@ -173,8 +174,15 @@ public class CreateManager : MonoBehaviour
     // Removes the image in a slot and remove it from selected variables
     public void RemoveSlotImage()
     {
-        GameObject.Find("Slot" + selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
-        slots[selectedSlotID - 1] = null;
+        if (selectedSlotID <= 8)
+        {
+            GameObject.Find("Slot" + selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
+        }
+        else if(selectedSlotID <= 11)
+        {
+            GameObject.Find("BigSlot" + (selectedSlotID - normalSlots.Count).ToString()).GetComponent<SlotSelect>().RemoveImage();
+        }
+        slots[selectedSlotID - 1] = new Beast();
 
         selected = null;
         selectedIndex = -1;
