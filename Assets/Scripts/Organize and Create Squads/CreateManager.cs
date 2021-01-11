@@ -47,6 +47,7 @@ public class CreateManager : MonoBehaviour
     // Sets all slot lights and cancel button active for when a beast is being selected
     public void LightUpSlots()
     {
+        TurnOffSlots();
         moveDescription.SetActive(true);
         selected = createPoolLoader.summoned[selectedIndex + (createPoolLoader.counter * 9)];
         selected.setAttacks();

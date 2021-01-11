@@ -5,7 +5,7 @@ using UnityEngine;
 public class Values : MonoBehaviour
 {
     public static int SQUADMAX = 4;
-    public static int SLOTMAX = 8;
+    public static int SLOTMAX = 11;
     public static double TEIRBOOST = .05;
     public static List<List<string>> stories = new List<List<string>>();
 
