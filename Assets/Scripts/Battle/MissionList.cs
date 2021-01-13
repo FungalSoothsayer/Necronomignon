@@ -117,9 +117,9 @@ public class MissionList : MonoBehaviour
             }
             enemies.Add(b);
             enemies.Add(null);
+            enemies.Add(null);
             enemies.Add(BeastManager.getFromNameS("DreamSlime"));
             enemies.Add(BeastManager.getFromNameS("Dryad"));
-            enemies.Add(null);
             enemies.Add(null);
             enemies.Add(null);
             b = new Beast();
@@ -136,6 +136,9 @@ public class MissionList : MonoBehaviour
 
             } while (b.power < 10 || b.name == "DreamSlime");
             enemies.Add(b);
+            enemies.Add(null);
+            enemies.Add(null);
+            enemies.Add(null);
 
         }
         if (mission == "sample")
@@ -165,6 +168,7 @@ public class MissionList : MonoBehaviour
                 }
                 beast.Add(ran);
             }
+            beast.Add(-1);
             beast.Add(-1);
             beast.Add(-1);
 

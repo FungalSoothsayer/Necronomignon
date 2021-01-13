@@ -193,6 +193,18 @@ public class LoadMission : MonoBehaviour
                 playerSlot[x].maxHP += (int)(playerSlot[x].maxHP * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
             }
             pb.Add(playerSlot[x]);
+        }
+        for (int x = 0; x < enemySlot.Count; x++)
+        {
+            //gives the players beasts a boost based on their tier
+            if (enemySlot[x] != null && enemySlot[x].tier>0)
+            {
+                enemySlot[x].power += (int)(enemySlot[x].power * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
+                enemySlot[x].defence += (int)(enemySlot[x].defence * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
+                enemySlot[x].speed += (int)(enemySlot[x].speed * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
+                enemySlot[x].dexterity += (int)(enemySlot[x].dexterity * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
+                enemySlot[x].maxHP += (int)(enemySlot[x].maxHP * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
+            }
             eb.Add(enemySlot[x]);
         }
 
@@ -209,13 +221,16 @@ public class LoadMission : MonoBehaviour
     //Remove image when beast is knocked out
     public void RemoveImage(Beast toRemove, string owner)
     {
+        print(GetImageToRemove(toRemove, owner));
+        print(GetImageToRemove(toRemove, owner).gameObject);
+        print(GetImageToRemove(toRemove, owner).gameObject.GetComponent<Animator>());
         GetImageToRemove(toRemove, owner).gameObject.GetComponent<Animator>().SetInteger("Health", 0);
         StartCoroutine(PlayDeathAnimation(toRemove, owner));
     }
     //Get the slot to remove the image from
     Image GetImageToRemove(Beast beast, string owner)
     {
-        for (int x = 0; x < 8; x++)
+        for (int x = 0; x < 11; x++)
         {
             if (owner.Equals("Player"))
             {
