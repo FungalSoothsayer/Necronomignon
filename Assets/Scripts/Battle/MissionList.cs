@@ -11,7 +11,7 @@ public class MissionList : MonoBehaviour
 
     public List<Beast> enemies = new List<Beast>();
 
-    public int totalEnemies = 8;
+    public int totalEnemies = 11;
 
     void Start()
     {

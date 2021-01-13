@@ -10,7 +10,8 @@ public class CreateManager : MonoBehaviour
 {
     public CreatePoolLoader createPoolLoader;
 
-    public List<GameObject> slotObjs; // Squad gameobjects
+    public List<GameObject> normalSlots; // Squad gameobjects for normal characters
+    public List<GameObject> bigSlots; // Squad gameobjects for big characters
     public List<Beast> slots; // Beasts that are in the squad slots
 
     public GameObject cancelButton;
@@ -29,7 +30,12 @@ public class CreateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach(GameObject go in slotObjs)
+        foreach(GameObject go in normalSlots)
+        {
+            go.SetActive(false);
+        }
+
+        foreach(GameObject go in bigSlots)
         {
             go.SetActive(false);
         }
@@ -41,13 +47,61 @@ public class CreateManager : MonoBehaviour
     // Sets all slot lights and cancel button active for when a beast is being selected
     public void LightUpSlots()
     {
+        TurnOffSlots();
         moveDescription.SetActive(true);
         selected = createPoolLoader.summoned[selectedIndex + (createPoolLoader.counter * 9)];
         selected.setAttacks();
 
-        foreach (GameObject go in slotObjs)
+        if (selected.size == 0)
         {
-            go.SetActive(true);
+            foreach (GameObject go in normalSlots)
+            {
+                go.SetActive(true);
+            }
+
+            print(slots[8] + " slot 9" + slots[9] + " slot 10" + slots[10] + " slot 11");
+            if (slots[8].speed != 0)
+            {
+                normalSlots[0].SetActive(false);
+                normalSlots[1].SetActive(false);
+                normalSlots[4].SetActive(false);
+                normalSlots[5].SetActive(false);
+            }
+            if (slots[9].speed != 0)
+            {
+                normalSlots[1].SetActive(false);
+                normalSlots[2].SetActive(false);
+                normalSlots[5].SetActive(false);
+                normalSlots[6].SetActive(false);
+            }
+            if (slots[10].speed != 0)
+            {
+                normalSlots[2].SetActive(false);
+                normalSlots[3].SetActive(false);
+                normalSlots[6].SetActive(false);
+                normalSlots[7].SetActive(false);
+            }
+            
+        }
+        else if (selected.size == 1)
+        {
+            foreach (GameObject go in bigSlots)
+            {
+                go.SetActive(true);
+            }
+
+            if (slots[0].speed != 0 || slots[1].speed != 0 || slots[4].speed != 0 || slots[5].speed != 0)
+            {
+                bigSlots[0].SetActive(false);
+            }
+            if (slots[1].speed != 0 || slots[2].speed != 0 || slots[5].speed != 0 || slots[6].speed != 0)
+            {
+                bigSlots[1].SetActive(false);
+            }
+            if (slots[2].speed != 0 || slots[3].speed != 0 || slots[6].speed != 0 || slots[7].speed != 0)
+            {
+                bigSlots[2].SetActive(false);
+            }
         }
 
         cancelButton.SetActive(true);
@@ -56,14 +110,12 @@ public class CreateManager : MonoBehaviour
     public void ShowMoveDescription()
     {
         // Sets the description of selected beast
-        print(selected);
         for (int x = 0 + (createPoolLoader.counter * 9); x < createPoolLoader.summoned.Count; x++)
         {
             if (selected.name.Equals(createPoolLoader.summoned[x].name))
             {
                 description.GetComponent<Text>().text = "\n\nIn the front row \n" + selected.Move_A.description +
                     "\n\nIn the back row \n" + selected.Move_B.description;
-                break;
             }
         }
     }
@@ -75,9 +127,19 @@ public class CreateManager : MonoBehaviour
 
         for (int x = 0; x < slots.Count; x++)
         {
-            if (slots[x] == null || slots[x].speed == 0)
+            if (x < normalSlots.Count)
             {
-                slotObjs[x].SetActive(false);
+                if (slots[x] == null || slots[x].speed == 0)
+                {
+                    normalSlots[x].SetActive(false);
+                }
+            }
+            else
+            {
+                if (slots[x] == null || slots[x].speed == 0)
+                {
+                    bigSlots[x - normalSlots.Count].SetActive(false);
+                }
             }
         }
 
@@ -113,8 +175,15 @@ public class CreateManager : MonoBehaviour
     // Removes the image in a slot and remove it from selected variables
     public void RemoveSlotImage()
     {
-        GameObject.Find("Slot" + selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
-        slots[selectedSlotID - 1] = null;
+        if (selectedSlotID <= 8)
+        {
+            GameObject.Find("Slot" + selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
+        }
+        else if(selectedSlotID <= 11)
+        {
+            GameObject.Find("BigSlot" + (selectedSlotID - normalSlots.Count).ToString()).GetComponent<SlotSelect>().RemoveImage();
+        }
+        slots[selectedSlotID - 1] = new Beast();
 
         selected = null;
         selectedIndex = -1;

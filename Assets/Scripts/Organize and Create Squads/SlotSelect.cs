@@ -93,7 +93,14 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         char chr = (gameObject.name).ToCharArray()[gameObject.name.Length - 1];
         int num = int.Parse(chr.ToString());
 
-        createManager.slots[num - 1] = createManager.selected;
+        if (createManager.selected.size == 0)
+        {
+            createManager.slots[num - 1] = createManager.selected;
+        }
+        else if(createManager.selected.size == 1)
+        {
+            createManager.slots[num + createManager.normalSlots.Count - 1] = createManager.selected;
+        }
 
         thisBeast = createManager.selected;
         thisBeastIndex = createManager.selectedIndex;
@@ -124,7 +131,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         gameObject.GetComponent<Animator>().enabled = true;
 
         // Make sure the spot to move to is empty before allowing to move
-        if (slotID != createManager.selectedSlotID && (createManager.slots[slotID-1] == null || createManager.slots[slotID-1].speed == 0))
+        if (slotID != createManager.selectedSlotID && (createManager.slots[slotID - 1] == null || createManager.slots[slotID - 1].speed == 0))
         {
             for (int x = 0; x < createPoolLoader.summonedNames.Count; x++)
             {
