@@ -70,22 +70,18 @@ public class MissionList : MonoBehaviour
             int poN = -1;
             int poD = -1;
             int poW = -1;
-            poN = Random.Range(0, 4);
+            poN = Random.Range(0, Values.SMALLSLOT/2);
             while(poD == -1 || poD == poN)
             {
-                poD = Random.Range(0, 3);
+                poD = Random.Range(0, Values.SMALLSLOT/2);
             }
             while(poW == -1 || poW == poN || poW == poD)
             {
-                poW = Random.Range(0, 4);
+                poW = Random.Range(0, Values.SMALLSLOT/2);
             }
-            for(int x = 0; x < 4; x++)
+            for(int x = 0; x < Values.SMALLSLOT/2; x++)
             {
-                if (x == poN)
-                {
-                    enemies.Add(null);
-                }
-                else if (x == poD)
+                 if (x == poD)
                 {
                     enemies.Add(beastManager.getFromName("Dryad"));
                 }
@@ -93,6 +89,11 @@ public class MissionList : MonoBehaviour
                 {
                     enemies.Add(beastManager.getFromName("Wyvern"));
                 }
+                else
+                {
+                    enemies.Add(null);
+                }
+                
             }
             int ran = Random.Range(-1, 3);
             while (ran >= 0)
