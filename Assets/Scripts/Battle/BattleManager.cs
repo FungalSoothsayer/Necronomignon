@@ -516,10 +516,6 @@ public class BattleManager : MonoBehaviour
         //loops through the slots for player and enemy beasts untill it finds thematching one
         for (int x = 0; x < slots.Count; x++)
         {
-            print(currentTurn);
-            print(roundOrderTypes[turn]);
-            print(slots[x]);
-            print(enemySlots[x]);
             if (roundOrderTypes[turn] == "Player" && currentTurn.Equals(slots[x]))
             {
                 slot = x;
@@ -590,7 +586,6 @@ public class BattleManager : MonoBehaviour
                 case 2:
                     do
                     {
-                        print(slot);
                         if (slots[slot % (Values.SLOTMAX/2)] != null && slots[slot % (Values.SLOTMAX/2)].hitPoints > 0)
                         {
                             targets.Add(slots[slot % (Values.SLOTMAX/2)]);

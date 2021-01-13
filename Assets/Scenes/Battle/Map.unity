@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 393560528}
   - component: {fileID: 393560527}
   - component: {fileID: 393560526}
-  - component: {fileID: 393560529}
   m_Layer: 5
   m_Name: btnLevel1
   m_TagString: Untagged
@@ -204,7 +203,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 393560529}
+      - m_Target: {fileID: 1547326371}
         m_MethodName: sendString
         m_Mode: 5
         m_Arguments:
@@ -263,19 +262,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393560524}
   m_CullTransparentMesh: 0
---- !u!114 &393560529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393560524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a77224d440cddc4cae14c4bbf35c6b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelChecker: {fileID: 1837994182}
 --- !u!1 &467066928
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +352,6 @@ GameObject:
   - component: {fileID: 523175272}
   - component: {fileID: 523175271}
   - component: {fileID: 523175270}
-  - component: {fileID: 523175273}
   m_Layer: 5
   m_Name: btnLevel7
   m_TagString: Untagged
@@ -437,7 +422,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 523175273}
+      - m_Target: {fileID: 1547326371}
         m_MethodName: sendString
         m_Mode: 5
         m_Arguments:
@@ -496,19 +481,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523175268}
   m_CullTransparentMesh: 0
---- !u!114 &523175273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523175268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a77224d440cddc4cae14c4bbf35c6b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelChecker: {fileID: 1837994182}
 --- !u!1 &568484792
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +762,6 @@ GameObject:
   - component: {fileID: 712414785}
   - component: {fileID: 712414784}
   - component: {fileID: 712414783}
-  - component: {fileID: 712414786}
   m_Layer: 5
   m_Name: btnLevel4
   m_TagString: Untagged
@@ -861,7 +832,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 712414786}
+      - m_Target: {fileID: 1547326371}
         m_MethodName: sendString
         m_Mode: 5
         m_Arguments:
@@ -920,19 +891,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712414781}
   m_CullTransparentMesh: 0
---- !u!114 &712414786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712414781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a77224d440cddc4cae14c4bbf35c6b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelChecker: {fileID: 1837994182}
 --- !u!1 &843578401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,7 +1245,6 @@ GameObject:
   - component: {fileID: 1092957915}
   - component: {fileID: 1092957914}
   - component: {fileID: 1092957913}
-  - component: {fileID: 1092957916}
   m_Layer: 5
   m_Name: btnLevel8
   m_TagString: Untagged
@@ -1358,7 +1315,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092957916}
+      - m_Target: {fileID: 1547326371}
         m_MethodName: sendString
         m_Mode: 5
         m_Arguments:
@@ -1417,19 +1374,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092957911}
   m_CullTransparentMesh: 0
---- !u!114 &1092957916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092957911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a77224d440cddc4cae14c4bbf35c6b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelChecker: {fileID: 1837994182}
 --- !u!1 &1129600430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,7 +1530,6 @@ GameObject:
   - component: {fileID: 1333182476}
   - component: {fileID: 1333182475}
   - component: {fileID: 1333182474}
-  - component: {fileID: 1333182477}
   m_Layer: 5
   m_Name: btnLevel5
   m_TagString: Untagged
@@ -1657,7 +1600,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1333182477}
+      - m_Target: {fileID: 1547326371}
         m_MethodName: sendString
         m_Mode: 5
         m_Arguments:
@@ -1716,19 +1659,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333182472}
   m_CullTransparentMesh: 0
---- !u!114 &1333182477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333182472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a77224d440cddc4cae14c4bbf35c6b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelChecker: {fileID: 1837994182}
 --- !u!1 &1438857525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,7 +1753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1547326371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1863,7 +1793,6 @@ GameObject:
   - component: {fileID: 1567288918}
   - component: {fileID: 1567288917}
   - component: {fileID: 1567288916}
-  - component: {fileID: 1567288919}
   m_Layer: 5
   m_Name: btnLevel6
   m_TagString: Untagged
@@ -1934,7 +1863,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1567288919}
+      - m_Target: {fileID: 1547326371}
         m_MethodName: sendString
         m_Mode: 5
         m_Arguments:
@@ -1993,19 +1922,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567288914}
   m_CullTransparentMesh: 0
---- !u!114 &1567288919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567288914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a77224d440cddc4cae14c4bbf35c6b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelChecker: {fileID: 1837994182}
 --- !u!1 &1780682108
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,7 +2126,6 @@ GameObject:
   - component: {fileID: 1991360738}
   - component: {fileID: 1991360737}
   - component: {fileID: 1991360736}
-  - component: {fileID: 1991360739}
   m_Layer: 5
   m_Name: btnLevel3
   m_TagString: Untagged
@@ -2281,7 +2196,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1991360739}
+      - m_Target: {fileID: 1547326371}
         m_MethodName: sendString
         m_Mode: 5
         m_Arguments:
@@ -2340,19 +2255,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991360734}
   m_CullTransparentMesh: 0
---- !u!114 &1991360739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991360734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a77224d440cddc4cae14c4bbf35c6b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelChecker: {fileID: 1837994182}
 --- !u!1 &2018768238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,7 +2423,6 @@ GameObject:
   - component: {fileID: 2110742961}
   - component: {fileID: 2110742960}
   - component: {fileID: 2110742959}
-  - component: {fileID: 2110742962}
   m_Layer: 5
   m_Name: btnLevel2
   m_TagString: Untagged
@@ -2592,7 +2493,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2110742962}
+      - m_Target: {fileID: 1547326371}
         m_MethodName: sendString
         m_Mode: 5
         m_Arguments:
@@ -2651,16 +2552,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110742957}
   m_CullTransparentMesh: 0
---- !u!114 &2110742962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110742957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a77224d440cddc4cae14c4bbf35c6b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelChecker: {fileID: 1837994182}

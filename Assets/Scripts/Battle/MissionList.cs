@@ -20,6 +20,7 @@ public class MissionList : MonoBehaviour
     //gets the beasts coresponding to the mission
     private void Awake()
     {
+        
         mission = LevelChecker.lastClick;
         //the default and static mission
         if(mission == "first")
@@ -116,9 +117,9 @@ public class MissionList : MonoBehaviour
             }
             enemies.Add(b);
             enemies.Add(null);
-            enemies.Add(null);
             enemies.Add(BeastManager.getFromNameS("DreamSlime"));
-            enemies.Add(BeastManager.getFromNameS("Dryad"));            
+            enemies.Add(BeastManager.getFromNameS("Dryad"));
+            enemies.Add(null);
             enemies.Add(null);
             enemies.Add(null);
             b = new Beast();
@@ -166,8 +167,6 @@ public class MissionList : MonoBehaviour
             }
             beast.Add(-1);
             beast.Add(-1);
-            beast.Add(-1);
-            beast.Add(-1);
 
             ran = -1;
 
@@ -178,7 +177,7 @@ public class MissionList : MonoBehaviour
                 //loops random numbers that will go on to assigne to each beast a slot
                 while (position.Contains(ran) || ran == -1)
                 {
-                    ran = Random.Range(0, beast.Count);
+                    ran = Random.Range(0, totalEnemies);
                 }
                 position.Add(ran);
                 if (beast[ran] < 0)
