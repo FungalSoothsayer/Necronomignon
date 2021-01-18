@@ -119,10 +119,10 @@ public class LoadMission : MonoBehaviour
             if (enemyToLoad[x] != null)
             {
                 enemySlotImg[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + enemyToLoad[x].name + "/" + enemyToLoad[x].name + "_Controller") as RuntimeAnimatorController;
-                Beast b = new Beast();
-                b = beastManager.getFromName(enemyToLoad[x].name);
-                enemySlot.Add(b);
-                enemySquad.Add(b);
+                /*Beast b = new Beast();
+                b = BeastManager.getFromNameS(enemyToLoad[x].name);*/
+                enemySlot.Add(enemyToLoad[x]);
+                enemySquad.Add(enemyToLoad[x]);
                 activeEnemiesHealth.Add(enemyHealthBars[x]);
                 activeEnemyDamageBar.Add(eSlotDmgs[x]);
             }

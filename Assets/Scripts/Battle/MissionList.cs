@@ -26,7 +26,7 @@ public class MissionList : MonoBehaviour
         if(mission == "first")
         {
             int ran = -1;
-            ran = Random.Range(-1, totalEnemies - 1);
+            ran = Random.Range(-1, Values.SMALLSLOT - 1);
             while(ran >= 0)
             {
                 enemies.Add(null);
@@ -36,6 +36,13 @@ public class MissionList : MonoBehaviour
             while (enemies.Count < totalEnemies)
             {
                 enemies.Add(null);
+            }
+            foreach (Beast b in enemies)
+            {
+                if(b != null)
+                {
+                    b.setTierUpper(2);
+                }
             }
         }
         if(mission == "second")
@@ -63,6 +70,13 @@ public class MissionList : MonoBehaviour
             while (enemies.Count < totalEnemies)
             {
                 enemies.Add(null);
+            }
+            foreach (Beast b in enemies)
+            {
+                if (b != null)
+                {
+                    b.setTierUpper(3);
+                }
             }
         }
         if(mission == "third")
@@ -106,6 +120,13 @@ public class MissionList : MonoBehaviour
             {
                 enemies.Add(null);
             }
+            foreach (Beast b in enemies)
+            {
+                if (b != null)
+                {
+                    b.setTierUpper(3);
+                }
+            }
         }
         if(mission == "fourth")
         {
@@ -140,7 +161,13 @@ public class MissionList : MonoBehaviour
             enemies.Add(null);
             enemies.Add(null);
             enemies.Add(null);
-
+            foreach (Beast be in enemies)
+            {
+                if (be != null)
+                {
+                    be.setTierUpper(4);
+                }
+            }
         }
         if (mission == "sample")
         {
@@ -172,17 +199,18 @@ public class MissionList : MonoBehaviour
             beast.Add(-1);
             beast.Add(-1);
             beast.Add(-1);
+            beast.Add(-1);
 
             ran = -1;
 
             List<int> position = new List<int>();
 
-            while (enemies.Count < totalEnemies)
+            while (enemies.Count < Values.SMALLSLOT)
             {
                 //loops random numbers that will go on to assigne to each beast a slot
                 while (position.Contains(ran) || ran == -1)
                 {
-                    ran = Random.Range(0, totalEnemies);
+                    ran = Random.Range(0, Values.SMALLSLOT);
                 }
                 position.Add(ran);
                 if (beast[ran] < 0)
@@ -194,6 +222,17 @@ public class MissionList : MonoBehaviour
                     enemies.Add(beastManager.getFromName(BeastManager.beastsList.Beasts[beast[ran]].name));
                 }
             }
+            foreach (Beast b in enemies)
+            {
+                if (b != null)
+                {
+                    b.setTierLower(2);
+                }
+            }
+            enemies.Add(null);
+            enemies.Add(null);
+            enemies.Add(null);
+
         }
         //the mission with 1-4 random beast with random placement 
         if (mission == "randomer")
@@ -237,16 +276,23 @@ public class MissionList : MonoBehaviour
                     enemies.Add(beastManager.getFromName(BeastManager.beastsList.Beasts[beast[ran]].name));
                 }
             }
+            foreach (Beast b in enemies)
+            {
+                if (b != null)
+                {
+                    b.setTierUpper(5);
+                }
+            }
         }
         if (mission == "bottom")
         {
             List<int> position = new List<int>();
             int ran = -1;
-            while (position.Count < totalEnemies)
+            while (position.Count < Values.SMALLSLOT)
             {
                 while (position.Contains(ran) || ran == -1)
                 {
-                    ran = Random.Range(0, totalEnemies);
+                    ran = Random.Range(0, Values.SMALLSLOT);
                 }
                 position.Add(ran);
 
@@ -328,16 +374,26 @@ public class MissionList : MonoBehaviour
                     enemies.Add(BeastManager.getFromNameS(beasts[position[x]]));
                 }
             }
+            enemies.Add(null);
+            enemies.Add(null);
+            enemies.Add(null);
+            foreach (Beast be in enemies)
+            {
+                if (be != null)
+                {
+                    be.setTierLower(2);
+                }
+            }
         }
         if (mission == "top")
         {
             List<int> position = new List<int>();
             int ran = -1;
-            while (position.Count < totalEnemies)
+            while (position.Count < Values.SMALLSLOT)
             {
                 while (position.Contains(ran) || ran == -1)
                 {
-                    ran = Random.Range(0, totalEnemies);
+                    ran = Random.Range(0, Values.SMALLSLOT);
                 }
                 position.Add(ran);
                 
@@ -417,6 +473,16 @@ public class MissionList : MonoBehaviour
                     enemies.Add(BeastManager.getFromNameS(beasts[position[x]]));
                 }
             }
+            foreach (Beast be in enemies)
+            {
+                if (be != null)
+                {
+                    be.setTierLower(2);
+                }
+            }
+            enemies.Add(null);
+            enemies.Add(null);
+            enemies.Add(null);
         }
 
     }

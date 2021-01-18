@@ -27,12 +27,12 @@ public class FriendlyClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 //GameObject slot = GetSlot();
                 //slot.transform.GetChild(2).gameObject.SetActive(true);
 
-                battleManager.selectedFriend = GetName();
+                /*battleManager.selectedFriend = GetName();
                 GameObject slot = GetSlot();
                 GameObject selector = GameObject.Find("FriendlySelected");
                 Transform slotTransform = slot.GetComponent<RectTransform>();
                 Transform selectorTransform = selector.GetComponent<RectTransform>();
-                selectorTransform.position = slotTransform.position;
+                selectorTransform.position = slotTransform.position;*/
                 //selectorTransform.position = new Vector3(slotTransform.position.x, slotTransform.position.y, slotTransform.position.z);
                 //selectorTransform.position = new Vector3(0, 0, 0);
             }
