@@ -553,18 +553,18 @@ public class BattleManager : MonoBehaviour
         {
             //this switch finds the column the attacker is in and find the most sutible target column determined by distance
             //the aligned cloumn is always prioritised 
-            switch (slot % (Values.SLOTMAX/2))
+            switch (slot % (Values.SMALLSLOT / 2))
             {
                 case 0:
                     do
                     {
-                        if (slots[slot % (Values.SLOTMAX / 2)] != null && slots[slot % (Values.SLOTMAX / 2)].hitPoints > 0)
+                        if (slots[slot % (Values.SMALLSLOT / 2)] != null && slots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
-                            targets.Add(slots[slot % (Values.SLOTMAX / 2)]);
+                            targets.Add(slots[slot % (Values.SMALLSLOT / 2)]);
                         }
-                        if (slots[(slot % (Values.SLOTMAX / 2)) + (Values.SLOTMAX / 2)] != null && slots[(slot % (Values.SLOTMAX / 2)) + (Values.SLOTMAX / 2)].hitPoints > 0)
+                        if (slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
-                            targets.Add(slots[(slot % (Values.SLOTMAX / 2)) + (Values.SLOTMAX / 2)]);
+                            targets.Add(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
                         }
                         slot++;
                     } while (targets.Count < 1);
@@ -572,13 +572,13 @@ public class BattleManager : MonoBehaviour
                 case 1:
                     do
                     {
-                        if (slots[slot % (Values.SLOTMAX/2)] != null && slots[slot % (Values.SLOTMAX/2)].hitPoints > 0)
+                        if (slots[slot % (Values.SMALLSLOT / 2)] != null && slots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(slots[slot % (Values.SLOTMAX/2)]);
                         }
-                        if (slots[(slot % (Values.SLOTMAX/2)) + (Values.SLOTMAX/2)] != null && slots[(slot % (Values.SLOTMAX/2)) + (Values.SLOTMAX/2)].hitPoints > 0)
+                        if (slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
-                            targets.Add(slots[(slot % (Values.SLOTMAX/2)) + (Values.SLOTMAX/2)]);
+                            targets.Add(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
                         }
                         slot++;
                     } while (targets.Count < 1);
@@ -586,34 +586,33 @@ public class BattleManager : MonoBehaviour
                 case 2:
                     do
                     {
-                        if (slots[slot % (Values.SLOTMAX/2)] != null && slots[slot % (Values.SLOTMAX/2)].hitPoints > 0)
+                        if (slots[slot % (Values.SMALLSLOT / 2)] != null && slots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(slots[slot % (Values.SLOTMAX/2)]);
                         }
-                        if (slots[(slot % (Values.SLOTMAX/2)) + (Values.SLOTMAX/2)] != null && slots[(slot % (Values.SLOTMAX/2)) +(Values.SLOTMAX/2)].hitPoints > 0)
+                        if (slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && slots[(slot % (Values.SMALLSLOT / 2)) +(Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
-                            targets.Add(slots[(slot % (Values.SLOTMAX/2)) + (Values.SLOTMAX/2)]);
+                            targets.Add(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
                         }
                         slot--;
                     } while (targets.Count < 1);
                     break;
-
             }
         }
         else
         {
-            switch (slot % (Values.SLOTMAX/2))
+            switch (slot % (Values.SMALLSLOT / 2))
             {
                 case 0:
                     do
                     {
-                        if (enemySlots[slot % (Values.SLOTMAX/2)] != null && enemySlots[slot % (Values.SLOTMAX/2)].hitPoints >0)
+                        if (enemySlots[slot % (Values.SMALLSLOT / 2)] != null && enemySlots[slot % (Values.SMALLSLOT / 2)].hitPoints >0)
                         {
                             targets.Add(enemySlots[slot % (Values.SLOTMAX/2)]);
                         }
-                        if (enemySlots[(slot % (Values.SLOTMAX/2)) + (Values.SLOTMAX/2)] != null && enemySlots[(slot % (Values.SLOTMAX/2))  +  (Values.SLOTMAX/2)].hitPoints > 0)
+                        if (enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && enemySlots[(slot % (Values.SMALLSLOT / 2))  +  (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
-                            targets.Add(enemySlots[slot % (Values.SLOTMAX/2) + (Values.SLOTMAX/2)]);
+                            targets.Add(enemySlots[slot % (Values.SMALLSLOT / 2) + (Values.SMALLSLOT / 2)]);
                         }
                         slot++;
                     } while (targets.Count < 1);
@@ -621,13 +620,13 @@ public class BattleManager : MonoBehaviour
                 case 1:
                     do
                     {
-                        if (enemySlots[slot % (Values.SLOTMAX/2)] != null && enemySlots[slot % (Values.SLOTMAX/2)].hitPoints > 0)
+                        if (enemySlots[slot % (Values.SMALLSLOT / 2)] != null && enemySlots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
-                            targets.Add(enemySlots[slot % (Values.SLOTMAX/2)]);
+                            targets.Add(enemySlots[slot % (Values.SMALLSLOT / 2)]);
                         }
-                        if (enemySlots[(slot % (Values.SLOTMAX/2)) + (Values.SLOTMAX/2)] != null && enemySlots[(slot % (Values.SLOTMAX/2)) + (Values.SLOTMAX/2)].hitPoints > 0)
+                        if (enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
-                            targets.Add(enemySlots[(slot % (Values.SLOTMAX/2)) + (Values.SLOTMAX/2)]);
+                            targets.Add(enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
                         }
                         slot++;
                     } while (targets.Count < 1);
@@ -635,23 +634,22 @@ public class BattleManager : MonoBehaviour
                 case 2:
                     do
                     {
-                        if (enemySlots[slot % (Values.SLOTMAX/2)] != null && enemySlots[slot % (Values.SLOTMAX/2)].hitPoints > 0)
+                        if (enemySlots[slot % (Values.SMALLSLOT / 2)] != null && enemySlots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
-                            targets.Add(enemySlots[slot % (Values.SLOTMAX/2)]);
+                            targets.Add(enemySlots[slot % (Values.SMALLSLOT / 2)]);
                         }
-                        if (enemySlots[(slot % (Values.SLOTMAX/2)) + (Values.SLOTMAX/2)] != null && enemySlots[(slot % (Values.SLOTMAX/2)) + (Values.SLOTMAX/2)].hitPoints > 0)
+                        if (enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
-                            targets.Add(enemySlots[(slot % (Values.SLOTMAX/2)) + (Values.SLOTMAX/2)]);
+                            targets.Add(enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
                         }
                         slot--;
                     } while (targets.Count < 1);
                     break;
-
             }
         }
         return targets;
     }
-    //this method determins whether the attacker is in the front or back row and adjusts targets as neccisary 
+    //this method determines whether the attacker is in the front or back row and adjusts targets as neccisary 
     //it also initiates attacks
     public void Attack(Beast target)
     {
@@ -663,7 +661,6 @@ public class BattleManager : MonoBehaviour
         List<Beast> targets = new List<Beast>();
 
         targets.Add(target);
-
 
         //the if and else blocks here are identicle except for Move_A is switched with Move_B
         if (inFront)
@@ -970,24 +967,26 @@ public class BattleManager : MonoBehaviour
     {
         for(int x = 0; x< slots.Count; x++)
         {
-            if(x<(Values.SLOTMAX/2) && (currentTurn.Equals(slots[x]) || currentTurn.Equals(enemySlots[x])))
+            if(x < (Values.SMALLSLOT / 2) && (currentTurn.Equals(slots[x]) || currentTurn.Equals(enemySlots[x])))
             {
                 return true;
             }
         }
         return false;
     }
-    //determins if the target has a given beast in front of them 
+
+    //Determines if the target has a given beast in front of them 
     bool guarded(Beast b)
     {
         if (inFront(b))
         {
             return false;
         }
+
         int slot = -1;
         for (int x = 0; x < slots.Count; x++)
         {
-            if ( b.Equals(slots[x]) )
+            if (b.Equals(slots[x]))
             {
                 slot = x;
                 break;
@@ -998,11 +997,12 @@ public class BattleManager : MonoBehaviour
                 break;
             }
         }
+
         if (roundOrderTypes[turn] == "Player")
         {
-            for (int x = (Values.SLOTMAX/2); x < enemySlots.Count; x++)
+            for (int x = (Values.SMALLSLOT / 2); x < enemySlots.Count; x++)
             {
-                if(x==slot && enemySlots[x%(Values.SLOTMAX/2)] != null && enemySlots[x%(Values.SLOTMAX/2)].hitPoints > 0)
+                if(x == slot && enemySlots[x % (Values.SMALLSLOT / 2)] != null && enemySlots[x % (Values.SMALLSLOT / 2)].hitPoints > 0)
                 {
                     return true;
                 }
@@ -1010,9 +1010,9 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            for (int x = (Values.SLOTMAX/2); x < slots.Count; x++)
+            for (int x = (Values.SMALLSLOT / 2); x < slots.Count; x++)
             {
-                if (x == slot && slots[x % (Values.SLOTMAX/2)] != null && slots[x%(Values.SLOTMAX/2)].hitPoints > 0)
+                if (x == slot && slots[x % (Values.SMALLSLOT / 2)] != null && slots[x % (Values.SMALLSLOT / 2)].hitPoints > 0)
                 {
                     return true;
                 }
@@ -1020,12 +1020,13 @@ public class BattleManager : MonoBehaviour
         }
         return false;
     }
+
     //Get the row to determine whether a given beast is in the front or back row
     bool inFront(Beast b)
     {
         for (int x = 0; x < slots.Count; x++)
         {
-            if (x < (Values.SLOTMAX/2) && (b.Equals(slots[x]) || b.Equals(enemySlots[x])))
+            if (x < (Values.SMALLSLOT/2) && (b.Equals(slots[x]) || b.Equals(enemySlots[x])))
             {
                 return true;
             }

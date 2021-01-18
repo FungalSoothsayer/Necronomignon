@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 //using System.Diagnostics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [System.Serializable]
 public class Beast
@@ -68,6 +69,24 @@ public class Beast
         bm.moveManager.start();
         this.Move_A = bm.getMove(this.moveA);
         this.Move_B = bm.getMove(this.moveB);
+    }
+
+    public void setTierUpper(int x)
+    {
+        if(x<1 || x > 5)
+        {
+            return;
+        }
+        this.tier = UnityEngine.Random.Range(1, x+1);
+    }
+
+    public void setTierLower(int x)
+    {
+        if (x < 1 || x > 5)
+        {
+            return;
+        }
+        this.tier = UnityEngine.Random.Range(x, 6);
     }
 
     public bool curse(Beast target)
