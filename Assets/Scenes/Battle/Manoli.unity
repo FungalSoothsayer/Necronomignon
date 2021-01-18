@@ -5079,7 +5079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719b74702fc1b436d9a463f47d87a340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleManager: {fileID: 0}
+  battleManager: {fileID: 1972296792}
 --- !u!95 &584254289
 Animator:
   serializedVersion: 3
@@ -6971,7 +6971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719b74702fc1b436d9a463f47d87a340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleManager: {fileID: 0}
+  battleManager: {fileID: 1972296792}
 --- !u!95 &702132173
 Animator:
   serializedVersion: 3
@@ -9809,7 +9809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719b74702fc1b436d9a463f47d87a340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleManager: {fileID: 0}
+  battleManager: {fileID: 1972296792}
 --- !u!95 &961535258
 Animator:
   serializedVersion: 3
