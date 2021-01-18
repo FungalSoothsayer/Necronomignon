@@ -20,9 +20,9 @@ public class MissionList : MonoBehaviour
     //gets the beasts coresponding to the mission
     private void Awake()
     {
-        
         mission = LevelChecker.lastClick;
-        //the default and static mission
+
+        // Kitsune in a random position
         if(mission == "first")
         {
             int ran = -1;
@@ -32,7 +32,9 @@ public class MissionList : MonoBehaviour
                 enemies.Add(null);
                 ran--;
             }
+
             enemies.Add(beastManager.getFromName("Kitsune"));
+
             while (enemies.Count < totalEnemies)
             {
                 enemies.Add(null);
@@ -45,28 +47,37 @@ public class MissionList : MonoBehaviour
                 }
             }
         }
+        
+        // Conglomerate back row, Dryad front row
         if(mission == "second")
         {
             int ran = -1;
             ran = Random.Range(-1, 3);
+
             while (ran >= 0)
             {
                 enemies.Add(null);
                 ran--;
             }
+
             enemies.Add(beastManager.getFromName("Dryad"));
+
             while (enemies.Count < 3)
             {
                 enemies.Add(null);
             }
+
             ran = -1;
             ran = Random.Range(-1, 3);
+
             while (ran >= 0)
             {
                 enemies.Add(null);
                 ran--;
             }
+
             enemies.Add(beastManager.getFromName("Conglomerate"));
+
             while (enemies.Count < totalEnemies)
             {
                 enemies.Add(null);
@@ -79,23 +90,28 @@ public class MissionList : MonoBehaviour
                 }
             }
         }
+
+        // Dryad and Wyvern front row, Conglomerate back row
         if(mission == "third")
         {
             int poN = -1;
             int poD = -1;
             int poW = -1;
-            poN = Random.Range(0, Values.SMALLSLOT/2);
+            poN = Random.Range(0, Values.SMALLSLOT / 2);
+
             while(poD == -1 || poD == poN)
             {
-                poD = Random.Range(0, Values.SMALLSLOT/2);
+                poD = Random.Range(0, Values.SMALLSLOT / 2);
             }
+
             while(poW == -1 || poW == poN || poW == poD)
             {
-                poW = Random.Range(0, Values.SMALLSLOT/2);
+                poW = Random.Range(0, Values.SMALLSLOT / 2);
             }
+
             for(int x = 0; x < Values.SMALLSLOT/2; x++)
             {
-                 if (x == poD)
+                if (x == poD)
                 {
                     enemies.Add(beastManager.getFromName("Dryad"));
                 }
@@ -107,15 +123,18 @@ public class MissionList : MonoBehaviour
                 {
                     enemies.Add(null);
                 }
-                
             }
+
             int ran = Random.Range(-1, 3);
+
             while (ran >= 0)
             {
                 enemies.Add(null);
                 ran--;
             }
+
             enemies.Add(beastManager.getFromName("Conglomerate"));
+
             while (enemies.Count < totalEnemies)
             {
                 enemies.Add(null);
@@ -128,15 +147,19 @@ public class MissionList : MonoBehaviour
                 }
             }
         }
+        
+        // High defence small beast in the front blocking Dryad, DreamSlime in the front blocking a random small beast with low damage
         if(mission == "fourth")
         {
             Beast b = new Beast();
             int i = -1;
-            while(b.defence < 24)
+
+            while(b.defence < 24 || b.size == 1)
             {
                 i = Random.Range(0, BeastManager.beastsList.Beasts.Count);
                 b = BeastManager.getFromNameS(BeastManager.beastsList.Beasts[i].name);
             }
+
             enemies.Add(b);
             enemies.Add(null);
             enemies.Add(null);
@@ -145,18 +168,19 @@ public class MissionList : MonoBehaviour
             enemies.Add(null);
             enemies.Add(null);
             b = new Beast();
+
             do
             {
                 i = Random.Range(0, BeastManager.beastsList.Beasts.Count);
                 b = BeastManager.getFromNameS(BeastManager.beastsList.Beasts[i].name);
                 if (enemies[0].name == b.name)
                 {
-                    print("Senario apocalypse");
+                    print("Scenario apocalypse");
                     b.power = 1;
                 }
+            } 
+            while (b.power < 10 || b.name == "DreamSlime" || b.size == 1 || enemies.Contains(b));
 
-
-            } while (b.power < 10 || b.name == "DreamSlime");
             enemies.Add(b);
             enemies.Add(null);
             enemies.Add(null);
@@ -169,18 +193,24 @@ public class MissionList : MonoBehaviour
                 }
             }
         }
+
+        // Hardcoded places
         if (mission == "sample")
         {
-            enemies.Add(beastManager.getFromName("Dryad")); //A1
-            enemies.Add(beastManager.getFromName("Conglomerate")); //B1
-            enemies.Add(beastManager.getFromName("Wyvern")); //A2
-            enemies.Add(null); //B2
-            enemies.Add(null); //A3
-            enemies.Add(null); //B3
-            enemies.Add(null); //A4
-            enemies.Add(beastManager.getFromName("Kitsune")); //B4
+            enemies.Add(beastManager.getFromName("Dryad"));
+            enemies.Add(beastManager.getFromName("Conglomerate"));
+            enemies.Add(beastManager.getFromName("Wyvern"));
+            enemies.Add(null);
+            enemies.Add(null);
+            enemies.Add(null);
+            enemies.Add(null);
+            enemies.Add(beastManager.getFromName("Kitsune"));
+            enemies.Add(null);
+            enemies.Add(null);
+            enemies.Add(null);
         }
-        //the mission with 4 randomly placed random beast
+
+        // the mission with 4 randomly placed, random small beasts
         if (mission == "random")
         {
             List<int> beast = new List<int>();
@@ -196,6 +226,7 @@ public class MissionList : MonoBehaviour
                 }
                 beast.Add(ran);
             }
+
             beast.Add(-1);
             beast.Add(-1);
             beast.Add(-1);
@@ -207,12 +238,14 @@ public class MissionList : MonoBehaviour
 
             while (enemies.Count < Values.SMALLSLOT)
             {
-                //loops random numbers that will go on to assigne to each beast a slot
+                //loops random numbers that will go on to assign a slot to each beast
                 while (position.Contains(ran) || ran == -1)
                 {
                     ran = Random.Range(0, Values.SMALLSLOT);
                 }
+
                 position.Add(ran);
+
                 if (beast[ran] < 0)
                 {
                     enemies.Add(null);
@@ -234,6 +267,7 @@ public class MissionList : MonoBehaviour
             enemies.Add(null);
 
         }
+
         //the mission with 1-4 random beast with random placement 
         if (mission == "randomer")
         {
