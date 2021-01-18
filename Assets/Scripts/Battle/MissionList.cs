@@ -25,20 +25,25 @@ public class MissionList : MonoBehaviour
         // Kitsune in a random position
         if(mission == "first")
         {
+            Beast kitsune = beastManager.getFromName("Kitsune");
+
             int ran = -1;
-            ran = Random.Range(-1, Values.SMALLSLOT - 1);
-            while(ran >= 0)
+            //ran = Random.Range(-1, Values.SMALLSLOT - 1);
+            ran = (kitsune.size == 0) ? Random.Range(-1, Values.SMALLSLOT - 1) : Random.Range(Values.SMALLSLOT, totalEnemies - 1);
+
+            while (ran >= 0)
             {
                 enemies.Add(null);
                 ran--;
             }
 
-            enemies.Add(beastManager.getFromName("Kitsune"));
+            enemies.Add(kitsune);
 
             while (enemies.Count < totalEnemies)
             {
                 enemies.Add(null);
             }
+
             foreach (Beast b in enemies)
             {
                 if(b != null)

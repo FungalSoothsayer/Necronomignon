@@ -597,7 +597,6 @@ public class BattleManager : MonoBehaviour
                         slot--;
                     } while (targets.Count < 1);
                     break;
-
             }
         }
         else
@@ -646,12 +645,11 @@ public class BattleManager : MonoBehaviour
                         slot--;
                     } while (targets.Count < 1);
                     break;
-
             }
         }
         return targets;
     }
-    //this method determins whether the attacker is in the front or back row and adjusts targets as neccisary 
+    //this method determines whether the attacker is in the front or back row and adjusts targets as neccisary 
     //it also initiates attacks
     public void Attack(Beast target)
     {
@@ -663,7 +661,6 @@ public class BattleManager : MonoBehaviour
         List<Beast> targets = new List<Beast>();
 
         targets.Add(target);
-
 
         //the if and else blocks here are identicle except for Move_A is switched with Move_B
         if (inFront)
@@ -970,24 +967,26 @@ public class BattleManager : MonoBehaviour
     {
         for(int x = 0; x< slots.Count; x++)
         {
-            if(x<(Values.SMALLSLOT/2) && (currentTurn.Equals(slots[x]) || currentTurn.Equals(enemySlots[x])))
+            if(x < (Values.SMALLSLOT / 2) && (currentTurn.Equals(slots[x]) || currentTurn.Equals(enemySlots[x])))
             {
                 return true;
             }
         }
         return false;
     }
-    //determins if the target has a given beast in front of them 
+
+    //Determines if the target has a given beast in front of them 
     bool guarded(Beast b)
     {
         if (inFront(b))
         {
             return false;
         }
+
         int slot = -1;
         for (int x = 0; x < slots.Count; x++)
         {
-            if ( b.Equals(slots[x]) )
+            if (b.Equals(slots[x]))
             {
                 slot = x;
                 break;
@@ -998,11 +997,12 @@ public class BattleManager : MonoBehaviour
                 break;
             }
         }
+
         if (roundOrderTypes[turn] == "Player")
         {
-            for (int x = (Values.SMALLSLOT/2); x < enemySlots.Count; x++)
+            for (int x = (Values.SMALLSLOT / 2); x < enemySlots.Count; x++)
             {
-                if(x==slot && enemySlots[x%(Values.SMALLSLOT / 2)] != null && enemySlots[x%(Values.SMALLSLOT / 2)].hitPoints > 0)
+                if(x == slot && enemySlots[x % (Values.SMALLSLOT / 2)] != null && enemySlots[x % (Values.SMALLSLOT / 2)].hitPoints > 0)
                 {
                     return true;
                 }
@@ -1012,7 +1012,7 @@ public class BattleManager : MonoBehaviour
         {
             for (int x = (Values.SMALLSLOT / 2); x < slots.Count; x++)
             {
-                if (x == slot && slots[x % (Values.SMALLSLOT / 2)] != null && slots[x%(Values.SMALLSLOT / 2)].hitPoints > 0)
+                if (x == slot && slots[x % (Values.SMALLSLOT / 2)] != null && slots[x % (Values.SMALLSLOT / 2)].hitPoints > 0)
                 {
                     return true;
                 }
@@ -1020,6 +1020,7 @@ public class BattleManager : MonoBehaviour
         }
         return false;
     }
+
     //Get the row to determine whether a given beast is in the front or back row
     bool inFront(Beast b)
     {
