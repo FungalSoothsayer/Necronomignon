@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SaveSystem;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -89,6 +90,7 @@ public class LevelChecker : MonoBehaviour
         }
         if (b.tier == -1)
         {
+            print("unlock Succesful");
             BeastManager.beastsList.Beasts[x].tier = 0;
         }
     }
