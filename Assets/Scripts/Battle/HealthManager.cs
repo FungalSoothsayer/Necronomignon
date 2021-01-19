@@ -104,7 +104,7 @@ public class HealthManager : MonoBehaviour
         for(int x = 0; x< Values.SQUADMAX; x++)
         {
             
-            if (target == squad[x%squad.Count])
+            if (target == squad[x % squad.Count])
             {
                 if(squad[x % squad.Count].hitPoints <= 0)
                 {

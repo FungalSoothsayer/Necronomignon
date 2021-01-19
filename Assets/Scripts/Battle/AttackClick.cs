@@ -46,7 +46,7 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     Beast GetName()
     {
         string str = gameObject.name;
-        char size = str.ToCharArray()[1];
+        char size = str.ToCharArray()[0];
         int num = int.Parse((str).ToCharArray()[str.Length - 1].ToString());
 
         if (size.Equals('S'))
