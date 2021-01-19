@@ -965,6 +965,10 @@ public class BattleManager : MonoBehaviour
     //Get the row to determine whether the current turn beast is using an A move or a B move
     bool inFront()
     {
+        if(currentTurn.size == 1)
+        {
+            return true;
+        }
         for(int x = 0; x< slots.Count; x++)
         {
             if(x < (Values.SMALLSLOT / 2) && (currentTurn.Equals(slots[x]) || currentTurn.Equals(enemySlots[x])))
@@ -1024,9 +1028,14 @@ public class BattleManager : MonoBehaviour
     //Get the row to determine whether a given beast is in the front or back row
     bool inFront(Beast b)
     {
+        if(b.size == 1)
+        {
+            return true;
+        }
+
         for (int x = 0; x < slots.Count; x++)
         {
-            if (x < (Values.SMALLSLOT/2) && (b.Equals(slots[x]) || b.Equals(enemySlots[x])))
+            if (x < (Values.SMALLSLOT / 2) && (b.Equals(slots[x]) || b.Equals(enemySlots[x])))
             {
                 return true;
             }
