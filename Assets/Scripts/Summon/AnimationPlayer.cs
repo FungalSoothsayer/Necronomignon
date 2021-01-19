@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class AnimationPlayer : MonoBehaviour
 {
     public Image image;
+    BeastManager beastManager;
 
     // Start is called before the first frame update
     void Start()
@@ -45,9 +46,9 @@ public class AnimationPlayer : MonoBehaviour
     // When Summoning a new beast into the field, or for the first time 
     public void Summon()
     {
+        image.GetComponent<Animator>().SetInteger("Health", 100);
         //Summon animation will go here when we get them
-        Beast b;
-        image.sprite = Resources.Load<Sprite>("Static_Images/" + SummonBookLoader.beastName);
+        image.GetComponent<Animator>().Play("Base Layer.Idle", 0);
     }
 
     //Back Button(obviously) 

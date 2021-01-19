@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class TrainPrep : MonoBehaviour
 {
-    public Image img;
+    public Button img;
     public new Text name;
     public LoadScenes loadScenes;
     // Start is called before the first frame update
     void Start()
     {
-        img.sprite = Resources.Load<Sprite>("Static_Images/" + BeastManager.getFromNameS(SummonManager.name).static_img);
+        img.GetComponent<Image>().sprite = Resources.Load<Sprite>("Static_Images/" + BeastManager.getFromNameS(SummonManager.name).static_img);
         name.text = SummonManager.name;
     }
 

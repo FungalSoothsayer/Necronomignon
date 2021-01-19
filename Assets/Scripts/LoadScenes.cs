@@ -17,7 +17,6 @@ public class LoadScenes : MonoBehaviour
             //Calls the play method from AudioManager script
             go.Play(sceneName);
 
-
             //Calls the method from the UnityEngine package, switches Scene from name
             SceneManager.LoadScene(sceneName);
         }
