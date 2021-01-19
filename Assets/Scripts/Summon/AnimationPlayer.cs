@@ -45,7 +45,9 @@ public class AnimationPlayer : MonoBehaviour
     // When Summoning a new beast into the field, or for the first time 
     public void Summon()
     {
-
+        //Summon animation will go here when we get them
+        Beast b;
+        image.sprite = Resources.Load<Sprite>("Static_Images/" + SummonBookLoader.beastName);
     }
 
     //Back Button(obviously) 
