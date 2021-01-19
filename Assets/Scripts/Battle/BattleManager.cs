@@ -477,7 +477,6 @@ public class BattleManager : MonoBehaviour
                 else if (x >= (Values.SLOTMAX/2) && slots[x] != null && slots[x].hitPoints > 0)
                 {
                     if (targets.Count - (x - (Values.SLOTMAX/2)) >= 1)
-
                     {
                         break;
                     }
@@ -496,7 +495,6 @@ public class BattleManager : MonoBehaviour
                         targets.Add(slots[x]);
                     }
                     else if (x >= (Values.SLOTMAX/2) && slots[x] != null && slots[x].hitPoints > 0)
-
                     {
                         if (targets.Count >0)
                         {
