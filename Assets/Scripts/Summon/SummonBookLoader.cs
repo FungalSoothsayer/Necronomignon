@@ -49,10 +49,13 @@ public class SummonBookLoader : MonoBehaviour
 
         for (int x = 0; x < bl.Beasts.Count; x++)
         {
-            summoned.Add(bl.Beasts[x]);
-            summonedImages.Add(bl.Beasts[x].static_img);
-            summonedNames.Add(bl.Beasts[x].name);
-            sorted.Add(bl.Beasts[x]);
+            if (bl.Beasts[x].tier >= 0)
+            {
+                summoned.Add(bl.Beasts[x]);
+                summonedImages.Add(bl.Beasts[x].static_img);
+                summonedNames.Add(bl.Beasts[x].name);
+                sorted.Add(bl.Beasts[x]);
+            }
         }
         SortImagesDropdown(sortedBy);
         dropdown.value = sortedBy;
