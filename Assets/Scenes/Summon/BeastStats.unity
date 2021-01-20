@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &51622475
 RectTransform:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &77725969
 RectTransform:
   m_ObjectHideFlags: 0
@@ -459,6 +459,12 @@ MonoBehaviour:
   img: {fileID: 772318676}
   name: {fileID: 860046366}
   loadScenes: {fileID: 392722438}
+  pentagrams:
+  - {fileID: 77725970}
+  - {fileID: 452419434}
+  - {fileID: 51622476}
+  - {fileID: 885095361}
+  - {fileID: 944659416}
 --- !u!114 &392722438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,7 +600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &452419433
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1020,7 +1026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &885095360
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1094,7 +1100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &944659415
 RectTransform:
   m_ObjectHideFlags: 0

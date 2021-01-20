@@ -72,7 +72,7 @@ public class SummonBookLoader : MonoBehaviour
                 beastTexts[x % 6].GetComponent<Text>().text = summonedNames[x];
 
                 //Make not summoned beasts transparent
-                if (sorted[x].tier == -1)
+                if (sorted[x].tier <= 0)
                 {
                     var tempColor = slots[x % 6].color;
                     tempColor.a = .5f;
