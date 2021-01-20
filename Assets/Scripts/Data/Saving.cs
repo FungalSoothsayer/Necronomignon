@@ -20,9 +20,11 @@ public class Saving : MonoBehaviour
     public void saveAll()
     {
         EasySave.Save<BeastList>("playerBL",BeastManager.beastsList);
+        EasySave.Save<int>("level", LevelChecker.levels);
     }
     public void loadAll()
     {
         BeastManager.beastsList = EasySave.Load<BeastList>("playerBL");
+        LevelChecker.levels = EasySave.Load<int>("level");
     }
 }
