@@ -20,6 +20,7 @@ public class Beast
     public int tier;
     public int id;
     public int size;
+    [XmlElement(Namespace = "Beast")]
     public types type;
     public types secondType;
     public int moveA;
