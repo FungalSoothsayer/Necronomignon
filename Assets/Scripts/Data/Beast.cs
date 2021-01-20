@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 //using System.Diagnostics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [System.Serializable]
 public class Beast
@@ -18,6 +20,7 @@ public class Beast
     public int tier;
     public int id;
     public int size;
+    [XmlElement(Namespace = "Beast")]
     public types type;
     public types secondType;
     public int moveA;
@@ -27,7 +30,7 @@ public class Beast
     public string static_img;
     public List<Buff> buffs = new List<Buff>();
 
-    public enum types { Normal, Water, Fire, Earth, Air, Dark, Light, Horror, Cosmic };
+    public enum types {[XmlEnum(Name = "Normal")] Normal, [XmlEnum(Name = "Water")] Water, [XmlEnum(Name = "Fire")] Fire, [XmlEnum(Name = "Earth")] Earth, [XmlEnum(Name = "Air")] Air, [XmlEnum(Name = "Dark")] Dark, [XmlEnum(Name = "Light")] Light, [XmlEnum(Name = "Horror")] Horror, [XmlEnum(Name = "Cosmic")] Cosmic };
 
     public int[] statusTurns = new int[8];
     BeastManager bm = new BeastManager();
@@ -68,6 +71,24 @@ public class Beast
         bm.moveManager.start();
         this.Move_A = bm.getMove(this.moveA);
         this.Move_B = bm.getMove(this.moveB);
+    }
+
+    public void setTierUpper(int x)
+    {
+        if(x<1 || x > 5)
+        {
+            return;
+        }
+        this.tier = UnityEngine.Random.Range(1, x+1);
+    }
+
+    public void setTierLower(int x)
+    {
+        if (x < 1 || x > 5)
+        {
+            return;
+        }
+        this.tier = UnityEngine.Random.Range(x, 6);
     }
 
     public bool curse(Beast target)

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 /*
- * This is the object class for Moves 
- */
+* This is the object class for Moves 
+*/
 [System.Serializable]
 public class Move 
 {
@@ -22,10 +23,11 @@ public class Move
     //Buff Object from the buff class
     public Buff buff;
     // Type object (Elements: Wind,Wate, Earth, Dark....) 
+    [XmlElement(Namespace = "Move")]
     public types type;
 
     //To string
-    public enum types { Sleep, Burn, Poison, Paralyze, Doom, Blind, Corrupt, Confusion};
+    public enum types {[XmlEnum(Name = "Sleep")] Sleep, [XmlEnum(Name = "Burn")] Burn, [XmlEnum(Name = "Poison")] Poison, [XmlEnum(Name = "Paralyze")] Paralyze, [XmlEnum(Name = "Doom")] Doom, [XmlEnum(Name = "Blind")] Blind, [XmlEnum(Name = "Corrupt")] Corrupt, [XmlEnum(Name = "Confusion")] Confusion };
     override
     public String ToString()
     {

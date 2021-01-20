@@ -9,10 +9,19 @@ public class QuizManager : MonoBehaviour
     public Text question;
     public int correct;
     public LoadScenes loadScenes;
+
+    Beast b = new Beast();
+
+    Story s;
+    List<string> questions = new List<string>();
+    List<int> used = new List<int>();
+    int questionNumber;
+
     // Start is called before the first frame update
     void Start()
     {
         int x = 0;
+        //Getting the stories that correspond to the chosen beast
         for (; x < StoryManager.storyList.Stories.Count; x++)
         {
             if(StoryManager.storyList.Stories[x].beast_name == SummonManager.name)
@@ -20,8 +29,9 @@ public class QuizManager : MonoBehaviour
                 break;
             }
         }
-        Story s = StoryManager.storyList.Stories[x];
-        Beast b = new Beast();
+        s = StoryManager.storyList.Stories[x];
+
+        //Making a copy of the beast that is chosen
         for (x = 0; x < BeastManager.beastsList.Beasts.Count; x++)
         {
             if(BeastManager.beastsList.Beasts[x].name == SummonManager.name)
@@ -30,19 +40,21 @@ public class QuizManager : MonoBehaviour
                 break;
             }
         }
-        int qTier = b.tier -1;
-        print(s.questions[qTier]);
-        print(qTier);
-        question.text = s.questions[qTier].question;
-        List<string> qOrder = new List<string>();
-        for(int y = 0; y < 4; y++)
+
+        //A list of the questions so they can be removed when answered already
+        for (int i = 0; i < s.questions.Count; i++)
         {
-            qOrder.Add(null);
+            questions.Add(s.questions[i].question);
         }
+
+        //Randomize the question
+        questionNumber = Random.Range(0, questions.Count);
+        question.text = questions[questionNumber];
+
         int ran = -1;
-        x = 3;
         List<int> intOrder = new List<int>();
 
+        //Randomize the answer options
         while (intOrder.Count < 4)
         {
             ran = Random.Range(0, 4);
@@ -52,47 +64,25 @@ public class QuizManager : MonoBehaviour
             }
         }
 
-        for(int y = 0; y< options.Count; y++)
+        //Randomize the answer options
+        for (int y = 0; y < options.Count; y++)
         {
-            options[y].text = s.questions[qTier].options[intOrder[y]];
+            options[y].text = s.questions[questionNumber].options[intOrder[y]];
             if(intOrder[y] == 0)
             {
                 ran = y;
             }
         }
 
-        /*while (x>=0)
-        {
-            ran = Random.Range(0, 4);
-            if(qOrder[ran] == "")
-            {
-                qOrder[ran] = s.questions[qTier].options[x];
-                x--;
-            }
-        }*/
         correct = ran;
         print(correct);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Raises tier if the correct answer is chosen and returns to Menu if it isn't
     public void clickOption(int opt)
     {
         if(opt == correct)
         {
-            Beast b = new Beast();
-            for (int x = 0; x < BeastManager.beastsList.Beasts.Count; x++)
-            {
-                if (BeastManager.beastsList.Beasts[x].name == SummonManager.name)
-                {
-                    b = BeastManager.beastsList.Beasts[x];
-                    break;
-                }
-            }
             b.tier++;
             loadScenes.LoadSelect("BeastStats");
         }

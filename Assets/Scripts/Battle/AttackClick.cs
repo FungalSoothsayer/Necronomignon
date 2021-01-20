@@ -21,7 +21,8 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             if (Input.GetMouseButtonDown(0))
             {
                 battleManager.selectedEnemy = GetName();
-                GameObject slot = GetSlot();
+                print(battleManager.selectedEnemy);
+                //GameObject slot = GetSlot();
                 /*GameObject selector = GameObject.Find("EnemySelected");
                 RectTransform slotTransform = slot.GetComponent<RectTransform>();
                 RectTransform selectorTransform = selector.GetComponent<RectTransform>();
@@ -45,15 +46,33 @@ public class AttackClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     Beast GetName()
     {
         string str = gameObject.name;
+        char size = str.ToCharArray()[0];
         int num = int.Parse((str).ToCharArray()[str.Length - 1].ToString());
 
-        if (num <= battleManager.enemySlots.Count && battleManager.enemySlots[num-1] != null)
+        if (size.Equals('S'))
         {
-            return battleManager.enemySlots[num - 1];
+            if (num <= battleManager.enemySlots.Count && battleManager.enemySlots[num - 1] != null)
+            {
+                return battleManager.enemySlots[num - 1];
+            }
+            else
+            {
+                return null;
+            }
+        }
+        else if (size.Equals('B'))
+        {
+            if (num + Values.SMALLSLOT <= battleManager.enemySlots.Count && battleManager.enemySlots[num + 7] != null) {
+                return battleManager.enemySlots[num + 7];
+            }
+            else
+            {
+                return null;
+            }
         }
         else
-        { 
-            return null; 
+        {
+            return null;
         }
     }
     //gets the game object representing the beast

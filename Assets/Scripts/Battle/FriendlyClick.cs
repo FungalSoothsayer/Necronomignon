@@ -27,12 +27,12 @@ public class FriendlyClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 //GameObject slot = GetSlot();
                 //slot.transform.GetChild(2).gameObject.SetActive(true);
 
-                battleManager.selectedFriend = GetName();
+                /*battleManager.selectedFriend = GetName();
                 GameObject slot = GetSlot();
                 GameObject selector = GameObject.Find("FriendlySelected");
                 Transform slotTransform = slot.GetComponent<RectTransform>();
                 Transform selectorTransform = selector.GetComponent<RectTransform>();
-                selectorTransform.position = slotTransform.position;
+                selectorTransform.position = slotTransform.position;*/
                 //selectorTransform.position = new Vector3(slotTransform.position.x, slotTransform.position.y, slotTransform.position.z);
                 //selectorTransform.position = new Vector3(0, 0, 0);
             }
@@ -54,11 +54,30 @@ public class FriendlyClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     Beast GetName()
     {
         string str = gameObject.name;
+        char size = str.ToCharArray()[1];
         int num = int.Parse((str).ToCharArray()[str.Length - 1].ToString());
 
-        if (num <= battleManager.slots.Count && battleManager.slots[num - 1] != null)
+        if (size.Equals('S'))
         {
-            return battleManager.slots[num - 1];
+            if (num <= battleManager.slots.Count && battleManager.slots[num - 1] != null)
+            {
+                return battleManager.slots[num - 1];
+            }
+            else
+            {
+                return null;
+            }
+        }
+        else if (size.Equals('B'))
+        {
+            if (num + Values.SMALLSLOT <= battleManager.slots.Count && battleManager.slots[num + 7] != null)
+            {
+                return battleManager.slots[num + 7];
+            }
+            else
+            {
+                return null;
+            }
         }
         else
         {

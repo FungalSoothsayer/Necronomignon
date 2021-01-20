@@ -49,10 +49,13 @@ public class SummonBookLoader : MonoBehaviour
 
         for (int x = 0; x < bl.Beasts.Count; x++)
         {
-            summoned.Add(bl.Beasts[x]);
-            summonedImages.Add(bl.Beasts[x].static_img);
-            summonedNames.Add(bl.Beasts[x].name);
-            sorted.Add(bl.Beasts[x]);
+            if (bl.Beasts[x].tier >= 0)
+            {
+                summoned.Add(bl.Beasts[x]);
+                summonedImages.Add(bl.Beasts[x].static_img);
+                summonedNames.Add(bl.Beasts[x].name);
+                sorted.Add(bl.Beasts[x]);
+            }
         }
         SortImagesDropdown(sortedBy);
         dropdown.value = sortedBy;
@@ -72,7 +75,7 @@ public class SummonBookLoader : MonoBehaviour
                 beastTexts[x % 6].GetComponent<Text>().text = summonedNames[x];
 
                 //Make not summoned beasts transparent
-                if (sorted[x].tier == 0)
+                if (sorted[x].tier <= 0)
                 {
                     var tempColor = slots[x % 6].color;
                     tempColor.a = .5f;
@@ -146,7 +149,7 @@ public class SummonBookLoader : MonoBehaviour
             if (EventSystem.current.currentSelectedGameObject.name == "Slot" + x)
             {
                 beastName = summonedNames[(counter * 6) + x - 1];
-                if (/*sorted[(counter * 6) + x - 1].tier == 0 &&*/ hasAStory(beastName))
+                if (sorted[(counter * 6) + x - 1].tier >= 0 && hasAStory(beastName))
                 {
                     SummonManager.name = beastName;
                     SceneManager.LoadScene("BeastStory");
@@ -202,7 +205,7 @@ public class SummonBookLoader : MonoBehaviour
         summonedImages.Clear();
         summonedNames.Clear();
 
-        for (int x = 5; x >= 0; x--)
+        for (int x = 5; x >= -1; x--)
         {
             for (int y = 0; y < summoned.Count; y++)
             {
