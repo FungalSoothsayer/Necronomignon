@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System;
+using SaveSystem;
 
 /*
  * This class handles most of the logic behind the SummonMain scene
@@ -46,6 +47,8 @@ public class SummonBookLoader : MonoBehaviour
             beastManager.Awake();
         }
         BeastList bl = BeastManager.beastsList;
+
+        EasySave.Save<BeastList>("playerBL", bl);
 
         for (int x = 0; x < bl.Beasts.Count; x++)
         {

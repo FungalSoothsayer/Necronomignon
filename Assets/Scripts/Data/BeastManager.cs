@@ -6,6 +6,7 @@ using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
 using System.Runtime.Versioning;
+using SaveSystem;
 
 /*
  *  This class handles the creation of a Beast Object from the Json File    
@@ -29,7 +30,7 @@ public class BeastManager : MonoBehaviour
         path = Application.dataPath + "/Scripts/Data/Beast.json";
         jsonString = File.ReadAllText(path);
 
-
+        
 
         if (jsonString != null && beastsList.Beasts.Count <=0)
         {
