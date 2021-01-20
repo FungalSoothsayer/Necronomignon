@@ -26,14 +26,6 @@ public class StoryManager : MonoBehaviour
         path = Application.dataPath + "/Scripts/Data/Stories.json";
         jsonString = File.ReadAllText(path);
         storyList = JsonUtility.FromJson<StoryList>(jsonString);
-        foreach(Story s in storyList.Stories)
-        {
-            print(s);
-            foreach(Questions q in s.questions)
-            {
-                print(q);
-            }
-        }
     }
 
     public void start()
