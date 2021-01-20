@@ -12,6 +12,11 @@ public class QuizManager : MonoBehaviour
 
     Beast b = new Beast();
 
+    Story s;
+    List<string> questions = new List<string>();
+    List<int> used = new List<int>();
+    int questionNumber;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +29,7 @@ public class QuizManager : MonoBehaviour
                 break;
             }
         }
-        Story s = StoryManager.storyList.Stories[x];
+        s = StoryManager.storyList.Stories[x];
 
         //Making a copy of the beast that is chosen
         for (x = 0; x < BeastManager.beastsList.Beasts.Count; x++)
@@ -36,11 +41,15 @@ public class QuizManager : MonoBehaviour
             }
         }
 
-        int qTier = b.tier -1;
+        //A list of the questions so they can be removed when answered already
+        for (int i = 0; i < s.questions.Count; i++)
+        {
+            questions.Add(s.questions[i].question);
+        }
 
         //Randomize the question
-        int questionNumber = Random.Range(0, s.questions.Count);
-        question.text = s.questions[questionNumber].question;
+        questionNumber = Random.Range(0, questions.Count);
+        question.text = questions[questionNumber];
 
         int ran = -1;
         List<int> intOrder = new List<int>();
