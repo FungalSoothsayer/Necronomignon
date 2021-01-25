@@ -23,9 +23,6 @@ public class BeastSummon : MonoBehaviour
     public GameObject pent4;
     public GameObject pent5;
 
-    public static Beast currentBeast;
-
-    public static string beastName;
 
     void Start()
     {
@@ -61,7 +58,6 @@ public class BeastSummon : MonoBehaviour
         {
             if(currentScene.name == b.name + "Main")
             {
-                currentBeast = b;
                 return b.tier;
             }
         }
