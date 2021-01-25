@@ -44,12 +44,16 @@ public class QuizManager : MonoBehaviour
         //A list of the questions so they can be removed when answered already
         for (int i = 0; i < s.questions.Count; i++)
         {
-            questions.Add(s.questions[i].question);
+            if (s.questions[i].selected)
+            {
+                questions.Add(s.questions[i].question);
+            }
         }
 
         //Randomize the question
         questionNumber = Random.Range(0, questions.Count);
         question.text = questions[questionNumber];
+        s.questions[questionNumber].selected = true;
 
         int ran = -1;
         List<int> intOrder = new List<int>();
@@ -88,6 +92,7 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
+            s.questions[questionNumber].selected = false;
             loadScenes.LoadSelect("Menu");
         }
     }
