@@ -48,11 +48,14 @@ public class BattleManager : MonoBehaviour
     public List<bool> playersActive = new List<bool>();
     public List<bool> enemiesActive= new List<bool>();
 
+    public Summoner playerSummoner;
+    public Summoner enemySummoner;
+
     List<int> playersTurnsTaken = new List<int>();
     List<int> enemiesTurnsTaken = new List<int>();
 
     //Get lists from LoadMission and add the players to the attack pool
-    public void SendLists(List<Beast> thisSquad, List<Beast> enemySquad, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth, List<DamageOutput> activePlayerDamage, List<DamageOutput> activeEnemyDamage)
+    public void SendLists(List<Beast> thisSquad, List<Beast> enemySquad, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth, List<DamageOutput> activePlayerDamage, List<DamageOutput> activeEnemyDamage, Summoner enemySummoner)
     {
         selectedEnemy = enemySquad[0];
         for (int x = 0; x < enemySquad.Count; x++)
@@ -62,7 +65,8 @@ public class BattleManager : MonoBehaviour
                 selectedEnemy = enemySquad[x];
             }
         }
-
+        playerSummoner = Player.summoner;
+        this.enemySummoner = enemySummoner;
         enemies = enemySquad;
         while (enemies.Count < Values.SQUADMAX) { 
             enemies.Add(null);

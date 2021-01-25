@@ -28,6 +28,7 @@ public class Beast
     public int moveB;
     public Move Move_B;
     public string static_img;
+    public List<float> statGradients;
     public List<Buff> buffs = new List<Buff>();
 
     public enum types {[XmlEnum(Name = "Normal")] Normal, [XmlEnum(Name = "Water")] Water, [XmlEnum(Name = "Fire")] Fire, [XmlEnum(Name = "Earth")] Earth, [XmlEnum(Name = "Air")] Air, [XmlEnum(Name = "Dark")] Dark, [XmlEnum(Name = "Light")] Light, [XmlEnum(Name = "Horror")] Horror, [XmlEnum(Name = "Cosmic")] Cosmic };
