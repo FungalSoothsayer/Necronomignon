@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Animations/Kitsune/Death/KitsuneDeath.anim.meta
+guid: 9e81626cd26a2c4499591ffbef105446
+========
 guid: 4043daf07a5c8b14fb48c52a6c11e1be
+>>>>>>>> master:Assets/Resources/Animations/Conglomerate/Idle/Conglomerate_Idle.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

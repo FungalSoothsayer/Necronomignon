@@ -221,9 +221,6 @@ public class LoadMission : MonoBehaviour
     //Remove image when beast is knocked out
     public void RemoveImage(Beast toRemove, string owner)
     {
-        print(GetImageToRemove(toRemove, owner));
-        print(GetImageToRemove(toRemove, owner).gameObject);
-        print(GetImageToRemove(toRemove, owner).gameObject.GetComponent<Animator>());
         GetImageToRemove(toRemove, owner).gameObject.GetComponent<Animator>().SetInteger("Health", 0);
         StartCoroutine(PlayDeathAnimation(toRemove, owner));
     }

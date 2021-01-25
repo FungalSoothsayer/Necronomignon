@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Resources/Animations/Conglomerate/Damage/ConglomerateDamage.anim.meta
+guid: e8e7af26c5e5cc5499b146e317f8c776
+=======
 guid: f2b5384a560d8944ca4c9a4cfef5ed9f
+>>>>>>> master:Assets/Resources/Animations/Kitsune/Back/Kitsune_Back.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
