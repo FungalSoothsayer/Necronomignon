@@ -8,6 +8,7 @@ public class Questions
 {
     public string question;
     public List<string> options;
+    public bool selected;
 
     override
     public String ToString()

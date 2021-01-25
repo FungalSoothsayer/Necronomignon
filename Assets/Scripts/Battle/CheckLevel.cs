@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DialogueEditor;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ using UnityEngine;
 public class CheckLevel : MonoBehaviour
 {
     public LevelChecker levelChecker;
-
+    public static int lvl;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +56,16 @@ public class CheckLevel : MonoBehaviour
         {
             levelChecker = name.GetComponent<LevelChecker>();
             levelChecker.setLastClick(str);
+        }
+    }
+    public void setCurrentLevel(int level)
+    {
+        print(lvl);
+        lvl = level;
+        if (ConversationManager.Instance != null)
+        {
+            print(lvl);
+            ConversationManager.Instance.SetInt("Levels", lvl);
         }
     }
 }
