@@ -29,6 +29,7 @@ public class Saving : MonoBehaviour
         {
             EasySave.Save<List<Beast>>("squad2", SquadData.squad2);
         }
+        EasySave.Save<int>("playerXP", Player.summoner.xp);
     }
     public void loadAll()
     {
@@ -44,5 +45,6 @@ public class Saving : MonoBehaviour
             SquadData.squad2 = EasySave.Load<List<Beast>>("squad2");
             SquadData.squad2Saved = true;
         }
+        Player.summoner.xp = EasySave.Load<int>("playerXP");
     }
 }

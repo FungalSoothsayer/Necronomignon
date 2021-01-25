@@ -45,6 +45,7 @@ public class LoadMission : MonoBehaviour
     List<Beast> thisSquad = new List<Beast>();
     List<Beast> toLoad = new List<Beast>();
     List<Beast> enemyToLoad = new List<Beast>();
+    Summoner enemySummoner;
     List<Beast> enemySquad = new List<Beast>();
 
     List<HealthBar> activePlayersHealth = new List<HealthBar>();
@@ -90,6 +91,7 @@ public class LoadMission : MonoBehaviour
         }
 
         enemyToLoad = missionList.enemies;
+        enemySummoner = missionList.summoner;
         LoadEnemySquadImages();
     }
     //Connected to btnSquad1
@@ -191,6 +193,12 @@ public class LoadMission : MonoBehaviour
                 playerSlot[x].speed += (int)(playerSlot[x].speed * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
                 playerSlot[x].dexterity += (int)(playerSlot[x].dexterity * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
                 playerSlot[x].maxHP += (int)(playerSlot[x].maxHP * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
+
+                playerSlot[x].power *= Player.summoner.getLevel();
+                playerSlot[x].defence *= Player.summoner.getLevel();
+                playerSlot[x].speed *= Player.summoner.getLevel();
+                playerSlot[x].dexterity *= Player.summoner.getLevel();
+                playerSlot[x].maxHP *= Player.summoner.getLevel();
             }
             pb.Add(playerSlot[x]);
         }
@@ -204,11 +212,17 @@ public class LoadMission : MonoBehaviour
                 enemySlot[x].speed += (int)(enemySlot[x].speed * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
                 enemySlot[x].dexterity += (int)(enemySlot[x].dexterity * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
                 enemySlot[x].maxHP += (int)(enemySlot[x].maxHP * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
+
+                enemySlot[x].power *= enemySummoner.getLevel();
+                enemySlot[x].defence *= enemySummoner.getLevel();
+                enemySlot[x].speed *= enemySummoner.getLevel();
+                enemySlot[x].dexterity *= enemySummoner.getLevel();
+                enemySlot[x].maxHP *= enemySummoner.getLevel();
             }
             eb.Add(enemySlot[x]);
         }
 
-        battleManager.SendLists(thisSquad, enemySquad, activePlayersHealth, activeEnemiesHealth, activePlayerDamageBar, activeEnemyDamageBar);
+        battleManager.SendLists(thisSquad, enemySquad, activePlayersHealth, activeEnemiesHealth, activePlayerDamageBar, activeEnemyDamageBar, enemySummoner);
         battleManager.GetSlots(pb, eb);
        // battleManager.GetSlots(playerSlot[0], playerSlot[1], playerSlot[2], playerSlot[3], playerSlot[4], playerSlot[5], enemySlot[0], enemySlot[1], enemySlot[2], enemySlot[3], enemySlot[4], enemySlot[5]);
     }

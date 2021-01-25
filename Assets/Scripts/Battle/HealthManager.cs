@@ -244,6 +244,7 @@ public class HealthManager : MonoBehaviour
     public void onCollect()
     {
         victoryScreen.SetActive(false);
+        Player.summoner.addXP(battleManager.enemySummoner.xp/2);
         StartCoroutine(LoadMap());
     }
 

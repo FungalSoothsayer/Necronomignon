@@ -11,6 +11,8 @@ public class MissionList : MonoBehaviour
 
     public List<Beast> enemies = new List<Beast>();
 
+    public Summoner summoner;
+
     public int totalEnemies = 11;
 
     void Start()
@@ -21,9 +23,10 @@ public class MissionList : MonoBehaviour
     private void Awake()
     {
         mission = LevelChecker.lastClick;
+        summoner = new Summoner();
 
         // Kitsune in a random position
-        if(mission == "first")
+        if (mission == "first")
         {
             Beast kitsune = beastManager.getFromName("Kitsune");
 
@@ -51,6 +54,8 @@ public class MissionList : MonoBehaviour
                     b.setTierUpper(2);
                 }
             }
+
+            summoner.xp = 99;
         }
         
         // Conglomerate back row, Dryad front row
@@ -94,6 +99,7 @@ public class MissionList : MonoBehaviour
                     b.setTierUpper(3);
                 }
             }
+            summoner.xp = 50;
         }
 
         // Dryad and Wyvern front row, Conglomerate back row
@@ -151,6 +157,7 @@ public class MissionList : MonoBehaviour
                     b.setTierUpper(3);
                 }
             }
+            summoner.xp = 150;
         }
         
         // High defence small beast in the front blocking Dryad, DreamSlime in the front blocking a random small beast with low damage
@@ -197,6 +204,7 @@ public class MissionList : MonoBehaviour
                     be.setTierUpper(4);
                 }
             }
+            summoner.xp = 25;
         }
 
         // Hardcoded places
@@ -270,7 +278,7 @@ public class MissionList : MonoBehaviour
             enemies.Add(null);
             enemies.Add(null);
             enemies.Add(null);
-
+            summoner.xp = 50;
         }
 
         //the mission with 1-4 random beast with random placement 
@@ -299,7 +307,7 @@ public class MissionList : MonoBehaviour
 
             List<int> position = new List<int>();
 
-            while (enemies.Count < totalEnemies)
+            while (enemies.Count < Values.SMALLSLOT)
             {
                 while (position.Contains(ran) || ran == -1)
                 {
@@ -322,6 +330,11 @@ public class MissionList : MonoBehaviour
                     b.setTierUpper(5);
                 }
             }
+            while(enemies.Count < totalEnemies)
+            {
+                enemies.Add(null);
+            }
+            summoner.xp = 99;
         }
         if (mission == "bottom")
         {
@@ -423,6 +436,7 @@ public class MissionList : MonoBehaviour
                     be.setTierLower(2);
                 }
             }
+            summoner.xp = 15;
         }
         if (mission == "top")
         {
@@ -522,6 +536,7 @@ public class MissionList : MonoBehaviour
             enemies.Add(null);
             enemies.Add(null);
             enemies.Add(null);
+            summoner.xp = 30;
         }
 
     }
