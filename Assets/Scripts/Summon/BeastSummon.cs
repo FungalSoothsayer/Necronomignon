@@ -23,10 +23,17 @@ public class BeastSummon : MonoBehaviour
     public GameObject pent4;
     public GameObject pent5;
 
+    public static Beast currentBeast;
+
+    public static string beastName;
+
     void Start()
     {
+        
+
         //Get the active scene and store it
         Scene scene = SceneManager.GetActiveScene();
+        Debug.Log("summon " + scene.name);
 
         //Store the beast's rating and summoned status that the current scene is for
         rating = GetCurrentBeastRating(scene);
@@ -54,6 +61,7 @@ public class BeastSummon : MonoBehaviour
         {
             if(currentScene.name == b.name + "Main")
             {
+                currentBeast = b;
                 return b.tier;
             }
         }

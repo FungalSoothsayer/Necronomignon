@@ -49,7 +49,6 @@
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
-    <UnityVersion>2019.4.18f1</UnityVersion>
     <UnityVersion>2019.4.8f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -116,9 +115,11 @@
     <Compile Include="Assets\Scripts\Organize and Create Squads\SquadData.cs" />
     <Compile Include="Assets\Scripts\QuizManager.cs" />
     <Compile Include="Assets\Scripts\Summon\AnimationPlayer.cs" />
+    <Compile Include="Assets\Scripts\Summon\BeastStats.cs" />
     <Compile Include="Assets\Scripts\Summon\BeastSummon.cs" />
     <Compile Include="Assets\Scripts\Summon\QuizChoice.cs" />
     <Compile Include="Assets\Scripts\Summon\ReadStory.cs" />
+    <Compile Include="Assets\Scripts\Summon\StatsManager.cs" />
     <Compile Include="Assets\Scripts\Summon\Summon.cs" />
     <Compile Include="Assets\Scripts\Summon\SummonBookLoader.cs" />
     <Compile Include="Assets\Scripts\SummonManager.cs" />
