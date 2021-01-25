@@ -45,7 +45,7 @@ public class LoadStory : MonoBehaviour
         {
             foreach(Beast b in BeastManager.beastsList.Beasts)
             {
-                if(b.name == SummonManager.name)
+                if(b.name == SummonManager.name && b.tier == 0)
                 {
                     b.tier = 1;
                 }
