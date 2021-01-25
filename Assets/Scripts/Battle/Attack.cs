@@ -115,7 +115,7 @@ public class Attack : MonoBehaviour
         {
             beastManager.moveManager.start();
         }
-        if (attacker.hitPoints <= 0)
+        if (attacker.hitPoints <= 0 && targets[0].name != "Target")
         {
             battleManager.RemoveBeast(attacker);
             return;
@@ -125,47 +125,52 @@ public class Attack : MonoBehaviour
         {
             if (attacker != null && target != null && attacker.speed != 0 && target.speed != 0 && attacker.statusTurns[(int)Beast.types.Water] <= 0 && target.hitPoints > 0)
             {
-                if (attacker.statusTurns[(int)Move.types.Paralyze] > 0)
+                if (targets[0].name != "Target")
                 {
-                    int r = Random.Range(0, 2);
-                    if (r > 0)
+                    if (attacker.statusTurns[(int)Move.types.Paralyze] > 0)
                     {
-                        print(attacker.name + " was paralized and unable to move");
-                        return;
+                        int r = Random.Range(0, 2);
+                        if (r > 0)
+                        {
+                            print(attacker.name + " was paralized and unable to move");
+                            return;
+                        }
                     }
-                }
-                if (inFront)
-                {
-                    if (attacker.Move_A.buff.isActive)
+
+                    if (inFront)
                     {
-                        target.buffs.Add(new Buff(attacker.Move_A.buff));
+                        if (attacker.Move_A.buff.isActive)
+                        {
+                            target.buffs.Add(new Buff(attacker.Move_A.buff));
+                        }
+                        if (attacker.Move_A.healing)
+                        {
+                            healthManager.heal(target, target.maxHP * ((double)attacker.Move_A.power / 100));
+                            print(attacker.name + " has healed " + target.name);
+                            break;
+                        }
                     }
-                    if (attacker.Move_A.healing)
+                    else if (!inFront)
                     {
-                        healthManager.heal(target, target.maxHP * ((double)attacker.Move_A.power / 100));
-                        print(attacker.name + " has healed " + target.name);
-                        break;
+                        if (attacker.Move_B.buff.isActive)
+                        {
+                            target.buffs.Add(new Buff(attacker.Move_B.buff));
+                        }
+                        if (attacker.Move_B.healing)
+                        {
+                            healthManager.heal(target, target.maxHP * ((double)attacker.Move_B.power / 100));
+                            print(attacker.name + " has healed " + target.name);
+                            break;
+                        }
                     }
-                }
-                else if (!inFront)
-                {
-                    if (attacker.Move_B.buff.isActive)
+
+                    if (attacker.statusTurns[(int)Move.types.Blind] > 0)
                     {
-                        target.buffs.Add(new Buff(attacker.Move_B.buff));
+                        print(attacker.name + " attacks blindly");
                     }
-                    if (attacker.Move_B.healing)
-                    {
-                        healthManager.heal(target, target.maxHP * ((double)attacker.Move_B.power / 100));
-                        print(attacker.name + " has healed " + target.name);
-                        break;
-                    }
-                }
-                if (attacker.statusTurns[(int)Move.types.Blind] > 0)
-                {
-                    print(attacker.name + " attacks blindly");
                 }
 
-                if (attacker.cursed == target)
+                if (attacker.cursed == target && targets[0].name != "Target")
                 {
                     if (attacker.curse(target))
                     {
