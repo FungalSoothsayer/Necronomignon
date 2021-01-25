@@ -11,7 +11,6 @@ public class LoadMission : MonoBehaviour
     public BattleManager battleManager;
     public BeastManager beastManager;
 
-    public GameObject playerPad;
     public GameObject txtChoose;
     public GameObject btnSquad1;
     public GameObject btnSquad2;
@@ -65,7 +64,6 @@ public class LoadMission : MonoBehaviour
             missionList.mission = "random";
         }
 
-        playerPad.SetActive(false);
         if (!squadData.GetSquad1Status())
         {
             btnSquad1.SetActive(false);
