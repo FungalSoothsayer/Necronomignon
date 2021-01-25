@@ -20495,7 +20495,6 @@ MonoBehaviour:
   missionList: {fileID: 1972296795}
   battleManager: {fileID: 1972296792}
   beastManager: {fileID: 1972296791}
-  playerPad: {fileID: 0}
   txtChoose: {fileID: 1081652348}
   btnSquad1: {fileID: 329955782}
   btnSquad2: {fileID: 1006836462}
@@ -20538,6 +20537,32 @@ MonoBehaviour:
   - {fileID: 83045567}
   - {fileID: 495753444}
   - {fileID: 1528890809}
+  playerImgs:
+  - {fileID: 631691820}
+  - {fileID: 486360955}
+  - {fileID: 1749779663}
+  - {fileID: 1319543238}
+  - {fileID: 434685483}
+  - {fileID: 961604298}
+  - {fileID: 364591329}
+  - {fileID: 1449854073}
+  - {fileID: 14676353}
+  - {fileID: 706385823}
+  - {fileID: 1486816308}
+  enemyImgs:
+  - {fileID: 1819353675}
+  - {fileID: 235188870}
+  - {fileID: 749919698}
+  - {fileID: 1126137909}
+  - {fileID: 1818345570}
+  - {fileID: 2116287252}
+  - {fileID: 2066715857}
+  - {fileID: 1455478279}
+  - {fileID: 600880951}
+  - {fileID: 1482881767}
+  - {fileID: 1228838004}
+  playerProfile: {fileID: 1101611819}
+  enemyProfile: {fileID: 166134765}
   pSlotDmgs:
   - {fileID: 1658526040}
   - {fileID: 1561336916}

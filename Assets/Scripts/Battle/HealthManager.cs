@@ -253,7 +253,5 @@ public class HealthManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         LoadScenes load = new LoadScenes();
         load.LoadSelect("Map");
-            
-        //SceneManager.LoadScene("Map");
     }
 }
