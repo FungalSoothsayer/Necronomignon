@@ -16,6 +16,7 @@ public class QuizManager : MonoBehaviour
     List<string> questions = new List<string>();
     List<int> used = new List<int>();
     int questionNumber;
+    int questionChosen = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +45,7 @@ public class QuizManager : MonoBehaviour
         //A list of the questions so they can be removed when answered already
         for (int i = 0; i < s.questions.Count; i++)
         {
-            if (s.questions[i].selected)
+            if (!s.questions[i].selected)
             {
                 questions.Add(s.questions[i].question);
             }
@@ -53,7 +54,12 @@ public class QuizManager : MonoBehaviour
         //Randomize the question
         questionNumber = Random.Range(0, questions.Count);
         question.text = questions[questionNumber];
-        s.questions[questionNumber].selected = true;
+
+        while(questions[questionNumber] != s.questions[questionChosen].question)
+        {
+            questionChosen++;
+        }
+        s.questions[questionChosen].selected = true;
 
         int ran = -1;
         List<int> intOrder = new List<int>();
@@ -71,7 +77,7 @@ public class QuizManager : MonoBehaviour
         //Randomize the answer options
         for (int y = 0; y < options.Count; y++)
         {
-            options[y].text = s.questions[questionNumber].options[intOrder[y]];
+            options[y].text = s.questions[questionChosen].options[intOrder[y]];
             if(intOrder[y] == 0)
             {
                 ran = y;
