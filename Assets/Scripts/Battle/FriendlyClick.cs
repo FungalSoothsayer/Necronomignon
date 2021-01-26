@@ -12,7 +12,7 @@ public class FriendlyClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     void Start()
     {
-        disableSelected();
+        //disableSelected();
     }
 
     void Update()

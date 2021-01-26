@@ -1,5 +1,13 @@
 fileFormatVersion: 2
-guid: c26a63c714260ba47aaf3751c1ff580b
+<<<<<<< HEAD
+guid: 217b101a844a4694eb6bf2d2352a1f2b
+=======
+<<<<<<< HEAD:Assets/Resources/Animations/Conglomerate/Death/Conglomerate_Death_02.png.meta
+guid: 9c07e5dc55c99ba42a76f74a88c2b396
+=======
+guid: 217b101a844a4694eb6bf2d2352a1f2b
+>>>>>>> master:Assets/Resources/Animations/Conglomerate/Death/Conglomerate_Death_03.png.meta
+>>>>>>> master
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

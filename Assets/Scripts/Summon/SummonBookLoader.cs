@@ -232,7 +232,7 @@ public class SummonBookLoader : MonoBehaviour
         {
             for (int y = 0; y < summoned.Count; y++)
             {
-                if ((int)summoned[y].type == x) 
+                if ((int)summoned[y].type == x && summoned[y].tier >= 0) 
                 {
                     sorted.Add(summoned[y]);
                     summonedImages.Add(summoned[y].static_img);
@@ -261,7 +261,7 @@ public class SummonBookLoader : MonoBehaviour
         {
             for(int y = 0; y < summoned.Count; y++)
             {
-                if(names[x] == summoned[y].name)
+                if(names[x] == summoned[y].name && summoned[y].tier >= 0)
                 {
                     sorted.Add(summoned[y]);
                 }

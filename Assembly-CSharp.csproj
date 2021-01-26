@@ -227,6 +227,8 @@
     <Compile Include="Assets\Scripts\Summon\BeastSummon.cs" />
     <Compile Include="Assets\Scripts\Summon\QuizChoice.cs" />
     <Compile Include="Assets\Scripts\Summon\ReadStory.cs" />
+    <Compile Include="Assets\Scripts\Summon\StatBar.cs" />
+    <Compile Include="Assets\Scripts\Summon\StatsManager.cs" />
     <Compile Include="Assets\Scripts\Summon\Summon.cs" />
     <Compile Include="Assets\Scripts\Summon\SummonBookLoader.cs" />
     <Compile Include="Assets\Scripts\SummonManager.cs" />

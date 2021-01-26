@@ -23,10 +23,14 @@ public class BeastSummon : MonoBehaviour
     public GameObject pent4;
     public GameObject pent5;
 
+
     void Start()
     {
+        
+
         //Get the active scene and store it
         Scene scene = SceneManager.GetActiveScene();
+        Debug.Log("summon " + scene.name);
 
         //Store the beast's rating and summoned status that the current scene is for
         rating = GetCurrentBeastRating(scene);

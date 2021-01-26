@@ -11,7 +11,6 @@ public class LoadMission : MonoBehaviour
     public BattleManager battleManager;
     public BeastManager beastManager;
 
-    public GameObject playerPad;
     public GameObject txtChoose;
     public GameObject btnSquad1;
     public GameObject btnSquad2;
@@ -21,25 +20,23 @@ public class LoadMission : MonoBehaviour
     
     public List<GameObject> slotHealthBars;
 
-    // HEALTH BARS: 
-    
+    //Health Bars
     public List<HealthBar> playerHealthBars;
-   
     public List<HealthBar> enemyHealthBars;
 
-    // DAMAGE BARS
-    
+    //Health display images
+    public List<Image> playerImgs;
+    public List<Image> enemyImgs;
+    public Image playerProfile;
+    public Image enemyProfile;
+
+    //Damage Bars
     public List<DamageOutput> pSlotDmgs;
-    
     public List<DamageOutput> eSlotDmgs;
-   
     public List<Image> playerSlotImg;
 
-    
     public List<Beast> playerSlot = new List<Beast>(8);
-    
     public List<Image> enemySlotImg;
-    
     public List<Beast> enemySlot = new List<Beast>(8);
 
     List<Beast> thisSquad = new List<Beast>();
@@ -65,7 +62,6 @@ public class LoadMission : MonoBehaviour
             missionList.mission = "random";
         }
 
-        playerPad.SetActive(false);
         if (!squadData.GetSquad1Status())
         {
             btnSquad1.SetActive(false);
@@ -117,12 +113,11 @@ public class LoadMission : MonoBehaviour
     {
         for (int x = 0; x < enemyToLoad.Count; x++)
         {
-
             if (enemyToLoad[x] != null)
             {
-                enemySlotImg[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + enemyToLoad[x].name + "/" + enemyToLoad[x].name + "_Controller") as RuntimeAnimatorController;
-                /*Beast b = new Beast();
-                b = BeastManager.getFromNameS(enemyToLoad[x].name);*/
+                enemySlotImg[x].GetComponent<Animator>().runtimeAnimatorController = 
+                    Resources.Load("Animations/" + enemyToLoad[x].name + "/" + enemyToLoad[x].name + "_Controller") as RuntimeAnimatorController;
+                enemyImgs[x].sprite = Resources.Load<Sprite>("Static_Images/" + enemyToLoad[x].static_img);
                 enemySlot.Add(enemyToLoad[x]);
                 enemySquad.Add(enemyToLoad[x]);
                 activeEnemiesHealth.Add(enemyHealthBars[x]);
@@ -131,6 +126,7 @@ public class LoadMission : MonoBehaviour
             else
             {
                 enemySlotImg[x].gameObject.SetActive(false);
+                healthDisplay.transform.GetChild(1).gameObject.transform.GetChild(x).gameObject.SetActive(false);
                 enemySlot.Add(null);
                 activeEnemiesHealth.Add(null);
                 activeEnemyDamageBar.Add(null);
@@ -155,7 +151,8 @@ public class LoadMission : MonoBehaviour
             }
             if (toLoad[x] != null)
             {
-                playerSlotImg[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController; 
+                playerSlotImg[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
+                playerImgs[x].sprite = Resources.Load<Sprite>("Static_Images/" + toLoad[x].static_img);
                 Beast b = new Beast();
                 b = beastManager.getFromName(toLoad[x].name);
                 playerSlot.Add(b);
@@ -168,6 +165,7 @@ public class LoadMission : MonoBehaviour
             else
             {
                 playerSlotImg[x].gameObject.SetActive(false);
+                healthDisplay.transform.GetChild(0).gameObject.transform.GetChild(x).gameObject.SetActive(false);
                 playerSlot.Add(null);
                 activePlayersHealth.Add(null);
                 activePlayerDamageBar.Add(null);
@@ -237,6 +235,7 @@ public class LoadMission : MonoBehaviour
     public void RemoveImage(Beast toRemove, string owner)
     {
         GetImageToRemove(toRemove, owner).gameObject.GetComponent<Animator>().SetInteger("Health", 0);
+        GetHealthDisplayImageToRemove(toRemove, owner).transform.parent.gameObject.SetActive(false);
         StartCoroutine(PlayDeathAnimation(toRemove, owner));
     }
     //Get the slot to remove the image from
@@ -262,6 +261,30 @@ public class LoadMission : MonoBehaviour
         }
         return null;
     }
+
+    Image GetHealthDisplayImageToRemove(Beast beast, string owner)
+    {
+        for (int x = 0; x < 11; x++)
+        {
+            if (owner.Equals("Player"))
+            {
+                if (beast.Equals(playerSlot[x]))
+                {
+                    return playerImgs[x];
+                }
+            }
+            else
+            {
+                if (beast.Equals(enemySlot[x]))
+                {
+                    return enemyImgs[x];
+                }
+            }
+
+        }
+        return null;
+    }
+
     //plays death animation whenever someone dies
     IEnumerator PlayDeathAnimation(Beast toRemove, string owner)
     {
