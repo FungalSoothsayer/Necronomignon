@@ -36,8 +36,8 @@ public class BeastManager : MonoBehaviour
             beastsList = JsonUtility.FromJson<BeastList>(jsonString);
             foreach (Beast beast in beastsList.Beasts)
             {
-      
 
+                print(beast.statGradients);
                 // gives each beast a unique id
 
                 beast.id = givenId;
@@ -75,7 +75,7 @@ public class BeastManager : MonoBehaviour
             beastsList = JsonUtility.FromJson<BeastList>(jsonString);
             foreach (Beast beast in beastsList.Beasts)
             {
-
+                print(beast.statGradients);
                 beast.id = givenId;
                 givenId++;
             }

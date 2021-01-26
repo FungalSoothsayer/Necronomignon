@@ -13,7 +13,8 @@
       "type": "4",
       "static_img": "Wyvern_Idle_00",
       "moveA": "10",
-      "moveB": "9"
+      "moveB": "9",
+      "statGradients": {"hpGradient": "5", "defenceGradient": "2", "powerGradient": "3", "speedGradient": "2", "dexGradient": "3"}
     },
     {
       "name": "Dryad",
@@ -28,7 +29,8 @@
       "type": "3",
       "static_img": "Dryad_Idle_00",
       "moveA": "3",
-      "moveB": "14"
+      "moveB": "14",
+      "statGradients": {"hpGradient": "5", "defenceGradient": "2", "powerGradient": "3", "speedGradient": "2", "dexGradient": "3"}
     },
     {
       "name": "Conglomerate",
@@ -43,13 +45,13 @@
       "type": "1",
       "static_img": "Conglomerate_Idle_00",
       "moveA": "5",
-      "moveB": "6"
-    },
+      "moveB": "6",
+      "statGradients": {"hpGradient": "5", "defenceGradient": "2", "powerGradient": "3", "speedGradient": "2", "dexGradient": "3"}    },
     {
       "name": "Kitsune",
       "maxHP": "67",
       "defence": "8",
-      "power": "15",
+      "power": "13",
       "speed": "65",
       "dexterity": "38",
       "number_MOVES": "3",
@@ -58,13 +60,14 @@
       "type": "2",
       "static_img": "Kitsune_Idle_00",
       "moveA": "7",
-      "moveB": "8"
+      "moveB": "8",
+      "statGradients": {"hpGradient": "5", "defenceGradient": "2", "powerGradient": "3", "speedGradient": "2", "dexGradient": "3"}
     },
     {
       "name": "Drakadin",
       "maxHP": "70",
       "defence": "12",
-      "power": "15",
+      "power": "11",
       "speed": "45",
       "dexterity": "20",
       "number_MOVES": "3",
@@ -73,14 +76,15 @@
       "type": "6",
       "static_img": "Drakadin_Idle_75",
       "moveA": "11",
-      "moveB": "12"
+      "moveB": "12",
+      "statGradients": {"hpGradient": "5", "defenceGradient": "2", "powerGradient": "3", "speedGradient": "2", "dexGradient": "3"}
     },
     {
       "name": "Cthulhu",
       "maxHP": "100",
       "defence": "30",
       "power": "15",
-      "speed": "64",
+      "speed": "66",
       "dexterity": "40",
       "number_MOVES": "3",
       "tier": "-1",
@@ -89,7 +93,8 @@
       "secondType": "1",
       "static_img": "Cthulhu_Idle_00",
       "moveA": "1",
-      "moveB": "2"
+      "moveB": "2",
+      "statGradients": {"hpGradient": "5", "defenceGradient": "2", "powerGradient": "3", "speedGradient": "2", "dexGradient": "3"}
     },
     {
       "name": "ClockworkQueen",
@@ -97,14 +102,15 @@
       "defence": "25",
       "power": "8",
       "speed": "79",
-      "dexterity": "40",
+      "dexterity": "35",
       "number_MOVES": "3",
       "tier": "-1",
       "size": "0",
       "type": "8",
       "static_img": "ClockworkQueen_Idle_00",
       "moveA": "16",
-      "moveB": "15"
+      "moveB": "15",
+      "statGradients": {"hpGradient": "5", "defenceGradient": "2", "powerGradient": "3", "speedGradient": "2", "dexGradient": "3"}
     },
     {
       "name": "DreamSlime",
@@ -119,7 +125,8 @@
       "type": "0",
       "static_img": "DreamSlime_Idle_00",
       "moveA": "3",
-      "moveB": "15"
+      "moveB": "15",
+      "statGradients": {"hpGradient": "5", "defenceGradient": "2", "powerGradient": "3", "speedGradient": "2", "dexGradient": "3"}
     },
     {
       "name": "Zeograth",
@@ -134,7 +141,8 @@
       "type": "8",
       "static_img": "Zeograth_Idle_00",
       "moveA": "2",
-      "moveB": "15"
+      "moveB": "15",
+      "statGradients": {"hpGradient": "5", "defenceGradient": "2", "powerGradient": "3", "speedGradient": "2", "dexGradient": "3"}
     }
   ]
 }
