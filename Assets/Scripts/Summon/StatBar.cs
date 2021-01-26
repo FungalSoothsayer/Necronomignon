@@ -20,8 +20,21 @@ public class StatBar : MonoBehaviour
     public void incrementProgress(int progress) {
         statBar.value += progress;
     }
-
-    public void setValue(int value) {
-        statBar.value = value;
+    
+    public int Value {
+        set => statBar.value = value;
     }
+
+    public int MaxValue
+    {
+        set => statBar.maxValue = value;
+    }
+    
+    //public void setValue(int value) {
+    //    statBar.value = value;
+    //}
+
+    //public void setMaxValue(int val) {
+    //    statBar.maxValue = val;
+    //}
 }
