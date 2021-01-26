@@ -39,10 +39,7 @@ public class Beast
     public Beast cursed = null;
     public int curseCharge = 0;
 
-    public Beast()
-    {
-       
-    }
+    public Beast(){}
 
     public Beast(Beast b)
     {
