@@ -45,6 +45,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Battle/Tutorial/TutorialEnd.unity
     guid: 7cb9285808c944cd4b0afb1b8c5e4ceb
   - enabled: 1
+    path: Assets/Scenes/Settings/SettingsMenu.unity
+    guid: 968ae9dd264103b4284b15ee264bdec3
+  - enabled: 1
     path: Assets/Scenes/Battle/Tutorial/TutorialEnd2.unity
     guid: 376ae7d6413fc4d8babd637ee9a63738
   - enabled: 1
