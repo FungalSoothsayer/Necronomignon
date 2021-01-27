@@ -17,7 +17,7 @@ public class Saving : MonoBehaviour
         
     }
 
-    public void saveAll()
+    public static void saveAll()
     {
         EasySave.Save<BeastList>("playerBL",BeastManager.beastsList);
         EasySave.Save<int>("level", LevelChecker.levels);
@@ -31,7 +31,7 @@ public class Saving : MonoBehaviour
         }
         EasySave.Save<int>("playerXP", Player.summoner.xp);
     }
-    public void loadAll()
+    public static void loadAll()
     {
         BeastManager.beastsList = EasySave.Load<BeastList>("playerBL");
         LevelChecker.levels = EasySave.Load<int>("level");

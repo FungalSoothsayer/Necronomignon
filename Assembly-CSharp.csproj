@@ -210,6 +210,7 @@
     <Compile Include="Assets\Scripts\Data\Summoner.cs" />
     <Compile Include="Assets\Scripts\Data\Values.cs" />
     <Compile Include="Assets\Scripts\LoadScenes.cs" />
+    <Compile Include="Assets\Scripts\LoadSettings.cs" />
     <Compile Include="Assets\Scripts\LoadStory.cs" />
     <Compile Include="Assets\Scripts\Organize and Create Squads\BeastSelect.cs" />
     <Compile Include="Assets\Scripts\Organize and Create Squads\CreateManager.cs" />
