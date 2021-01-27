@@ -14,7 +14,7 @@
       "static_img": "Wyvern_Idle_00",
       "moveA": "10",
       "moveB": "9",
-      "statGradients": {"hpGradient": "5", "defenceGradient": "2", "powerGradient": "3", "speedGradient": "2", "dexGradient": "3"}
+      "statGradients": {"hpGradient": "5", "defenceGradient": "3", "powerGradient": "3", "speedGradient": "4", "dexGradient": "4"}
     },
     {
       "name": "Dryad",
@@ -30,7 +30,7 @@
       "static_img": "Dryad_Idle_00",
       "moveA": "3",
       "moveB": "14",
-      "statGradients": {"hpGradient": "5", "defenceGradient": "2", "powerGradient": "3", "speedGradient": "2", "dexGradient": "3"}
+      "statGradients": {"hpGradient": "15", "defenceGradient": "5", "powerGradient": "3", "speedGradient": "2", "dexGradient": "3"}
     },
     {
       "name": "Conglomerate",

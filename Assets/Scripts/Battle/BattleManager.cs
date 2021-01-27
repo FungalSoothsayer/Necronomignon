@@ -813,7 +813,14 @@ public class BattleManager : MonoBehaviour
         //Check to see if the round is still going and then run an attack
         if (turn >= totalMoves - 1)
         {
-            attack.InitiateAttack(currentTurn, targets, inFront);
+            if (roundOrderTypes[turn] == "Player")
+            {
+                attack.InitiateAttack(currentTurn, targets, inFront, Player.summoner);
+            }
+            else
+            {
+                attack.InitiateAttack(currentTurn, targets, inFront, enemySummoner);
+            }
             GameObject slot = getSlot();
             if (!slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Front") &&
                 !slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Back"))
@@ -842,7 +849,14 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            attack.InitiateAttack(currentTurn, targets, inFront);
+            if(roundOrderTypes[turn] == "Player")
+            {
+                attack.InitiateAttack(currentTurn, targets, inFront, Player.summoner);
+            }
+            else
+            {
+                attack.InitiateAttack(currentTurn, targets, inFront, enemySummoner);
+            }
             GameObject slot = getSlot();
             if (!slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Front") &&
                 !slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Back"))
