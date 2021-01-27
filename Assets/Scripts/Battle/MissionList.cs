@@ -55,7 +55,7 @@ public class MissionList : MonoBehaviour
                 }
             }
 
-            summoner.xp = 99;
+            summoner.xp = 2;
         }
         
         // Conglomerate back row, Dryad front row
@@ -99,7 +99,7 @@ public class MissionList : MonoBehaviour
                     b.setTierUpper(3);
                 }
             }
-            summoner.xp = 50;
+            summoner.xp = 25;
         }
 
         // Dryad and Wyvern front row, Conglomerate back row
@@ -157,7 +157,7 @@ public class MissionList : MonoBehaviour
                     b.setTierUpper(3);
                 }
             }
-            summoner.xp = 150;
+            summoner.xp = 50;
         }
         
         // High defence small beast in the front blocking Dryad, DreamSlime in the front blocking a random small beast with low damage
@@ -204,7 +204,7 @@ public class MissionList : MonoBehaviour
                     be.setTierUpper(4);
                 }
             }
-            summoner.xp = 25;
+            summoner.xp = 100;
         }
 
         // Hardcoded places
@@ -278,7 +278,7 @@ public class MissionList : MonoBehaviour
             enemies.Add(null);
             enemies.Add(null);
             enemies.Add(null);
-            summoner.xp = 50;
+            summoner.xp = 150;
         }
 
         //the mission with 1-4 random beast with random placement 
@@ -334,7 +334,7 @@ public class MissionList : MonoBehaviour
             {
                 enemies.Add(null);
             }
-            summoner.xp = 99;
+            summoner.xp = 250;
         }
         if (mission == "bottom")
         {
@@ -436,7 +436,7 @@ public class MissionList : MonoBehaviour
                     be.setTierLower(2);
                 }
             }
-            summoner.xp = 15;
+            summoner.xp = 400;
         }
         if (mission == "top")
         {
@@ -536,7 +536,7 @@ public class MissionList : MonoBehaviour
             enemies.Add(null);
             enemies.Add(null);
             enemies.Add(null);
-            summoner.xp = 30;
+            summoner.xp = 800;
         }
 
     }

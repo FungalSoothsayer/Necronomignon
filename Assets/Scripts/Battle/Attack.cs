@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 //using System.Diagnostics;
 using UnityEngine;
@@ -10,7 +11,9 @@ public class Attack : MonoBehaviour
     public BattleManager battleManager;
     public HealthManager healthManager;
 
-    readonly Random Random = new Random();
+    public Summoner summoner;
+
+    readonly UnityEngine.Random Random = new UnityEngine.Random();
 
     float modifier = 1;
     int damage;
@@ -30,7 +33,7 @@ public class Attack : MonoBehaviour
         {
             if (attacker.statusTurns[(int)Move.types.Blind] > 0)
             {
-                int r = Random.Range(0, 2);
+                int r = UnityEngine.Random.Range(0, 2);
                 if (r > 0)
                 {
                     print(attacker.name + " was paralyzed and unable to move");
@@ -109,8 +112,9 @@ public class Attack : MonoBehaviour
         modifier = 1;
     }
     //takes all beasts in targets and checks and adds status effects, kills if target is too doomed
-    public void InitiateAttack(Beast attacker, List<Beast> targets, bool inFront)
+    public void InitiateAttack(Beast attacker, List<Beast> targets, bool inFront, Summoner summ)
     {
+        summoner = summ;
         if (beastManager.moveManager.movesList == null)
         {
             beastManager.moveManager.start();
@@ -129,7 +133,7 @@ public class Attack : MonoBehaviour
                 {
                     if (attacker.statusTurns[(int)Move.types.Paralyze] > 0)
                     {
-                        int r = Random.Range(0, 2);
+                        int r = UnityEngine.Random.Range(0, 2);
                         if (r > 0)
                         {
                             print(attacker.name + " was paralized and unable to move");
@@ -230,7 +234,7 @@ public class Attack : MonoBehaviour
         */
         if(attacker.statusTurns[(int)Move.types.Paralyze] > 0)
         {
-            if (Random.Range(0, 2) > 0)
+            if (UnityEngine.Random.Range(0, 2) > 0)
             {
                 print(attacker.name + " was paralized and unable to move");
                 return true;
@@ -255,7 +259,7 @@ public class Attack : MonoBehaviour
             missChance *= 1-(float)(attacker.statusTurns[(int)Move.types.Blind] * .2);
         }
 
-        int rand = Random.Range(1, 100);
+        int rand = UnityEngine.Random.Range(1, 100);
 
         if(rand < missChance)
         {
@@ -274,7 +278,7 @@ public class Attack : MonoBehaviour
     {
         //Calculate the chance that an attack is a critical hit
         //(d20roll) + ({Attacker.Speed/2} + Attacker.Skill)/({Target.Speed/2} + Target.Skill)
-        int rand = Random.Range(1, 20);
+        int rand = UnityEngine.Random.Range(1, 20);
         float criticalChance = rand + (((attacker.speed / 2) + attacker.dexterity) / (target.speed / 2) + target.dexterity);
         
 
@@ -297,7 +301,7 @@ public class Attack : MonoBehaviour
         //Calculate the chance that an attack is blocked
         //(d10roll) + (TargetDefense/AttackerPower)
 
-        int rand = Random.Range(1, 10);
+        int rand = UnityEngine.Random.Range(1, 10);
 
         float ra = (float)(rand + (((float)target.defence / (float)attacker.power) * 1));
 
@@ -309,7 +313,7 @@ public class Attack : MonoBehaviour
         {
             float vary = 0.32f;
 
-            int vary2 = Random.Range(1, 33);
+            int vary2 = UnityEngine.Random.Range(1, 33);
 
             vary += (float)vary2 / 100;
             Debug.Log("Attack is Blocked!");
@@ -345,7 +349,7 @@ public class Attack : MonoBehaviour
             type = (int)attacker.Move_B.type;
         }
 
-        int rand = Random.Range(1, 100);
+        int rand = UnityEngine.Random.Range(1, 100);
 
         if (rand < effectChance && type != (int)Move.types.Doom && type != (int)Move.types.Corrupt && target.statusTurns[type]<=0)
         {
@@ -427,23 +431,29 @@ public class Attack : MonoBehaviour
         //alters the attack and defence based on poisen or burn
         if (inFront)
         {
-            dmg = (attacker.power* poisonMod) * attacker.Move_A.power / (target.defence*burnMod);
+            //dmg = (attacker.power* poisonMod) * attacker.Move_A.power / (target.defence*burnMod);
+            dmg = (float)(((((float)attacker.power * (float)poisonMod) + (float)summoner.getLevel()) * (100 / (100 + ((float)target.defence * (float)burnMod))) * 2)*((float)attacker.Move_A.power / 50) + (Math.Pow((float)summoner.getLevel(),(float) 1.3) / 8));
             print(attacker.Move_A.name);
         }
         else
         {
-            dmg = (attacker.power * poisonMod) * attacker.Move_B.power / (target.defence * burnMod);
+            //dmg = (attacker.power * poisonMod) * attacker.Move_B.power / (target.defence * burnMod);
+            dmg = (float)(((((float)attacker.power * (float)poisonMod) + (float)summoner.getLevel()) * (100 / (100 + ((float)target.defence * (float)burnMod))) * 2) * ((float)attacker.Move_B.power / 50) + (Math.Pow((float)summoner.getLevel(), (float)1.3) / 8));
             print(attacker.Move_B.name);
         }
 
         float vary = 0.89f;
 
-        float vary2 = Random.Range(1, 20);
+        float vary2 = UnityEngine.Random.Range(1, 20);
         vary += vary2 / 100;
         print("Damage before types = " + (int)(dmg * vary * modifier));
          calculateType(attacker, target);
 
         damage = (int)(dmg * vary * modifier); //Convert damage to an integer
+        if (damage < 1)
+        {
+            damage = 1;
+        }
         Debug.Log("This is damage done " + damage);
         if (target.name == "Target")
         {
@@ -455,7 +465,7 @@ public class Attack : MonoBehaviour
             healthManager.UpdateHealth(target, damage);
         }
 
-        int rand = Random.Range(0, 2);
+        int rand = UnityEngine.Random.Range(0, 2);
         if (target.statusTurns[(int)Move.types.Sleep] > 0 && rand > 0 && rand<5)
         {
             print(target.name + " woke up");

@@ -166,7 +166,8 @@ public class DemoBattleManager : MonoBehaviour
         List<Beast> beThe = new List<Beast>();
         beThe.Add(b);
 
-        attack.InitiateAttack(currentTurn, beThe, inFront);
+
+        attack.InitiateAttack(currentTurn, beThe, inFront, Player.summoner);
         totalDamageText.text = totalDamage.ToString();
 
         TakeTurn();
