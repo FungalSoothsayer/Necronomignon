@@ -192,7 +192,7 @@ public class LoadMission : MonoBehaviour
                 playerSlot[x].dexterity += (int)(playerSlot[x].dexterity * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
                 playerSlot[x].maxHP += (int)(playerSlot[x].maxHP * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
 
-                print(playerSlot[x].statGradients);
+                
                 playerSlot[x].power += playerSlot[x].statGradients.powerGradient * (Player.summoner.getLevel() - 1);
                 playerSlot[x].defence += playerSlot[x].statGradients.defenceGradient * (Player.summoner.getLevel() - 1);
                 playerSlot[x].speed += playerSlot[x].statGradients.speedGradient * (Player.summoner.getLevel() - 1);
