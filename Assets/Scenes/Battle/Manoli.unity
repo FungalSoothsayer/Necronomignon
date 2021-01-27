@@ -7650,6 +7650,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 287230706}
     m_Modifications:
+    - target: {fileID: 3852935656990629450, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -66.92099
+      objectReference: {fileID: 0}
     - target: {fileID: 3900108754347413305, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
         type: 3}
       propertyPath: m_fontAsset
@@ -7704,7 +7709,7 @@ PrefabInstance:
     - target: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
         type: 3}
@@ -7749,12 +7754,12 @@ PrefabInstance:
     - target: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
         type: 3}
@@ -7769,22 +7774,22 @@ PrefabInstance:
     - target: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0.595
       objectReference: {fileID: 0}
     - target: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0.4765854
       objectReference: {fileID: 0}
     - target: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0.595
       objectReference: {fileID: 0}
     - target: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0.4765854
       objectReference: {fileID: 0}
     - target: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca,
         type: 3}
@@ -20041,7 +20046,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -20098,7 +20108,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -20155,7 +20170,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 0000000000000000000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -20223,7 +20243,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -20279,7 +20304,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -20335,7 +20365,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -20391,7 +20426,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -20447,7 +20487,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -20503,7 +20548,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -20559,7 +20609,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -20615,7 +20670,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -20671,7 +20731,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -20727,7 +20792,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
@@ -20783,7 +20853,12 @@ MonoBehaviour:
         isActive: 0
       type: 0
     static_img: 
-    statGradients: []
+    statGradients:
+      hpGradient: 0
+      defenceGradient: 0
+      powerGradient: 0
+      speedGradient: 0
+      dexGradient: 0
     buffs: []
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
