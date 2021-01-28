@@ -745,19 +745,19 @@ public class BattleManager : MonoBehaviour
                 //this takes the slot of the targeted beast and finds the beast directly in front of it
                 for (int x = (Values.SLOTMAX/2); x < enemySlots.Count; x++)
                 {
-                    if (x == slot && enemySlots[x % (Values.SLOTMAX/2)] != null && enemySlots[x % (Values.SLOTMAX/2)].hitPoints > 0)
+                    if (x == slot && enemySlots[x % (Values.SMALLSLOT / 2)] != null && enemySlots[x % (Values.SMALLSLOT / 2)].hitPoints > 0)
                     {
-                        b = enemySlots[x % (Values.SLOTMAX/2)];
+                        b = enemySlots[x % (Values.SMALLSLOT / 2)];
                     }
                 }
             }
             else
             {
-                for (int x = (Values.SLOTMAX/2); x < slots.Count; x++)
+                for (int x = (Values.SMALLSLOT/2); x < slots.Count; x++)
                 {
-                    if (x == slot && slots[x % (Values.SLOTMAX/2)] != null && slots[x % (Values.SLOTMAX/2)].hitPoints > 0)
+                    if (x == slot && slots[x % (Values.SMALLSLOT / 2)] != null && slots[x % (Values.SMALLSLOT / 2)].hitPoints > 0)
                     {
-                        b = slots[x % (Values.SLOTMAX/2)];
+                        b = slots[x % (Values.SMALLSLOT / 2)];
                     }
                 }
             }
