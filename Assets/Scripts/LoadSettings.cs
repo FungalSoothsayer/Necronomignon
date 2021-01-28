@@ -51,8 +51,8 @@ public class LoadSettings : MonoBehaviour
 
 
         CloseSettings.onClick.AddListener(closeSettings);
-        saveBtn.onClick.AddListener(delegate { Saving.saveAll(); });
-        loadBtn.onClick.AddListener(delegate { Saving.loadAll(); });
+        saveBtn.onClick.AddListener(Saving.saveAll);
+        loadBtn.onClick.AddListener(Saving.loadAll);
     }
 
     public void setVolumeSlider() {
