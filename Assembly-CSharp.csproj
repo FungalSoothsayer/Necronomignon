@@ -47,7 +47,6 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>4.8.2.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2019.4.8f1</UnityVersion>
@@ -81,93 +80,6 @@
     <Compile Include="Assets\DialogueEditor\Assets\Scripts\UI\ConversationManager.cs" />
     <Compile Include="Assets\DialogueEditor\Assets\Scripts\UI\UIConversationButton.cs" />
     <Compile Include="Assets\DialogueEditor\Example\ExampleInputManager.cs" />
-    <Compile Include="Assets\RunemarkStudio\Common\Extensions\SObject.cs" />
-    <Compile Include="Assets\RunemarkStudio\Common\Extensions\UnityExtensions.cs" />
-    <Compile Include="Assets\RunemarkStudio\Common\RunemarkDebug.cs" />
-    <Compile Include="Assets\RunemarkStudio\Common\RunemarkGUI.cs" />
-    <Compile Include="Assets\RunemarkStudio\Common\Utility\GLGrid.cs" />
-    <Compile Include="Assets\RunemarkStudio\Common\Utility\Point.cs" />
-    <Compile Include="Assets\RunemarkStudio\Common\Utility\RectangleTexture.cs" />
-    <Compile Include="Assets\RunemarkStudio\Common\Utility\StringUtils.cs" />
-    <Compile Include="Assets\RunemarkStudio\Common\Utility\TypeUtils.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Demo\Scripts\ChangeLanguage.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Demo\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\Actions\DialogueGraph.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\Actions\TextNode.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\Actions\WeightedBranch.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\DialogueBehaviour.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\DialogueSystem.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\DialogueSystemGlobals.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\Localization\LanguageDatabase.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\Localization\TranslatedDialogueGraph.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\Localization\Translator.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\Modules\CameraController.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\Modules\DialogueFlow.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\Modules\Trigger.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\Persistency\BasicSaveLoad.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\Persistency\DialogueSystemSaveLoad.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\AmbientDialogueController.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\BaseClasses\DialogueData.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\BaseClasses\ICustomAnswer.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\BaseClasses\IDialogueUIController.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\BaseClasses\UIElementAnswer.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\BaseClasses\UnityUIUtility.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\ConversationController.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\DialogueSystemUISkin.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\Elements\UIElement.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\Elements\UIElementAnswerIcon.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\Elements\UIElementAnswerInput.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\Elements\UIElementAnswerText.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\Elements\UIElementImage.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\Elements\UIElementText.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\Elements\UIElementTextTyping.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\Elements\UIElementTimer.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\Scripts\UI\IconLibrary.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\ThirdPartySupport\Playmaker\Actions\PlaymakerEventCall.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\ThirdPartySupport\Playmaker\FsmActions\GetGlobalVariable.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\ThirdPartySupport\Playmaker\FsmActions\SetGlobalVariable.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\ThirdPartySupport\Playmaker\FsmActions\StartAmbientDialogue.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\ThirdPartySupport\Playmaker\FsmActions\StartConversation.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\ThirdPartySupport\Playmaker\FsmActions\StopAmbientDialogue.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\ThirdPartySupport\Playmaker\FsmActions\StopConversation.cs" />
-    <Compile Include="Assets\RunemarkStudio\DialogueSystem\ThirdPartySupport\Playmaker\Utils\FsmVariableUtils.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\Concatenate.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\DebugLog.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\Events\EventCall.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\Events\EventListener.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\Events\SimpleEvent.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\Functions\Branch.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\GetVariableNode.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\Logical\Logical.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\Logical\Relation.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\Math\Constant.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\Math\Operator.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\PortalExecution.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\PortalVariable.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\RandomNode.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\SetVariableNode.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\ToString.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Actions\Wait.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Attributes\GenericArguments.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Attributes\Info.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Attributes\Reference.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\InputManager.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Interfaces\INodeCollection.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Interfaces\ITypedNode.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Interfaces\IVariableNode.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Variables\Utilities\BuiltInColors.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Variables\Variable.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Variables\VariableCollection.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\Variables\VariableGroups.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\VisualEditor\CommentBox.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\VisualEditor\Connections\Pin.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\VisualEditor\Connections\PinCollection.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\VisualEditor\Nodes\ExecutableNode.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\VisualEditor\Nodes\FunctionGraph.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\VisualEditor\Nodes\MacroGraph.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\VisualEditor\Nodes\Node.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\VisualEditor\Nodes\NodeCollection.cs" />
-    <Compile Include="Assets\RunemarkStudio\Framework\VisualEditor\VisualEditorBehaviour.cs" />
     <Compile Include="Assets\SaveSystem\Example\Scripts\CryptographyExample.cs" />
     <Compile Include="Assets\SaveSystem\Example\Scripts\EasySaveExample.cs" />
     <Compile Include="Assets\SaveSystem\Example\Scripts\FileSaveExample.cs" />
@@ -484,7 +396,13 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>C:/Users/Sidne/OneDrive/Documents/GitHub/Necronomignon/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -840,49 +758,38 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Unity.Timeline.Editor.csproj">
-      <Project>{6D1A74EB-1CE1-F018-288A-EC313B0AC299}</Project>
-      <Name>Unity.Timeline.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.VSCode.Editor.csproj">
-      <Project>{19C2750D-5880-B2AB-CEB7-818D4F72A1F6}</Project>
-      <Name>Unity.VSCode.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
-      <Project>{8705747C-309E-CCDE-5561-48F8E1923888}</Project>
-      <Name>Unity.TextMeshPro.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{038A012F-15E1-FE2B-6391-556A28955FB3}</Project>
-      <Name>UnityEngine.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Timeline.csproj">
-      <Project>{2E4430B5-2093-C53E-5865-BD6A223A35C2}</Project>
-      <Name>Unity.Timeline</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.CollabProxy.Editor.csproj">
-      <Project>{6C44A873-457B-320D-60E1-8DBBDE7C0CC4}</Project>
-      <Name>Unity.CollabProxy.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Rider.Editor.csproj">
-      <Project>{F20B6C45-B771-1303-ADB6-B4CC6D11FFEC}</Project>
-      <Name>Unity.Rider.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
-      <Project>{A57EEC2A-D4F7-508E-DC21-BC533C821419}</Project>
-      <Name>Unity.2D.Sprite.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.TextMeshPro.csproj">
-      <Project>{18D05ECB-78D7-8AA4-41EF-CCF2335EE16B}</Project>
-      <Name>Unity.TextMeshPro</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{D45FEDFD-3606-B90B-F8C2-C000549793B8}</Project>
-      <Name>UnityEditor.UI</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup></ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
