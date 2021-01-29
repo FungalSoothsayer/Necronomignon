@@ -7,8 +7,6 @@ using UnityEngine.UI;
 //animates the damage output
 public class DamageOutput : MonoBehaviour
 {
-    [SerializeField] private Transform damageOutputPrefab;
-
     private const float DISAPPEAR_TIME_MAX = 1f;
 
     private TextMeshPro textMesh;
@@ -17,7 +15,7 @@ public class DamageOutput : MonoBehaviour
 
     private void Awake()
     {
-        textMesh.transform.GetComponent<TextMeshPro>(); 
+        textMesh = transform.GetComponent<TextMeshPro>(); 
     }
 
     private void Update()
@@ -50,13 +48,11 @@ public class DamageOutput : MonoBehaviour
         }
     }
 
-    public DamageOutput Create(Vector3 position, int damage)
+    public static void Create(Transform damageOutputPrefab, Vector3 position, int damage)
     {
-        Transform damagePopupTransform = Instantiate(damageOutputPrefab, position, Quaternion.identity);
+        Transform damagePopupTransform = Instantiate(damageOutputPrefab, new Vector3(0,0), Quaternion.identity);
         DamageOutput damageOutput = damagePopupTransform.GetComponent<DamageOutput>();
         damageOutput.Setup(damage);
-
-        return damageOutput;
     }
 
     public void Setup(int damage)

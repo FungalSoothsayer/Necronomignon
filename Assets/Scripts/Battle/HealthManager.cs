@@ -9,9 +9,9 @@ using UnityEngine.UI;
 */
 public class HealthManager : MonoBehaviour
 {
+    [SerializeField] Transform damageOutputPrefab;
     public BattleManager battleManager;
     public LevelChecker levelChecker;
-    public DamageOutput damageOutput;
 
     public int playersLeft = Values.SQUADMAX;
     public int enemiesLeft = 0;
@@ -144,7 +144,7 @@ public class HealthManager : MonoBehaviour
     {
         GameObject slot = battleManager.getSlot(target);
 
-        damageOutput.Create(new Vector3(slot.transform.position.x / 2, slot.transform.position.y / 2), damage);
+        DamageOutput.Create(damageOutputPrefab, new Vector3(slot.transform.position.x / 2, slot.transform.position.y / 2), damage);
     }
 
     //adds health to the given beast upto the beasts maxHP

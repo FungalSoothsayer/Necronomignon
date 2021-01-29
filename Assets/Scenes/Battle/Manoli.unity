@@ -17618,7 +17618,6 @@ GameObject:
   - component: {fileID: 1972296790}
   - component: {fileID: 1972296789}
   - component: {fileID: 1972296798}
-  - component: {fileID: 1972296802}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -18758,9 +18757,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 939483b5bfb324458bbabb0c03786ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageOutputPrefab: {fileID: 7296834514137290209, guid: 7b7e857deebe57f40a055d8d66a7d01a,
+    type: 3}
   battleManager: {fileID: 1972296792}
   levelChecker: {fileID: 114839617}
-  damageOutput: {fileID: 1972296802}
   playersLeft: 4
   enemiesLeft: 0
   playerHealths:
@@ -18860,20 +18860,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1972296802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972296788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d4ad9c730873674ab2367b2181962b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageOutputPrefab: {fileID: 7296834514137290209, guid: 7b7e857deebe57f40a055d8d66a7d01a,
-    type: 3}
 --- !u!1 &1987305173
 GameObject:
   m_ObjectHideFlags: 0
