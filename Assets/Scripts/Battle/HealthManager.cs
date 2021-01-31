@@ -143,8 +143,10 @@ public class HealthManager : MonoBehaviour
     void DisplayDamageOutput(Beast target, int damage)
     {
         GameObject slot = battleManager.getSlot(target);
+        Transform damagePopup = Instantiate(damageOutputPrefab, new Vector3(slot.transform.position.x / 2, slot.transform.position.y / 2, 700), Quaternion.identity);
 
-        DamageOutput.Create(damageOutputPrefab, new Vector3(slot.transform.position.x / 2, slot.transform.position.y / 2), damage);
+        DamageOutput damageOutput = damagePopup.GetComponent<DamageOutput>();
+        damageOutput.Create(damage);
     }
 
     //adds health to the given beast upto the beasts maxHP

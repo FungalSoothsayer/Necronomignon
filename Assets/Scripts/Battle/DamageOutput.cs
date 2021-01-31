@@ -48,15 +48,12 @@ public class DamageOutput : MonoBehaviour
         }
     }
 
-    public static void Create(Transform damageOutputPrefab, Vector3 position, int damage)
+    public void Create(int damage)
     {
-        Transform damagePopupTransform = Instantiate(damageOutputPrefab);
-        damagePopupTransform.transform.SetParent(GameObject.Find("Canvas").gameObject.transform);
-        damagePopupTransform.position = new Vector3(position.x, position.y, 700);
-        damagePopupTransform.transform.localScale = new Vector3(10, 10, 1);
-        damagePopupTransform.rotation = Quaternion.identity;
+        gameObject.transform.SetParent(GameObject.Find("Canvas").gameObject.transform);
+        gameObject.transform.localScale = new Vector3(10, 10, 1);
 
-        DamageOutput damageOutput = damagePopupTransform.GetComponent<DamageOutput>();
+        DamageOutput damageOutput = gameObject.GetComponent<DamageOutput>();
         damageOutput.Setup(damage);
     }
 
