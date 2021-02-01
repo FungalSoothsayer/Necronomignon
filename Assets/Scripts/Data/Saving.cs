@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class Saving : MonoBehaviour
 {
 
-    public GameObject loadSaveDialog;
-    public GameObject loadSaveText;
-    public Text txtLoadSave;
+    public static GameObject loadSaveDialog;
+    public static GameObject loadSaveText;
+    public static Text txtLoadSave;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class Saving : MonoBehaviour
         
     }
 
-    public void saveAll()
+    public static void saveAll()
     {
         EasySave.Save<BeastList>("playerBL",BeastManager.beastsList);
         EasySave.Save<int>("level", LevelChecker.levels);
@@ -48,8 +48,7 @@ public class Saving : MonoBehaviour
         txtLoadSave.text = "The Game Has Been Saved!";
         loadSaveDialog.SetActive(true);
     }
-
-    public void loadAll()
+    public static void loadAll()
     {
         BeastManager.beastsList = EasySave.Load<BeastList>("playerBL");
         LevelChecker.levels = EasySave.Load<int>("level");
