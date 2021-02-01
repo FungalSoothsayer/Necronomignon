@@ -492,16 +492,16 @@ public class Attack : MonoBehaviour
                 color = new Color(31f / 255f, 107f / 255f, 27f / 255f);
                 break;
             case Beast.types.Air:
-                color = new Color(229f / 255f, 240f / 255f, 79f / 255f);
+                color = new Color(255f / 255f, 255f / 255f, 0f / 255f);
                 break;
             case Beast.types.Dark:
                 color = new Color(52f / 255f, 7f / 255f, 120f / 255f);
                 break;
             case Beast.types.Light:
-                color = new Color(255f / 255f, 255f / 255f, 155f / 255f);
+                color = new Color(255f / 255f, 255f / 255f, 255f / 255f);
                 break;
             case Beast.types.Horror:
-                color = new Color(0f / 255f, 0f / 255f, 0f / 255f);
+                color = new Color(25f / 255f, 25f / 255f, 25f / 255f);
                 break;
             case Beast.types.Cosmic:
                 color = new Color(5f / 255f, 255f / 255f, 234f / 255f);
