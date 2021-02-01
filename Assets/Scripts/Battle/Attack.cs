@@ -289,6 +289,8 @@ public class Attack : MonoBehaviour
         //If random variable is more than critical hit chance, the attack has a modifier of 2, otherwise it's modifier is 1
         if (critChance >= 20)
         {
+            healthManager.DisplayDamageOutput(target, "Crit!", Color.white);
+
             Debug.Log("Critical Hit!");
 
             return 2;
