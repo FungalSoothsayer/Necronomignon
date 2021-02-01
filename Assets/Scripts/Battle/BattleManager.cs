@@ -126,7 +126,7 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        healthManager.GetHealth(players, enemies, activePlayersHealth, activeEnemiesHealth, activePlayerDamage, activeEnemyDamage);
+        healthManager.GetHealth(players, enemies, activePlayersHealth, activeEnemiesHealth);
         LoadOrder();
     }
 
@@ -984,6 +984,24 @@ public class BattleManager : MonoBehaviour
 
         return null;
     }
+
+    public GameObject getSlot(Beast b)
+    {
+        for(int x = 0; x < slots.Count; x++)
+        {
+            if (slots[x] != null && b.Equals(slots[x]))
+            {
+                return playerPadSlots[x];
+            }
+            else if (enemySlots[x] != null && b.Equals(enemySlots[x]))
+            {
+                return enemyPadSlots[x];
+            }
+        }
+
+        return null;
+    }
+
     //plays the attacking animation for either front or back row attack depending on the bool
     void PlayAttackAnimation(bool inFront)
     {
