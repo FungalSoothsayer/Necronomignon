@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class StatsManager : MonoBehaviour
 {
@@ -15,16 +16,17 @@ public class StatsManager : MonoBehaviour
 
     private void Awake()
     {
-        
+        currentBeast = BeastManager.beastsList.Beasts.Find(x => x.name == SummonManager.name);
+        setBeastStats();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        
         currentBeast = BeastManager.beastsList.Beasts.Find(x => x.name == SummonManager.name);
-
-
         setBeastStats();
+        //setBeastStats();
         //statsList[1].incrementProgress(20);
         //Scene scene = SceneManager.GetActiveScene();
         //while (BeastSummon.beastName == null) { Debug.Log("no beast"); }
@@ -38,20 +40,32 @@ public class StatsManager : MonoBehaviour
      * takes the stats from currentBeast and sets the stat bars to their corresponding values
        to change or update the stat bar values, change the stats of the currentBeast object, then call setBeastStats()
      */
+    
     public void setBeastStats() {
-        statsList[0].setValue(currentBeast.maxHP);
-        statsValues[0].text = currentBeast.maxHP.ToString();
-        
-        statsList[1].setValue(currentBeast.defence);
-        statsValues[1].text = currentBeast.defence.ToString();
-        
-        statsList[2].setValue(currentBeast.power);
-        statsValues[2].text = currentBeast.power.ToString();
-        
-        statsList[3].setValue(currentBeast.speed);
-        statsValues[3].text = currentBeast.speed.ToString();
-        
-        statsList[4].setValue(currentBeast.dexterity);
-        statsValues[4].text = currentBeast.dexterity.ToString();
+        //float temp = (float)currentBeast.maxHP + ((float)currentBeast.statGradients.hpGradient * (currentBeast.tier == 1? 1 : (currentBeast.tier - 1) * (float)Values.TEIRBOOST)) * Player.summoner.getLevel();
+
+        int beastHealth = Convert.ToInt32(currentBeast.maxHP + (currentBeast.maxHP * Values.TEIRBOOST * (currentBeast.tier - 1)) + (currentBeast.statGradients.powerGradient * (Player.summoner.getLevel()- 1)));
+        int beastdefence = Convert.ToInt32(currentBeast.defence + (currentBeast.defence * Values.TEIRBOOST * (currentBeast.tier - 1)) + (currentBeast.statGradients.powerGradient * (Player.summoner.getLevel()- 1)));
+        int beastPower = Convert.ToInt32(currentBeast.power + (currentBeast.power * Values.TEIRBOOST * (currentBeast.tier - 1)) + (currentBeast.statGradients.powerGradient * (Player.summoner.getLevel()- 1)));
+        int beastSpeed = Convert.ToInt32(currentBeast.speed + (currentBeast.speed * Values.TEIRBOOST * (currentBeast.tier - 1)) + (currentBeast.statGradients.powerGradient * (Player.summoner.getLevel()- 1)));
+        int beastDex = Convert.ToInt32(currentBeast.dexterity + (currentBeast.dexterity * Values.TEIRBOOST * (currentBeast.tier - 1)) + (currentBeast.statGradients.powerGradient * (Player.summoner.getLevel()- 1)));
+
+        statsList[0].Value = beastHealth;
+        statsValues[0].text = (((int)beastHealth).ToString());
+
+        statsList[1].Value = beastdefence;
+        statsValues[1].text = beastdefence.ToString();
+
+        statsList[2].Value = beastPower;
+        statsValues[2].text = beastPower.ToString();
+
+        statsList[3].Value = beastSpeed;
+        statsValues[3].text = beastSpeed.ToString();
+
+        statsList[4].Value = beastDex;
+        statsValues[4].text = beastDex.ToString();
+
+        statsList[5].Value = Player.summoner.xp;
+        statsValues[5].text = Player.summoner.getLevel().ToString();
     }
 }
