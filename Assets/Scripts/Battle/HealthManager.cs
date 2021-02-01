@@ -85,8 +85,6 @@ public class HealthManager : MonoBehaviour
     //Subtract the damage from the target's health
     public void UpdateHealth(Beast target, int damage)
     {
-        DisplayDamageOutput(target, damage);
-
         //removes the health from beasts that have been attacked 
         for(int x = 0; x< Values.SQUADMAX; x++)
         {  
@@ -140,13 +138,16 @@ public class HealthManager : MonoBehaviour
     }
 
     //Displays the damage output
-    void DisplayDamageOutput(Beast target, int damage)
+    public void DisplayDamageOutput(Beast target, string damage, Color color)
     {
         GameObject slot = battleManager.getSlot(target);
-        Transform damagePopup = Instantiate(damageOutputPrefab, new Vector3(slot.transform.position.x / 2, slot.transform.position.y / 2, 700), Quaternion.identity);
+        Transform damagePopup = Instantiate(damageOutputPrefab);
+        damagePopup.transform.SetParent(GameObject.Find("Canvas").transform);
+        damagePopup.localPosition = new Vector3(slot.transform.localPosition.x, slot.transform.localPosition.y);
+        damagePopup.localRotation = Quaternion.identity;
 
         DamageOutput damageOutput = damagePopup.GetComponent<DamageOutput>();
-        damageOutput.Create(damage);
+        damageOutput.Create(damage, color);
     }
 
     //adds health to the given beast upto the beasts maxHP

@@ -48,19 +48,16 @@ public class DamageOutput : MonoBehaviour
         }
     }
 
-    public void Create(int damage)
+    public void Create(string damage, Color color)
     {
-        gameObject.transform.SetParent(GameObject.Find("Canvas").gameObject.transform);
-        gameObject.transform.localScale = new Vector3(10, 10, 1);
-
         DamageOutput damageOutput = gameObject.GetComponent<DamageOutput>();
-        damageOutput.Setup(damage);
+        damageOutput.Setup(damage, color);
     }
 
-    public void Setup(int damage)
+    public void Setup(string damage, Color color)
     {
-        textMesh.SetText(damage.ToString());
-        textColor = textMesh.color;
+        textMesh.SetText(damage);
+        textMesh.color = color;
         disappearTime = DISAPPEAR_TIME_MAX;
     }
 }
