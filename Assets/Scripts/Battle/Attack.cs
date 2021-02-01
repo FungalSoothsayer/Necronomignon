@@ -268,7 +268,7 @@ public class Attack : MonoBehaviour
         }
         else
         {
-            healthManager.DisplayDamageOutput(target, "Miss", Color.white);
+            healthManager.DisplayDamageOutput(target, "MISS!", Color.white);
             print("Attack Misses");
             return true;
         }
@@ -289,8 +289,7 @@ public class Attack : MonoBehaviour
         //If random variable is more than critical hit chance, the attack has a modifier of 2, otherwise it's modifier is 1
         if (critChance >= 20)
         {
-            healthManager.DisplayDamageOutput(target, "Crit!", Color.white);
-
+            healthManager.DisplayDamageOutput(target, "CRIT!", Color.white);
             Debug.Log("Critical Hit!");
 
             return 2;
@@ -319,6 +318,8 @@ public class Attack : MonoBehaviour
             int vary2 = UnityEngine.Random.Range(1, 33);
 
             vary += (float)vary2 / 100;
+
+            healthManager.DisplayDamageOutput(target, "GUARD!", Color.white);
             Debug.Log("Attack is Blocked!");
             return vary;
         }

@@ -1010,6 +1010,7 @@ public class BattleManager : MonoBehaviour
         if (inFront) slot.GetComponent<Animator>().SetTrigger("Front");
         else slot.GetComponent<Animator>().SetTrigger("Back");
     }
+
     //this plays the damage animation for one or many beasts
     void PlayDamagedAnimation(List<Beast> targets)
     {
