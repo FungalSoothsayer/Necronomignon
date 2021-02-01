@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Summoner 
 {
-    public int xp = 0;
+    public int xp = 1;
     public int level = 1;
 
 
