@@ -383,10 +383,12 @@ public class BattleManager : MonoBehaviour
             }
             if (currentTurn.statusTurns[x] > 0 && x == (int)Move.types.Burn)
             {
+                //healthManager.DisplayDamageOutput(currentTurn, "5", new Color(209f / 255f, 0f / 255f, 0f / 255f));
                 healthManager.UpdateHealth(currentTurn, 5);
             }
             if (currentTurn.statusTurns[x] > 0 && x == (int)Move.types.Poison)
             {
+                //healthManager.DisplayDamageOutput(currentTurn, Mathf.Ceil((float)currentTurn.hitPoints * .05f).ToString(), new Color(31f / 255f, 107f / 255f, 27f / 255f));
                 healthManager.UpdateHealth(currentTurn, (int)Mathf.Ceil((float)currentTurn.hitPoints * .05f));
             }
         }
@@ -905,8 +907,6 @@ public class BattleManager : MonoBehaviour
                 if (pRunning) pRunning = false;
                 if (eRunning) eRunning = false;
             }
-            PlayAttackAnimation(inFront);
-            PlayDamagedAnimation(targets);
             Debug.Log("Round Ended");
             ClearTurns();
             currentTurn = roundOrder[0];
@@ -941,8 +941,6 @@ public class BattleManager : MonoBehaviour
                 if (pRunning) pRunning = false;
                 if (eRunning) eRunning = false;
             }
-            PlayAttackAnimation(inFront);
-            PlayDamagedAnimation(targets);
             AddTurn();
             Beast b = new Beast();
             if(turn+1 >= roundOrder.Count)
@@ -1003,7 +1001,7 @@ public class BattleManager : MonoBehaviour
     }
 
     //plays the attacking animation for either front or back row attack depending on the bool
-    void PlayAttackAnimation(bool inFront)
+    public void PlayAttackAnimation(bool inFront)
     {
         GameObject slot = getSlot();
 
@@ -1012,7 +1010,7 @@ public class BattleManager : MonoBehaviour
     }
 
     //this plays the damage animation for one or many beasts
-    void PlayDamagedAnimation(List<Beast> targets)
+    public void PlayDamagedAnimation(List<Beast> targets)
     {
         foreach (Beast target in targets)
         {

@@ -181,6 +181,8 @@ public class HealthManager : MonoBehaviour
                 }
                 enemyHealthBars[x].SetHealth(enemies[x].hitPoints);
             }
+
+            DisplayDamageOutput(target, Math.Floor(heal).ToString(), new Color(93f / 255f, 245f / 255f, 66f / 255f));
         }
     }
     //prints the health left, needs to be updated to implement ui
