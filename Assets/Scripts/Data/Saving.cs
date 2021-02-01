@@ -2,13 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Saving : MonoBehaviour
 {
+
+    public GameObject loadSaveDialog;
+    public Text loadSaveText;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Variables for dialog box when game is loaded or saved
+        loadSaveDialog = GameObject.Find("loadSaveDialog");
+        loadSaveText = (Text) GameObject.FindObjectOfType(typeof(Text));
         
+        if(loadSaveDialog != null)
+            loadSaveDialog.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,7 +40,12 @@ public class Saving : MonoBehaviour
             EasySave.Save<List<Beast>>("squad2", SquadData.squad2);
         }
         EasySave.Save<int>("playerXP", Player.summoner.xp);
+
+        //Dialog box when game is saved
+        loadSaveText.text = "The Game Has Been Saved!";
+        loadSaveDialog.SetActive(true);
     }
+
     public void loadAll()
     {
         BeastManager.beastsList = EasySave.Load<BeastList>("playerBL");
@@ -46,5 +61,16 @@ public class Saving : MonoBehaviour
             SquadData.squad2Saved = true;
         }
         Player.summoner.xp = EasySave.Load<int>("playerXP");
+
+        //Displays dialog box when game is loaded
+        loadSaveText.text = "Your Game Has Been Loaded!";
+        loadSaveDialog.SetActive(true);
     }
+
+    public void closeDialog()
+    {
+        if (loadSaveDialog != null)
+            loadSaveDialog.SetActive(false);
+    }
+
 }
