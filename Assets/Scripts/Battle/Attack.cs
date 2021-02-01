@@ -477,7 +477,7 @@ public class Attack : MonoBehaviour
         }
     }
 
-    Color GetTypeColor(Beast attacker)
+    public Color GetTypeColor(Beast attacker)
     {
         Color color = Color.white;
         switch (attacker.type)
