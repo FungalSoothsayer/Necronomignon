@@ -1010,33 +1010,30 @@ public class BattleManager : MonoBehaviour
     }
 
     //this plays the damage animation for one or many beasts
-    public void PlayDamagedAnimation(List<Beast> targets)
+    public void PlayDamagedAnimation(Beast target)
     {
-        foreach (Beast target in targets)
+        if (roundOrderTypes[turn] == "Player")
         {
-            if (roundOrderTypes[turn] == "Player")
+            //loops through the slots until it finds a matching beast to the target
+            for (int x = 0; x < enemySlots.Count; x++)
             {
-                //loops through the slots until it finds a matching beast to the target
-                for (int x = 0; x < enemySlots.Count; x++)
+                if (enemySlots[x] != null && enemySlots[x].name == target.name)
                 {
-                    if (enemySlots[x] != null && enemySlots[x].name == target.name)
-                    {
-                        StartCoroutine(ChangeBattleColor(enemyPadSlots[x]));
-                        enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
-                        break;
-                    }
+                    StartCoroutine(ChangeBattleColor(enemyPadSlots[x]));
+                    enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
+                    break;
                 }
             }
-            else if (roundOrderTypes[turn] == "Enemy")
+        }
+        else if (roundOrderTypes[turn] == "Enemy")
+        {
+            for (int x = 0; x < slots.Count; x++)
             {
-                for (int x = 0; x < slots.Count; x++)
+                if (slots[x] != null && slots[x].name == target.name)
                 {
-                    if (slots[x] != null && slots[x].name == target.name)
-                    {
-                        StartCoroutine(ChangeBattleColor(playerPadSlots[x]));
-                        playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
-                        break;
-                    }
+                    StartCoroutine(ChangeBattleColor(playerPadSlots[x]));
+                    playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
+                    break;
                 }
             }
         }

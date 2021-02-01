@@ -141,11 +141,22 @@ public class HealthManager : MonoBehaviour
     public void DisplayDamageOutput(Beast target, string damage, Color color)
     {
         GameObject slot = battleManager.getSlot(target);
-        Vector3 location = new Vector3(slot.transform.localPosition.x, slot.transform.localPosition.y);
-        if(damage.Equals("MISS!") || damage.Equals("GUARD!") || damage.Equals("CRIT!"))
+        Vector3 location = new Vector3(0, 0);
+
+        if (slot != null) {
+            location = new Vector3(slot.transform.localPosition.x, slot.transform.localPosition.y);
+        }
+
+        if(damage.Equals("MISS!") || damage.Equals("GUARD!"))
         {
-            location.x -= 20;
-            location.y -= 30;
+            location.x -= 25;
+            location.y -= 25;
+        }
+
+        if (damage.Equals("CRIT!"))
+        {
+            location.x -= 25;
+            location.y -= 50;
         }
 
         Transform damagePopup = Instantiate(damageOutputPrefab);
