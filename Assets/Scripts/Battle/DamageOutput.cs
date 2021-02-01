@@ -1,45 +1,63 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 //animates the damage output
 public class DamageOutput : MonoBehaviour
 {
-    public Text damageOut;
+    private const float DISAPPEAR_TIME_MAX = 1f;
 
-    public Animator anim;
-    
-    void Start()
+    private TextMeshPro textMesh;
+    private Color textColor;
+    private float disappearTime;
+
+    private void Awake()
     {
-        
+        textMesh = transform.GetComponent<TextMeshPro>(); 
     }
-    
-    // Sets the appropriate Damage Output text, to the damage received.
-    public void setText(int damage)
+
+    private void Update()
     {
-        // initializes Animator component
-        anim = GetComponent<Animator>();
+        float moveYSpeed = 20f;
+        transform.position += new Vector3(0, moveYSpeed) * Time.deltaTime;
 
-
-
-            damageOut.gameObject.SetActive(true);
-
-            anim.SetBool("isActive", true);
-
-            damageOut.text = damage.ToString();
-
-
-
-        // Checks if the current Animation is running, returns bool 
-        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("damageOutput"))
+        if(disappearTime > DISAPPEAR_TIME_MAX * .5f)
         {
-            // Anim Goes from Active to Idle 
-            anim.SetBool("isActive", false);
-            damageOut.gameObject.SetActive(false);
+            float increaseScaleAmount = 1f;
+            transform.localScale += Vector3.one * increaseScaleAmount * Time.deltaTime;
+        }
+        else
+        {
+            float decreaseScaleAmount = 1f;
+            transform.localScale += Vector3.one * decreaseScaleAmount * Time.deltaTime;
         }
 
+        disappearTime -= Time.deltaTime;
+        if(disappearTime < 0)
+        {
+            float disappearSpeed = 3f;
+            textColor.a -= disappearSpeed * Time.deltaTime;
+            textMesh.color = textColor;
+
+            if(textColor.a < 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
-   
+    public void Create(string damage, Color color)
+    {
+        DamageOutput damageOutput = gameObject.GetComponent<DamageOutput>();
+        damageOutput.Setup(damage, color);
+    }
+
+    public void Setup(string damage, Color color)
+    {
+        textMesh.SetText(damage);
+        textMesh.color = color;
+        disappearTime = DISAPPEAR_TIME_MAX;
+    }
 }

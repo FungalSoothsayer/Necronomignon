@@ -268,6 +268,7 @@ public class Attack : MonoBehaviour
         }
         else
         {
+            healthManager.DisplayDamageOutput(target, "Miss", Color.white);
             print("Attack Misses");
             return true;
         }
@@ -447,7 +448,7 @@ public class Attack : MonoBehaviour
         float vary2 = UnityEngine.Random.Range(1, 20);
         vary += vary2 / 100;
         print("Damage before types = " + (int)(dmg * vary * modifier));
-         calculateType(attacker, target);
+        calculateType(attacker, target);
 
         damage = (int)(dmg * vary * modifier); //Convert damage to an integer
         if (damage < 1)
@@ -457,7 +458,6 @@ public class Attack : MonoBehaviour
         Debug.Log("This is damage done " + damage);
         if (target.name == "Target")
         {
-
             demoBattleManager.totalDamage += damage;
         }
         else
@@ -465,12 +465,53 @@ public class Attack : MonoBehaviour
             healthManager.UpdateHealth(target, damage);
         }
 
+        //Change damage output color
+        Color type = GetTypeColor(attacker);
+        healthManager.DisplayDamageOutput(target, damage.ToString(), type);
+
         int rand = UnityEngine.Random.Range(0, 2);
         if (target.statusTurns[(int)Move.types.Sleep] > 0 && rand > 0 && rand<5)
         {
             print(target.name + " woke up");
             target.statusTurns[(int)Move.types.Sleep] = 0;
         }
+    }
+
+    public Color GetTypeColor(Beast attacker)
+    {
+        Color color = Color.white;
+        switch (attacker.type)
+        {
+            case Beast.types.Water:
+                color = new Color(3f / 255f, 157f / 255f, 252f / 255f);
+                break;
+            case Beast.types.Fire:
+                color = new Color(209f / 255f, 0f / 255f, 0f / 255f);
+                break;
+            case Beast.types.Earth:
+                color = new Color(31f / 255f, 107f / 255f, 27f / 255f);
+                break;
+            case Beast.types.Air:
+                color = new Color(255f / 255f, 255f / 255f, 0f / 255f);
+                break;
+            case Beast.types.Dark:
+                color = new Color(52f / 255f, 7f / 255f, 120f / 255f);
+                break;
+            case Beast.types.Light:
+                color = new Color(255f / 255f, 255f / 255f, 255f / 255f);
+                break;
+            case Beast.types.Horror:
+                color = new Color(25f / 255f, 25f / 255f, 25f / 255f);
+                break;
+            case Beast.types.Cosmic:
+                color = new Color(5f / 255f, 255f / 255f, 234f / 255f);
+                break;
+            case Beast.types.Normal:
+                color = new Color(255f / 255f, 213f / 255f, 5f / 255f);
+                break;
+        }
+
+        return color;
     }
 
     // Checks for type advantages and dissadvantages

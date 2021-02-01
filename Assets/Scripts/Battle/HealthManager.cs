@@ -9,6 +9,7 @@ using UnityEngine.UI;
 */
 public class HealthManager : MonoBehaviour
 {
+    [SerializeField] Transform damageOutputPrefab;
     public BattleManager battleManager;
     public LevelChecker levelChecker;
 
@@ -17,9 +18,6 @@ public class HealthManager : MonoBehaviour
 
     List<HealthBar> playerHealthBars = new List<HealthBar>();
     List<HealthBar> enemyHealthBars = new List<HealthBar>();
-
-    List<DamageOutput> playerDamageBar = new List<DamageOutput>();
-    List<DamageOutput> enemyDamageBar = new List<DamageOutput>();
 
     public List<Text> playerHealths = new List<Text>();
     public List<Text> enemyHealths = new List<Text>();
@@ -32,7 +30,7 @@ public class HealthManager : MonoBehaviour
     public GameObject victoryScreen;
 
     //Get the health for each beast in play from BeastDatabase
-    public void GetHealth(List<Beast> players, List<Beast> opposing, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth, List<DamageOutput> activePlayerDamage, List<DamageOutput> activeEnemyDamage)
+    public void GetHealth(List<Beast> players, List<Beast> opposing, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth)
     {
         for (int i = 10; i >= 0; i--)
         {
@@ -41,11 +39,6 @@ public class HealthManager : MonoBehaviour
                 activePlayersHealth.RemoveAt(i);
                 playerHealths[i].gameObject.SetActive(false);
                 playerHealths.RemoveAt(i);
-            }
-
-            if(activePlayerDamage[i] == null)
-            {
-                activePlayerDamage.RemoveAt(i);
             }
         }
 
@@ -57,20 +50,12 @@ public class HealthManager : MonoBehaviour
                 enemyHealths[i].gameObject.SetActive(false);
                 enemyHealths.RemoveAt(i);
             }
-
-            if(activeEnemyDamage[i] == null)
-            {
-                activeEnemyDamage.RemoveAt(i);
-            }
         }
 
         squad = players;
         enemies = opposing;
         playerHealthBars = activePlayersHealth;
         enemyHealthBars = activeEnemiesHealth;     
-
-        playerDamageBar = activePlayerDamage;
-        enemyDamageBar = activeEnemyDamage;
 
         //checks if the player is not null and sets the max health of the health bar
         for(int x = 0; x < players.Count; x++)
@@ -102,8 +87,7 @@ public class HealthManager : MonoBehaviour
     {
         //removes the health from beasts that have been attacked 
         for(int x = 0; x< Values.SQUADMAX; x++)
-        {
-            
+        {  
             if (target == squad[x % squad.Count])
             {
                 if(squad[x % squad.Count].hitPoints <= 0)
@@ -114,8 +98,6 @@ public class HealthManager : MonoBehaviour
                 squad[x % squad.Count].hitPoints -= damage;
                 playerHealths[x % squad.Count].text = squad[x % squad.Count].hitPoints.ToString();
                 playerHealthBars[x % squad.Count].SetHealth(squad[x % squad.Count].hitPoints);
-
-                playerDamageBar[x % squad.Count].setText(damage);
 
                 if (squad[x % squad.Count].hitPoints <= 0)
                 {
@@ -140,8 +122,6 @@ public class HealthManager : MonoBehaviour
                 enemyHealths[x].text = enemies[x].hitPoints.ToString();
                 enemyHealthBars[x].SetHealth(enemies[x].hitPoints);
 
-                enemyDamageBar[x].setText(damage);
-
                 if (enemies[x].hitPoints <= 0)
                 {
                     Debug.Log(target.name + " is knocked out.");
@@ -155,8 +135,21 @@ public class HealthManager : MonoBehaviour
                 }
             }
         }
-
     }
+
+    //Displays the damage output
+    public void DisplayDamageOutput(Beast target, string damage, Color color)
+    {
+        GameObject slot = battleManager.getSlot(target);
+        Transform damagePopup = Instantiate(damageOutputPrefab);
+        damagePopup.transform.SetParent(GameObject.Find("Canvas").transform);
+        damagePopup.localPosition = new Vector3(slot.transform.localPosition.x, slot.transform.localPosition.y);
+        damagePopup.localRotation = Quaternion.identity;
+
+        DamageOutput damageOutput = damagePopup.GetComponent<DamageOutput>();
+        damageOutput.Create(damage, color);
+    }
+
     //adds health to the given beast upto the beasts maxHP
     public void heal(Beast target, double heal)
     {

@@ -126,7 +126,7 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        healthManager.GetHealth(players, enemies, activePlayersHealth, activeEnemiesHealth, activePlayerDamage, activeEnemyDamage);
+        healthManager.GetHealth(players, enemies, activePlayersHealth, activeEnemiesHealth);
         LoadOrder();
     }
 
@@ -984,6 +984,24 @@ public class BattleManager : MonoBehaviour
 
         return null;
     }
+
+    public GameObject getSlot(Beast b)
+    {
+        for(int x = 0; x < slots.Count; x++)
+        {
+            if (slots[x] != null && b.Equals(slots[x]))
+            {
+                return playerPadSlots[x];
+            }
+            else if (enemySlots[x] != null && b.Equals(enemySlots[x]))
+            {
+                return enemyPadSlots[x];
+            }
+        }
+
+        return null;
+    }
+
     //plays the attacking animation for either front or back row attack depending on the bool
     void PlayAttackAnimation(bool inFront)
     {
@@ -1004,6 +1022,7 @@ public class BattleManager : MonoBehaviour
                 {
                     if (enemySlots[x] != null && enemySlots[x].name == target.name)
                     {
+                        StartCoroutine(ChangeBattleColor(enemyPadSlots[x]));
                         enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
                         break;
                     }
@@ -1015,6 +1034,7 @@ public class BattleManager : MonoBehaviour
                 {
                     if (slots[x] != null && slots[x].name == target.name)
                     {
+                        StartCoroutine(ChangeBattleColor(playerPadSlots[x]));
                         playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
                         break;
                     }
@@ -1022,6 +1042,14 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
+
+    IEnumerator ChangeBattleColor(GameObject beast)
+    {
+        beast.gameObject.GetComponent<Image>().color = attack.GetTypeColor(currentTurn);
+        yield return new WaitForSeconds(.1f);
+        beast.gameObject.GetComponent<Image>().color = Color.white;
+    }
+
     //starts the attacking cycle for the enemy
     IEnumerator EnemyAttack()
     {
