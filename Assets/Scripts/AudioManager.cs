@@ -60,7 +60,9 @@ public class AudioManager : MonoBehaviour
             Slider slide = go.GetComponent<Slider>();
             go = GameObject.Find("Music");
             AudioSource[] auso = go.GetComponents<AudioSource>();
-            slide.value = auso[auso.Length - 1].volume;
+            //slide.value = auso[auso.Length - 1].volume;
+            auso[auso.Length - 1].volume = slide.value;
+
         }
     }
     // Start is called before the first frame update
