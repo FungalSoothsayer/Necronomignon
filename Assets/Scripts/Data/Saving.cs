@@ -8,14 +8,17 @@ public class Saving : MonoBehaviour
 {
 
     public GameObject loadSaveDialog;
-    public Text loadSaveText;
+    public GameObject loadSaveText;
+    public Text txtLoadSave;
 
     // Start is called before the first frame update
     void Start()
     {
         //Variables for dialog box when game is loaded or saved
         loadSaveDialog = GameObject.Find("loadSaveDialog");
-        loadSaveText = (Text) GameObject.FindObjectOfType(typeof(Text));
+        loadSaveText = GameObject.Find("loadSaveText");
+
+        txtLoadSave = (Text) loadSaveText.GetComponent(typeof(Text));
         
         if(loadSaveDialog != null)
             loadSaveDialog.SetActive(false);
@@ -42,7 +45,7 @@ public class Saving : MonoBehaviour
         EasySave.Save<int>("playerXP", Player.summoner.xp);
 
         //Dialog box when game is saved
-        loadSaveText.text = "The Game Has Been Saved!";
+        txtLoadSave.text = "The Game Has Been Saved!";
         loadSaveDialog.SetActive(true);
     }
 
@@ -63,7 +66,7 @@ public class Saving : MonoBehaviour
         Player.summoner.xp = EasySave.Load<int>("playerXP");
 
         //Displays dialog box when game is loaded
-        loadSaveText.text = "Your Game Has Been Loaded!";
+        txtLoadSave.text = "Your Game Has Been Loaded!";
         loadSaveDialog.SetActive(true);
     }
 
