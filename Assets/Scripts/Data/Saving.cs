@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class Saving : MonoBehaviour
 {
 
-    public GameObject loadSaveDialog;
-    public GameObject loadSaveText;
-    public Text txtLoadSave;
+    public static GameObject loadSaveDialog;
+    public static GameObject loadSaveText;
+    public static Text txtLoadSave;
 
     // Start is called before the first frame update
     void Start()

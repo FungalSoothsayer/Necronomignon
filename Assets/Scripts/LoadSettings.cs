@@ -24,7 +24,7 @@ public class LoadSettings : MonoBehaviour
         //if settings screen is instantiated stop function
         if (GameObject.Find("SettingsScreen") != null) return;
         
-        GameObject parent = GameObject.Find("Canvas"); 
+        GameObject parent = GameObject.Find("SettingsHolder"); 
         GameObject child = Instantiate(settingsPrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
         child.name = "SettingsScreen";
