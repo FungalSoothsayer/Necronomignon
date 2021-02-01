@@ -906,7 +906,10 @@ public class BattleManager : MonoBehaviour
                 if (eRunning) eRunning = false;
             }
             PlayAttackAnimation(inFront);
-            PlayDamagedAnimation(targets);
+            if ((inFront && currentTurn.Move_A.healing) || (!inFront && currentTurn.Move_B.healing))
+            {
+                PlayDamagedAnimation(targets);
+            }
             Debug.Log("Round Ended");
             ClearTurns();
             currentTurn = roundOrder[0];
