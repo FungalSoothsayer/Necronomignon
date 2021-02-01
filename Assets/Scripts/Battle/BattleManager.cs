@@ -1022,6 +1022,7 @@ public class BattleManager : MonoBehaviour
                 {
                     if (enemySlots[x] != null && enemySlots[x].name == target.name)
                     {
+                        StartCoroutine(ChangeBattleColor(enemyPadSlots[x]));
                         enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
                         break;
                     }
@@ -1033,6 +1034,7 @@ public class BattleManager : MonoBehaviour
                 {
                     if (slots[x] != null && slots[x].name == target.name)
                     {
+                        StartCoroutine(ChangeBattleColor(playerPadSlots[x]));
                         playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
                         break;
                     }
@@ -1040,6 +1042,14 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
+
+    IEnumerator ChangeBattleColor(GameObject beast)
+    {
+        beast.gameObject.GetComponent<Image>().color = attack.GetTypeColor(currentTurn);
+        yield return new WaitForSeconds(.1f);
+        beast.gameObject.GetComponent<Image>().color = Color.white;
+    }
+
     //starts the attacking cycle for the enemy
     IEnumerator EnemyAttack()
     {
