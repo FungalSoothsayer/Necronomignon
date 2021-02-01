@@ -126,7 +126,7 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        healthManager.GetHealth(players, enemies, activePlayersHealth, activeEnemiesHealth, activePlayerDamage, activeEnemyDamage);
+        healthManager.GetHealth(players, enemies, activePlayersHealth, activeEnemiesHealth);
         LoadOrder();
     }
 
@@ -560,6 +560,11 @@ public class BattleManager : MonoBehaviour
             switch (slot % (Values.SMALLSLOT / 2))
             {
                 case 0:
+                    if (slots[Values.SMALLSLOT] != null && slots[Values.SMALLSLOT].speed > 0 && slots[Values.SMALLSLOT].hitPoints > 0)
+                    {
+                        targets.Add(slots[Values.SMALLSLOT]);
+                        break;
+                    }
                     do
                     {
                         if (slots[slot % (Values.SMALLSLOT / 2)] != null && slots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
@@ -574,6 +579,11 @@ public class BattleManager : MonoBehaviour
                     } while (targets.Count < 1);
                     break;
                 case 1:
+                    if (slots[Values.SMALLSLOT] != null && slots[Values.SMALLSLOT].speed > 0 && slots[Values.SMALLSLOT].hitPoints > 0)
+                    {
+                        targets.Add(slots[Values.SMALLSLOT]);
+                        break;
+                    }
                     do
                     {
                         if (slots[slot % (Values.SMALLSLOT / 2)] != null && slots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
@@ -588,6 +598,11 @@ public class BattleManager : MonoBehaviour
                     } while (targets.Count < 1);
                     break;
                 case 2:
+                    if (slots[Values.SLOTMAX-1] != null && slots[Values.SMALLSLOT].speed > 0 && slots[Values.SMALLSLOT].hitPoints > 0)
+                    {
+                        targets.Add(slots[Values.SLOTMAX - 1]);
+                        break;
+                    }
                     do
                     {
                         if (slots[slot % (Values.SMALLSLOT / 2)] != null && slots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
@@ -595,6 +610,25 @@ public class BattleManager : MonoBehaviour
                             targets.Add(slots[slot % (Values.SLOTMAX/2)]);
                         }
                         if (slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && slots[(slot % (Values.SMALLSLOT / 2)) +(Values.SMALLSLOT / 2)].hitPoints > 0)
+                        {
+                            targets.Add(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
+                        }
+                        slot++;
+                    } while (targets.Count < 1);
+                    break;
+                case 3:
+                    if (slots[Values.SLOTMAX - 1] != null && slots[Values.SMALLSLOT].speed > 0 && slots[Values.SMALLSLOT].hitPoints > 0)
+                    {
+                        targets.Add(slots[Values.SLOTMAX - 1]);
+                        break;
+                    }
+                    do
+                    {
+                        if (slots[slot % (Values.SMALLSLOT / 2)] != null && slots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
+                        {
+                            targets.Add(slots[slot % (Values.SLOTMAX / 2)]);
+                        }
+                        if (slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
                         }
@@ -608,6 +642,11 @@ public class BattleManager : MonoBehaviour
             switch (slot % (Values.SMALLSLOT / 2))
             {
                 case 0:
+                    if (enemySlots[Values.SMALLSLOT] != null && enemySlots[Values.SMALLSLOT].speed > 0 && enemySlots[Values.SMALLSLOT].hitPoints > 0)
+                    {
+                        targets.Add(enemySlots[Values.SMALLSLOT]);
+                        break;
+                    }
                     do
                     {
                         if (enemySlots[slot % (Values.SMALLSLOT / 2)] != null && enemySlots[slot % (Values.SMALLSLOT / 2)].hitPoints >0)
@@ -622,6 +661,11 @@ public class BattleManager : MonoBehaviour
                     } while (targets.Count < 1);
                     break;
                 case 1:
+                    if (enemySlots[Values.SMALLSLOT] != null && enemySlots[Values.SMALLSLOT].speed > 0 && enemySlots[Values.SMALLSLOT].hitPoints > 0)
+                    {
+                        targets.Add(enemySlots[Values.SMALLSLOT]);
+                        break;
+                    }
                     do
                     {
                         if (enemySlots[slot % (Values.SMALLSLOT / 2)] != null && enemySlots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
@@ -636,6 +680,11 @@ public class BattleManager : MonoBehaviour
                     } while (targets.Count < 1);
                     break;
                 case 2:
+                    if (enemySlots[Values.SLOTMAX - 1] != null && enemySlots[Values.SLOTMAX - 1].speed > 0 && enemySlots[Values.SLOTMAX - 1].hitPoints > 0)
+                    {
+                        targets.Add(enemySlots[Values.SLOTMAX - 1]);
+                        break;
+                    }
                     do
                     {
                         if (enemySlots[slot % (Values.SMALLSLOT / 2)] != null && enemySlots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
@@ -649,6 +698,34 @@ public class BattleManager : MonoBehaviour
                         slot--;
                     } while (targets.Count < 1);
                     break;
+                case 3:
+                    if (enemySlots[Values.SLOTMAX - 1] != null && enemySlots[Values.SLOTMAX - 1].speed > 0 && enemySlots[Values.SLOTMAX - 1].hitPoints > 0)
+                    {
+                        targets.Add(enemySlots[Values.SLOTMAX - 1]);
+                        break;
+                    }
+                    do
+                    {
+                        if (enemySlots[slot % (Values.SMALLSLOT / 2)] != null && enemySlots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
+                        {
+                            targets.Add(enemySlots[slot % (Values.SMALLSLOT / 2)]);
+                        }
+                        if (enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
+                        {
+                            targets.Add(enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
+                        }
+                        slot--;
+                    } while (targets.Count < 1);
+                    break;
+            }
+        }
+        
+        while (targets.Count < 1)
+        {
+            slot++;
+            if (enemySlots[Values.SMALLSLOT+(slot%3)] != null && enemySlots[Values.SMALLSLOT + (slot % 3)].speed > 0 && enemySlots[Values.SMALLSLOT + (slot % 3)].hitPoints > 0)
+            {
+                targets.Add(enemySlots[Values.SMALLSLOT + (slot % 3)]);
             }
         }
         return targets;
@@ -745,19 +822,19 @@ public class BattleManager : MonoBehaviour
                 //this takes the slot of the targeted beast and finds the beast directly in front of it
                 for (int x = (Values.SLOTMAX/2); x < enemySlots.Count; x++)
                 {
-                    if (x == slot && enemySlots[x % (Values.SLOTMAX/2)] != null && enemySlots[x % (Values.SLOTMAX/2)].hitPoints > 0)
+                    if (x == slot && enemySlots[x % (Values.SMALLSLOT / 2)] != null && enemySlots[x % (Values.SMALLSLOT / 2)].hitPoints > 0)
                     {
-                        b = enemySlots[x % (Values.SLOTMAX/2)];
+                        b = enemySlots[x % (Values.SMALLSLOT / 2)];
                     }
                 }
             }
             else
             {
-                for (int x = (Values.SLOTMAX/2); x < slots.Count; x++)
+                for (int x = (Values.SMALLSLOT/2); x < slots.Count; x++)
                 {
-                    if (x == slot && slots[x % (Values.SLOTMAX/2)] != null && slots[x % (Values.SLOTMAX/2)].hitPoints > 0)
+                    if (x == slot && slots[x % (Values.SMALLSLOT / 2)] != null && slots[x % (Values.SMALLSLOT / 2)].hitPoints > 0)
                     {
-                        b = slots[x % (Values.SLOTMAX/2)];
+                        b = slots[x % (Values.SMALLSLOT / 2)];
                     }
                 }
             }
@@ -813,7 +890,14 @@ public class BattleManager : MonoBehaviour
         //Check to see if the round is still going and then run an attack
         if (turn >= totalMoves - 1)
         {
-            attack.InitiateAttack(currentTurn, targets, inFront);
+            if (roundOrderTypes[turn] == "Player")
+            {
+                attack.InitiateAttack(currentTurn, targets, inFront, Player.summoner);
+            }
+            else
+            {
+                attack.InitiateAttack(currentTurn, targets, inFront, enemySummoner);
+            }
             GameObject slot = getSlot();
             if (!slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Front") &&
                 !slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Back"))
@@ -842,7 +926,14 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            attack.InitiateAttack(currentTurn, targets, inFront);
+            if(roundOrderTypes[turn] == "Player")
+            {
+                attack.InitiateAttack(currentTurn, targets, inFront, Player.summoner);
+            }
+            else
+            {
+                attack.InitiateAttack(currentTurn, targets, inFront, enemySummoner);
+            }
             GameObject slot = getSlot();
             if (!slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Front") &&
                 !slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Back"))
@@ -893,6 +984,24 @@ public class BattleManager : MonoBehaviour
 
         return null;
     }
+
+    public GameObject getSlot(Beast b)
+    {
+        for(int x = 0; x < slots.Count; x++)
+        {
+            if (slots[x] != null && b.Equals(slots[x]))
+            {
+                return playerPadSlots[x];
+            }
+            else if (enemySlots[x] != null && b.Equals(enemySlots[x]))
+            {
+                return enemyPadSlots[x];
+            }
+        }
+
+        return null;
+    }
+
     //plays the attacking animation for either front or back row attack depending on the bool
     void PlayAttackAnimation(bool inFront)
     {
@@ -913,6 +1022,7 @@ public class BattleManager : MonoBehaviour
                 {
                     if (enemySlots[x] != null && enemySlots[x].name == target.name)
                     {
+                        StartCoroutine(ChangeBattleColor(enemyPadSlots[x]));
                         enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
                         break;
                     }
@@ -924,6 +1034,7 @@ public class BattleManager : MonoBehaviour
                 {
                     if (slots[x] != null && slots[x].name == target.name)
                     {
+                        StartCoroutine(ChangeBattleColor(playerPadSlots[x]));
                         playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
                         break;
                     }
@@ -931,6 +1042,14 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
+
+    IEnumerator ChangeBattleColor(GameObject beast)
+    {
+        beast.gameObject.GetComponent<Image>().color = attack.GetTypeColor(currentTurn);
+        yield return new WaitForSeconds(.1f);
+        beast.gameObject.GetComponent<Image>().color = Color.white;
+    }
+
     //starts the attacking cycle for the enemy
     IEnumerator EnemyAttack()
     {

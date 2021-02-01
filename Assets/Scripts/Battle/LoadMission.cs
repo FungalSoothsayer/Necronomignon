@@ -17,6 +17,7 @@ public class LoadMission : MonoBehaviour
     public GameObject txtInfo;
     public GameObject orderBar;
     public GameObject healthDisplay;
+    public GameObject giveUpDialog; 
     
     public List<GameObject> slotHealthBars;
 
@@ -80,6 +81,11 @@ public class LoadMission : MonoBehaviour
         {
             txtInfo.SetActive(false);
         }
+
+        //Gets give up dialog object
+        giveUpDialog = GameObject.Find("giveUpDialog");
+        if (giveUpDialog != null)
+            giveUpDialog.SetActive(false);
 
         foreach(GameObject go in slotHealthBars)
         {
@@ -186,18 +192,18 @@ public class LoadMission : MonoBehaviour
             //gives the players beasts a boost based on their tier
             if(playerSlot[x] != null)
             {
-                playerSlot[x].power += (int)(playerSlot[x].power * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
+                /*playerSlot[x].power += (int)(playerSlot[x].power * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
                 playerSlot[x].defence += (int)(playerSlot[x].defence * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
                 playerSlot[x].speed += (int)(playerSlot[x].speed * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
                 playerSlot[x].dexterity += (int)(playerSlot[x].dexterity * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
-                playerSlot[x].maxHP += (int)(playerSlot[x].maxHP * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
+                playerSlot[x].maxHP += (int)(playerSlot[x].maxHP * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));*/
 
-                print(playerSlot[x].statGradients);
-                playerSlot[x].power += playerSlot[x].statGradients.powerGradient * (Player.summoner.getLevel() - 1);
-                playerSlot[x].defence += playerSlot[x].statGradients.defenceGradient * (Player.summoner.getLevel() - 1);
-                playerSlot[x].speed += playerSlot[x].statGradients.speedGradient * (Player.summoner.getLevel() - 1);
-                playerSlot[x].dexterity += playerSlot[x].statGradients.dexGradient * (Player.summoner.getLevel() - 1);
-                playerSlot[x].maxHP += playerSlot[x].statGradients.hpGradient * (Player.summoner.getLevel() - 1);
+                
+                playerSlot[x].power += (playerSlot[x].statGradients.powerGradient * playerSlot[x].tier) * (Player.summoner.getLevel() - 1);
+                playerSlot[x].defence += (playerSlot[x].statGradients.defenceGradient * playerSlot[x].tier) * (Player.summoner.getLevel() - 1);
+                playerSlot[x].speed += (playerSlot[x].statGradients.speedGradient * playerSlot[x].tier) * (Player.summoner.getLevel() - 1);
+                playerSlot[x].dexterity += (playerSlot[x].statGradients.dexGradient * playerSlot[x].tier) * (Player.summoner.getLevel() - 1);
+                playerSlot[x].maxHP += (playerSlot[x].statGradients.hpGradient * playerSlot[x].tier) * (Player.summoner.getLevel() - 1);
             }
             pb.Add(playerSlot[x]);
         }
@@ -206,17 +212,17 @@ public class LoadMission : MonoBehaviour
             //gives the players beasts a boost based on their tier
             if (enemySlot[x] != null && enemySlot[x].tier>0)
             {
-                enemySlot[x].power += (int)(enemySlot[x].power * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
+                /*enemySlot[x].power += (int)(enemySlot[x].power * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
                 enemySlot[x].defence += (int)(enemySlot[x].defence * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
                 enemySlot[x].speed += (int)(enemySlot[x].speed * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
                 enemySlot[x].dexterity += (int)(enemySlot[x].dexterity * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
-                enemySlot[x].maxHP += (int)(enemySlot[x].maxHP * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
+                enemySlot[x].maxHP += (int)(enemySlot[x].maxHP * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));*/
 
-                enemySlot[x].power += enemySlot[x].statGradients.powerGradient * (enemySummoner.getLevel() - 1);
-                enemySlot[x].defence += enemySlot[x].statGradients.defenceGradient * (enemySummoner.getLevel() - 1);
-                enemySlot[x].speed += enemySlot[x].statGradients.speedGradient * (enemySummoner.getLevel() - 1);
-                enemySlot[x].dexterity += enemySlot[x].statGradients.dexGradient * (enemySummoner.getLevel() - 1);
-                enemySlot[x].maxHP += enemySlot[x].statGradients.hpGradient * (enemySummoner.getLevel()-1);
+                enemySlot[x].power += (enemySlot[x].statGradients.powerGradient * enemySlot[x].tier) * (enemySummoner.getLevel() - 1);
+                enemySlot[x].defence += (enemySlot[x].statGradients.defenceGradient * enemySlot[x].tier) * (enemySummoner.getLevel() - 1);
+                enemySlot[x].speed += (enemySlot[x].statGradients.speedGradient * enemySlot[x].tier) * (enemySummoner.getLevel() - 1);
+                enemySlot[x].dexterity += (enemySlot[x].statGradients.dexGradient * enemySlot[x].tier) * (enemySummoner.getLevel() - 1);
+                enemySlot[x].maxHP += (enemySlot[x].statGradients.hpGradient * enemySlot[x].tier) * (enemySummoner.getLevel()-1);
             }
             eb.Add(enemySlot[x]);
         }
@@ -292,4 +298,23 @@ public class LoadMission : MonoBehaviour
 
         GetImageToRemove(toRemove, owner).gameObject.SetActive(false);
     }
+
+    //Opens give up dialog and pauses the game or resumes the game if the user doesn't give up. 1 stands for resume
+    public void RetunArrow(int option)
+    {
+        if(option == 1)
+        {
+            Time.timeScale = 1;
+            giveUpDialog.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 0;
+            giveUpDialog.SetActive(true);
+        }
+        
+
+    }
+
+
 }
