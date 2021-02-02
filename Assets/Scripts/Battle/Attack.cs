@@ -136,6 +136,7 @@ public class Attack : MonoBehaviour
                         int r = UnityEngine.Random.Range(0, 2);
                         if (r > 0)
                         {
+                            healthManager.DisplayDamageOutput(attacker, "Paralyzed", new Color(255f / 255f, 255f / 255f, 0f / 255f));
                             print(attacker.name + " was paralized and unable to move");
                             return;
                         }
@@ -170,6 +171,7 @@ public class Attack : MonoBehaviour
 
                     if (attacker.statusTurns[(int)Move.types.Blind] > 0)
                     {
+                        healthManager.DisplayDamageOutput(attacker, "Blinded", new Color(255f / 255f, 255f / 255f, 255f / 255f));
                         print(attacker.name + " attacks blindly");
                     }
                 }
@@ -178,12 +180,14 @@ public class Attack : MonoBehaviour
                 {
                     if (attacker.curse(target))
                     {
+                        healthManager.DisplayDamageOutput(target, "DOOM!", new Color(25f / 255f, 25f / 255f, 25f / 255f));
                         print("Doom has consumed " + target.name);
                         modifier = 1;
                         healthManager.UpdateHealth(target, target.maxHP);
                     }
                     else
                     {
+                        healthManager.DisplayDamageOutput(target, "Doom lingers...", new Color(25f / 255f, 25f / 255f, 25f / 255f));
                         print("Doom lingers over " + target.name);
                         modifier = 1;
                     }
@@ -201,6 +205,7 @@ public class Attack : MonoBehaviour
             }
             else if (attacker.statusTurns[(int)Move.types.Sleep] > 0)
             {
+                healthManager.DisplayDamageOutput(attacker, "Asleep", new Color(3f / 255f, 157f / 255f, 252f / 255f));
                 print(attacker.name + " was asleep and unable to move");
             }
 
@@ -236,12 +241,14 @@ public class Attack : MonoBehaviour
         {
             if (UnityEngine.Random.Range(0, 2) > 0)
             {
+                healthManager.DisplayDamageOutput(attacker, "Paralyzed", new Color(255f / 255f, 255f / 255f, 0f / 255f));
                 print(attacker.name + " was paralized and unable to move");
                 return true;
             }
         }
         if (attacker.statusTurns[(int)Move.types.Sleep] > 0)
         {
+            healthManager.DisplayDamageOutput(attacker, "Asleep", new Color(3f / 255f, 157f / 255f, 252f / 255f));
             print(attacker.name + " was asleep and unable to move");
             return true;
         }
@@ -268,7 +275,7 @@ public class Attack : MonoBehaviour
         }
         else
         {
-            healthManager.DisplayDamageOutput(target, "Miss", Color.white);
+            healthManager.DisplayDamageOutput(target, "MISS!", Color.white);
             print("Attack Misses");
             return true;
         }
@@ -289,8 +296,7 @@ public class Attack : MonoBehaviour
         //If random variable is more than critical hit chance, the attack has a modifier of 2, otherwise it's modifier is 1
         if (critChance >= 20)
         {
-            healthManager.DisplayDamageOutput(target, "Crit!", Color.white);
-
+            healthManager.DisplayDamageOutput(target, "CRIT!", Color.white);
             Debug.Log("Critical Hit!");
 
             return 2;
@@ -319,6 +325,8 @@ public class Attack : MonoBehaviour
             int vary2 = UnityEngine.Random.Range(1, 33);
 
             vary += (float)vary2 / 100;
+
+            healthManager.DisplayDamageOutput(target, "GUARD!", Color.white);
             Debug.Log("Attack is Blocked!");
             return vary;
         }
@@ -464,6 +472,8 @@ public class Attack : MonoBehaviour
         }
         else
         {
+            battleManager.PlayDamagedAnimation(target);
+            battleManager.PlayAttackAnimation(inFront);
             healthManager.UpdateHealth(target, damage);
         }
 
