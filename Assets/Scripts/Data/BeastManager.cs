@@ -75,7 +75,6 @@ public class BeastManager : MonoBehaviour
             beastsList = JsonUtility.FromJson<BeastList>(jsonString);
             foreach (Beast beast in beastsList.Beasts)
             {
-                print(beast.statGradients);
                 beast.id = givenId;
                 givenId++;
             }
@@ -90,14 +89,18 @@ public class BeastManager : MonoBehaviour
 
     public Move getMove(int x)
     {
-        List<Move> ml = moveManager.movesList.Moves;
-        for(int i = 0; i < ml.Count; i++)
+        if (moveManager != null)
         {
-            if(ml[i].move_id == x)
-            {
-                return ml[i];
-            }
+            List<Move> ml = moveManager.movesList.Moves;
 
+            for (int i = 0; i < ml.Count; i++)
+            {
+                if (ml[i].move_id == x)
+                {
+                    return ml[i];
+                }
+
+            }
         }
         Move mavi = new Move();
         mavi.move_id = 0;
