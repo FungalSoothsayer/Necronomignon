@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class LoadSettings : MonoBehaviour
 {
     public GameObject settingsPrefab;
+    float value = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,13 @@ public class LoadSettings : MonoBehaviour
 
     public void loadSettings() {
         //if settings screen is instantiated stop function
+        GameObject go = GameObject.Find("Music");
+        
+        if (go != null)
+        {
+            AudioSource[] auso = go.GetComponents<AudioSource>();
+            value = auso[0].volume;
+        }
         if (GameObject.Find("SettingsScreen") != null) return;
         
         GameObject parent = GameObject.Find("SettingsHolder"); 
@@ -57,9 +65,11 @@ public class LoadSettings : MonoBehaviour
 
     public void setVolumeSlider() {
         GameObject go = GameObject.Find("VolumeSlider");
+        
         if (go != null)
         {
             Slider slide = go.GetComponent<Slider>();
+            slide.value = value;
             go = GameObject.Find("Music");
             AudioSource[] auso = go.GetComponents<AudioSource>();
             auso[auso.Length - 1].volume = slide.value;
