@@ -1015,6 +1015,16 @@ public class BattleManager : MonoBehaviour
     }
 
     //this plays the damage animation for one or many beasts
+    public void PlayDamagedAnimation(List<Beast> targets)
+    {
+        foreach(Beast b in targets)
+        {
+            if(b != null)
+            {
+                PlayDamagedAnimation(b);
+            }
+        }
+    }
     public void PlayDamagedAnimation(Beast target)
     {
         if (roundOrderTypes[turn] == "Player")
