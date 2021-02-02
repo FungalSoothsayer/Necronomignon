@@ -907,6 +907,11 @@ public class BattleManager : MonoBehaviour
                 if (pRunning) pRunning = false;
                 if (eRunning) eRunning = false;
             }
+            PlayAttackAnimation(inFront);
+            if ((inFront && currentTurn.Move_A.healing) || (!inFront && currentTurn.Move_B.healing))
+            {
+                PlayDamagedAnimation(targets);
+            }
             Debug.Log("Round Ended");
             ClearTurns();
             currentTurn = roundOrder[0];
@@ -1010,6 +1015,16 @@ public class BattleManager : MonoBehaviour
     }
 
     //this plays the damage animation for one or many beasts
+    public void PlayDamagedAnimation(List<Beast> targets)
+    {
+        foreach(Beast b in targets)
+        {
+            if(b != null)
+            {
+                PlayDamagedAnimation(b);
+            }
+        }
+    }
     public void PlayDamagedAnimation(Beast target)
     {
         if (roundOrderTypes[turn] == "Player")
