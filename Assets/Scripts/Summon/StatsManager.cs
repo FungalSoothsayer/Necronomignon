@@ -44,11 +44,11 @@ public class StatsManager : MonoBehaviour
     public void setBeastStats() {
         //float temp = (float)currentBeast.maxHP + ((float)currentBeast.statGradients.hpGradient * (currentBeast.tier == 1? 1 : (currentBeast.tier - 1) * (float)Values.TEIRBOOST)) * Player.summoner.getLevel();
 
-        int beastHealth = Convert.ToInt32(currentBeast.maxHP + (currentBeast.maxHP * Values.TEIRBOOST * (currentBeast.tier - 1)) + (currentBeast.statGradients.powerGradient * (Player.summoner.getLevel()- 1)));
-        int beastdefence = Convert.ToInt32(currentBeast.defence + (currentBeast.defence * Values.TEIRBOOST * (currentBeast.tier - 1)) + (currentBeast.statGradients.powerGradient * (Player.summoner.getLevel()- 1)));
-        int beastPower = Convert.ToInt32(currentBeast.power + (currentBeast.power * Values.TEIRBOOST * (currentBeast.tier - 1)) + (currentBeast.statGradients.powerGradient * (Player.summoner.getLevel()- 1)));
-        int beastSpeed = Convert.ToInt32(currentBeast.speed + (currentBeast.speed * Values.TEIRBOOST * (currentBeast.tier - 1)) + (currentBeast.statGradients.powerGradient * (Player.summoner.getLevel()- 1)));
-        int beastDex = Convert.ToInt32(currentBeast.dexterity + (currentBeast.dexterity * Values.TEIRBOOST * (currentBeast.tier - 1)) + (currentBeast.statGradients.powerGradient * (Player.summoner.getLevel()- 1)));
+        int beastHealth = Convert.ToInt32(currentBeast.maxHP + (currentBeast.statGradients.hpGradient * currentBeast.tier) * (Player.summoner.getLevel() - 1));
+        int beastdefence = Convert.ToInt32(currentBeast.defence + (currentBeast.statGradients.defenceGradient * currentBeast.tier) * (Player.summoner.getLevel() - 1) );
+        int beastPower = Convert.ToInt32(currentBeast.power + (currentBeast.statGradients.powerGradient * currentBeast.tier) * (Player.summoner.getLevel() - 1));
+        int beastSpeed = Convert.ToInt32(currentBeast.speed + (currentBeast.statGradients.speedGradient * currentBeast.tier) * (Player.summoner.getLevel() - 1));
+        int beastDex = Convert.ToInt32(currentBeast.dexterity + (currentBeast.statGradients.dexGradient * currentBeast.tier) * (Player.summoner.getLevel() - 1));
 
         statsList[0].Value = beastHealth;
         statsValues[0].text = (((int)beastHealth).ToString());
