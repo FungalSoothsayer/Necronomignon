@@ -56,11 +56,13 @@ public class LoadSettings : MonoBehaviour
         Button CloseSettings = (Button) GameObject.Find("closeSettingsBtn").GetComponent<Button>();
         Button saveBtn = (Button) GameObject.Find("SaveBtn").GetComponent<Button>();
         Button loadBtn = (Button) GameObject.Find("LoadBtn").GetComponent<Button>();
+        Button redRoach = (Button) GameObject.Find("Red Roach").GetComponent<Button>();
 
 
         CloseSettings.onClick.AddListener(closeSettings);
         saveBtn.onClick.AddListener(Saving.saveAll);
         loadBtn.onClick.AddListener(Saving.loadAll);
+        redRoach.onClick.AddListener(Player.activeRedRoach);
     }
 
     public void setVolumeSlider() {

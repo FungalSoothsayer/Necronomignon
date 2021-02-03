@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -27,5 +29,10 @@ public class Player : MonoBehaviour
         }
         summoner.addXP(xp);
         print(summoner.getLevel());
+    }
+
+    public static void activeRedRoach()
+    {
+        RedRoach = !RedRoach;
     }
 }
