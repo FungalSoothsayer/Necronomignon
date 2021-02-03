@@ -141,9 +141,27 @@ public class HealthManager : MonoBehaviour
     public void DisplayDamageOutput(Beast target, string damage, Color color)
     {
         GameObject slot = battleManager.getSlot(target);
+        Vector3 location = new Vector3(0, 0);
+
+        if (slot != null) {
+            location = new Vector3(slot.transform.localPosition.x, slot.transform.localPosition.y);
+        }
+
+        if(damage.Equals("MISS!") || damage.Equals("GUARD!"))
+        {
+            location.x -= 25;
+            location.y -= 25;
+        }
+
+        if (damage.Equals("CRIT!"))
+        {
+            location.x -= 25;
+            location.y -= 50;
+        }
+
         Transform damagePopup = Instantiate(damageOutputPrefab);
         damagePopup.transform.SetParent(GameObject.Find("Canvas").transform);
-        damagePopup.localPosition = new Vector3(slot.transform.localPosition.x, slot.transform.localPosition.y);
+        damagePopup.localPosition = location;
         damagePopup.localRotation = Quaternion.identity;
 
         DamageOutput damageOutput = damagePopup.GetComponent<DamageOutput>();
@@ -174,6 +192,8 @@ public class HealthManager : MonoBehaviour
                 }
                 enemyHealthBars[x].SetHealth(enemies[x].hitPoints);
             }
+
+            DisplayDamageOutput(target, Math.Floor(heal).ToString(), new Color(93f / 255f, 245f / 255f, 66f / 255f));
         }
     }
     //prints the health left, needs to be updated to implement ui

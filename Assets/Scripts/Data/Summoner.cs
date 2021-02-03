@@ -26,8 +26,15 @@ public class Summoner
         int xpneeded = (int)Math.Round((4 * (Math.Pow((double)level , (double)3))) / 5);
         while(this.xp > xpneeded)
         {
-            level++;
-            xpneeded = (int)Math.Round((4 * (Math.Pow((double)level, (double)3))) / 5);
+            if (level < 100)
+            {
+                level++;
+                xpneeded = (int)Math.Round((4 * (Math.Pow((double)level, (double)3))) / 5);
+            }
+            else
+            {
+                break;
+            }
         }
     }
 }

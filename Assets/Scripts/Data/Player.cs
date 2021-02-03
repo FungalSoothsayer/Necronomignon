@@ -16,4 +16,15 @@ public class Player : MonoBehaviour
     {
         
     }
+
+    public void addXp(int xp)
+    {
+        if (xp < 1)
+        {
+            summoner.addXP(1);
+            return;
+        }
+        summoner.addXP(xp);
+        print(summoner.getLevel());
+    }
 }
