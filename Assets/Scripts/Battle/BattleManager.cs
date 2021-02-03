@@ -738,7 +738,7 @@ public class BattleManager : MonoBehaviour
     {
         bool inFront = this.inFront();
         bool guarded = this.guarded(target);
-
+        print(currentTurn.name + "  Look here!");
         bool cancelGuard = false;
 
         List<Beast> targets = new List<Beast>();
@@ -1076,7 +1076,181 @@ public class BattleManager : MonoBehaviour
         int rand = Random.Range(0, attackPool.Count);
 
         Beast b = attackPool[rand];
+        if (Player.RedRoach)
+        {
+            b = RedRoachEnemyTarget();
+        }
         return b;
+    }
+    Beast RedRoachEnemyTarget()
+    {
+        Beast b = attackPool[0];
+        List<Beast> beasts = new List<Beast>();
+        foreach (Beast be in attackPool)
+        {
+            print(calculateType(currentTurn, be));
+            print(calculateType(currentTurn, b));
+            if (calculateType(currentTurn, be) > calculateType(currentTurn, b))
+            {
+                b = be;
+                beasts.Add(be);
+            }
+        }
+        print(beasts.Count);
+        print(b);
+        if(beasts.Count > 1)
+        {
+            for(int x = 0; x < beasts.Count; x++)
+            {
+                if (beasts[x].hitPoints < b.hitPoints)
+                {
+                    b = beasts[x];
+                }
+            }
+        }
+        else if(beasts.Count < 1)
+        {
+            foreach (Beast be in attackPool)
+            {
+                if (be.hitPoints < b.hitPoints)
+                {
+                    b = be;
+                }
+            }
+        }
+
+        return b;
+    }
+    float calculateType(Beast attacker, Beast target)
+    {
+        if (attack == null || target == null)
+        {
+            return 0;
+        }
+        int[] attackertype = new int[2];
+        attackertype[0] = (int)attacker.type;
+        attackertype[1] = (int)attacker.secondType;
+        int[] defendertype = new int[2];
+        defendertype[0] = (int)target.type;
+        defendertype[1] = (int)target.secondType;
+        float modifier = 1;
+        
+        for (int x = 0; x < attackertype.Length; x++)
+        {
+            for (int y = 0; y < defendertype.Length; y++)
+            {
+                //checks to make sure that neither type is normal, which as no strength or weakness
+                if ((attackertype[x] != (int)Beast.types.Normal) && (defendertype[y] != (int)Beast.types.Normal))
+                {
+
+                    switch (attackertype[x])
+                    {
+                        case (int)Beast.types.Water:
+                            if (defendertype[y] == (int)Beast.types.Fire || defendertype[y] == (int)Beast.types.Cosmic)
+                            {
+                                print("super");
+                                modifier *= 1.5f;
+                            }
+                            if (defendertype[y] == (int)Beast.types.Air || defendertype[y] == (int)Beast.types.Horror)
+                            {
+                                print("not so good");
+                                modifier *= 0.75f;
+                            }
+                            break;
+
+                        case (int)Beast.types.Fire:
+                            if (defendertype[y] == (int)Beast.types.Earth || defendertype[y] == (int)Beast.types.Horror)
+                            {
+                                print("super");
+                                modifier *= 1.5f;
+                            }
+                            if (defendertype[y] == (int)Beast.types.Water || defendertype[y] == (int)Beast.types.Cosmic)
+                            {
+                                print("not so good");
+                                modifier *= 0.75f;
+                            }
+                            break;
+
+                        case (int)Beast.types.Earth:
+                            if (defendertype[y] == (int)Beast.types.Air || defendertype[y] == (int)Beast.types.Cosmic)
+                            {
+                                print("super");
+                                modifier *= 1.5f;
+                            }
+                            if (defendertype[y] == (int)Beast.types.Fire || defendertype[y] == (int)Beast.types.Horror)
+                            {
+                                print("not so good");
+                                modifier *= 0.75f;
+                            }
+                            break;
+
+                        case (int)Beast.types.Air:
+                            if (defendertype[y] == (int)Beast.types.Water || defendertype[y] == (int)Beast.types.Horror)
+                            {
+                                print("super");
+                                modifier *= 1.5f;
+                            }
+                            if (defendertype[y] == (int)Beast.types.Earth || defendertype[y] == (int)Beast.types.Cosmic)
+                            {
+                                print("not so good");
+                                modifier *= 0.75f;
+                            }
+                            break;
+                        case (int)Beast.types.Dark:
+                            if (defendertype[y] == (int)Beast.types.Light || defendertype[y] == (int)Beast.types.Horror)
+                            {
+                                print("super");
+                                modifier *= 1.5f;
+                            }
+                            if (defendertype[y] == (int)Beast.types.Cosmic)
+                            {
+                                print("not so good");
+                                modifier *= 0.75f;
+                            }
+                            break;
+                        case (int)Beast.types.Light:
+                            if (defendertype[y] == (int)Beast.types.Dark || defendertype[y] == (int)Beast.types.Cosmic)
+                            {
+                                print("super");
+                                modifier *= 1.5f;
+                            }
+                            if (defendertype[y] == (int)Beast.types.Horror)
+                            {
+                                print("not so good");
+                                modifier *= 0.75f;
+                            }
+                            break;
+                        case (int)Beast.types.Horror:
+                            if (defendertype[y] == (int)Beast.types.Light || defendertype[y] == (int)Beast.types.Earth || defendertype[y] == (int)Beast.types.Water)
+                            {
+                                print("super");
+                                modifier *= 1.5f;
+                            }
+                            if (defendertype[y] == (int)Beast.types.Dark || defendertype[y] == (int)Beast.types.Fire || defendertype[y] == (int)Beast.types.Air)
+                            {
+                                print("not so good");
+                                modifier *= 0.75f;
+                            }
+                            break;
+                        case (int)Beast.types.Cosmic:
+                            if (defendertype[y] == (int)Beast.types.Fire || defendertype[y] == (int)Beast.types.Air || defendertype[y] == (int)Beast.types.Dark)
+                            {
+                                print("super");
+                                modifier *= 1.5f;
+                            }
+                            if (defendertype[y] == (int)Beast.types.Earth || defendertype[y] == (int)Beast.types.Water || defendertype[y] == (int)Beast.types.Light)
+                            {
+                                print("not so good");
+                                modifier *= 0.75f;
+                            }
+                            break;
+                    }
+
+                }
+            }
+        }
+        return modifier;
+
     }
     //gets a random target from the enemy team
     Beast GetPlayerTarget()

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Summoner summoner = new Summoner();
+    public static bool RedRoach = true;
     // Start is called before the first frame update
     void Start()
     {
