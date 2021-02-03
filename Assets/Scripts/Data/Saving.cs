@@ -1,4 +1,5 @@
 ﻿using SaveSystem;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -67,12 +68,30 @@ public class Saving : MonoBehaviour
         //Displays dialog box when game is loaded
         txtLoadSave.text = "Your Game Has Been Loaded!";
         loadSaveDialog.SetActive(true);
+        changeSettingsBtnStatus(false);
     }
 
     public void closeDialog()
     {
-        if (loadSaveDialog != null)
+        if (loadSaveDialog != null){
             loadSaveDialog.SetActive(false);
+
+            changeSettingsBtnStatus(true);
+        }
+    }
+
+    public static void changeSettingsBtnStatus(bool isEnabled)
+    {
+        foreach (var child in GameObject.FindGameObjectsWithTag("settings")){
+            if (child.GetComponent<Button>() != null)
+                child.GetComponent<Button>().interactable = isEnabled;
+
+            else if (child.GetComponent<Dropdown>() != null)
+                child.GetComponent<Dropdown>().interactable = isEnabled;
+
+            else if (child.GetComponent<Slider>()) 
+                child.GetComponent<Slider>().interactable = isEnabled;
+        }
     }
 
 }
