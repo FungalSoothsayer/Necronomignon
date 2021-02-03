@@ -538,6 +538,10 @@ public class MissionList : MonoBehaviour
             enemies.Add(null);
             summoner.xp = 800;
         }
+        if (Player.RedRoach)
+        {
+            summoner.xp *= 4;
+        }
 
     }
 }

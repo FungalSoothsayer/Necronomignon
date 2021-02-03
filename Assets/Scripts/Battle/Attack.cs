@@ -115,6 +115,7 @@ public class Attack : MonoBehaviour
     public void InitiateAttack(Beast attacker, List<Beast> targets, bool inFront, Summoner summ)
     {
         summoner = summ;
+        print(attacker.name + "  look here now!");
         if (beastManager.moveManager.movesList == null)
         {
             beastManager.moveManager.start();
@@ -127,8 +128,17 @@ public class Attack : MonoBehaviour
         //running the method for each beast
         foreach (Beast target in targets)
         {
-            if (attacker != null && target != null && attacker.speed != 0 && target.speed != 0 && attacker.statusTurns[(int)Beast.types.Water] <= 0 && target.hitPoints > 0)
+            print("here is the target "+target);
+            print((attacker != null) +" attacker null");
+            print((target != null) +" target null");
+            print((attacker.speed != 0) + " attacker speed");
+            print((target.speed != 0) + " target speed" );
+            print( (attacker.statusTurns[(int)Move.types.Sleep] <= 0 ) + " sleep" );
+            print((target.hitPoints > 0)+ "target hp");
+            print("IT HAPPENED!!!!!!!!!!");
+            if (attacker != null && target != null && attacker.speed != 0 && target.speed != 0 && attacker.statusTurns[(int)Move.types.Sleep] <= 0 && target.hitPoints > 0)
             {
+                print(targets[0].name != "Target");
                 if (targets[0].name != "Target")
                 {
                     if (attacker.statusTurns[(int)Move.types.Paralyze] > 0)
@@ -194,6 +204,7 @@ public class Attack : MonoBehaviour
                 }
                 else if (!isMiss(attacker, target))
                 {
+                    print("didn't miss");
                     //adjusts the modifier for a critical hit
                     modifier *= isCrit(attacker, target);
                     //adjusts the modifier if the attack is blocked
