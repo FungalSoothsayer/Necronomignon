@@ -89,8 +89,7 @@ public class BeastManager : MonoBehaviour
 
     public Move getMove(int x)
     {
-        if (moveManager != null)
-        {
+        
             List<Move> ml = moveManager.movesList.Moves;
 
             for (int i = 0; i < ml.Count; i++)
@@ -101,7 +100,7 @@ public class BeastManager : MonoBehaviour
                 }
 
             }
-        }
+        
         Move mavi = new Move();
         mavi.move_id = 0;
         mavi.name = "struggle";
