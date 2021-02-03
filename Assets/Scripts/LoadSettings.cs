@@ -32,10 +32,7 @@ public class LoadSettings : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update(){}
 
     public void loadSettings() {
         //if settings screen is instantiated stop function
@@ -60,24 +57,13 @@ public class LoadSettings : MonoBehaviour
         resolutionDropdown = GameObject.Find("resolutionDropdown").GetComponent<Dropdown>();
         fullscreenDropdown = GameObject.Find("fullscreenDropdown").GetComponent<Dropdown>();
 
-        setFunctions_OnClick();
+        setOnClickFunctions();
         setVolumeSlider();
         getFullscreenOption();
         setResolutionsDropdown();
     }
-
-    public void closeSettings() {
-        GameObject settings = GameObject.Find("SettingsScreen");
-
-        //if settings screen is not instantiated stop function
-        if (settings == null)return;
-
-        blurBackground.SetActive(false);
-
-        Destroy(settings);
-    }
-
-    public void setFunctions_OnClick()
+    
+    public void setOnClickFunctions()
     {
         Button CloseSettings = (Button) GameObject.Find("closeSettingsBtn").GetComponent<Button>();
         Button saveBtn = (Button) GameObject.Find("SaveBtn").GetComponent<Button>();
@@ -106,7 +92,7 @@ public class LoadSettings : MonoBehaviour
 
     /*
         Gets all supported screen resolutions with a 16:9 aspect ratio and stores them
-     */
+    */
     public void getScreenResolutions() {
         //16:9 ratio
         double defaultRatio = Math.Truncate(((double)9 / 16)*1000);
@@ -154,10 +140,23 @@ public class LoadSettings : MonoBehaviour
         }
     }
 
+    public void closeSettings()
+    {
+        GameObject settings = GameObject.Find("SettingsScreen");
+
+        //if settings screen is not instantiated stop function
+        if (settings == null) return;
+
+        blurBackground.SetActive(false);
+
+        Destroy(settings);
+    }
+
+
     public void onFullscreenChanged() {
         getFullscreenOption();
 
-        //toggles fullscreen mode
+        //toggles fullscreen mode not sure if it works tho
         Screen.fullScreen = (fullscreen) ? Screen.fullScreen : !Screen.fullScreen;
 
         resolutionDropdown.interactable = fullscreen? false : true;    
