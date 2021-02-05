@@ -555,6 +555,7 @@ public class BattleManager : MonoBehaviour
     {
         List<Beast> targets = new List<Beast>();
         int slot = getCurrentBeastSlot();
+
         if (roundOrderTypes[turn] == "Enemy")
         {
             //this switch finds the column the attacker is in and find the most sutible target column determined by distance
@@ -562,6 +563,10 @@ public class BattleManager : MonoBehaviour
             switch (slot % (Values.SMALLSLOT / 2))
             {
                 case 0:
+                    if(slots[Values.SLOTMAX-2] != null && slots[Values.SLOTMAX].speed != 0)
+                    {
+                        targets.Add(slots[Values.SLOTMAX - 2]);
+                    }
                     if (slots[Values.SMALLSLOT] != null && slots[Values.SMALLSLOT].speed > 0 && slots[Values.SMALLSLOT].hitPoints > 0)
                     {
                         targets.Add(slots[Values.SMALLSLOT]);
@@ -644,11 +649,7 @@ public class BattleManager : MonoBehaviour
             switch (slot % (Values.SMALLSLOT / 2))
             {
                 case 0:
-                    if (enemySlots[Values.SMALLSLOT] != null && enemySlots[Values.SMALLSLOT].speed > 0 && enemySlots[Values.SMALLSLOT].hitPoints > 0)
-                    {
-                        targets.Add(enemySlots[Values.SMALLSLOT]);
-                        break;
-                    }
+                    
                     do
                     {
                         if (enemySlots[slot % (Values.SMALLSLOT / 2)] != null && enemySlots[slot % (Values.SMALLSLOT / 2)].hitPoints >0)
@@ -658,6 +659,11 @@ public class BattleManager : MonoBehaviour
                         if (enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && enemySlots[(slot % (Values.SMALLSLOT / 2))  +  (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(enemySlots[slot % (Values.SMALLSLOT / 2) + (Values.SMALLSLOT / 2)]);
+                        }
+                        if (enemySlots[Values.SMALLSLOT+(slot%(Values.SLOTMAX - Values.SMALLSLOT))] != null && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
+                        {
+                            print(enemySlots.Count);
+                            targets.Add(enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
                         }
                         slot++;
                     } while (targets.Count < 1);
