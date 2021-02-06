@@ -9,6 +9,8 @@ using UnityEngine.UI;
 */
 public class HealthManager : MonoBehaviour
 {
+    [SerializeField] Slider xpSlider;
+    [SerializeField] Text xpText;
     [SerializeField] Transform damageOutputPrefab;
     public BattleManager battleManager;
     public LevelChecker levelChecker;
@@ -241,6 +243,12 @@ public class HealthManager : MonoBehaviour
                 winners[x].SetActive(false);
             }
         }
+
+        // Updating xp bar and text
+        xpText.text = "XP Gained: " + battleManager.enemySummoner.xp / 2;
+        xpSlider.maxValue = Player.summoner.xpNeeded;
+        xpSlider.value = Player.summoner.xp;
+        Player.summoner.updateLevel();
 
         StartCoroutine(winnersAnimations());
     }

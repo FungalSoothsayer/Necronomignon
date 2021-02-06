@@ -7,7 +7,7 @@ public class Summoner
 {
     public int xp = 1;
     public int level = 1;
-
+    public int xpNeeded;
 
     public int getLevel()
     {
@@ -23,13 +23,13 @@ public class Summoner
 
     public void updateLevel()
     {
-        int xpneeded = (int)Math.Round((4 * (Math.Pow((double)level , (double)3))) / 5);
-        while(this.xp > xpneeded)
+        xpNeeded = (int)Math.Round((4 * (Math.Pow((double)level , (double)3))) / 5);
+        while(this.xp > xpNeeded)
         {
             if (level < 100)
             {
                 level++;
-                xpneeded = (int)Math.Round((4 * (Math.Pow((double)level, (double)3))) / 5);
+                xpNeeded = (int)Math.Round((4 * (Math.Pow((double)level, (double)3))) / 5);
             }
             else
             {
