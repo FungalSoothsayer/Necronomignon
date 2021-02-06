@@ -231,9 +231,9 @@ public class HealthManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         victoryScreen.SetActive(true);
-        for(int x = 0; x < Values.SQUADMAX; x++)
+        for (int x = 0; x < Values.SQUADMAX; x++)
         {
-            if(squad[x] != null)
+            if (squad[x] != null)
             {
                 winners[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
                     ("Animations/" + squad[x].name + "/" + squad[x].name + "_Controller") as RuntimeAnimatorController;
@@ -244,13 +244,17 @@ public class HealthManager : MonoBehaviour
             }
         }
 
-        // Updating xp bar and text
+        UpdateXpBar();
+        StartCoroutine(winnersAnimations());
+    }
+
+    // Updates xp bar and text
+    private void UpdateXpBar()
+    {
         xpText.text = "XP Gained: " + battleManager.enemySummoner.xp / 2;
         xpSlider.maxValue = Player.summoner.xpNeeded;
         xpSlider.value = Player.summoner.xp;
         Player.summoner.updateLevel();
-
-        StartCoroutine(winnersAnimations());
     }
 
     //Play the 'roaring' animation for the winning team.
