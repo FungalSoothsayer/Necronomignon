@@ -558,12 +558,13 @@ public class MissionList : MonoBehaviour
         }
         if (Player.RedRoach)
         {
-            summoner.xp *= 4;
+            //summoner.xp *= 3;
+            summoner.xp = (int)Mathf.Pow(summoner.xp, 2.2f);
             foreach (Beast be in enemies)
             {
                 if (be != null)
                 {
-                    be.setTierUpper(5);
+                    be.setTierLower(5);
                 }
             }
         }

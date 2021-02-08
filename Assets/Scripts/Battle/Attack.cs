@@ -279,7 +279,7 @@ public class Attack : MonoBehaviour
 
         int rand = UnityEngine.Random.Range(1, 100);
 
-        if(rand < missChance)
+        if(rand < 95)
         {
             print(attacker.name + " attacked " + target.name);
             return false;

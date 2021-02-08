@@ -211,6 +211,7 @@ public class HealthManager : MonoBehaviour
         if (playersLeft <= 0)
         {
             Debug.Log("Opposing Team Wins. Better Luck Next Time.");
+            Player.summoner.addXP(battleManager.enemySummoner.xp/5);
             StartCoroutine(LoadMap());
         }
     }
