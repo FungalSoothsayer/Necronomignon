@@ -538,9 +538,34 @@ public class MissionList : MonoBehaviour
             enemies.Add(null);
             summoner.xp = 800;
         }
+        else if (mission == "boss")
+        {
+            while (enemies.Count < Values.SMALLSLOT)
+            {
+                enemies.Add(null);
+            }
+            int ran =  Random.Range(0, BeastManager.beastsList.Beasts.Count);
+            Beast b = BeastManager.getFromNameS(BeastManager.beastsList.Beasts[ran].name);
+            b.size = 1;
+            b.maxHP *= 4;
+            b.power *= 4;
+            b.defence *= 4;
+            enemies.Add(null);
+            enemies.Add(b);
+            enemies.Add(null);
+
+            summoner.xp = 2000;
+        }
         if (Player.RedRoach)
         {
             summoner.xp *= 4;
+            foreach (Beast be in enemies)
+            {
+                if (be != null)
+                {
+                    be.setTierUpper(5);
+                }
+            }
         }
 
     }
