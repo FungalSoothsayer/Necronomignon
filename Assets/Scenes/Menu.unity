@@ -1042,9 +1042,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7e58495d69e264b9172da1290ee3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsPrefab: {fileID: 3636565053523359477, guid: 2d11fa32308667245b3b08a01aba687f,
+  settingsPrefab: {fileID: 2114400712170652896, guid: 2d11fa32308667245b3b08a01aba687f,
     type: 3}
   blurBackground: {fileID: 643562379}
+  resolutionDropdown: {fileID: 0}
+  fullscreenDropdown: {fileID: 0}
   fullscreen: 1
   borderless: 1
 --- !u!1 &559582935

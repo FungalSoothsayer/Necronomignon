@@ -81,7 +81,7 @@ public class LoadSettings : MonoBehaviour
     }
 
     public static void setRedRoachAsset() {
-        Sprite temp = Resources.Load<Sprite>("Assets/clicked_button.png");
+        Sprite temp = Resources.Load<Sprite>("Assets/" + (Player.RedRoach? "clicked_button" : "button"));
         redRoach.image.sprite = temp;
         Debug.Log("sprite " + temp.name);
     }
