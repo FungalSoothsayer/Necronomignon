@@ -34,5 +34,7 @@ public class Player : MonoBehaviour
     public static void activeRedRoach()
     {
         RedRoach = !RedRoach;
+
+        LoadSettings.setRedRoachAsset();
     }
 }

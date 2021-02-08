@@ -7,6 +7,7 @@ TagManager:
   - music
   - Level
   - Summon
+  - settings
   layers:
   - Default
   - TransparentFX
