@@ -73,6 +73,10 @@ public class LevelChecker : MonoBehaviour
             levels++;
             unlock("Cthulhu");
         }
+        else if(lastClick == "boss" && levels <= 8)
+        {
+            levels++;
+        }
     }
 
     private void unlock(String name)
