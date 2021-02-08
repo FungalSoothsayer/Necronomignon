@@ -9,7 +9,6 @@ public class TrainPrep : MonoBehaviour
     public new Text name;
     public LoadScenes loadScenes;
     public List<Image> pentagrams;
-    public static int hardcoreTeirBoost = 0;
 
     Beast b;
 
@@ -29,12 +28,11 @@ public class TrainPrep : MonoBehaviour
 
     public void CheckToTrain()
     {
-        if (!Player.RedRoach || (Player.RedRoach && hardcoreTeirBoost <= Player.summoner.getLevel()))
+
+        if (b.tier < 5)
         {
-            if (b.tier < 5)
-            {
-                loadScenes.LoadSelect("BeastQuiz");
-            }
+            loadScenes.LoadSelect("BeastQuiz");
         }
+
     }
 }

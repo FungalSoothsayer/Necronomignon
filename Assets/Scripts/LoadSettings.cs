@@ -12,6 +12,7 @@ public class LoadSettings : MonoBehaviour
     public GameObject blurBackground;
     public Dropdown resolutionDropdown;
     public Dropdown fullscreenDropdown;
+    public static Button redRoach;
     public Resolution[] resolutions;
     //stores all possible screen resolutions with a 16:9 aspect ratio
     public static List<Resolution> resolutionsList;
@@ -61,6 +62,7 @@ public class LoadSettings : MonoBehaviour
         setVolumeSlider();
         getFullscreenOption();
         setResolutionsDropdown();
+        setRedRoachAsset();
     }
     
     public void setOnClickFunctions()
@@ -68,13 +70,20 @@ public class LoadSettings : MonoBehaviour
         Button CloseSettings = (Button) GameObject.Find("closeSettingsBtn").GetComponent<Button>();
         Button saveBtn = (Button) GameObject.Find("SaveBtn").GetComponent<Button>();
         Button loadBtn = (Button) GameObject.Find("LoadBtn").GetComponent<Button>();
-
+        redRoach = (Button) GameObject.Find("Red Roach").GetComponent<Button>();
 
         CloseSettings.onClick.AddListener(closeSettings);
         saveBtn.onClick.AddListener(Saving.saveAll);
         loadBtn.onClick.AddListener(Saving.loadAll);
         resolutionDropdown.onValueChanged.AddListener(delegate { onResolutionChanged(); });
         fullscreenDropdown.onValueChanged.AddListener(delegate { onFullscreenChanged(); });
+        redRoach.onClick.AddListener(Player.activeRedRoach);
+    }
+
+    public static void setRedRoachAsset() {
+        Sprite temp = Resources.Load<Sprite>("Assets/clicked_button.png");
+        redRoach.image.sprite = temp;
+        Debug.Log("sprite " + temp.name);
     }
 
     public void setVolumeSlider() {
