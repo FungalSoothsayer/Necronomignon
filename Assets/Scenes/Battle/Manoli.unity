@@ -6146,7 +6146,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: OrganizeMain
+          m_StringArgument: CreateSquad
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &600880949
