@@ -94,10 +94,7 @@ public class QuizManager : MonoBehaviour
         if(opt == correct)
         {
             b.tier++;
-            if (Player.RedRoach)
-            {
-                TrainPrep.hardcoreTeirBoost++;
-            }
+            
             loadScenes.LoadSelect("BeastStats");
         }
         else

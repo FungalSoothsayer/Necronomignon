@@ -53,6 +53,22 @@ public class BattleManager : MonoBehaviour
 
     List<int> playersTurnsTaken = new List<int>();
     List<int> enemiesTurnsTaken = new List<int>();
+    int FPSTarget = 30;
+
+    void Start()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = FPSTarget;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Application.targetFrameRate != FPSTarget)
+        {
+            Application.targetFrameRate = FPSTarget;
+        }
+    }
 
     //Get lists from LoadMission and add the players to the attack pool
     public void SendLists(List<Beast> thisSquad, List<Beast> enemySquad, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth, List<DamageOutput> activePlayerDamage, List<DamageOutput> activeEnemyDamage, Summoner enemySummoner)
@@ -582,6 +598,10 @@ public class BattleManager : MonoBehaviour
                         {
                             targets.Add(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
                         }
+                        if (targets.Count < 1 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))] != null && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
+                        {
+                            targets.Add(enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
+                        }
                         slot++;
                     } while (targets.Count < 1);
                     break;
@@ -600,6 +620,10 @@ public class BattleManager : MonoBehaviour
                         if (slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
+                        }
+                        if (targets.Count < 1 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))] != null && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
+                        {
+                            targets.Add(enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
                         }
                         slot++;
                     } while (targets.Count < 1);
@@ -620,6 +644,10 @@ public class BattleManager : MonoBehaviour
                         {
                             targets.Add(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
                         }
+                        if (targets.Count < 1 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))] != null && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
+                        {
+                            targets.Add(enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
+                        }
                         slot++;
                     } while (targets.Count < 1);
                     break;
@@ -638,6 +666,10 @@ public class BattleManager : MonoBehaviour
                         if (slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
+                        }
+                        if (targets.Count < 1 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))] != null && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
+                        {
+                            targets.Add(enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
                         }
                         slot--;
                     } while (targets.Count < 1);
@@ -660,7 +692,7 @@ public class BattleManager : MonoBehaviour
                         {
                             targets.Add(enemySlots[slot % (Values.SMALLSLOT / 2) + (Values.SMALLSLOT / 2)]);
                         }
-                        if (enemySlots[Values.SMALLSLOT+(slot%(Values.SLOTMAX - Values.SMALLSLOT))] != null && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
+                        if (targets.Count < 1 && enemySlots[Values.SMALLSLOT+(slot%(Values.SLOTMAX - Values.SMALLSLOT))] != null && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
                         {
                             print(enemySlots.Count);
                             targets.Add(enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
@@ -669,11 +701,6 @@ public class BattleManager : MonoBehaviour
                     } while (targets.Count < 1);
                     break;
                 case 1:
-                    if (enemySlots[Values.SMALLSLOT] != null && enemySlots[Values.SMALLSLOT].speed > 0 && enemySlots[Values.SMALLSLOT].hitPoints > 0)
-                    {
-                        targets.Add(enemySlots[Values.SMALLSLOT]);
-                        break;
-                    }
                     do
                     {
                         if (enemySlots[slot % (Values.SMALLSLOT / 2)] != null && enemySlots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
@@ -683,16 +710,16 @@ public class BattleManager : MonoBehaviour
                         if (enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
+                        }
+                        if (targets.Count < 1 && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))] != null && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
+                        {
+                            print(enemySlots.Count);
+                            targets.Add(enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
                         }
                         slot++;
                     } while (targets.Count < 1);
                     break;
                 case 2:
-                    if (enemySlots[Values.SLOTMAX - 1] != null && enemySlots[Values.SLOTMAX - 1].speed > 0 && enemySlots[Values.SLOTMAX - 1].hitPoints > 0)
-                    {
-                        targets.Add(enemySlots[Values.SLOTMAX - 1]);
-                        break;
-                    }
                     do
                     {
                         if (enemySlots[slot % (Values.SMALLSLOT / 2)] != null && enemySlots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
@@ -702,16 +729,16 @@ public class BattleManager : MonoBehaviour
                         if (enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
+                        }
+                        if (targets.Count < 1 && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))] != null && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
+                        {
+                            print(enemySlots.Count);
+                            targets.Add(enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
                         }
                         slot--;
                     } while (targets.Count < 1);
                     break;
                 case 3:
-                    if (enemySlots[Values.SLOTMAX - 1] != null && enemySlots[Values.SLOTMAX - 1].speed > 0 && enemySlots[Values.SLOTMAX - 1].hitPoints > 0)
-                    {
-                        targets.Add(enemySlots[Values.SLOTMAX - 1]);
-                        break;
-                    }
                     do
                     {
                         if (enemySlots[slot % (Values.SMALLSLOT / 2)] != null && enemySlots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
@@ -721,6 +748,11 @@ public class BattleManager : MonoBehaviour
                         if (enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
+                        }
+                        if (targets.Count < 1 && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))] != null && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
+                        {
+                            print(enemySlots.Count);
+                            targets.Add(enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
                         }
                         slot--;
                     } while (targets.Count < 1);
