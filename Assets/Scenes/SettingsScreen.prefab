@@ -1770,7 +1770,7 @@ GameObject:
   - component: {fileID: 2114400711895834531}
   - component: {fileID: 2114400711895834530}
   m_Layer: 5
-  m_Name: Red Roach
+  m_Name: RedRoach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

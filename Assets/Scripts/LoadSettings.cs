@@ -70,7 +70,8 @@ public class LoadSettings : MonoBehaviour
         Button CloseSettings = (Button) GameObject.Find("closeSettingsBtn").GetComponent<Button>();
         Button saveBtn = (Button) GameObject.Find("SaveBtn").GetComponent<Button>();
         Button loadBtn = (Button) GameObject.Find("LoadBtn").GetComponent<Button>();
-        redRoach = (Button) GameObject.Find("Red Roach").GetComponent<Button>();
+        redRoach = (Button) GameObject.Find("RedRoach").GetComponent<Button>();
+        Button RedRoach = (Button) GameObject.Find("Red Roach").GetComponent<Button>();
 
         CloseSettings.onClick.AddListener(closeSettings);
         saveBtn.onClick.AddListener(Saving.saveAll);
@@ -78,12 +79,15 @@ public class LoadSettings : MonoBehaviour
         resolutionDropdown.onValueChanged.AddListener(delegate { onResolutionChanged(); });
         fullscreenDropdown.onValueChanged.AddListener(delegate { onFullscreenChanged(); });
         redRoach.onClick.AddListener(Player.activeRedRoach);
+        RedRoach.onClick.AddListener(Player.activeRedRoach);
     }
 
     public static void setRedRoachAsset() {
         Sprite temp = Resources.Load<Sprite>("Assets/" + (Player.RedRoach? "clicked_button" : "button"));
+        Color colorTemp = (Player.RedRoach ? Color.red : new Color(0.9137255f, 0.7098039f, 0.1254902f, 1f));
         redRoach.image.sprite = temp;
-        Debug.Log("sprite " + temp.name);
+        redRoach.GetComponentInChildren<Text>().color = colorTemp;
+        Debug.Log("sprite " + temp.name + " color " + colorTemp.ToString());
     }
 
     public void setVolumeSlider() {
