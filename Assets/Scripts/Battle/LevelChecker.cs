@@ -77,6 +77,10 @@ public class LevelChecker : MonoBehaviour
         {
             levels++;
         }
+        else if (lastClick == "even" && levels <= 9)
+        {
+            levels++;
+        }
     }
 
     private void unlock(String name)

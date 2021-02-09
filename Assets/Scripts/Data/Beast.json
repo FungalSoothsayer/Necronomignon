@@ -14,7 +14,37 @@
       "static_img": "Wyvern_Idle_00",
       "moveA": "10",
       "moveB": "9",
-      "statGradients": {"hpGradient": "2", "defenceGradient": "3", "powerGradient": "3", "speedGradient": "4", "dexGradient": "4"}
+      "statGradients": {
+        "hpGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "defenceGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "powerGradient": {"t1": "2", "t2": "3","t3": "4", "t4": "5", "t5": "6"},
+        "speedGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "dexGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        }
+      }
     },
     {
       "name": "Dryad",
@@ -30,7 +60,37 @@
       "static_img": "Dryad_Idle_00",
       "moveA": "3",
       "moveB": "14",
-      "statGradients": {"hpGradient": "4", "defenceGradient": "5", "powerGradient": "3", "speedGradient": "2", "dexGradient": "3"}
+      "statGradients": {
+        "hpGradient": {"t1": "2", "t2": "3","t3": "4", "t4": "5", "t5": "6"},
+        "defenceGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "powerGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "speedGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "dexGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        }
+      }
     },
     {
       "name": "Conglomerate",
@@ -46,7 +106,43 @@
       "static_img": "Conglomerate_Idle_00",
       "moveA": "5",
       "moveB": "6",
-      "statGradients": {"hpGradient": "4", "defenceGradient": "6", "powerGradient": "3", "speedGradient": "2", "dexGradient": "2"}    },
+      "statGradients": {
+        "hpGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "defenceGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "powerGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "speedGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "dexGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        }
+      }    },
     {
       "name": "Kitsune",
       "maxHP": "67",
@@ -61,7 +157,43 @@
       "static_img": "Kitsune_Idle_00",
       "moveA": "7",
       "moveB": "8",
-      "statGradients": {"hpGradient": "2", "defenceGradient": "2", "powerGradient": "5", "speedGradient": "2", "dexGradient": "5"}
+      "statGradients": {
+        "hpGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "defenceGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "powerGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "speedGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "dexGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        }
+      }
     },
     {
       "name": "Drakadin",
@@ -77,7 +209,43 @@
       "static_img": "Drakadin_Idle_75",
       "moveA": "11",
       "moveB": "12",
-      "statGradients": {"hpGradient": "2", "defenceGradient": "4", "powerGradient": "4", "speedGradient": "5", "dexGradient": "1"}
+      "statGradients": {
+        "hpGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "defenceGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "powerGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "speedGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "dexGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        }
+      }
     },
     {
       "name": "Cthulhu",
@@ -94,7 +262,43 @@
       "static_img": "Cthulhu_Idle_00",
       "moveA": "1",
       "moveB": "2",
-      "statGradients": {"hpGradient": "8", "defenceGradient": "4", "powerGradient": "4", "speedGradient": "4", "dexGradient": "4"}
+      "statGradients": {
+        "hpGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "defenceGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "powerGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "speedGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "dexGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        }
+      }
     },
     {
       "name": "ClockworkQueen",
@@ -110,7 +314,43 @@
       "static_img": "ClockworkQueen_Idle_00",
       "moveA": "16",
       "moveB": "15",
-      "statGradients": {"hpGradient": "4", "defenceGradient": "5", "powerGradient": "2", "speedGradient": "5", "dexGradient": "1"}
+      "statGradients": {
+        "hpGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "defenceGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "powerGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "speedGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "dexGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        }
+      }
     },
     {
       "name": "DreamSlime",
@@ -126,7 +366,43 @@
       "static_img": "DreamSlime_Idle_00",
       "moveA": "3",
       "moveB": "15",
-      "statGradients": {"hpGradient": "2", "defenceGradient": "5", "powerGradient": "5", "speedGradient": "1", "dexGradient": "3"}
+      "statGradients": {
+        "hpGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "defenceGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "powerGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "speedGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "dexGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        }
+      }
     },
     {
       "name": "Zeograth",
@@ -142,7 +418,43 @@
       "static_img": "Zeograth_Idle_00",
       "moveA": "2",
       "moveB": "15",
-      "statGradients": {"hpGradient": "2", "defenceGradient": "2", "powerGradient": "4", "speedGradient": "4", "dexGradient": "2"}
+      "statGradients": {
+        "hpGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "defenceGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "powerGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "speedGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "dexGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        }
+      }
     }
   ]
 }
