@@ -110,6 +110,7 @@
     <Compile Include="Assets\Scripts\Data\Beast.cs" />
     <Compile Include="Assets\Scripts\Data\BeastList.cs" />
     <Compile Include="Assets\Scripts\Data\BeastManager.cs" />
+    <Compile Include="Assets\Scripts\Data\GraDis.cs" />
     <Compile Include="Assets\Scripts\Data\Move.cs" />
     <Compile Include="Assets\Scripts\Data\MoveList.cs" />
     <Compile Include="Assets\Scripts\Data\MoveManager.cs" />

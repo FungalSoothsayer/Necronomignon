@@ -7,11 +7,11 @@ public class StatGradient
 {
 
 
-    public int hpGradient;
-    public int defenceGradient;
-    public int powerGradient;
-    public int speedGradient;
-    public int dexGradient;
+    public GraDis hpGradient;
+    public GraDis defenceGradient;
+    public GraDis powerGradient;
+    public GraDis speedGradient;
+    public GraDis dexGradient;
 
     public StatGradient()
     {
