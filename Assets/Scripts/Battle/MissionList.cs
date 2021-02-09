@@ -547,14 +547,72 @@ public class MissionList : MonoBehaviour
             int ran =  Random.Range(0, BeastManager.beastsList.Beasts.Count);
             Beast b = BeastManager.getFromNameS(BeastManager.beastsList.Beasts[ran].name);
             b.size = 1;
-            b.maxHP *= 4;
-            b.power *= 4;
-            b.defence *= 4;
+            b.setTierLower(4);
+            b.maxHP *= 6;
+            b.power *= 6;
+            b.defence *= 6;
             enemies.Add(null);
             enemies.Add(b);
             enemies.Add(null);
 
             summoner.xp = 2000;
+            //summoner.addXP(Player.summoner.xp*4);
+        }
+        else if(mission == "even")
+        {
+            List<int> beast = new List<int>();
+
+            int ran = -1;
+
+            while (beast.Count < Values.SQUADMAX)
+            {
+                //randomly picks a beast based on it's number in the list
+                while (beast.Contains(ran) || ran == -1)
+                {
+                    ran = Random.Range(0, BeastManager.beastsList.Beasts.Count);
+                }
+                beast.Add(ran);
+            }
+
+            beast.Add(-1);
+            beast.Add(-1);
+            beast.Add(-1);
+            beast.Add(-1);
+
+            ran = -1;
+
+            List<int> position = new List<int>();
+
+            while (enemies.Count < Values.SMALLSLOT)
+            {
+                //loops random numbers that will go on to assign a slot to each beast
+                while (position.Contains(ran) || ran == -1)
+                {
+                    ran = Random.Range(0, Values.SMALLSLOT);
+                }
+
+                position.Add(ran);
+
+                if (beast[ran] < 0)
+                {
+                    enemies.Add(null);
+                }
+                else
+                {
+                    enemies.Add(beastManager.getFromName(BeastManager.beastsList.Beasts[beast[ran]].name));
+                }
+            }
+            foreach (Beast b in enemies)
+            {
+                if (b != null)
+                {
+                    b.setTierLower(3);
+                }
+            }
+            enemies.Add(null);
+            enemies.Add(null);
+            enemies.Add(null);
+            summoner.xp = Player.summoner.xp;
         }
         if (Player.RedRoach)
         {
