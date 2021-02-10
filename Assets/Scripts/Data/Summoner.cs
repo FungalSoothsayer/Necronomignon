@@ -37,4 +37,9 @@ public class Summoner
             }
         }
     }
+
+    public static int xpForLevel(int x)
+    {
+        return (int)Math.Round((4 * (Math.Pow((double)x, (double)3))) / 5);
+    }
 }
