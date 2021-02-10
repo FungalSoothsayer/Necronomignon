@@ -22,7 +22,7 @@ public class BeastSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 if (NotSummoned() && !createManager.saveMode)
                 {
                     createManager.selectedIndex = GetThisBeast();
-                    if (createManager.selectedIndex < createPoolLoader.summoned.Count)
+                    if (createManager.selectedIndex < createPoolLoader.summoned.Count && (createManager.totalCost + createManager.createPoolLoader.summoned[createManager.selectedIndex + (createPoolLoader.counter * 9)].cost <= Values.TOTAL_BEAST_COST))
                     {
                         if (createManager.canBePlaced)
                         {

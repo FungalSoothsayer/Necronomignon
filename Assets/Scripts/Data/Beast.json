@@ -1,106 +1,6 @@
 {
   "Beasts": [
     {
-      "name": "Wyvern",
-      "maxHP": "84",
-      "defence": "13",
-      "power": "11",
-      "speed": "66",
-      "dexterity": "16",
-      "number_MOVES": "3",
-      "tier": "-1",
-      "size": "0",
-      "cost": "20",
-      "type": "4",
-      "static_img": "Wyvern_Idle_00",
-      "moveA": "10",
-      "moveB": "9",
-      "statGradients": {
-        "hpGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        },
-        "defenceGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        },
-        "powerGradient": {"t1": "2", "t2": "3","t3": "4", "t4": "5", "t5": "6"},
-        "speedGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        },
-        "dexGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        }
-      }
-    },
-    {
-      "name": "Dryad",
-      "maxHP": "45",
-      "defence": "17",
-      "power": "8",
-      "speed": "32",
-      "dexterity": "2",
-      "number_MOVES": "3",
-      "tier": "-1",
-      "size": "0",
-      "cost": "20",
-      "type": "3",
-      "static_img": "Dryad_Idle_00",
-      "moveA": "3",
-      "moveB": "14",
-      "statGradients": {
-        "hpGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        },
-        "defenceGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        },
-        "powerGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        },
-        "speedGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        },
-        "dexGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        }
-      }
-    },
-    {
       "name": "Conglomerate",
       "maxHP": "72",
       "defence": "29",
@@ -161,13 +61,119 @@
       "speed": "65",
       "dexterity": "30",
       "number_MOVES": "3",
-      "tier": "-1",
+      "tier": "1",
       "size": "0",
       "cost": "20",
       "type": "2",
       "static_img": "Kitsune_Idle_00",
       "moveA": "7",
       "moveB": "8",
+      "statGradients": {
+        "hpGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "defenceGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "powerGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "speedGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "dexGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        }
+      }
+    },
+    {
+      "name": "Dryad",
+      "maxHP": "45",
+      "defence": "17",
+      "power": "8",
+      "speed": "32",
+      "dexterity": "2",
+      "number_MOVES": "3",
+      "tier": "1",
+      "size": "0",
+      "cost": "20",
+      "type": "3",
+      "static_img": "Dryad_Idle_00",
+      "moveA": "3",
+      "moveB": "14",
+      "statGradients": {
+        "hpGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "defenceGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "powerGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "speedGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        },
+        "dexGradient": {
+          "t1": "2",
+          "t2": "3",
+          "t3": "4",
+          "t4": "5",
+          "t5": "6"
+        }
+      }
+    },
+    {
+      "name": "Wyvern",
+      "maxHP": "84",
+      "defence": "13",
+      "power": "11",
+      "speed": "66",
+      "dexterity": "16",
+      "number_MOVES": "3",
+      "tier": "1",
+      "size": "0",
+      "cost": "20",
+      "type": "4",
+      "static_img": "Wyvern_Idle_00",
+      "moveA": "10",
+      "moveB": "9",
       "statGradients": {
         "hpGradient": {
           "t1": "2",
@@ -214,7 +220,7 @@
       "speed": "45",
       "dexterity": "20",
       "number_MOVES": "3",
-      "tier": "-1",
+      "tier": "1",
       "size": "0",
       "cost": "15",
       "type": "6",
@@ -267,7 +273,7 @@
       "speed": "66",
       "dexterity": "40",
       "number_MOVES": "3",
-      "tier": "-1",
+      "tier": "1",
       "size": "0",
       "cost": "30",
       "type": "5",
@@ -321,7 +327,7 @@
       "speed": "79",
       "dexterity": "35",
       "number_MOVES": "3",
-      "tier": "-1",
+      "tier": "1",
       "size": "0",
       "cost": "15",
       "type": "8",
@@ -374,7 +380,7 @@
       "speed": "99",
       "dexterity": "50",
       "number_MOVES": "3",
-      "tier": "-1",
+      "tier": "1",
       "size": "0",
       "cost": "15",
       "type": "0",
@@ -427,7 +433,7 @@
       "speed": "45",
       "dexterity": "30",
       "number_MOVES": "2",
-      "tier": "-1",
+      "tier": "1",
       "size": "0",
       "cost": "25",
       "type": "8",
@@ -480,7 +486,7 @@
       "speed": "25",
       "dexterity": "29",
       "number_MOVES": "2",
-      "tier": "-1",
+      "tier": "1",
       "size": "1",
       "cost": "25",
       "type": "4",

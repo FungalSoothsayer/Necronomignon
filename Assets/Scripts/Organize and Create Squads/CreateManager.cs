@@ -174,7 +174,15 @@ public class CreateManager : MonoBehaviour
     // Removes image from a slot
     public void RemoveImage()
     {
-        GameObject.Find("Slot" + selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
+        if (selected.size == 0)
+        {
+            GameObject.Find("Slot" + selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
+        }
+        else if(selected.size == 1)
+        {
+            print(selectedSlotID);
+            GameObject.Find("BigSlot" + (selectedSlotID - normalSlots.Count).ToString()).GetComponent<SlotSelect>().RemoveImage();
+        }
         slots[selectedSlotID - 1] = null;
     }
 
@@ -204,13 +212,13 @@ public class CreateManager : MonoBehaviour
     // Checks to see if any more beasts can be placed
     public void CheckPlaceable()
     {
-        if(totalCost >= Values.TOTAL_BEAST_COST)
+        if(totalCost < Values.TOTAL_BEAST_COST)
         {
-            canBePlaced = false;
+            canBePlaced = true;
         }
         else
         {
-            canBePlaced = true;
+            canBePlaced = false;
         }
     }
 }

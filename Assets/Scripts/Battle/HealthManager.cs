@@ -15,7 +15,7 @@ public class HealthManager : MonoBehaviour
     public BattleManager battleManager;
     public LevelChecker levelChecker;
 
-    public int playersLeft = Values.SQUADMAX;
+    public int playersLeft = 0;
     public int enemiesLeft = 0;
 
     List<HealthBar> playerHealthBars = new List<HealthBar>();
@@ -64,13 +64,10 @@ public class HealthManager : MonoBehaviour
         {
             if (players[x] != null)
             {
+                playersLeft++;
                 print(players.Count + " players" + activePlayersHealth.Count + " active players");
                 activePlayersHealth[x].SetMaxHealth(players[x].maxHP);
                 playerHealths[x].text = players[x].maxHP.ToString();
-            }
-            else
-            {
-                playersLeft--;
             }
         }
         for(int x = 0; x< activeEnemiesHealth.Count; x++)
