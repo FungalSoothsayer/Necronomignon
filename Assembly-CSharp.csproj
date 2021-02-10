@@ -117,6 +117,9 @@
     <Compile Include="Assets\Scripts\Data\Questions.cs" />
     <Compile Include="Assets\Scripts\Data\Saving.cs" />
     <Compile Include="Assets\Scripts\Data\Sound.cs" />
+    <Compile Include="Assets\Scripts\Data\Special\AbStraSpecial.cs" />
+    <Compile Include="Assets\Scripts\Data\Special\SpecialClone.cs" />
+    <Compile Include="Assets\Scripts\Data\Special\SpecialEffect.cs" />
     <Compile Include="Assets\Scripts\Data\StatGradient.cs" />
     <Compile Include="Assets\Scripts\Data\Story.cs" />
     <Compile Include="Assets\Scripts\Data\StoryList.cs" />

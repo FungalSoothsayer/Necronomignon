@@ -33,7 +33,7 @@ public class BattleManager : MonoBehaviour
 
     public int turn = 0;
     int totalMoves;
-    int totalBeasts = Values.SQUADMAX * 2;
+    //int totalBeasts = Values.SQUADMAX * 2;
 
     public Beast currentTurn;
     public Beast selectedEnemy;
@@ -101,7 +101,7 @@ public class BattleManager : MonoBehaviour
             else
             {
                 enemiesActive[x] = false;
-                totalBeasts--;
+                //totalBeasts--;
             }
         }
 
@@ -125,7 +125,7 @@ public class BattleManager : MonoBehaviour
             else
             {
                 playersActive[x] = false;
-                totalBeasts--;
+                //totalBeasts--;
             }
         }
         
@@ -1408,7 +1408,7 @@ public class BattleManager : MonoBehaviour
     //Remove the desired beast by setting its active variable to false and removing image
     public void RemoveBeast(Beast target)
     {
-        totalBeasts --;
+        //totalBeasts --;
 
         if(roundOrderTypes[turn] != "Player")
         {
@@ -1538,8 +1538,6 @@ public class BattleManager : MonoBehaviour
                 //defaults on the healer
                 if(players[x] != null && b != null && playersActive[x] && ((double)players[x].hitPoints/ (double)players[x].maxHP) < ((double)b.hitPoints/ (double)b.maxHP))
                 {
-                    print(roundOrderTypes[turn]);
-                    print(players[x].name);
                     b = players[x];
                 }
             }
