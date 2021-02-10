@@ -47,7 +47,6 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>4.8.2.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2019.4.8f1</UnityVersion>
@@ -403,7 +402,13 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>C:/Users/Sidne/OneDrive/Documents/GitHub/Necronomignon/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:/Users/Manoli/Documents/GitHub/Necronomignon/Necronomignon/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -785,6 +790,10 @@
       <Project>{6C44A873-457B-320D-60E1-8DBBDE7C0CC4}</Project>
       <Name>Unity.CollabProxy.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Postprocessing.Editor.csproj">
+      <Project>{DBC3D5F9-21D6-D884-19F2-B8ADD51A8285}</Project>
+      <Name>Unity.Postprocessing.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Rider.Editor.csproj">
       <Project>{F20B6C45-B771-1303-ADB6-B4CC6D11FFEC}</Project>
       <Name>Unity.Rider.Editor</Name>
@@ -793,6 +802,10 @@
       <Project>{A57EEC2A-D4F7-508E-DC21-BC533C821419}</Project>
       <Name>Unity.2D.Sprite.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
+      <Project>{78AA744C-68B5-81B8-9CA6-0B8FFF01A7E8}</Project>
+      <Name>Unity.Postprocessing.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{18D05ECB-78D7-8AA4-41EF-CCF2335EE16B}</Project>
       <Name>Unity.TextMeshPro</Name>
@@ -800,14 +813,6 @@
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{D45FEDFD-3606-B90B-F8C2-C000549793B8}</Project>
       <Name>UnityEditor.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Editor.csproj">
-      <Project>{DBC3D5F9-21D6-D884-19F2-B8ADD51A8285}</Project>
-      <Name>Unity.Postprocessing.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
-      <Project>{78AA744C-68B5-81B8-9CA6-0B8FFF01A7E8}</Project>
-      <Name>Unity.Postprocessing.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
