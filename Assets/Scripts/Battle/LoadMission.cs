@@ -199,11 +199,11 @@ public class LoadMission : MonoBehaviour
                 playerSlot[x].maxHP += (int)(playerSlot[x].maxHP * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));*/
 
                 
-                playerSlot[x].power += (playerSlot[x].statGradients.powerGradient * playerSlot[x].tier) * (Player.summoner.getLevel() - 1);
-                playerSlot[x].defence += (playerSlot[x].statGradients.defenceGradient * playerSlot[x].tier) * (Player.summoner.getLevel() - 1);
-                playerSlot[x].speed += (playerSlot[x].statGradients.speedGradient * playerSlot[x].tier) * (Player.summoner.getLevel() - 1);
-                playerSlot[x].dexterity += (playerSlot[x].statGradients.dexGradient * playerSlot[x].tier) * (Player.summoner.getLevel() - 1);
-                playerSlot[x].maxHP += (playerSlot[x].statGradients.hpGradient * playerSlot[x].tier) * (Player.summoner.getLevel() - 1);
+                playerSlot[x].power += (playerSlot[x].statGradients.powerGradient.getGradient(playerSlot[x].tier)) * (Player.summoner.getLevel() - 1);
+                playerSlot[x].defence += (playerSlot[x].statGradients.defenceGradient.getGradient(playerSlot[x].tier)) * (Player.summoner.getLevel() - 1);
+                playerSlot[x].speed += (playerSlot[x].statGradients.speedGradient.getGradient(playerSlot[x].tier)) * (Player.summoner.getLevel() - 1);
+                playerSlot[x].dexterity += (playerSlot[x].statGradients.dexGradient.getGradient(playerSlot[x].tier)) * (Player.summoner.getLevel() - 1);
+                playerSlot[x].maxHP += (playerSlot[x].statGradients.hpGradient.getGradient(playerSlot[x].tier)) * (Player.summoner.getLevel() - 1);
             }
             pb.Add(playerSlot[x]);
         }
@@ -218,11 +218,11 @@ public class LoadMission : MonoBehaviour
                 enemySlot[x].dexterity += (int)(enemySlot[x].dexterity * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
                 enemySlot[x].maxHP += (int)(enemySlot[x].maxHP * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));*/
 
-                enemySlot[x].power += (enemySlot[x].statGradients.powerGradient * enemySlot[x].tier) * (enemySummoner.getLevel() - 1);
-                enemySlot[x].defence += (enemySlot[x].statGradients.defenceGradient * enemySlot[x].tier) * (enemySummoner.getLevel() - 1);
-                enemySlot[x].speed += (enemySlot[x].statGradients.speedGradient * enemySlot[x].tier) * (enemySummoner.getLevel() - 1);
-                enemySlot[x].dexterity += (enemySlot[x].statGradients.dexGradient * enemySlot[x].tier) * (enemySummoner.getLevel() - 1);
-                enemySlot[x].maxHP += (enemySlot[x].statGradients.hpGradient * enemySlot[x].tier) * (enemySummoner.getLevel()-1);
+                enemySlot[x].power += (enemySlot[x].statGradients.powerGradient.getGradient(enemySlot[x].tier)) * (enemySummoner.getLevel() - 1);
+                enemySlot[x].defence += (enemySlot[x].statGradients.defenceGradient.getGradient(enemySlot[x].tier)) * (enemySummoner.getLevel() - 1);
+                enemySlot[x].speed += (enemySlot[x].statGradients.speedGradient.getGradient(enemySlot[x].tier)) * (enemySummoner.getLevel() - 1);
+                enemySlot[x].dexterity += (enemySlot[x].statGradients.dexGradient.getGradient(enemySlot[x].tier)) * (enemySummoner.getLevel() - 1);
+                enemySlot[x].maxHP += (enemySlot[x].statGradients.hpGradient.getGradient(enemySlot[x].tier)) * (enemySummoner.getLevel()-1);
             }
             eb.Add(enemySlot[x]);
         }

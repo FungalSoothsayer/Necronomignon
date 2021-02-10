@@ -926,12 +926,24 @@ public class BattleManager : MonoBehaviour
                 targets.Add(currentTurn.cursed);
             }
         }
-
-        //Check to see if the round is still going and then run an attack
-        if (turn >= totalMoves - 1)
+        if (targets[0].speed == 0)
         {
             if (roundOrderTypes[turn] == "Player")
             {
+
+                Attack(GetPlayerTarget());
+            }
+            else
+            {
+                Attack(GetEnemyTarget());
+            }
+        }
+            //Check to see if the round is still going and then run an attack
+            if (turn >= totalMoves - 1)
+        {
+            if (roundOrderTypes[turn] == "Player")
+            {
+                
                 attack.InitiateAttack(currentTurn, targets, inFront, Player.summoner);
             }
             else
