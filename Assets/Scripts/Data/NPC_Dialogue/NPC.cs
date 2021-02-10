@@ -61,6 +61,10 @@ public class NPC
 
     }
 
+    public void SetDialogues()
+    {
+
+    }
     
     public override bool Equals(object obj)
     {
