@@ -29,6 +29,8 @@ public class Beast
     public Move Move_B;
     public string static_img;
     public StatGradient statGradients;
+    public string specialName = "";
+    public AbStraSpecial special;
     public List<Buff> buffs = new List<Buff>();
 
     public enum types {[XmlEnum(Name = "Normal")] Normal, [XmlEnum(Name = "Water")] Water, [XmlEnum(Name = "Fire")] Fire, [XmlEnum(Name = "Earth")] Earth, [XmlEnum(Name = "Air")] Air, [XmlEnum(Name = "Dark")] Dark, [XmlEnum(Name = "Light")] Light, [XmlEnum(Name = "Horror")] Horror, [XmlEnum(Name = "Cosmic")] Cosmic };
@@ -61,6 +63,11 @@ public class Beast
         this.Move_B = b.Move_B;
         this.static_img = b.static_img;
         this.statGradients = b.statGradients;
+    }
+
+    public void setSpecial()
+    {
+        special = (AbStraSpecial)Convert.ChangeType(special, Type.GetType("Special"+specialName));
     }
 
     public void setAttacks()
