@@ -498,9 +498,10 @@ public class BattleManager : MonoBehaviour
                 }
                 else if (x >= (Values.SMALLSLOT / 2) && slots[x] != null && slots[x].hitPoints > 0)
                 {
+                    print(targets.Count);
                     if (targets.Count - (x - (Values.SMALLSLOT / 2)) >= 1)
-
                     {
+                        print("broken");
                         break;
                     }
                     if (slot + 1 == x || slot == x || slot - 1 == x)
@@ -926,16 +927,19 @@ public class BattleManager : MonoBehaviour
                 targets.Add(currentTurn.cursed);
             }
         }
-        if (targets[0].speed == 0)
+        if (targets[0] == null || targets[0].speed == 0)
         {
+            print(targets[0]);
             if (roundOrderTypes[turn] == "Player")
             {
 
                 Attack(GetPlayerTarget());
+                return;
             }
             else
             {
                 Attack(GetEnemyTarget());
+                return;
             }
         }
             //Check to see if the round is still going and then run an attack
