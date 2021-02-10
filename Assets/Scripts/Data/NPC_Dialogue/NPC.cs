@@ -30,7 +30,7 @@ public class NPC
     private NPCDialogue npcDialogue;
     private int npc_diag;
     private string mainDialogue;
-    private string response;
+    private List<string> responses;
 
     public NPCManager npcMgr;
 
@@ -41,9 +41,11 @@ public class NPC
     public int Npc_diag { get => npc_diag; set => npc_diag = value; }
     public string MainDialogue { get => mainDialogue; set => mainDialogue = value; }
     public NPCDialogue NpcDialogue { get => npcDialogue; set => npcDialogue = value; }
-    public string Response { get => response; set => response = value; }
+    public List<string> Responses { get => responses; set => responses = value; }
     public string Static_img { get => static_img; set => static_img = value; }
     public int Npc_id { get => npc_id; set => npc_id = value; }
+
+    public NPC() { }
 
     public NPC(NPC npc)
     {
@@ -53,9 +55,37 @@ public class NPC
         IsNPC = npc.IsNPC;
         Npc_diag = npc.Npc_diag;
         MainDialogue = npc.MainDialogue;
-        Response = npc.Response;
+        Responses = npc.Responses;
         Static_img = npc.Static_img;
         Npc_id = npc.Npc_id;
 
     }
+
+    
+    public override bool Equals(object obj)
+    {
+        if (obj == null)
+            return false;
+        if (obj.GetType() == typeof(NPC))
+        {
+            NPC npc = (NPC)obj;
+
+            if (npc.name.Equals(this.name) && npc.Npc_id == this.Npc_id)
+            {
+                return true;
+            }
+        }
+        else
+        {
+            Debug.Log("The boolean expresion is wrong");
+        }
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
+
+
 }

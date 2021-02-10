@@ -40,12 +40,11 @@ public class NPCManager : MonoBehaviour
             }
         }
 
-        // Gets the Moves and sets them in the right object. 
-        /*foreach (Beast beast in beastsList.Beasts)
+        // Gets the dialogs for each character
+        foreach (NPC npc in npcList.NPCs)
         {
-            beast.Move_A = getMove(beast.moveA);
-            beast.Move_B = getMove(beast.moveB);
-        }*/
+            npc.NpcDialogue = GetNPCDialogue(npc.Npc_diag);
+        }
     }
 
     public bool isLoaded()
@@ -58,9 +57,60 @@ public class NPCManager : MonoBehaviour
         return true;
     }
 
-    // Update is called once per frame
-    void Update()
+    //Gets the dialogues from dialogue list
+    public NPCDialogue GetNPCDialogue(int id)
     {
-        
+        NPCDialogue diag = new NPCDialogue();
+
+        List<NPCDialogue> diagList = npcDialogueManager.diagList.NpcDialogues;
+
+        foreach(NPCDialogue npcdiag in diagList)
+        {
+            if(npcdiag.Diag_id == id)
+                    return npcdiag;
+            
+        }
+
+
+        return diag;
+    }
+
+    //Methods to get NPC
+    public NPC GetNPC(string npcname)
+    {
+        if (!isLoaded())
+            Start();
+
+        NPC npc = new NPC();
+
+        foreach(NPC chr in npcList.NPCs)
+        {
+            if (npcname.Equals(chr.Name))
+            {
+                npc = new NPC(chr);
+                break;
+            }
+        }
+
+        return npc;
+    }
+
+    public NPC GetNPC(NPC getNPC)
+    {
+        if (!isLoaded())
+            Start();
+
+        NPC npc = new NPC();
+
+        foreach (NPC chr in npcList.NPCs)
+        {
+            if (getNPC.Equals(chr))
+            {
+                npc = new NPC(chr);
+                break;
+            }
+        }
+
+        return npc;
     }
 }
