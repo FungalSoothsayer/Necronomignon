@@ -4,24 +4,49 @@ using UnityEngine;
 using DialogueEditor;
 using UnityEngine.SceneManagement;
 
-public class DialogManager : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 {
-
+    //main conversation scene variables
     public NPCConversation conversation;
-    public string current;
+    public string sceneName;
+
+    //Character dialogue system -- Using generic List since no character or dialogue class has been specifically created
+    //public List<> characterList;
+    //public List<> storyDialogues;
+
     // Start is called before the first frame update
     void Start()
     {
-        current = SceneManager.GetActiveScene().name;
-        conversation = gameObject.GetComponent(typeof(NPCConversation)) as NPCConversation;
+        sceneName = SceneManager.GetActiveScene().name;
+        print(sceneName);
 
-        if (current == "DialogScene")
+        if (sceneName == "DialogScene")
             ConversationManager.Instance.StartConversation(conversation);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    //Populates the list of characters for which dialogs will be displayed
+    public void GetCharacters()
+    {
+
+    }
+    //Sets the dialog progression in scene 
+    public void SetDialogue(string character1, string character2)
+    {
+
+    }
+    //Gets the dialog for said speaker
+    public void SpeakerDialogue(string speaker)
+    {
+
+    }
+    //Sets assets of current dialogue scene based on story 
+    public void SceneInterface()
+    {
+
     }
 }
