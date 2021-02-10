@@ -105,10 +105,10 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         thisBeast = createManager.selected;
         thisBeastIndex = createManager.selectedIndex;
 
-        createManager.placed += 1;
+        createManager.totalCost += thisBeast.cost;
+        createManager.UpdateTotalBeastCost();
         createManager.placing = false;
         createManager.CheckPlaceable();
-        createManager.selected = null;
         createManager.selectedIndex = -1;
         createManager.TurnOffSlots(); 
     }
