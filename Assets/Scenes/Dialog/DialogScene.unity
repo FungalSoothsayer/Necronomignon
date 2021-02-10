@@ -657,7 +657,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 209366591}
+        m_MethodName: ConversationEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   NodeID: 5
   TMPFont: {fileID: 11400000, guid: 40e061ecfdddf564987901fdf764d922, type: 2}
   Icon: {fileID: 21300000, guid: 70e433de46068504fa56fcf7f49b32b1, type: 3}
@@ -764,12 +775,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 7
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":98,"yPos":299},"ID":1,"ParamActions":[{"__type":"EditableSetBoolParamAction:#DialogueEditor","ParameterName":"continue","Value":true}],"TMPFontGUID":null,"Text":"Read
-    the summon","parentUIDs":[3],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":348,"yPos":298},"ID":4,"ParamActions":[{"__type":"EditableSetBoolParamAction:#DialogueEditor","ParameterName":"continue","Value":false}],"TMPFontGUID":null,"Text":"Forget
-    about it","parentUIDs":[3],"SpeechUID":-1}],"Parameters":[{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"continue","BoolValue":false}],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":true,"xPos":175,"yPos":40},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"You
-    have summoned the speech master","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.072},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":178,"yPos":171},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Do
-    you want to read the summon speech","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":358,"yPos":378},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"then
-    perish ","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":97,"yPos":377},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"I
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":-142,"yPos":281},"ID":1,"ParamActions":[{"__type":"EditableSetBoolParamAction:#DialogueEditor","ParameterName":"continue","Value":true}],"TMPFontGUID":null,"Text":"Read
+    the summon","parentUIDs":[3],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":108,"yPos":280},"ID":4,"ParamActions":[{"__type":"EditableSetBoolParamAction:#DialogueEditor","ParameterName":"continue","Value":false}],"TMPFontGUID":null,"Text":"Forget
+    about it","parentUIDs":[3],"SpeechUID":-1}],"Parameters":[{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"continue","BoolValue":false}],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":true,"xPos":-65,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"You
+    have summoned the speech master","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0.072},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":-62,"yPos":153},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Do
+    you want to read the summon speech","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":118,"yPos":360},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"then
+    perish ","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":-143,"yPos":359},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"I
     am the summon speech","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: The Summon
@@ -784,7 +795,18 @@ MonoBehaviour:
   - {fileID: 514852844}
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 209366591}
+        m_MethodName: ConversationEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &626552250
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,4 +49,9 @@ public class DialogueManager : MonoBehaviour
     {
 
     }
+    //On dialog end move to following scene or go back to prev scene --Requires implementation depending on the story
+    public void ConversationEnd()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
 }
