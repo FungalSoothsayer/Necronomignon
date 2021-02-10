@@ -20,6 +20,7 @@ public class Beast
     public int tier;
     public int id;
     public int size;
+    public int cost;
     [XmlElement(Namespace = "Beast")]
     public types type;
     public types secondType;
@@ -53,6 +54,7 @@ public class Beast
         this.number_MOVES = b.number_MOVES;
         this.tier = b.tier;
         this.size = b.size;
+        this.cost = b.cost;
         this.type = b.type;
         this.secondType = b.secondType;
         this.moveA = b.moveA;

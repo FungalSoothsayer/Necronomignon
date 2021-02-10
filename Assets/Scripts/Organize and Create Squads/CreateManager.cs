@@ -18,12 +18,13 @@ public class CreateManager : MonoBehaviour
     public GameObject removeButton;
     public GameObject moveDescription;
     public Text description;
+    [SerializeField] Text totalBeastCostText;
     public Beast selected;
     public int selectedIndex;
     public bool canBePlaced = true;
     public bool placing = false;
     public bool moving = false;
-    public int placed = 0;
+    public int totalCost = 0;
     public int selectedSlotID;
     public bool saveMode = false;
 
@@ -114,10 +115,15 @@ public class CreateManager : MonoBehaviour
         {
             if (selected.name.Equals(createPoolLoader.summoned[x].name))
             {
-                description.GetComponent<Text>().text = "\n\nIn the front row \n" + selected.Move_A.description +
-                    "\n\nIn the back row \n" + selected.Move_B.description;
+                description.GetComponent<Text>().text = "\nIn the front row \n" + selected.Move_A.description +
+                    "\n\nIn the back row \n" + selected.Move_B.description + "\n\nCost = " + selected.cost;
             }
         }
+    }
+
+    public void UpdateTotalBeastCost()
+    {
+        totalBeastCostText.text = "Team cost = " + totalCost + " / " + Values.TOTAL_BEAST_COST;
     }
 
     // Sets all slots that do not have a beast placed in them to inactive
@@ -185,9 +191,10 @@ public class CreateManager : MonoBehaviour
         }
         slots[selectedSlotID - 1] = new Beast();
 
+        totalCost -= selected.cost;
+        UpdateTotalBeastCost();
         selected = null;
         selectedIndex = -1;
-        placed -= 1;
         CheckPlaceable();
         moving = false;
         TurnOffSlots();
@@ -197,7 +204,7 @@ public class CreateManager : MonoBehaviour
     // Checks to see if any more beasts can be placed
     public void CheckPlaceable()
     {
-        if(placed >= Values.SQUADMAX)
+        if(totalCost >= Values.TOTAL_BEAST_COST)
         {
             canBePlaced = false;
         }
