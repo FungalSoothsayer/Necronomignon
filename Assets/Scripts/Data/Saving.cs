@@ -19,7 +19,8 @@ public class Saving : MonoBehaviour
         loadSaveDialog = GameObject.Find("loadSaveDialog");
         loadSaveText = GameObject.Find("loadSaveText");
 
-        txtLoadSave = (Text) loadSaveText.GetComponent(typeof(Text));
+        if(loadSaveText != null)
+            txtLoadSave = (Text) loadSaveText.GetComponent(typeof(Text));
         
         if(loadSaveDialog != null)
             loadSaveDialog.SetActive(false);

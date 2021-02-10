@@ -45,3 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: midground
+    uniqueID: 1259887473
+    locked: 0
+  - name: foreground
+    uniqueID: 4122352627
+    locked: 0
+  - name: New Layer
+    uniqueID: 3243620611
+    locked: 0
