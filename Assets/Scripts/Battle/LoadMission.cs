@@ -144,6 +144,8 @@ public class LoadMission : MonoBehaviour
     {
         orderBar.SetActive(true);
         healthDisplay.SetActive(true);
+        LoadDisplayPictures();
+
         foreach(Image slot in playerSlotImg)
         {
             slot.gameObject.SetActive(true);
@@ -230,6 +232,13 @@ public class LoadMission : MonoBehaviour
         battleManager.SendLists(thisSquad, enemySquad, activePlayersHealth, activeEnemiesHealth, activePlayerDamageBar, activeEnemyDamageBar, enemySummoner);
         battleManager.GetSlots(pb, eb);
        // battleManager.GetSlots(playerSlot[0], playerSlot[1], playerSlot[2], playerSlot[3], playerSlot[4], playerSlot[5], enemySlot[0], enemySlot[1], enemySlot[2], enemySlot[3], enemySlot[4], enemySlot[5]);
+    }
+
+    void LoadDisplayPictures()
+    {
+        playerProfile.sprite = Display_Picture.displayPicture;
+
+        //Randomize enemy sprite here?
     }
 
     //Get the images from the resources folder to be loaded
