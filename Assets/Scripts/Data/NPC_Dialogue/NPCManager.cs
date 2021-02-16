@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
 using System.Runtime.Versioning;
+using UnityEngine.UI;
 
 /*
  *  This class handles the creation of a NPC Object from the Json File    
@@ -19,15 +20,31 @@ public class NPCManager : MonoBehaviour
     string jsonString;
     public NPCDialogueManager npcDialogueManager;
 
+    //Sprite for the character
+    public Image npcImage;
+
     public static NPCList npcList = new NPCList();
 
     // Start is called before the first frame update
     void Start()
     {
-        path = Application.dataPath + "/Scripts/Data/NPC_Dialogue/NPC.json";
+        ParseJsonData("/Scripts/Data/NPC_Dialogue/NPC.json");
+
+
+        // Gets the dialogs for each character
+        foreach (NPC npc in npcList.NPCs)
+        {
+            if(npc != null)
+                npc.NpcDialogue = GetNPCDialogue(npc.Npc_diag);
+        }
+    }
+
+    //Parse data from json file
+    void ParseJsonData(string dataPath)
+    {
+        path = Application.dataPath + dataPath;
+
         jsonString = File.ReadAllText(path);
-
-
 
         if (jsonString != null && npcList.NPCs.Count <= 0)
         {
@@ -40,11 +57,6 @@ public class NPCManager : MonoBehaviour
             }
         }
 
-        // Gets the dialogs for each character
-        foreach (NPC npc in npcList.NPCs)
-        {
-            npc.NpcDialogue = GetNPCDialogue(npc.Npc_diag);
-        }
     }
 
     public bool isLoaded()
