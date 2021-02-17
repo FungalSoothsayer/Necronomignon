@@ -56,7 +56,7 @@ public class LevelChecker : MonoBehaviour
         else if (lastClick == "randomer" && levels <= 4)
         {
             levels++;
-            unlock("Drakadin");
+            unlock("LuzuriaAngelicus");
         }
         else if (lastClick == "random" && levels <= 5)
         {
@@ -71,15 +71,17 @@ public class LevelChecker : MonoBehaviour
         else if (lastClick == "top" && levels <= 7)
         {
             levels++;
-            unlock("Cthulhu");
+            unlock("Mandoro");
         }
         else if(lastClick == "boss" && levels <= 8)
         {
             levels++;
+            unlock("Nage");
         }
         else if (lastClick == "even" && levels <= 9)
         {
             levels++;
+            unlock("Cthulhu");
         }
     }
 
