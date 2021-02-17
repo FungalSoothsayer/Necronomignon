@@ -12,7 +12,6 @@ public class NPC
 {
     //Base attributes for NPC
     private string name = "";
-    private string story;
     private factions faction;
     private bool isNPC;
     private string static_img;
@@ -35,7 +34,6 @@ public class NPC
     public NPCManager npcMgr;
 
     public string Name { get => name; set => name = value; }
-    public string Story { get => story; set => story = value; }
     public factions Faction { get => faction; set => faction = value; }
     public bool IsNPC { get => isNPC; set => isNPC = value; }
     public int Npc_diag { get => npc_diag; set => npc_diag = value; }
@@ -50,7 +48,6 @@ public class NPC
     public NPC(NPC npc)
     {
         Name = npc.Name;
-        Story = npc.Story;
         Faction = npc.Faction;
         IsNPC = npc.IsNPC;
         Npc_diag = npc.Npc_diag;

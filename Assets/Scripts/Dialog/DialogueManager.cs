@@ -10,71 +10,99 @@ namespace DialogueEditor
     {
 
         //main conversation scene variables
-        public NPCConversation conversation;
-        public string sceneName;
+        private NPCConversation currentConversation;
+        private string sceneName;
+        public DialogueManagerOnEnd conversationEnded;
+
+
+        public string dialogueScene;
 
         //Character dialogue system 
         public List<NPC> characterList;
-        public List<NPCDialogue> storyDialogues;
+
+        public List<NPCConversation> storyConversations;
 
         // Start is called before the first frame update
         void Start()
         {
-            
+            NPCConversationToList();
+
+            SetNPCConversation(FindByName("Conv_Intro"));
+
             //Start conversation
-            BeginConversation();
+            BeginConversation(currentConversation);
         }
+        
+        
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
         //Populates the list of characters for which dialogs will be displayed
         public void GetCharacters()
         {
 
         }
-        //Sets the dialog progression in scene 
-        public void SetDialogue(string character1, string character2)
+
+        public void GetDialogues()
         {
 
         }
-        //Temporary Method for testing
-        public SpeechNode SetRootDialogue()
+
+
+        // ---SETS THE CONVERSATION OBJECTS IN SCENE
+
+        //Sets the conversation progression in the scene 
+        public void SetNPCConversation(NPCConversation dialogue)
         {
-            EditableSpeechNode editableNode = new EditableSpeechNode();
-
-            editableNode.Name = "Sister";
-            editableNode.Text = "...Don't worry Dio, you've got this!";
-            editableNode.AdvanceDialogueAutomatically = true;
-            editableNode.AutoAdvanceShouldDisplayOption = false;
-            editableNode.TimeUntilAdvance = 0.5f;
-
-            SpeechNode node = conversation.CreateSpeechNode(editableNode);
-
-            return node;
-           
-
+            currentConversation = dialogue;
         }
+        //Gets NPC conversation by the name
+        private NPCConversation FindByName(string npcConvName)
+        {
+            NPCConversation sceneConvo = storyConversations.Find(x => x.DefaultName.Equals(npcConvName));
+
+            if (sceneConvo != null)
+                dialogueScene = npcConvName;
+
+            return sceneConvo;
+        }
+        //Populates a list will all the conversations present
+        private void NPCConversationToList()
+        {
+            NPCConversation[] convs = GameObject.FindObjectsOfType<NPCConversation>();
+            storyConversations = new List<NPCConversation>(convs);
+        }
+
+
+
         //Gets the dialog for said speaker
         public void SpeakerDialogue(string speaker)
         {
 
         }
         //Sets assets of current dialogue scene based on story 
-        public void SceneInterface()
+        public void SceneInterface(string screenInter)
         {
+            print(screenInter);
+
 
         }
         //On dialog end move to following scene or go back to prev scene --Requires implementation depending on the story
-        public void ConversationEnd()
+        public void ConversationEnd(string name)
         {
-            
+            switch (name)
+            {
+                case "IntroEnd": 
+                    SetNPCConversation(FindByName("Conv_Academy"));
+                    BeginConversation(currentConversation);
+                    break;
+            }
         }
         //Conversation begins on scene
-        public void BeginConversation()
+        public void BeginConversation(NPCConversation conversation)
         {
+
+            //Sets the scene Interface
+            SceneInterface(dialogueScene);
+
             sceneName = SceneManager.GetActiveScene().name;
 
             Debug.Log(sceneName);
