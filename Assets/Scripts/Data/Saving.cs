@@ -19,11 +19,15 @@ public class Saving : MonoBehaviour
         loadSaveDialog = GameObject.Find("loadSaveDialog");
         loadSaveText = GameObject.Find("loadSaveText");
 
-        if(loadSaveText != null)
-            txtLoadSave = (Text) loadSaveText.GetComponent(typeof(Text));
+        if (loadSaveText != null)
+        {
+            txtLoadSave = (Text)loadSaveText.GetComponent(typeof(Text));
+        }
         
         if(loadSaveDialog != null)
             loadSaveDialog.SetActive(false);
+
+        loadSaveDialog.SetActive(false);
     }
 
     // Update is called once per frame
