@@ -51,6 +51,7 @@ public class LoadSquads : MonoBehaviour
 
         for(int x = 0; x < S1S.Count; x++)
         {
+            print(x);
             if (toLoad[x] != null)
             {
                 S1S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
