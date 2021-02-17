@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace DialogueEditor
 {
@@ -157,9 +158,13 @@ namespace DialogueEditor
         public void EndConversation()
         {
             SetState(eState.TransitioningDialogueOff);
+            //Returns to previous scene -- To be changed
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 
             if (OnConversationEnded != null)
                 OnConversationEnded.Invoke();
+                
+                
         }
 
         public void SelectNextOption()
@@ -453,7 +458,7 @@ namespace DialogueEditor
         // Do Speech
         //--------------------------------------
 
-        private void SetupSpeech(SpeechNode speech)
+        public void SetupSpeech(SpeechNode speech)
         {
             if (speech == null)
             {
