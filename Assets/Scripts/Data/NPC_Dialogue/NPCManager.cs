@@ -31,12 +31,6 @@ public class NPCManager : MonoBehaviour
         ParseJsonData("/Scripts/Data/NPC_Dialogue/NPC.json");
 
 
-        // Gets the dialogs for each character
-        foreach (NPC npc in npcList.NPCs)
-        {
-            if(npc != null)
-                npc.NpcDialogue = GetNPCDialogue(npc.Npc_diag);
-        }
     }
 
     //Parse data from json file
@@ -69,23 +63,7 @@ public class NPCManager : MonoBehaviour
         return true;
     }
 
-    //Gets the dialogues from dialogue list
-    public NPCDialogue GetNPCDialogue(int id)
-    {
-        NPCDialogue diag = new NPCDialogue();
 
-        List<NPCDialogue> diagList = npcDialogueManager.diagList.NpcDialogues;
-
-        foreach(NPCDialogue npcdiag in diagList)
-        {
-            if(npcdiag.Diag_id == id)
-                    return npcdiag;
-            
-        }
-
-
-        return diag;
-    }
 
     //Methods to get NPC
     public NPC GetNPC(string npcname)
