@@ -134,6 +134,7 @@ public class HealthManager : MonoBehaviour
                 }
             }
         }
+        print("end of healthman 133");
     }
 
     //Displays the damage output

@@ -930,6 +930,7 @@ public class BattleManager : MonoBehaviour
         if (targets[0] == null || targets[0].speed == 0)
         {
             print(targets[0]);
+            print(roundOrderTypes[turn]);
             if (roundOrderTypes[turn] == "Player")
             {
 
@@ -1012,6 +1013,7 @@ public class BattleManager : MonoBehaviour
             }
             TakeTurn();
         }
+        print("battleman 991");
     }
 
     //Returns slot GameObject of currentturn.
@@ -1320,6 +1322,7 @@ public class BattleManager : MonoBehaviour
         pRunning = true;
         yield return new WaitForSeconds(2f);
         //pRunning = false;
+        print(enemyAttackPool.Count);
         if (enemyAttackPool.Count > 0)
             Attack(selectedEnemy);
     }

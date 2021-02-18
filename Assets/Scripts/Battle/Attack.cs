@@ -222,6 +222,7 @@ public class Attack : MonoBehaviour
 
             modifier = 1;
         }
+        print("end of attack 214");
     }
 
     // Checks if the attack will miss
@@ -498,6 +499,7 @@ public class Attack : MonoBehaviour
             print(target.name + " woke up");
             target.statusTurns[(int)Move.types.Sleep] = 0;
         }
+        print("end of attack 488");
     }
 
     public Color GetTypeColor(Beast attacker)
