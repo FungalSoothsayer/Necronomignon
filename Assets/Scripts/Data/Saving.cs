@@ -27,7 +27,7 @@ public class Saving : MonoBehaviour
         if(loadSaveDialog != null)
             loadSaveDialog.SetActive(false);
 
-        loadSaveDialog.SetActive(false);
+        //loadSaveDialog.SetActive(false);
     }
 
     // Update is called once per frame
