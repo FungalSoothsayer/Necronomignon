@@ -89,7 +89,10 @@ public class BeastManager : MonoBehaviour
 
     public Move getMove(int x)
     {
-        
+        if(moveManager.movesList == null)
+        {
+            moveManager.movesList = new MoveList();
+        }
             List<Move> ml = moveManager.movesList.Moves;
 
             for (int i = 0; i < ml.Count; i++)
