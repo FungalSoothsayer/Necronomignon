@@ -129,6 +129,8 @@ public class LoadMission : MonoBehaviour
                 beastPrefab.transform.localRotation = Quaternion.identity;
                 //Change scale too
 
+                enemyImgs[x].sprite = Resources.Load<Sprite>("Static_Images/" + enemyToLoad[x].static_img);
+
                 enemySlot.Add(enemyToLoad[x]);
                 enemySquad.Add(enemyToLoad[x]);
                 activeEnemiesHealth.Add(enemyHealthBars[x]);
@@ -171,6 +173,8 @@ public class LoadMission : MonoBehaviour
                 beastPrefab.transform.localPosition = new Vector3(0, 0);
                 beastPrefab.transform.localRotation = Quaternion.identity;
                 //Change scale too
+
+                playerImgs[x].sprite = Resources.Load<Sprite>("Static_Images/" + toLoad[x].static_img);
 
                 Beast b = new Beast();
                 b = beastManager.getFromName(toLoad[x].name);
@@ -327,9 +331,5 @@ public class LoadMission : MonoBehaviour
             Time.timeScale = 0;
             giveUpDialog.SetActive(true);
         }
-        
-
     }
-
-
 }

@@ -155,9 +155,6 @@ public class CreatePoolLoader : MonoBehaviour
 
         if (NotSummoned(index))
         {
-            //slots[index].gameObject.SetActive(true);
-            //slots[index].sprite = Resources.Load<Sprite>("Static_Images/"+summonedImages[index+(counter*9)]);
-
             GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + summonedNames[index + (counter * 9)]));
             beastPrefab.transform.SetParent(GameObject.Find("Pool" + (index % 9 + 1)).transform);
             beastPrefab.transform.localPosition = new Vector3(0, 0);
