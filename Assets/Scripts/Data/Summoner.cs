@@ -17,6 +17,11 @@ public class Summoner
 
     public void addXP(int newxp)
     {
+        if(newxp < 1)
+        {
+            xp++;
+            return;
+        }
         xp += newxp;
         updateLevel();
     }

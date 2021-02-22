@@ -444,7 +444,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
                 //this else if checks to see if any targets from the front row have been added and if so
-                //breaks the loop, if not addes the beasts from the back row
+                //breaks the loop, if not adds the beasts from the back row
 
                 else if(x>=(Values.SMALLSLOT / 2) && enemySlots[x] != null && enemySlots[x].hitPoints > 0){
                     print("help");
@@ -512,20 +512,30 @@ public class BattleManager : MonoBehaviour
             }
             if (targets.Count <= 0)
             {
-                for (int x = 0; x < slots.Count; x++)
+                for (int x = 0; x < Values.SMALLSLOT / 2; x++)
                 {
-                    if (x < (Values.SMALLSLOT / 2) && slots[x] != null && slots[x].hitPoints > 0)
+                    if ( slots[x] != null && slots[x].hitPoints > 0)
                     {
                         targets.Add(slots[x]);
                     }
-                    else if (x >= (Values.SMALLSLOT / 2) && slots[x] != null && slots[x].hitPoints > 0)
-
+                }
+                if (targets.Count <= 0)
+                {
+                    for (int x = 0; x < slots.Count; x++)
                     {
-                        if (targets.Count >0)
+                        if (x < (Values.SMALLSLOT / 2) && slots[x] != null && slots[x].hitPoints > 0)
                         {
-                            break;
+                            targets.Add(slots[x]);
                         }
-                        targets.Add(slots[x]);
+                        else if (x >= (Values.SMALLSLOT / 2) && slots[x] != null && slots[x].hitPoints > 0)
+
+                        {
+                            if (targets.Count > 0)
+                            {
+                                break;
+                            }
+                            targets.Add(slots[x]);
+                        }
                     }
                 }
             }
