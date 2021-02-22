@@ -52,15 +52,19 @@ public class CreatePoolLoader : MonoBehaviour
     {
         for(int x = 0+ (counter * 9); x < slots.Count + (counter * 9); x++)
         {
+            slots[x % 9].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
             if (summoned.Count >= x + 1 && NotSummoned(x))
             {
-                slots[x % 9].gameObject.SetActive(true);
-                slots[x % 9].sprite = Resources.Load<Sprite>("Static_Images/"+summonedImages[x]);
-            }
-            else
-            {
-                print(x % 9);
-                slots[x % 9].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
+                GameObject slot = slots[x % 9].gameObject;
+                Vector3 location = new Vector3(slot.transform.localPosition.x, slot.transform.localPosition.y);
+
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + summonedNames[x]));
+                beastPrefab.transform.SetParent(GameObject.Find("Canvas").transform);
+                beastPrefab.transform.localPosition = location;
+                beastPrefab.transform.localRotation = Quaternion.identity;
+
+                Animator animator = beastPrefab.GetComponent<Animator>();
+                animator.enabled = false;
             }
         }
 
