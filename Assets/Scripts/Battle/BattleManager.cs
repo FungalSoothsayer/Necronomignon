@@ -1115,8 +1115,8 @@ public class BattleManager : MonoBehaviour
             {
                 if (enemySlots[x] != null && enemySlots[x].name == target.name)
                 {
-                    StartCoroutine(ChangeBattleColor(enemyPadSlots[x]));
-                    enemyPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
+                    StartCoroutine(ChangeBattleColor(enemyPadSlots[x].transform.GetChild(0).gameObject));
+                    enemyPadSlots[x].transform.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("GetHit");
                     break;
                 }
             }
@@ -1127,8 +1127,8 @@ public class BattleManager : MonoBehaviour
             {
                 if (slots[x] != null && slots[x].name == target.name)
                 {
-                    StartCoroutine(ChangeBattleColor(playerPadSlots[x]));
-                    playerPadSlots[x].gameObject.GetComponent<Animator>().SetTrigger("GetHit");
+                    StartCoroutine(ChangeBattleColor(playerPadSlots[x].transform.GetChild(0).gameObject));
+                    playerPadSlots[x].transform.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("GetHit");
                     break;
                 }
             }
