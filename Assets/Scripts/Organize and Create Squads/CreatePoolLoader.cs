@@ -50,9 +50,18 @@ public class CreatePoolLoader : MonoBehaviour
     // Fill up the image slots with your summoned beasts
     void SetImages()
     {
-        for(int x = 0+ (counter * 9); x < slots.Count + (counter * 9); x++)
+        // Destroy old prefabs
+        var clones = GameObject.FindGameObjectsWithTag("Prefab");
+        foreach (var clone in clones)
+        {
+            Destroy(clone);
+        }
+
+        // Populate pool with new prefabs
+        for (int x = 0 + (counter * 9); x < slots.Count + (counter * 9); x++)
         {
             slots[x % 9].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
+
             if (summoned.Count >= x + 1 && NotSummoned(x))
             {
                 GameObject slot = slots[x % 9].gameObject;

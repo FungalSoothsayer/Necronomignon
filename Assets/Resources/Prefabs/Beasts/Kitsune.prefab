@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8996024156660239876}
   m_Layer: 5
   m_Name: Kitsune
-  m_TagString: Untagged
+  m_TagString: Prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
