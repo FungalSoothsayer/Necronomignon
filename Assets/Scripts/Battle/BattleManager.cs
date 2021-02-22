@@ -689,6 +689,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
+            slot += Values.SMALLSLOT / 2;
             switch (slot % (Values.SMALLSLOT / 2))
             {
                 case 0:
