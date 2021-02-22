@@ -96,7 +96,8 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         int index = createManager.selectedIndex;
 
-        createPoolLoader.slots[index].gameObject.SetActive(false);
+        createPoolLoader.slots[index].enabled = false;
+        createPoolLoader.slots[index].transform.GetChild(0).gameObject.SetActive(false);
         SetSlot();
     }
 
