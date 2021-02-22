@@ -227,23 +227,27 @@ public class MissionList : MonoBehaviour
         if (mission == "random")
         {
             List<int> beast = new List<int>();
-
+            int beastCost = 0;
             int ran = -1;
 
-            while (beast.Count < Values.SQUADMAX)
+            while (beastCost < Values.TOTAL_BEAST_COST-Values.BEAST_COST_MIN)
             {
                 //randomly picks a beast based on it's number in the list
                 while (beast.Contains(ran) || ran == -1)
                 {
                     ran = Random.Range(0, BeastManager.beastsList.Beasts.Count);
                 }
-                beast.Add(ran);
+               /* if (beastCost + BeastManager.beastsList.Beasts[ran].cost <= Values.TOTAL_BEAST_COST)
+                {
+                   */ beastCost += BeastManager.beastsList.Beasts[ran].cost;
+                    beast.Add(ran);/*
+                }*/
             }
 
-            beast.Add(-1);
-            beast.Add(-1);
-            beast.Add(-1);
-            beast.Add(-1);
+            while(beast.Count < Values.SQUADMAX)
+            {
+                beast.Add(-1);
+            }
 
             ran = -1;
 
@@ -561,10 +565,10 @@ public class MissionList : MonoBehaviour
         else if(mission == "even")
         {
             List<int> beast = new List<int>();
-
+            int beastCost = 0;
             int ran = -1;
 
-            while (beast.Count < Values.SQUADMAX)
+            while (beastCost < Values.TOTAL_BEAST_COST)
             {
                 //randomly picks a beast based on it's number in the list
                 while (beast.Contains(ran) || ran == -1)
@@ -572,12 +576,13 @@ public class MissionList : MonoBehaviour
                     ran = Random.Range(0, BeastManager.beastsList.Beasts.Count);
                 }
                 beast.Add(ran);
+                beastCost += BeastManager.beastsList.Beasts[ran].cost;
             }
 
-            beast.Add(-1);
-            beast.Add(-1);
-            beast.Add(-1);
-            beast.Add(-1);
+            while (beast.Count < Values.SQUADMAX)
+            {
+                beast.Add(-1);
+            }
 
             ran = -1;
 
