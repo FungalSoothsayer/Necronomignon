@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Script used to show the beast
 public class TrainPrep : MonoBehaviour
 {
+ 
     public Button img;
     public new Text name;
     public LoadScenes loadScenes;
