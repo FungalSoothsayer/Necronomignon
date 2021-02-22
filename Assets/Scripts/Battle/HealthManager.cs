@@ -249,8 +249,10 @@ public class HealthManager : MonoBehaviour
 
     // Updates xp bar and text
     private void UpdateXpBar()
-    {
-        xpText.text = "XP Gained: " + battleManager.enemySummoner.xp / 2;
+    {   
+        int xp = (int)Mathf.Round(battleManager.enemySummoner.getLevel() / Player.summoner.getLevel() * (battleManager.enemySummoner.xp / 5));
+        if (xp < 1) xp = 1;
+        xpText.text = "XP Gained: " + xp;
         xpSlider.maxValue = Player.summoner.xpNeeded;
         xpSlider.value = Player.summoner.xp;
         Player.summoner.updateLevel();
