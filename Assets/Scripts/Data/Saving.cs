@@ -80,7 +80,7 @@ public class Saving : MonoBehaviour
         {
             SquadData.squad1Saved = false;
         }
-        if (EasySave.Load<List<Beast>>("squad2") != null && EasySave.Load<List<Beast>>("squad1").Count > 0)
+        if (EasySave.Load<List<Beast>>("squad2") != null && EasySave.Load<List<Beast>>("squad2").Count > 0)
         {
             SquadData.squad2 = EasySave.Load<List<Beast>>("squad2");
             SquadData.squad2Saved = true;
