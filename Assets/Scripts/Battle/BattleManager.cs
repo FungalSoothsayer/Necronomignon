@@ -585,6 +585,7 @@ public class BattleManager : MonoBehaviour
 
         if (roundOrderTypes[turn] == "Enemy")
         {
+            slot += Values.SMALLSLOT / 2;
             //this switch finds the column the attacker is in and find the most sutible target column determined by distance
             //the aligned cloumn is always prioritised 
             switch (slot % (Values.SMALLSLOT / 2))
