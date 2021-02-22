@@ -51,10 +51,12 @@ public class CreatePoolLoader : MonoBehaviour
     void SetImages()
     {
         // Destroy old prefabs
-        var clones = GameObject.FindGameObjectsWithTag("Prefab");
-        foreach (var clone in clones)
+        foreach(Image slot in slots)
         {
-            Destroy(clone);
+            foreach (Transform child in slot.transform)
+            {
+                Destroy(child.gameObject);
+            }
         }
 
         // Populate pool with new prefabs
