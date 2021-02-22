@@ -444,7 +444,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
                 //this else if checks to see if any targets from the front row have been added and if so
-                //breaks the loop, if not addes the beasts from the back row
+                //breaks the loop, if not adds the beasts from the back row
 
                 else if(x>=(Values.SMALLSLOT / 2) && enemySlots[x] != null && enemySlots[x].hitPoints > 0){
                     print("help");
@@ -512,20 +512,30 @@ public class BattleManager : MonoBehaviour
             }
             if (targets.Count <= 0)
             {
-                for (int x = 0; x < slots.Count; x++)
+                for (int x = 0; x < Values.SMALLSLOT / 2; x++)
                 {
-                    if (x < (Values.SMALLSLOT / 2) && slots[x] != null && slots[x].hitPoints > 0)
+                    if ( slots[x] != null && slots[x].hitPoints > 0)
                     {
                         targets.Add(slots[x]);
                     }
-                    else if (x >= (Values.SMALLSLOT / 2) && slots[x] != null && slots[x].hitPoints > 0)
-
+                }
+                if (targets.Count <= 0)
+                {
+                    for (int x = 0; x < slots.Count; x++)
                     {
-                        if (targets.Count >0)
+                        if (x < (Values.SMALLSLOT / 2) && slots[x] != null && slots[x].hitPoints > 0)
                         {
-                            break;
+                            targets.Add(slots[x]);
                         }
-                        targets.Add(slots[x]);
+                        else if (x >= (Values.SMALLSLOT / 2) && slots[x] != null && slots[x].hitPoints > 0)
+
+                        {
+                            if (targets.Count > 0)
+                            {
+                                break;
+                            }
+                            targets.Add(slots[x]);
+                        }
                     }
                 }
             }
@@ -575,6 +585,7 @@ public class BattleManager : MonoBehaviour
 
         if (roundOrderTypes[turn] == "Enemy")
         {
+            slot += Values.SMALLSLOT / 2;
             //this switch finds the column the attacker is in and find the most sutible target column determined by distance
             //the aligned cloumn is always prioritised 
             switch (slot % (Values.SMALLSLOT / 2))
@@ -679,6 +690,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
+            slot += Values.SMALLSLOT / 2;
             switch (slot % (Values.SMALLSLOT / 2))
             {
                 case 0:
@@ -930,6 +942,7 @@ public class BattleManager : MonoBehaviour
         if (targets[0] == null || targets[0].speed == 0)
         {
             print(targets[0]);
+            print(roundOrderTypes[turn]);
             if (roundOrderTypes[turn] == "Player")
             {
 
@@ -1012,6 +1025,7 @@ public class BattleManager : MonoBehaviour
             }
             TakeTurn();
         }
+        print("battleman 991");
     }
 
     //Returns slot GameObject of currentturn.
@@ -1320,6 +1334,7 @@ public class BattleManager : MonoBehaviour
         pRunning = true;
         yield return new WaitForSeconds(2f);
         //pRunning = false;
+        print(enemyAttackPool.Count);
         if (enemyAttackPool.Count > 0)
             Attack(selectedEnemy);
     }
