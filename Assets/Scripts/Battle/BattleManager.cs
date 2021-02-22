@@ -591,101 +591,125 @@ public class BattleManager : MonoBehaviour
             switch (slot % (Values.SMALLSLOT / 2))
             {
                 case 0:
-                    if(slots[Values.SLOTMAX-2] != null && slots[Values.SLOTMAX].speed != 0)
+                    /*if(slots[Values.SLOTMAX/2] != null && slots[Values.SLOTMAX/2].speed != 0)
                     {
-                        targets.Add(slots[Values.SLOTMAX - 2]);
+                        targets.Add(slots[Values.SLOTMAX / 2]);
                     }
                     if (slots[Values.SMALLSLOT] != null && slots[Values.SMALLSLOT].speed > 0 && slots[Values.SMALLSLOT].hitPoints > 0)
                     {
                         targets.Add(slots[Values.SMALLSLOT]);
                         break;
-                    }
+                    }*/
                     do
                     {
                         if (slots[slot % (Values.SMALLSLOT / 2)] != null && slots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(slots[slot % (Values.SMALLSLOT / 2)]);
+                            print(slots[slot % (Values.SMALLSLOT / 2)]);
                         }
                         if (slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
+                            print(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
                         }
                         if (targets.Count < 1 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))] != null && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
                         {
-                            targets.Add(enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
+                            targets.Add(slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
+                            print("miny");
                         }
+                        print("mo");
                         slot++;
                     } while (targets.Count < 1);
                     break;
                 case 1:
-                    if (slots[Values.SMALLSLOT] != null && slots[Values.SMALLSLOT].speed > 0 && slots[Values.SMALLSLOT].hitPoints > 0)
+                    /*if (slots[Values.SMALLSLOT] != null && slots[Values.SMALLSLOT].speed > 0 && slots[Values.SMALLSLOT].hitPoints > 0)
                     {
                         targets.Add(slots[Values.SMALLSLOT]);
                         break;
-                    }
+                    }*/
                     do
                     {
                         if (slots[slot % (Values.SMALLSLOT / 2)] != null && slots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
-                            targets.Add(slots[slot % (Values.SLOTMAX/2)]);
+                            targets.Add(slots[slot % (Values.SMALLSLOT / 2)]);
+                            print(slots[slot % (Values.SMALLSLOT / 2)]);
                         }
                         if (slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
+                            print(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
                         }
                         if (targets.Count < 1 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))] != null && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
                         {
-                            targets.Add(enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
+                            targets.Add(slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
+                            print("miny");
                         }
+                        print("mo");
                         slot++;
                     } while (targets.Count < 1);
                     break;
                 case 2:
-                    if (slots[Values.SLOTMAX-1] != null && slots[Values.SMALLSLOT].speed > 0 && slots[Values.SMALLSLOT].hitPoints > 0)
+                    /*if (slots[Values.SLOTMAX-1] != null && slots[Values.SMALLSLOT].speed > 0 && slots[Values.SMALLSLOT].hitPoints > 0)
                     {
                         targets.Add(slots[Values.SLOTMAX - 1]);
                         break;
-                    }
+                    }*/
                     do
                     {
                         if (slots[slot % (Values.SMALLSLOT / 2)] != null && slots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
-                            targets.Add(slots[slot % (Values.SLOTMAX/2)]);
+                            targets.Add(slots[slot % (Values.SMALLSLOT / 2)]);
+                            print(slots[slot % (Values.SMALLSLOT / 2)]);
                         }
                         if (slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && slots[(slot % (Values.SMALLSLOT / 2)) +(Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
+                            print(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
                         }
                         if (targets.Count < 1 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))] != null && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
                         {
-                            targets.Add(enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
+                            targets.Add(slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
+                            print("miny");
                         }
+                        print("mo");
                         slot++;
                     } while (targets.Count < 1);
                     break;
                 case 3:
-                    if (slots[Values.SLOTMAX - 1] != null && slots[Values.SMALLSLOT].speed > 0 && slots[Values.SMALLSLOT].hitPoints > 0)
+                    /*if (slots[Values.SLOTMAX - 1] != null && slots[Values.SMALLSLOT].speed > 0 && slots[Values.SMALLSLOT].hitPoints > 0)
                     {
                         targets.Add(slots[Values.SLOTMAX - 1]);
                         break;
-                    }
+                    }*/
                     do
                     {
                         if (slots[slot % (Values.SMALLSLOT / 2)] != null && slots[slot % (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
-                            targets.Add(slots[slot % (Values.SLOTMAX / 2)]);
+                            targets.Add(slots[slot % (Values.SMALLSLOT / 2)]);
+                            print(slots[slot % (Values.SMALLSLOT / 2)]);
                         }
                         if (slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
                             targets.Add(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
+                            print(slots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)]);
                         }
                         if (targets.Count < 1 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))] != null && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].speed > 0 && slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))].hitPoints > 0)
                         {
-                            targets.Add(enemySlots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
+                            targets.Add(slots[Values.SMALLSLOT + (slot % (Values.SLOTMAX - Values.SMALLSLOT))]);
+                            print("miny");
                         }
+                        print("mo");
                         slot--;
                     } while (targets.Count < 1);
                     break;
+            }
+            while (targets.Count < 1)
+            {
+                slot++;
+                if (slots[Values.SMALLSLOT + (slot % Values.SMALLSLOT / 2)] != null && slots[Values.SMALLSLOT + (slot % Values.SMALLSLOT / 2)].speed > 0 && slots[Values.SMALLSLOT + (slot % Values.SMALLSLOT / 2)].hitPoints > 0)
+                {
+                    targets.Add(slots[Values.SMALLSLOT + (slot % Values.SMALLSLOT / 2)]);
+                }
             }
         }
         else
@@ -699,7 +723,7 @@ public class BattleManager : MonoBehaviour
                     {
                         if (enemySlots[slot % (Values.SMALLSLOT / 2)] != null && enemySlots[slot % (Values.SMALLSLOT / 2)].hitPoints >0)
                         {
-                            targets.Add(enemySlots[slot % (Values.SLOTMAX/2)]);
+                            targets.Add(enemySlots[slot % (Values.SMALLSLOT / 2)]);
                         }
                         if (enemySlots[(slot % (Values.SMALLSLOT / 2)) + (Values.SMALLSLOT / 2)] != null && enemySlots[(slot % (Values.SMALLSLOT / 2))  +  (Values.SMALLSLOT / 2)].hitPoints > 0)
                         {
@@ -771,15 +795,18 @@ public class BattleManager : MonoBehaviour
                     } while (targets.Count < 1);
                     break;
             }
-        }
-        
-        while (targets.Count < 1)
-        {
-            slot++;
-            if (enemySlots[Values.SMALLSLOT+(slot%3)] != null && enemySlots[Values.SMALLSLOT + (slot % 3)].speed > 0 && enemySlots[Values.SMALLSLOT + (slot % 3)].hitPoints > 0)
+            while (targets.Count < 1)
             {
-                targets.Add(enemySlots[Values.SMALLSLOT + (slot % 3)]);
+                slot++;
+                if (enemySlots[Values.SMALLSLOT + (slot % Values.SMALLSLOT / 2)] != null && enemySlots[Values.SMALLSLOT + (slot % Values.SMALLSLOT / 2)].speed > 0 && enemySlots[Values.SMALLSLOT + (slot % Values.SMALLSLOT / 2)].hitPoints > 0)
+                {
+                    targets.Add(enemySlots[Values.SMALLSLOT + (slot % Values.SMALLSLOT / 2)]);
+                }
             }
+        }
+        foreach (Beast b in targets)
+        {
+            print(b);
         }
         return targets;
     }
@@ -818,6 +845,7 @@ public class BattleManager : MonoBehaviour
             {
                 targets.Clear();
                 targets = findColumnTargets();
+                print(targets.Count);
                 cancelGuard = true;
             }
             //certain attacks hit multiple times (think fury swipe from pokemon) this checks how many times to do the same attack
@@ -938,6 +966,10 @@ public class BattleManager : MonoBehaviour
                 targets.Clear();
                 targets.Add(currentTurn.cursed);
             }
+        }
+        foreach(Beast b in targets)
+        {
+            print(b);
         }
         if (targets[0] == null || targets[0].speed == 0)
         {
