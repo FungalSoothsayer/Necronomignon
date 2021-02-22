@@ -61,9 +61,6 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 {
                     gameObject.GetComponent<Image>().enabled = false;
 
-                    GameObject slot = createManager.totalSlots[slotID - 1].gameObject;
-                    Vector3 location = new Vector3(0, 0);
-
                     GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + createManager.selected.name));
                     if(createManager.selected.size == 0)
                     {
@@ -73,7 +70,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                     {
                         beastPrefab.transform.SetParent(GameObject.Find("BigSlot" + (slotID - 8)).transform);
                     }
-                    beastPrefab.transform.localPosition = location;
+                    beastPrefab.transform.localPosition = new Vector3(0, 0);
                     beastPrefab.transform.localRotation = Quaternion.identity;
 
                     //Change scale too
@@ -155,9 +152,6 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 {
                     gameObject.GetComponent<Image>().enabled = false;
 
-                    GameObject slot = createManager.totalSlots[slotID - 1].gameObject;
-                    Vector3 location = new Vector3(0, 0);
-
                     GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + createManager.selected.name));
                     if (createManager.selected.size == 0)
                     {
@@ -167,7 +161,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                     {
                         beastPrefab.transform.SetParent(GameObject.Find("BigSlot" + (slotID - 8)).transform);
                     }
-                    beastPrefab.transform.localPosition = location;
+                    beastPrefab.transform.localPosition = new Vector3(0, 0);
                     beastPrefab.transform.localRotation = Quaternion.identity;
 
                     //Change scale too

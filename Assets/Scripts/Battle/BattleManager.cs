@@ -157,25 +157,6 @@ public class BattleManager : MonoBehaviour
             enemySlots.Add(e[x]);
         }
     }
-    //old method to be removed
-    public void GetSlots(Beast s1, Beast s2, Beast s3, Beast s4, Beast s5, Beast s6, Beast e1, Beast e2, Beast e3, Beast e4, Beast e5, Beast e6)
-    {
-        slots.Clear();
-        enemySlots.Clear();
-        slots.Add(s1);
-        slots.Add(s2);
-        slots.Add(s3);
-        slots.Add(s4);
-        slots.Add(s5);
-        slots.Add(s6);
-
-        enemySlots.Add(e1);
-        enemySlots.Add(e2);
-        enemySlots.Add(e3);
-        enemySlots.Add(e4);
-        enemySlots.Add(e5);
-        enemySlots.Add(e6);
-    }
 
     //Create attack order
     //This seems to be a big source of issues as it creats what has been dubbed "the Ultimate Crash"
