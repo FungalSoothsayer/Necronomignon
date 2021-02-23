@@ -569,6 +569,7 @@ public class BattleManager : MonoBehaviour
         bool inFront = this.inFront();
         bool guarded = this.guarded(target);
 
+        targets.Clear();
         targets.Add(target);
 
         //the if and else blocks here are identicle except for Move_A is switched with Move_B
@@ -588,17 +589,6 @@ public class BattleManager : MonoBehaviour
                 targets = findRowTargets();
                 cancelGuard = true;
             }
-            //certain attacks hit multiple times (think fury swipe from pokemon) this checks how many times to do the same attack
-            else if (currentTurn.Move_A.multiAttack)
-            {
-                targets.Clear();
-
-                int ran = Random.Range(2, 6);
-                for (; ran > 0; ran--)
-                {
-                    targets.Add(target);
-                }
-            }
         }
         else if (!inFront)
         {
@@ -613,16 +603,6 @@ public class BattleManager : MonoBehaviour
                 targets.Clear();
                 targets = findRowTargets();
                 cancelGuard = true;
-            }
-            else if (currentTurn.Move_B.multiAttack)
-            {
-                targets.Clear();
-
-                int ran = Random.Range(2, 6);
-                for (; ran > 0; ran--)
-                {
-                    targets.Add(target);
-                }
             }
         }
         //this checks if there is a beast blocking the current target as well making sure there's nothing that would need to cancel the block 
@@ -653,23 +633,8 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
+            targets.Clear();
             targets.Add(b);
-            if (inFront && currentTurn.Move_A.multiAttack)
-            {
-                int ran = Random.Range(1, 5);
-                for (; ran > 0; ran--)
-                {
-                    targets.Add(targets[0]);
-                }
-            }
-            else if (!inFront && currentTurn.Move_B.multiAttack)
-            {
-                int ran = Random.Range(1, 5);
-                for (; ran > 0; ran--)
-                {
-                    targets.Add(targets[0]);
-                }
-            }
         }
         //this method currently needs improvment
         //this method checks if the current turn beast is confused and will make them target a friendly beast
@@ -843,11 +808,6 @@ public class BattleManager : MonoBehaviour
         GameObject slot = getSlot();
         slot = slot.transform.GetChild(0).gameObject;
         Parent_Beast beast = slot.GetComponent<Parent_Beast>();
-
-        foreach(Beast b in targets)
-        {
-            print(b.name);
-        }
 
         if (inFront)
         {
