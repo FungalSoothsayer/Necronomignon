@@ -969,7 +969,7 @@ public class BattleManager : MonoBehaviour
             }
         }
             //Check to see if the round is still going and then run an attack
-            if (turn >= totalMoves - 1)
+        if (turn >= totalMoves - 1)
         {
             if (roundOrderTypes[turn] == "Player")
             {
@@ -1090,6 +1090,7 @@ public class BattleManager : MonoBehaviour
     public void PlayAttackAnimation(bool inFront)
     {
         GameObject slot = getSlot();
+        slot = slot.transform.GetChild(0).gameObject;
 
         if (inFront) slot.GetComponent<Animator>().SetTrigger("Front");
         else slot.GetComponent<Animator>().SetTrigger("Back");

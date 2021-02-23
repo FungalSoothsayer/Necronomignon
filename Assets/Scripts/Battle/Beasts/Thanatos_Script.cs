@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Thanatos_Script : MonoBehaviour
+public class Thanatos_Script : MonoBehaviour, Parent_Beast
 {
-    // Start is called before the first frame update
-    void Start()
+    public void back_special()
     {
-        
+        throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void front_special()
     {
-        
+        throw new System.NotImplementedException();
     }
 }
