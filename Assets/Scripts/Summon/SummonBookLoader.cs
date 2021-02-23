@@ -89,6 +89,7 @@ public class SummonBookLoader : MonoBehaviour
                 beastPrefab.transform.SetParent(GameObject.Find($"Slot{(x % 6 + 1)}").transform);
                 beastPrefab.transform.localPosition = new Vector3(0, 0);
                 beastPrefab.transform.localRotation = Quaternion.identity;
+                beastPrefab.transform.localScale = new Vector3(3, 3);
 
                 Animator animator = beastPrefab.GetComponent<Animator>();
                 animator.enabled = false;
