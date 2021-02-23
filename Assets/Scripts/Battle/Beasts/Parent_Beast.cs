@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface SpecialEffect
+public interface Parent_Beast 
 {
+    void front_special();
 
-    void special();
+    void back_special();
 }
