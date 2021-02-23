@@ -18,10 +18,23 @@ public class LoadSquads : MonoBehaviour
     public Text squad1Text;
     public Text squad2Text;
 
+    public List<string> summonedNames = new List<string>();
+
     // Start is called before the first frame update
     void Start()
     {
-        foreach(GameObject slot in squad1Slots)
+        BeastList bl = BeastManager.beastsList;
+
+        for (int x = 0; x < bl.Beasts.Count; x++)
+        {
+            bl.Beasts[x].setAttacks();
+            if (bl.Beasts[x].tier > 0)
+            {
+                summonedNames.Add(bl.Beasts[x].name);
+            }
+        }
+
+        foreach (GameObject slot in squad1Slots)
         {
             slot.SetActive(false);
         }
@@ -51,12 +64,19 @@ public class LoadSquads : MonoBehaviour
 
         for(int x = 0; x < S1S.Count; x++)
         {
+            S1S[x % 11].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
+
             print(x);
             if (toLoad[x] != null)
             {
-                S1S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
-                    ("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
-                squad1Slots[x].SetActive(true);
+
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + summonedNames[x]));
+                beastPrefab.transform.SetParent(GameObject.Find("Slot" + (x % 11 + 1)).transform);
+                beastPrefab.transform.localPosition = new Vector3(0, 0);
+                beastPrefab.transform.localRotation = Quaternion.identity;
+
+                Animator animator = beastPrefab.GetComponent<Animator>();
+                animator.enabled = false;
             }
         }
     }
@@ -69,11 +89,18 @@ public class LoadSquads : MonoBehaviour
 
         for (int x = 0; x < S2S.Count; x++)
         {
+            S2S[x % 11].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
+
             if (toLoad[x] != null)
             {
-                S2S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
-                    ("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
-                squad2Slots[x].SetActive(true);
+
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + summonedNames[x]));
+                beastPrefab.transform.SetParent(GameObject.Find("Slot" + (x % 11 + 1)).transform);
+                beastPrefab.transform.localPosition = new Vector3(0, 0);
+                beastPrefab.transform.localRotation = Quaternion.identity;
+
+                Animator animator = beastPrefab.GetComponent<Animator>();
+                animator.enabled = false;
             }
         }
     }
