@@ -129,6 +129,9 @@ public class LoadMission : MonoBehaviour
                 beastPrefab.transform.localRotation = Quaternion.identity;
                 //Change scale too
 
+                
+
+
                 enemyImgs[x].sprite = Resources.Load<Sprite>("Static_Images/" + enemyToLoad[x].static_img);
 
                 enemySlot.Add(enemyToLoad[x]);
@@ -174,6 +177,12 @@ public class LoadMission : MonoBehaviour
                 beastPrefab.transform.localRotation = Quaternion.identity;
                 //Change scale too
 
+                Parent_Beast pabe = beastPrefab.GetComponent<Parent_Beast>();
+
+                if (pabe != null)
+                {
+                    pabe.back_special();
+                }
                 playerImgs[x].sprite = Resources.Load<Sprite>("Static_Images/" + toLoad[x].static_img);
 
                 Beast b = new Beast();
