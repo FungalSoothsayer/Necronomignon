@@ -68,7 +68,6 @@ public class CheckLevel : MonoBehaviour
     }
     public void setCurrentLevel(int level)
     {
-        print(lvl);
         lvl = level;
         if (ConversationManager.Instance != null)
         {

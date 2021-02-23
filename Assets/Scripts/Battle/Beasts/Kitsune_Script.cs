@@ -6,11 +6,11 @@ public class Kitsune_Script : MonoBehaviour, Parent_Beast
 {
     public void back_special()
     {
-        throw new System.NotImplementedException();
+        print("kitsune back");
     }
 
     public void front_special()
     {
-        throw new System.NotImplementedException();
+        print("kitsune front");
     }
 }

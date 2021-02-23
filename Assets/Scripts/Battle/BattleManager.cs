@@ -797,7 +797,6 @@ public class BattleManager : MonoBehaviour
     {
         bool inFront = this.inFront();
         bool guarded = this.guarded(target);
-        print(currentTurn.name + "  Look here!");
         bool cancelGuard = false;
 
         List<Beast> targets = new List<Beast>();
@@ -948,10 +947,7 @@ public class BattleManager : MonoBehaviour
                 targets.Add(currentTurn.cursed);
             }
         }
-        foreach(Beast b in targets)
-        {
-            print(b);
-        }
+
         if (targets[0] == null || targets[0].speed == 0)
         {
             print(targets[0]);
@@ -1038,7 +1034,6 @@ public class BattleManager : MonoBehaviour
             }
             TakeTurn();
         }
-        print("battleman 991");
     }
 
     //Returns slot GameObject of currentturn.
@@ -1091,9 +1086,26 @@ public class BattleManager : MonoBehaviour
     {
         GameObject slot = getSlot();
         slot = slot.transform.GetChild(0).gameObject;
+        Parent_Beast beast = slot.GetComponent<Parent_Beast>();
 
-        if (inFront) slot.GetComponent<Animator>().SetTrigger("Front");
-        else slot.GetComponent<Animator>().SetTrigger("Back");
+        if (inFront)
+        {
+            slot.GetComponent<Animator>().SetTrigger("Front");
+
+            if (beast != null)
+            {
+                beast.front_special();
+            }
+        }
+        else
+        {
+            slot.GetComponent<Animator>().SetTrigger("Back");
+
+            if (beast != null)
+            {
+                beast.back_special();
+            }
+        }
     }
 
     //this plays the damage animation for one or many beasts
@@ -1348,7 +1360,6 @@ public class BattleManager : MonoBehaviour
         pRunning = true;
         yield return new WaitForSeconds(2f);
         //pRunning = false;
-        print(enemyAttackPool.Count);
         if (enemyAttackPool.Count > 0)
             Attack(selectedEnemy);
     }

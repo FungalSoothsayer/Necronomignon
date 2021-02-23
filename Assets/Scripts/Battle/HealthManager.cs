@@ -65,7 +65,6 @@ public class HealthManager : MonoBehaviour
             if (players[x] != null)
             {
                 playersLeft++;
-                print(players.Count + " players" + activePlayersHealth.Count + " active players");
                 activePlayersHealth[x].SetMaxHealth(players[x].maxHP);
                 playerHealths[x].text = players[x].maxHP.ToString();
             }
@@ -134,7 +133,6 @@ public class HealthManager : MonoBehaviour
                 }
             }
         }
-        print("end of healthman 133");
     }
 
     //Displays the damage output
