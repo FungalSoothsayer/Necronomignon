@@ -66,8 +66,6 @@ public class SummonBookLoader : MonoBehaviour
     //Fill up the image slots with your summoned beasts
     void SetBeasts()
     {
-        print(summoned.Count);
-
         //Destroy old prefabs
         foreach (Image slot in slots)
         {
