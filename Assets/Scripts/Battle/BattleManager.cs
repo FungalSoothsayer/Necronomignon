@@ -443,10 +443,21 @@ public class BattleManager : MonoBehaviour
                         targets.Add(enemySlots[x]);
                     }
                 }
+
+                else if (x == Values.SMALLSLOT / 2 && targets.Count < 1)
+                {
+                    for (int y = 0; y < Values.SMALLSLOT / 2; y++)
+                    {
+                        if (enemySlots[y] != null && enemySlots[y].hitPoints > 0)
+                        {
+                            targets.Add(enemySlots[y]);
+                        }
+                    }
+                }
                 //this else if checks to see if any targets from the front row have been added and if so
                 //breaks the loop, if not adds the beasts from the back row
 
-                else if(x>=(Values.SMALLSLOT / 2) && enemySlots[x] != null && enemySlots[x].hitPoints > 0){
+                if(x>=(Values.SMALLSLOT / 2) && enemySlots[x] != null && enemySlots[x].hitPoints > 0){
                     print("help");
                     //this is the dynamic if to check for beasts in the front, I had to have it work dynamically or else it would never work
                     if (x == (Values.SMALLSLOT / 2) && targets.Count  >= 1)
@@ -489,14 +500,23 @@ public class BattleManager : MonoBehaviour
             for (int x = 0; x < slots.Count; x++)
             {
                 if (x < (Values.SMALLSLOT / 2) && slots[x] != null && slots[x].hitPoints >0)
-
                 {
                     if (slot + 1 == x || slot == x || slot - 1 == x)
                     {
                         targets.Add(slots[x]);
                     }
                 }
-                else if (x >= (Values.SMALLSLOT / 2) && slots[x] != null && slots[x].hitPoints > 0)
+                else if (x == Values.SMALLSLOT/2 && targets.Count < 1 )
+                {
+                    for(int y = 0;y< Values.SMALLSLOT / 2; y++)
+                    {
+                        if(slots[y] != null && slots[y].hitPoints > 0)
+                        {
+                            targets.Add(slots[y]);
+                        }
+                    }
+                }
+                if (x >= (Values.SMALLSLOT / 2) && slots[x] != null && slots[x].hitPoints > 0)
                 {
                     print(targets.Count);
                     if (targets.Count - (x - (Values.SMALLSLOT / 2)) >= 1)
