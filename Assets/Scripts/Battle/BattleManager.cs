@@ -843,7 +843,11 @@ public class BattleManager : MonoBehaviour
         GameObject slot = getSlot();
         slot = slot.transform.GetChild(0).gameObject;
         Parent_Beast beast = slot.GetComponent<Parent_Beast>();
-        targets.Clear();
+
+        foreach(Beast b in targets)
+        {
+            print(b.name);
+        }
 
         if (inFront)
         {

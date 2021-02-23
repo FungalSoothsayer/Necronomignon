@@ -19,11 +19,12 @@ public class Wyvern_Script : MonoBehaviour, Parent_Beast
 
     public void back_special()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void front_special()
     {
+        battleManager.targets.Clear();
         battleManager.targets = FindColumnTargets();
         battleManager.cancelGuard = true;
     }

@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class Cthulhu_Script : MonoBehaviour, Parent_Beast
 {
+    BattleManager battleManager;
+
+    void Start()
+    {
+        GameObject g = GameObject.Find("GameManager");
+
+        if (g != null)
+        {
+            battleManager = g.GetComponent<BattleManager>();
+        }
+    }
+
     public void back_special()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void front_special()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

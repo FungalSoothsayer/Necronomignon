@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class Kitsune_Script : MonoBehaviour, Parent_Beast
 {
+    BattleManager battleManager;
+
+    void Start()
+    {
+        GameObject g = GameObject.Find("GameManager");
+
+        if (g != null)
+        {
+            battleManager = g.GetComponent<BattleManager>();
+        }
+    }
+
     public void back_special()
     {
-        print("kitsune back");
+        
     }
 
     public void front_special()
     {
-        print("kitsune front");
+        
     }
 }
