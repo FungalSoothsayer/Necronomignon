@@ -9,18 +9,13 @@ using UnityEngine.UI;
  */
 public class AnimationPlayer : MonoBehaviour
 {
-    public Image image;
+    public GameObject image;
     BeastManager beastManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        image.GetComponent<Animator>().runtimeAnimatorController = Resources.Load
-            ("Animations/" + SummonBookLoader.beastName + "/" + SummonBookLoader.beastName + "_Controller") as RuntimeAnimatorController;
-        */
         image.GetComponent<Image>().sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
-
 
         //Prefab setting
         GameObject beastPrefab = (GameObject)Instantiate(Resources.Load($"Prefabs/Beasts/{SummonBookLoader.beastName}"));
@@ -28,11 +23,8 @@ public class AnimationPlayer : MonoBehaviour
         beastPrefab.transform.localPosition = new Vector3(0, 0);
         beastPrefab.transform.localRotation = Quaternion.identity;
         beastPrefab.transform.localScale = new Vector3(10, 10);
-        Animator animator = beastPrefab.GetComponent<Animator>();
-        animator.enabled = false;
 
-
-
+        image = image.transform.GetChild(0).gameObject;
     }
 
     //Front Row Attack
