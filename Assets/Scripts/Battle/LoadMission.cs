@@ -260,7 +260,6 @@ public class LoadMission : MonoBehaviour
             if(child.tag == "Prefab")
             {
                 child.GetComponent<Animator>().SetInteger("Health", 0);
-                Destroy(child);
             }
         }
         GetHealthDisplayImageToRemove(toRemove, owner).transform.parent.gameObject.SetActive(false);
@@ -319,6 +318,8 @@ public class LoadMission : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         GetImageToRemove(toRemove, owner).gameObject.SetActive(false);
+        GameObject child = GetImageToRemove(toRemove, owner).transform.GetChild(0).gameObject;
+        Destroy(child);
     }
 
     //Opens give up dialog and pauses the game or resumes the game if the user doesn't give up. 1 stands for resume
