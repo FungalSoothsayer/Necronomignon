@@ -351,7 +351,8 @@ public class BattleManager : MonoBehaviour
         turn++;
         currentTurn = roundOrder[turn]; 
         txtTurn.text = roundOrderTypes[turn] + " " + currentTurn + " 's turn";
-
+        if (pRunning) pRunning = false;
+        if (eRunning) eRunning = false;
         //If it is enemy turn, start their attack
         if (roundOrderTypes[turn] == "Enemy")
         {
