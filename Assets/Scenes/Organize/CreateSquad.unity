@@ -2287,6 +2287,18 @@ MonoBehaviour:
   - {fileID: 161280059}
   - {fileID: 1016431555}
   - {fileID: 1506920199}
+  totalSlots:
+  - {fileID: 1048798027}
+  - {fileID: 469339005}
+  - {fileID: 793087384}
+  - {fileID: 853755508}
+  - {fileID: 304713793}
+  - {fileID: 891539766}
+  - {fileID: 1246635156}
+  - {fileID: 936611700}
+  - {fileID: 161280059}
+  - {fileID: 1016431555}
+  - {fileID: 1506920199}
   slots:
   - name: 
     maxHP: 0

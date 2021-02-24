@@ -12,6 +12,7 @@ public class CreateManager : MonoBehaviour
 
     public List<GameObject> normalSlots; // Squad gameobjects for normal characters
     public List<GameObject> bigSlots; // Squad gameobjects for big characters
+    public List<GameObject> totalSlots;
     public List<Beast> slots; // Beasts that are in the squad slots
 
     public GameObject cancelButton;
@@ -60,7 +61,6 @@ public class CreateManager : MonoBehaviour
                 go.SetActive(true);
             }
 
-            print(slots[8] + " slot 9" + slots[9] + " slot 10" + slots[10] + " slot 11");
             if (slots[8].speed != 0)
             {
                 normalSlots[0].SetActive(false);
@@ -91,15 +91,15 @@ public class CreateManager : MonoBehaviour
                 go.SetActive(true);
             }
 
-            if (slots[0].speed != 0 || slots[1].speed != 0 || slots[4].speed != 0 || slots[5].speed != 0)
+            if (slots[0].speed != 0 || slots[1].speed != 0 || slots[4].speed != 0 || slots[5].speed != 0 || slots[9].speed != 0)
             {
                 bigSlots[0].SetActive(false);
             }
-            if (slots[1].speed != 0 || slots[2].speed != 0 || slots[5].speed != 0 || slots[6].speed != 0)
+            if (slots[1].speed != 0 || slots[2].speed != 0 || slots[5].speed != 0 || slots[6].speed != 0 || slots[8].speed != 0 || slots[10].speed != 0)
             {
                 bigSlots[1].SetActive(false);
             }
-            if (slots[2].speed != 0 || slots[3].speed != 0 || slots[6].speed != 0 || slots[7].speed != 0)
+            if (slots[2].speed != 0 || slots[3].speed != 0 || slots[6].speed != 0 || slots[7].speed != 0 || slots[9].speed != 0)
             {
                 bigSlots[2].SetActive(false);
             }
@@ -180,7 +180,6 @@ public class CreateManager : MonoBehaviour
         }
         else if(selected.size == 1)
         {
-            print(selectedSlotID);
             GameObject.Find("BigSlot" + (selectedSlotID - normalSlots.Count).ToString()).GetComponent<SlotSelect>().RemoveImage();
         }
         slots[selectedSlotID - 1] = null;
