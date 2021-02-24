@@ -18,22 +18,9 @@ public class LoadSquads : MonoBehaviour
     public Text squad1Text;
     public Text squad2Text;
 
-    public List<string> summonedNames = new List<string>();
-
     // Start is called before the first frame update
     void Start()
     {
-        BeastList bl = BeastManager.beastsList;
-
-        for (int x = 0; x < bl.Beasts.Count; x++)
-        {
-            bl.Beasts[x].setAttacks();
-            if (bl.Beasts[x].tier > 0)
-            {
-                summonedNames.Add(bl.Beasts[x].name);
-            }
-        }
-
         foreach (GameObject slot in squad1Slots)
         {
             slot.SetActive(false);
@@ -66,12 +53,31 @@ public class LoadSquads : MonoBehaviour
         {
             S1S[x % 11].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
 
-            print(x);
             if (toLoad[x] != null)
             {
+                print("beast name " + toLoad[x].name);
 
-                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + summonedNames[x]));
-                beastPrefab.transform.SetParent(GameObject.Find("Slot" + (x % 11 + 1)).transform);
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + toLoad[x].name));
+
+                print("beast name " + beastPrefab);
+
+                if (x < 8)
+                {
+                    double slotNumber = (x % 8 + 1) * 0.1;
+                    string[] slotNumberString = slotNumber.ToString().Split('.');
+
+                    print("Slot" + slotNumberString[1]);
+
+                    beastPrefab.transform.SetParent(GameObject.Find("Slot" + slotNumberString[1]).transform);
+                }
+                else
+                {
+                    double slotNumber = (x % 3) + 1 * 0.1;
+                    string[] slotNumberString = slotNumber.ToString().Split('.');
+
+                    beastPrefab.transform.SetParent(GameObject.Find("BigSlot" + slotNumberString[1]).transform);
+                }
+                
                 beastPrefab.transform.localPosition = new Vector3(0, 0);
                 beastPrefab.transform.localRotation = Quaternion.identity;
 
@@ -94,8 +100,23 @@ public class LoadSquads : MonoBehaviour
             if (toLoad[x] != null)
             {
 
-                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + summonedNames[x]));
-                beastPrefab.transform.SetParent(GameObject.Find("Slot" + (x % 11 + 1)).transform);
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + toLoad[x].name));
+
+                if (x < 8)
+                {
+                    double slotNumber = (x % 8 + 1) * 0.1;
+                    string[] slotNumberString = slotNumber.ToString().Split('.');
+
+                    beastPrefab.transform.SetParent(GameObject.Find("Slot" + slotNumberString[1]).transform);
+                }
+                else
+                {
+                    double slotNumber = (x % 3) + 1 * 0.1;
+                    string[] slotNumberString = slotNumber.ToString().Split('.');
+
+                    beastPrefab.transform.SetParent(GameObject.Find("BigSlot" + slotNumberString[1]).transform);
+                }
+
                 beastPrefab.transform.localPosition = new Vector3(0, 0);
                 beastPrefab.transform.localRotation = Quaternion.identity;
 
