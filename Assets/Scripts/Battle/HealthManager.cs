@@ -65,7 +65,6 @@ public class HealthManager : MonoBehaviour
             if (players[x] != null)
             {
                 playersLeft++;
-                print(players.Count + " players" + activePlayersHealth.Count + " active players");
                 activePlayersHealth[x].SetMaxHealth(players[x].maxHP);
                 playerHealths[x].text = players[x].maxHP.ToString();
             }
@@ -134,7 +133,6 @@ public class HealthManager : MonoBehaviour
                 }
             }
         }
-        print("end of healthman 133");
     }
 
     //Displays the damage output
@@ -269,7 +267,6 @@ public class HealthManager : MonoBehaviour
     //Collect rewards after winning a battle.
     public void onCollect()
     {
-        victoryScreen.SetActive(false);
         Player.summoner.addXP((battleManager.enemySummoner.getLevel()/Player.summoner.getLevel())*(battleManager.enemySummoner.xp/5));
         StartCoroutine(LoadMap());
     }
@@ -277,7 +274,8 @@ public class HealthManager : MonoBehaviour
     //After 1 second load the Map scene
     IEnumerator LoadMap()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
+        victoryScreen.SetActive(false);
         LoadScenes load = new LoadScenes();
         load.LoadSelect("Map");
     }

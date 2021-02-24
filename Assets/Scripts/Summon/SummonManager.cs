@@ -18,7 +18,6 @@ public class SummonManager : MonoBehaviour
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Summon");
 
 
-
         if (objs.Length > 1)
         {
             // This is very IMPORTANT, it keeps the GameObject value to 1, or else you'll just have multiplying GameObjects every time you re-load the scene
@@ -27,9 +26,6 @@ public class SummonManager : MonoBehaviour
 
         // Allows the keep the GameObject from scene to scene
         DontDestroyOnLoad(this.gameObject);
-
-
-        
 
     }
 

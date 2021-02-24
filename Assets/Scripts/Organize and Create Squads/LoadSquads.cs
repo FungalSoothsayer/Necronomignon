@@ -21,7 +21,7 @@ public class LoadSquads : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach(GameObject slot in squad1Slots)
+        foreach (GameObject slot in squad1Slots)
         {
             slot.SetActive(false);
         }
@@ -51,12 +51,38 @@ public class LoadSquads : MonoBehaviour
 
         for(int x = 0; x < S1S.Count; x++)
         {
-            print(x);
+            S1S[x % 11].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
+
             if (toLoad[x] != null)
             {
-                S1S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
-                    ("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
-                squad1Slots[x].SetActive(true);
+                print("beast name " + toLoad[x].name);
+
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + toLoad[x].name));
+
+                print("beast name " + beastPrefab);
+
+                if (x < 8)
+                {
+                    double slotNumber = (x % 8 + 1) * 0.1;
+                    string[] slotNumberString = slotNumber.ToString().Split('.');
+
+                    print("Slot" + slotNumberString[1]);
+
+                    beastPrefab.transform.SetParent(GameObject.Find("Slot" + slotNumberString[1]).transform);
+                }
+                else
+                {
+                    double slotNumber = (x % 3) + 1 * 0.1;
+                    string[] slotNumberString = slotNumber.ToString().Split('.');
+
+                    beastPrefab.transform.SetParent(GameObject.Find("BigSlot" + slotNumberString[1]).transform);
+                }
+                
+                beastPrefab.transform.localPosition = new Vector3(0, 0);
+                beastPrefab.transform.localRotation = Quaternion.identity;
+
+                Animator animator = beastPrefab.GetComponent<Animator>();
+                animator.enabled = false;
             }
         }
     }
@@ -69,11 +95,33 @@ public class LoadSquads : MonoBehaviour
 
         for (int x = 0; x < S2S.Count; x++)
         {
+            S2S[x % 11].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
+
             if (toLoad[x] != null)
             {
-                S2S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
-                    ("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
-                squad2Slots[x].SetActive(true);
+
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + toLoad[x].name));
+
+                if (x < 8)
+                {
+                    double slotNumber = (x % 8 + 1) * 0.1;
+                    string[] slotNumberString = slotNumber.ToString().Split('.');
+
+                    beastPrefab.transform.SetParent(GameObject.Find("Slot" + slotNumberString[1]).transform);
+                }
+                else
+                {
+                    double slotNumber = (x % 3) + 1 * 0.1;
+                    string[] slotNumberString = slotNumber.ToString().Split('.');
+
+                    beastPrefab.transform.SetParent(GameObject.Find("BigSlot" + slotNumberString[1]).transform);
+                }
+
+                beastPrefab.transform.localPosition = new Vector3(0, 0);
+                beastPrefab.transform.localRotation = Quaternion.identity;
+
+                Animator animator = beastPrefab.GetComponent<Animator>();
+                animator.enabled = false;
             }
         }
     }
