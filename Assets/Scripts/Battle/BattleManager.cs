@@ -28,8 +28,8 @@ public class BattleManager : MonoBehaviour
     public List<Beast> enemies = new List<Beast>();
     public List<Beast> roundOrder = new List<Beast>();
     public List<string> roundOrderTypes = new List<string>();
-    List<Beast> attackPool = new List<Beast>();
-    List<Beast> enemyAttackPool = new List<Beast>();
+    public List<Beast> attackPool = new List<Beast>();
+    public List<Beast> enemyAttackPool = new List<Beast>();
 
     public List<Beast> targets;
     public bool cancelGuard = false;
@@ -1335,5 +1335,29 @@ public class BattleManager : MonoBehaviour
             }
         }
         return b;
+    }
+    public bool isSquadFull(string squad)
+    {
+        if( squad == "Player")
+        {
+            for(int x = 0; x< Values.SMALLSLOT; x++)
+            {
+                if(slots[x] == null || slots[x].speed == 0 || slots[x].hitPoints <= 0)
+                {
+                    return false;
+                }
+            }
+        }
+        else
+        {
+            for (int x = 0; x < Values.SMALLSLOT; x++)
+            {
+                if (enemySlots[x] == null || enemySlots[x].speed == 0 || enemySlots[x].hitPoints <= 0)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

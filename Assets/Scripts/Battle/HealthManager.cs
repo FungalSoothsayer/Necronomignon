@@ -101,7 +101,10 @@ public class HealthManager : MonoBehaviour
                 {
                     Debug.Log(target.name + " is knocked out.");
                     playerHealths[x % squad.Count].gameObject.SetActive(false);
-                    CheckRemainingPlayers();
+                    if (!target.nonCombatant)
+                    {
+                        CheckRemainingPlayers();
+                    }
                     battleManager.RemoveBeast(squad[x % squad.Count]);
                 }
                 else
@@ -124,7 +127,10 @@ public class HealthManager : MonoBehaviour
                 {
                     Debug.Log(target.name + " is knocked out.");
                     enemyHealths[x].gameObject.SetActive(false);
-                    CheckRemainingOpposing();
+                    if (!target.nonCombatant)
+                    {
+                        CheckRemainingOpposing();
+                    }
                     battleManager.RemoveBeast(enemies[x]);
                 }
                 else

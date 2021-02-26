@@ -320,59 +320,6 @@
       }
     },
     {
-      "name": "ClockworkQueen",
-      "maxHP": "78",
-      "defence": "25",
-      "power": "8",
-      "speed": "79",
-      "dexterity": "35",
-      "number_MOVES": "3",
-      "tier": "-1",
-      "size": "0",
-      "cost": "14",
-      "type": "8",
-      "static_img": "ClockworkQueen_Idle_00",
-      "moveA": "16",
-      "moveB": "15",
-      "statGradients": {
-        "hpGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        },
-        "defenceGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        },
-        "powerGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        },
-        "speedGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        },
-        "dexGradient": {
-          "t1": "2",
-          "t2": "3",
-          "t3": "4",
-          "t4": "5",
-          "t5": "6"
-        }
-      }
-    },
-    {
       "name": "DreamSlime",
       "maxHP": "50",
       "defence": "20",
@@ -689,6 +636,60 @@
           "t5": "6"
         }
       }
+    },
+    {
+      "name": "DreamDummy",
+      "maxHP": "5",
+      "defence": "1",
+      "power": "1",
+      "speed": "1",
+      "dexterity": "1",
+      "number_MOVES": "0",
+      "tier": "-2",
+      "size": "0",
+      "cost": "25",
+      "type": "0",
+      "static_img": "DreamSlime_Idle_00",
+      "moveA": "-1",
+      "moveB": "-1",
+      "statGradients": {
+        "hpGradient": {
+          "t1": "0",
+          "t2": "0",
+          "t3": "0",
+          "t4": "0",
+          "t5": "0"
+        },
+        "defenceGradient": {
+          "t1": "0",
+          "t2": "0",
+          "t3": "0",
+          "t4": "0",
+          "t5": "0"
+        },
+        "powerGradient": {
+          "t1": "0",
+          "t2": "0",
+          "t3": "0",
+          "t4": "0",
+          "t5": "0"
+        },
+        "speedGradient": {
+          "t1": "0",
+          "t2": "0",
+          "t3": "0",
+          "t4": "0",
+          "t5": "0"
+        },
+        "dexGradient": {
+          "t1": "0",
+          "t2": "0",
+          "t3": "0",
+          "t4": "0",
+          "t5": "0"
+        }
+      },
+      "nonCombatant" : "true"
     }
   ]
 }
