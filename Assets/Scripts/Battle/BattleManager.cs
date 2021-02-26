@@ -556,14 +556,14 @@ public class BattleManager : MonoBehaviour
         if (turn >= totalMoves - 1)
         {
             PlayAttackAnimation(inFront);
-            if (roundOrderTypes[turn] == "Player")
+            /*if (roundOrderTypes[turn] == "Player")
             {
                 attack.InitiateAttack(currentTurn, targets, inFront, Player.summoner);
             }
             else
             {
                 attack.InitiateAttack(currentTurn, targets, inFront, enemySummoner);
-            }
+            }*/
             GameObject slot = getSlot();
             if (!slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Front") &&
                 !slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Back"))
@@ -937,7 +937,7 @@ public class BattleManager : MonoBehaviour
 
     }
     //gets a random target from the enemy team
-    Beast GetPlayerTarget()
+    public Beast GetPlayerTarget()
     {
         int rand = Random.Range(0, enemyAttackPool.Count);
 
