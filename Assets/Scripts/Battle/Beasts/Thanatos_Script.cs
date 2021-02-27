@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+ 
 public class Thanatos_Script : MonoBehaviour, Parent_Beast
 {
     BattleManager battleManager;
@@ -21,7 +21,7 @@ public class Thanatos_Script : MonoBehaviour, Parent_Beast
         
     }
 
-    public void front_special()
+    public void front_special() 
     {
         
     }

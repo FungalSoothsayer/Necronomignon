@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Dryad_Script : MonoBehaviour, Parent_Beast
 {
     BattleManager battleManager;

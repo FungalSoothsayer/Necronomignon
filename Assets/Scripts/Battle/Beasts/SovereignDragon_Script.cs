@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+ 
 public class SovereignDragon_Script : MonoBehaviour, Parent_Beast
 {
     BattleManager battleManager;
@@ -21,7 +22,7 @@ public class SovereignDragon_Script : MonoBehaviour, Parent_Beast
         
     }
 
-    public void front_special()
+    public void front_special() 
     {
         
     }
