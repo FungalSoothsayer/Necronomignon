@@ -6,6 +6,7 @@ using UnityEngine;
 public class SovereignDragon_Script : MonoBehaviour, Parent_Beast
 {
     BattleManager battleManager;
+    [SerializeField] GameObject frontPrefab;
 
     void Start()
     {
