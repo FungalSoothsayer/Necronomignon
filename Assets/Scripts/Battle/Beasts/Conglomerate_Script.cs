@@ -5,6 +5,7 @@ using UnityEngine;
 public class Conglomerate_Script : MonoBehaviour, Parent_Beast
 {
     BattleManager battleManager;
+    [SerializeField] GameObject backPrefab;
     int currentSlot;
     void Start()
     {
@@ -18,6 +19,7 @@ public class Conglomerate_Script : MonoBehaviour, Parent_Beast
 
     public void back_special()
     {
+        ProjectileAnimation(false);
 
         currentSlot = battleManager.getCurrentBeastSlot();
         battleManager.targets.Clear();
@@ -40,8 +42,17 @@ public class Conglomerate_Script : MonoBehaviour, Parent_Beast
 
     public void front_special()
     {
-       
+        
     }
 
+    void ProjectileAnimation(bool front)
+    {
+        GameObject target = battleManager.getSlot(battleManager.targets[0]);
 
+        GameObject movePrefab = Instantiate(backPrefab);
+        movePrefab.transform.SetParent(target.transform);
+        movePrefab.transform.localPosition = new Vector3(0, 0);
+        movePrefab.transform.localRotation = Quaternion.identity;
+        movePrefab.transform.localScale = new Vector3(50, 50);
+    }
 }
