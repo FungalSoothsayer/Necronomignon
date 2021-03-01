@@ -20,8 +20,8 @@ public class LoadSquads : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        foreach(GameObject slot in squad1Slots)
+    { 
+        foreach (GameObject slot in squad1Slots)
         {
             slot.SetActive(false);
         }
@@ -51,11 +51,19 @@ public class LoadSquads : MonoBehaviour
 
         for(int x = 0; x < S1S.Count; x++)
         {
+            S1S[x].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
+
             if (toLoad[x] != null)
             {
-                S1S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
-                    ("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
                 squad1Slots[x].SetActive(true);
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + toLoad[x].name));
+                beastPrefab.transform.SetParent(GameObject.Find("btnSquad1").transform.GetChild(x).transform);
+                beastPrefab.transform.localPosition = new Vector3(0, 0);
+                beastPrefab.transform.localRotation = Quaternion.identity;
+                beastPrefab.transform.localScale = new Vector3(1.5f, 1.5f);
+
+                Animator animator = beastPrefab.GetComponent<Animator>();
+                animator.enabled = false;
             }
         }
     }
@@ -68,11 +76,19 @@ public class LoadSquads : MonoBehaviour
 
         for (int x = 0; x < S2S.Count; x++)
         {
+            S2S[x].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
+
             if (toLoad[x] != null)
             {
-                S2S[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
-                    ("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
                 squad2Slots[x].SetActive(true);
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + toLoad[x].name));
+                beastPrefab.transform.SetParent(GameObject.Find("btnSquad2").transform.GetChild(x).transform);
+                beastPrefab.transform.localPosition = new Vector3(0, 0);
+                beastPrefab.transform.localRotation = Quaternion.identity;
+                beastPrefab.transform.localScale = new Vector3(1.5f, 1.5f);
+
+                Animator animator = beastPrefab.GetComponent<Animator>();
+                animator.enabled = false;
             }
         }
     }

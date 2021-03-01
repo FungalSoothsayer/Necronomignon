@@ -18,104 +18,10 @@ public class Attack : MonoBehaviour
     float modifier = 1;
     int damage;
 
-    //old method, partially outdated and likely to be deleted
-    [System.ObsoleteAttribute("This is an old method, send your beast as a List<Beast> even if it only contains a single beast", true)]
-    public void InitiateAttack(Beast attacker, Beast target, bool inFront)
-    {
-        print(target);
-        if (beastManager.moveManager.movesList == null)
-        {
-            beastManager.moveManager.start();
-        }
-
-
-        if (attacker != null && target != null && attacker.statusTurns[(int)Beast.types.Water] <=0)
-        {
-            if (attacker.statusTurns[(int)Move.types.Blind] > 0)
-            {
-                int r = UnityEngine.Random.Range(0, 2);
-                if (r > 0)
-                {
-                    print(attacker.name + " was paralyzed and unable to move");
-                    return;
-                }
-            }
-            if (inFront)
-            {
-                if(attacker.Move_A.buff != null)
-                {
-                    target.buffs.Add(new Buff(attacker.Move_A.buff));
-                }
-                if (attacker.Move_A.healing)
-                {
-                    healthManager.heal(target, target.maxHP * ((double)attacker.Move_A.power / 100));
-                    print(attacker.name + " has healed " + target.name);
-                    return;
-                }
-            }
-            else if (!inFront)
-            {
-                if (attacker.Move_B.buff != null)
-                {
-                    target.buffs.Add(new Buff(attacker.Move_B.buff));
-                }
-                if (attacker.Move_B.healing)
-                {
-                    healthManager.heal(target, target.maxHP * ((double)attacker.Move_B.power / 100));
-                    print(attacker.name + " has healed " + target.name);
-                    return;
-                }
-            }
-            if (attacker.speed == 0 || target.speed == 0)
-            {
-                return;
-            }
-            if(attacker.statusTurns[(int)Move.types.Blind] > 0)
-            {
-                print(attacker.name + " attacks blindly");
-            }
-
-            if(attacker.cursed == target)
-            {
-                if (attacker.curse(target))
-                {
-                    print("Doom has consumed " + target.name);
-                    modifier = 1;
-                    if (target.name != "Target")
-                    {
-                        healthManager.UpdateHealth(target, target.maxHP);
-                    }
-                    return;
-                }
-                else
-                {
-                    print("Doom lingers over " + target.name);
-                    modifier = 1;
-                }
-                
-                return;
-            }
-
-            if (!isMiss(attacker, target))
-            {
-                modifier *= isCrit(attacker, target);
-                modifier *= isGuard(attacker, target);
-                checkIfStatus(attacker, target, inFront);
-                CalculateDamage(attacker, target, inFront);
-            }
-        }
-        else if(attacker.statusTurns[(int)Move.types.Sleep] <= 0)
-        {
-            print(attacker.name + " was asleep and unable to move");
-        }
-
-        modifier = 1;
-    }
     //takes all beasts in targets and checks and adds status effects, kills if target is too doomed
     public void InitiateAttack(Beast attacker, List<Beast> targets, bool inFront, Summoner summ)
     {
         summoner = summ;
-        print(attacker.name + "  look here now!");
         if (beastManager.moveManager.movesList == null)
         {
             beastManager.moveManager.start();
@@ -128,17 +34,8 @@ public class Attack : MonoBehaviour
         //running the method for each beast
         foreach (Beast target in targets)
         {
-            print("here is the target "+target);
-            print((attacker != null) +" attacker null");
-            print((target != null) +" target null");
-            print((attacker.speed != 0) + " attacker speed");
-            print((target.speed != 0) + " target speed" );
-            print( (attacker.statusTurns[(int)Move.types.Sleep] <= 0 ) + " sleep" );
-            print((target.hitPoints > 0)+ "target hp");
-            print("IT HAPPENED!!!!!!!!!!");
             if (attacker != null && target != null && attacker.speed != 0 && target.speed != 0 && attacker.statusTurns[(int)Move.types.Sleep] <= 0 && target.hitPoints > 0)
             {
-                print(targets[0].name != "Target");
                 if (targets[0].name != "Target")
                 {
                     if (attacker.statusTurns[(int)Move.types.Paralyze] > 0)
@@ -204,7 +101,6 @@ public class Attack : MonoBehaviour
                 }
                 else if (!isMiss(attacker, target))
                 {
-                    print("didn't miss");
                     //adjusts the modifier for a critical hit
                     modifier *= isCrit(attacker, target);
                     //adjusts the modifier if the attack is blocked
@@ -279,7 +175,7 @@ public class Attack : MonoBehaviour
 
         int rand = UnityEngine.Random.Range(1, 100);
 
-        if(rand < missChance)
+        if(rand < 95)
         {
             print(attacker.name + " attacked " + target.name);
             return false;
@@ -423,12 +319,10 @@ public class Attack : MonoBehaviour
             {
                 if (bu.upBuff)
                 {
-                    print("attacker plus");
                     modifier += modifier * bu.change;
                 }
                 else
                 {
-                    print("attacker minus");
                     modifier *= 1- bu.change;
                 }
             }
@@ -440,12 +334,10 @@ public class Attack : MonoBehaviour
             {
                 if (bu.upBuff)
                 {
-                    print("target plus");
                     modifier *= bu.change;
                 }
                 else
                 {
-                    print("target minus");
                     modifier = modifier * bu.change;
                 }
             }
@@ -484,7 +376,6 @@ public class Attack : MonoBehaviour
         else
         {
             battleManager.PlayDamagedAnimation(target);
-            battleManager.PlayAttackAnimation(inFront);
             healthManager.UpdateHealth(target, damage);
         }
 

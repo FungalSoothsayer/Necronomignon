@@ -50,6 +50,10 @@ public class CheckLevel : MonoBehaviour
         {
             GameObject.Find("btnLevel9").SetActive(false);
         }
+        if (LevelChecker.levels < 9)
+        {
+            GameObject.Find("btnLevel10").SetActive(false);
+        }
     }
     //sends a string that represents which beasts should be sent as the enemy squad in mission list
     public void sendString(string str)
@@ -64,7 +68,6 @@ public class CheckLevel : MonoBehaviour
     }
     public void setCurrentLevel(int level)
     {
-        print(lvl);
         lvl = level;
         if (ConversationManager.Instance != null)
         {

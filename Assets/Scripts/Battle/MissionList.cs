@@ -227,23 +227,27 @@ public class MissionList : MonoBehaviour
         if (mission == "random")
         {
             List<int> beast = new List<int>();
-
+            int beastCost = 0;
             int ran = -1;
 
-            while (beast.Count < Values.SQUADMAX)
+            while (beastCost < Values.TOTAL_BEAST_COST-Values.BEAST_COST_MIN)
             {
                 //randomly picks a beast based on it's number in the list
                 while (beast.Contains(ran) || ran == -1)
                 {
                     ran = Random.Range(0, BeastManager.beastsList.Beasts.Count);
                 }
-                beast.Add(ran);
+               /* if (beastCost + BeastManager.beastsList.Beasts[ran].cost <= Values.TOTAL_BEAST_COST)
+                {
+                   */ beastCost += BeastManager.beastsList.Beasts[ran].cost;
+                    beast.Add(ran);/*
+                }*/
             }
 
-            beast.Add(-1);
-            beast.Add(-1);
-            beast.Add(-1);
-            beast.Add(-1);
+            while(beast.Count < Values.SQUADMAX)
+            {
+                beast.Add(-1);
+            }
 
             ran = -1;
 
@@ -547,23 +551,83 @@ public class MissionList : MonoBehaviour
             int ran =  Random.Range(0, BeastManager.beastsList.Beasts.Count);
             Beast b = BeastManager.getFromNameS(BeastManager.beastsList.Beasts[ran].name);
             b.size = 1;
-            b.maxHP *= 4;
-            b.power *= 4;
-            b.defence *= 4;
+            b.setTierLower(4);
+            b.maxHP *= 6;
+            b.power *= 6;
+            b.defence *= 6;
             enemies.Add(null);
             enemies.Add(b);
             enemies.Add(null);
 
             summoner.xp = 2000;
+            //summoner.addXP(Player.summoner.xp*4);
+        }
+        else if(mission == "even")
+        {
+            List<int> beast = new List<int>();
+            int beastCost = 0;
+            int ran = -1;
+
+            while (beastCost < Values.TOTAL_BEAST_COST)
+            {
+                //randomly picks a beast based on it's number in the list
+                while (beast.Contains(ran) || ran == -1)
+                {
+                    ran = Random.Range(0, BeastManager.beastsList.Beasts.Count);
+                }
+                beast.Add(ran);
+                beastCost += BeastManager.beastsList.Beasts[ran].cost;
+            }
+
+            while (beast.Count < Values.SQUADMAX)
+            {
+                beast.Add(-1);
+            }
+
+            ran = -1;
+
+            List<int> position = new List<int>();
+
+            while (enemies.Count < Values.SMALLSLOT)
+            {
+                //loops random numbers that will go on to assign a slot to each beast
+                while (position.Contains(ran) || ran == -1)
+                {
+                    ran = Random.Range(0, Values.SMALLSLOT);
+                }
+
+                position.Add(ran);
+
+                if (beast[ran] < 0)
+                {
+                    enemies.Add(null);
+                }
+                else
+                {
+                    enemies.Add(beastManager.getFromName(BeastManager.beastsList.Beasts[beast[ran]].name));
+                }
+            }
+            foreach (Beast b in enemies)
+            {
+                if (b != null)
+                {
+                    b.setTierLower(3);
+                }
+            }
+            enemies.Add(null);
+            enemies.Add(null);
+            enemies.Add(null);
+            summoner.xp = Player.summoner.xp;
         }
         if (Player.RedRoach)
         {
-            summoner.xp *= 4;
+            //summoner.xp *= 3;
+            summoner.xp = (int)Mathf.Pow(summoner.xp, 1.7f);
             foreach (Beast be in enemies)
             {
                 if (be != null)
                 {
-                    be.setTierUpper(5);
+                    be.setTierLower(5);
                 }
             }
         }

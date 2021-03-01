@@ -17,6 +17,11 @@ public class Summoner
 
     public void addXP(int newxp)
     {
+        if(newxp < 1)
+        {
+            xp++;
+            return;
+        }
         xp += newxp;
         updateLevel();
     }
@@ -36,5 +41,10 @@ public class Summoner
                 break;
             }
         }
+    }
+
+    public static int xpForLevel(int x)
+    {
+        return (int)Math.Round((4 * (Math.Pow((double)x, (double)3))) / 5);
     }
 }

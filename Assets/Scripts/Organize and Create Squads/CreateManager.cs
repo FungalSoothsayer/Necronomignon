@@ -12,18 +12,20 @@ public class CreateManager : MonoBehaviour
 
     public List<GameObject> normalSlots; // Squad gameobjects for normal characters
     public List<GameObject> bigSlots; // Squad gameobjects for big characters
+    public List<GameObject> totalSlots;
     public List<Beast> slots; // Beasts that are in the squad slots
 
     public GameObject cancelButton;
     public GameObject removeButton;
     public GameObject moveDescription;
     public Text description;
+    [SerializeField] Text totalBeastCostText;
     public Beast selected;
     public int selectedIndex;
     public bool canBePlaced = true;
     public bool placing = false;
     public bool moving = false;
-    public int placed = 0;
+    public int totalCost = 0;
     public int selectedSlotID;
     public bool saveMode = false;
 
@@ -59,7 +61,6 @@ public class CreateManager : MonoBehaviour
                 go.SetActive(true);
             }
 
-            print(slots[8] + " slot 9" + slots[9] + " slot 10" + slots[10] + " slot 11");
             if (slots[8].speed != 0)
             {
                 normalSlots[0].SetActive(false);
@@ -90,15 +91,15 @@ public class CreateManager : MonoBehaviour
                 go.SetActive(true);
             }
 
-            if (slots[0].speed != 0 || slots[1].speed != 0 || slots[4].speed != 0 || slots[5].speed != 0)
+            if (slots[0].speed != 0 || slots[1].speed != 0 || slots[4].speed != 0 || slots[5].speed != 0 || slots[9].speed != 0)
             {
                 bigSlots[0].SetActive(false);
             }
-            if (slots[1].speed != 0 || slots[2].speed != 0 || slots[5].speed != 0 || slots[6].speed != 0)
+            if (slots[1].speed != 0 || slots[2].speed != 0 || slots[5].speed != 0 || slots[6].speed != 0 || slots[8].speed != 0 || slots[10].speed != 0)
             {
                 bigSlots[1].SetActive(false);
             }
-            if (slots[2].speed != 0 || slots[3].speed != 0 || slots[6].speed != 0 || slots[7].speed != 0)
+            if (slots[2].speed != 0 || slots[3].speed != 0 || slots[6].speed != 0 || slots[7].speed != 0 || slots[9].speed != 0)
             {
                 bigSlots[2].SetActive(false);
             }
@@ -114,10 +115,15 @@ public class CreateManager : MonoBehaviour
         {
             if (selected.name.Equals(createPoolLoader.summoned[x].name))
             {
-                description.GetComponent<Text>().text = "\n\nIn the front row \n" + selected.Move_A.description +
-                    "\n\nIn the back row \n" + selected.Move_B.description;
+                description.GetComponent<Text>().text = "\nIn the front row \n" + selected.Move_A.description +
+                    "\n\nIn the back row \n" + selected.Move_B.description + "\n\nCost = " + selected.cost;
             }
         }
+    }
+
+    public void UpdateTotalBeastCost()
+    {
+        totalBeastCostText.text = "Team cost = " + totalCost + " / " + Values.TOTAL_BEAST_COST;
     }
 
     // Sets all slots that do not have a beast placed in them to inactive
@@ -168,7 +174,14 @@ public class CreateManager : MonoBehaviour
     // Removes image from a slot
     public void RemoveImage()
     {
-        GameObject.Find("Slot" + selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
+        if (selected.size == 0)
+        {
+            GameObject.Find("Slot" + selectedSlotID).GetComponent<SlotSelect>().RemoveImage();
+        }
+        else if(selected.size == 1)
+        {
+            GameObject.Find("BigSlot" + (selectedSlotID - normalSlots.Count).ToString()).GetComponent<SlotSelect>().RemoveImage();
+        }
         slots[selectedSlotID - 1] = null;
     }
 
@@ -185,9 +198,10 @@ public class CreateManager : MonoBehaviour
         }
         slots[selectedSlotID - 1] = new Beast();
 
+        totalCost -= selected.cost;
+        UpdateTotalBeastCost();
         selected = null;
         selectedIndex = -1;
-        placed -= 1;
         CheckPlaceable();
         moving = false;
         TurnOffSlots();
@@ -197,13 +211,13 @@ public class CreateManager : MonoBehaviour
     // Checks to see if any more beasts can be placed
     public void CheckPlaceable()
     {
-        if(placed >= Values.SQUADMAX)
+        if(totalCost < Values.TOTAL_BEAST_COST)
         {
-            canBePlaced = false;
+            canBePlaced = true;
         }
         else
         {
-            canBePlaced = true;
+            canBePlaced = false;
         }
     }
 }

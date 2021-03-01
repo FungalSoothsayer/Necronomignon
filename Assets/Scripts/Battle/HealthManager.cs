@@ -15,7 +15,7 @@ public class HealthManager : MonoBehaviour
     public BattleManager battleManager;
     public LevelChecker levelChecker;
 
-    public int playersLeft = Values.SQUADMAX;
+    public int playersLeft = 0;
     public int enemiesLeft = 0;
 
     List<HealthBar> playerHealthBars = new List<HealthBar>();
@@ -64,13 +64,9 @@ public class HealthManager : MonoBehaviour
         {
             if (players[x] != null)
             {
-                print(players.Count + " players" + activePlayersHealth.Count + " active players");
+                playersLeft++;
                 activePlayersHealth[x].SetMaxHealth(players[x].maxHP);
                 playerHealths[x].text = players[x].maxHP.ToString();
-            }
-            else
-            {
-                playersLeft--;
             }
         }
         for(int x = 0; x< activeEnemiesHealth.Count; x++)
@@ -211,6 +207,7 @@ public class HealthManager : MonoBehaviour
         if (playersLeft <= 0)
         {
             Debug.Log("Opposing Team Wins. Better Luck Next Time.");
+            Player.summoner.addXP(battleManager.enemySummoner.xp/50);
             StartCoroutine(LoadMap());
         }
     }
@@ -250,8 +247,10 @@ public class HealthManager : MonoBehaviour
 
     // Updates xp bar and text
     private void UpdateXpBar()
-    {
-        xpText.text = "XP Gained: " + battleManager.enemySummoner.xp / 2;
+    {   
+        int xp = (int)Mathf.Round(battleManager.enemySummoner.getLevel() / Player.summoner.getLevel() * (battleManager.enemySummoner.xp / 5));
+        if (xp < 1) xp = 1;
+        xpText.text = "XP Gained: " + xp;
         xpSlider.maxValue = Player.summoner.xpNeeded;
         xpSlider.value = Player.summoner.xp;
         Player.summoner.updateLevel();
@@ -268,15 +267,15 @@ public class HealthManager : MonoBehaviour
     //Collect rewards after winning a battle.
     public void onCollect()
     {
-        victoryScreen.SetActive(false);
-        Player.summoner.addXP(battleManager.enemySummoner.xp/2);
+        Player.summoner.addXP((battleManager.enemySummoner.getLevel()/Player.summoner.getLevel())*(battleManager.enemySummoner.xp/5));
         StartCoroutine(LoadMap());
     }
 
     //After 1 second load the Map scene
     IEnumerator LoadMap()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
+        victoryScreen.SetActive(false);
         LoadScenes load = new LoadScenes();
         load.LoadSelect("Map");
     }

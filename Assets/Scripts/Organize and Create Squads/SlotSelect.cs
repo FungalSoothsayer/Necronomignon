@@ -59,10 +59,21 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 if (createPoolLoader.summonedNames[x].Equals(createManager.selected.name))
                 {
-                    gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load
-                        ("Animations/" + createPoolLoader.summonedNames[x] + "/" + createPoolLoader.summonedNames[x] + "_Controller") 
-                        as RuntimeAnimatorController;
-                    gameObject.GetComponent<Image>().color = Color.white;
+                    gameObject.GetComponent<Image>().enabled = false;
+
+                    GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + createManager.selected.name));
+                    if(createManager.selected.size == 0)
+                    {
+                        beastPrefab.transform.SetParent(GameObject.Find("Slot" + slotID).transform);
+                    }
+                    else if(createManager.selected.size == 1)
+                    {
+                        beastPrefab.transform.SetParent(GameObject.Find("BigSlot" + (slotID - 8)).transform);
+                    }
+                    beastPrefab.transform.localPosition = new Vector3(0, 0);
+                    beastPrefab.transform.localRotation = Quaternion.identity;
+
+                    //Change scale too
                 }
             }
 
@@ -73,9 +84,11 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     // Remove the beast's animation from this slot
     public void RemoveImage()
     {
-        gameObject.GetComponent<Animator>().enabled = false;
-        gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Static_Images/Ellipse 1");
-        gameObject.GetComponent<Image>().color = Color.green;
+        gameObject.GetComponent<Image>().enabled = true;
+        foreach(Transform child in gameObject.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
     // Remove the beast from the pool when it is loaded in the squad
@@ -83,7 +96,8 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         int index = createManager.selectedIndex;
 
-        createPoolLoader.slots[index].gameObject.SetActive(false);
+        createPoolLoader.slots[index].enabled = false;
+        createPoolLoader.slots[index].transform.GetChild(0).gameObject.SetActive(false);
         SetSlot();
     }
 
@@ -105,10 +119,10 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         thisBeast = createManager.selected;
         thisBeastIndex = createManager.selectedIndex;
 
-        createManager.placed += 1;
+        createManager.totalCost += thisBeast.cost;
+        createManager.UpdateTotalBeastCost();
         createManager.placing = false;
         createManager.CheckPlaceable();
-        createManager.selected = null;
         createManager.selectedIndex = -1;
         createManager.TurnOffSlots(); 
     }
@@ -137,10 +151,21 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 if (createPoolLoader.summonedNames[x].Equals(createManager.selected.name))
                 {
-                    gameObject.GetComponent<Animator>().runtimeAnimatorController = Resources.Load
-                        ("Animations/" + createPoolLoader.summonedNames[x] + "/" +createPoolLoader.summonedNames[x] + "_Controller")
-                        as RuntimeAnimatorController;
-                    gameObject.GetComponent<Image>().color = Color.white;
+                    gameObject.GetComponent<Image>().enabled = false;
+
+                    GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + createManager.selected.name));
+                    if (createManager.selected.size == 0)
+                    {
+                        beastPrefab.transform.SetParent(GameObject.Find("Slot" + slotID).transform);
+                    }
+                    else if (createManager.selected.size == 1)
+                    {
+                        beastPrefab.transform.SetParent(GameObject.Find("BigSlot" + (slotID - 8)).transform);
+                    }
+                    beastPrefab.transform.localPosition = new Vector3(0, 0);
+                    beastPrefab.transform.localRotation = Quaternion.identity;
+
+                    //Change scale too
                 }
             }
 

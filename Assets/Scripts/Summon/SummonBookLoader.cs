@@ -60,12 +60,86 @@ public class SummonBookLoader : MonoBehaviour
         SortImagesDropdown(sortedBy);
         dropdown.value = sortedBy;
 
-        SetImages();
+        SetBeasts();
     }
 
     //Fill up the image slots with your summoned beasts
-    void SetImages()
+    void SetBeasts()
     {
+        //Destroy old prefabs
+        foreach (Image slot in slots)
+        {
+            foreach (Transform child in slot.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        
+        //Sets prefabs in available spaces 
+        for (int x = 0 + (counter * 6); x < slots.Count + (counter * 6); x++)
+        {
+            
+            if (sorted.Count >= x + 1)
+            {
+                slots[x % 6].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
+                
+                //Prefab setting
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + summonedNames[x]));
+                beastPrefab.transform.SetParent(GameObject.Find($"Slot{(x % 6 + 1)}").transform);
+                beastPrefab.transform.localPosition = new Vector3(0, 0);
+                beastPrefab.transform.localRotation = Quaternion.identity;
+                beastPrefab.transform.localScale = new Vector3(3, 3);
+
+                Animator animator = beastPrefab.GetComponent<Animator>();
+                animator.enabled = false;
+
+                beastTexts[x % 6].GetComponent<Text>().text = summonedNames[x];
+
+                //Make not summoned beasts transparent
+                if (sorted[x].tier <= 0)
+                {
+                    var tempColor = slots[x % 6].color;
+                    tempColor.a = .5f;
+                    slots[x % 6].color = tempColor;
+                }
+                else
+                {
+                    var tempColor = slots[x % 6].color;
+                    tempColor.a = 1f;
+                    slots[x % 6].color = tempColor;
+                }
+
+            }
+            else
+            {
+                slots[x % 6].gameObject.SetActive(false);
+                beastTexts[x % 6].GetComponent<Text>().text = "";
+            }
+        }
+
+
+        // Enables pagination for available beasts in summon 
+        if (counter == 0)
+        {
+            back.SetActive(false);
+        }
+        else if (counter > 0)
+        {
+            back.SetActive(true);
+        }
+        if ((counter * 6) + 6 >= sorted.Count)
+        {
+            forward.SetActive(false);
+        }
+        else if ((counter * 6) + 6 < sorted.Count)
+        {
+            forward.SetActive(true);
+        }
+
+        /* OLD METHOD TO POPULATE SUMMON KEPT FOR REFERENCE
+         * 
+         *
         for (int x = 0 + (counter * 6); x < slots.Count + (counter * 6); x++)
         {
             if (sorted.Count >= x + 1)
@@ -95,24 +169,12 @@ public class SummonBookLoader : MonoBehaviour
                 beastTexts[x % 6].GetComponent<Text>().text = "";
             }
         }
+        *
+        */
 
-        if (counter == 0)
-        {
-            back.SetActive(false);
-        }
-        else if (counter > 0)
-        {
-            back.SetActive(true);
-        }
-        if ((counter * 6) + 6 >= sorted.Count)
-        {
-            forward.SetActive(false);
-        }
-        else if ((counter * 6) + 6 < sorted.Count)
-        {
-            forward.SetActive(true);
-        }
+
     }
+
 
     //Changes Image set & arrow from the Summon Book
     public void Forward()
@@ -138,7 +200,7 @@ public class SummonBookLoader : MonoBehaviour
             counter--;
         }
 
-        SetImages();
+        SetBeasts();
     }
 
     //Loads animation scene if beast is summoned and summon page if it isn't
@@ -218,7 +280,7 @@ public class SummonBookLoader : MonoBehaviour
             }
         }
         
-        SetImages();
+        SetBeasts();
     }
 
     //Sorts the beasts based on their type
@@ -241,7 +303,7 @@ public class SummonBookLoader : MonoBehaviour
             }
         }
 
-        SetImages();
+        SetBeasts();
     }
 
     //Sorts the beasts in alphabetical order
@@ -271,6 +333,7 @@ public class SummonBookLoader : MonoBehaviour
         summonedImages.Sort();
         summonedNames.Sort();
 
-        SetImages();
+        SetBeasts();
     }
+
 }
