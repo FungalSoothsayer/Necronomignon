@@ -19,7 +19,7 @@ public class Conglomerate_Script : MonoBehaviour, Parent_Beast
 
     public void back_special()
     {
-        ProjectileAnimation(false);
+        ProjectileAnimation();
 
         currentSlot = battleManager.getCurrentBeastSlot();
         battleManager.targets.Clear();
@@ -45,7 +45,7 @@ public class Conglomerate_Script : MonoBehaviour, Parent_Beast
         
     }
 
-    void ProjectileAnimation(bool front)
+    void ProjectileAnimation()
     {
         GameObject target = battleManager.getSlot(battleManager.targets[0]);
 

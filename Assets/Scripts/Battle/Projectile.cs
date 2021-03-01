@@ -17,6 +17,13 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         transform.position += shootDir * moveSpeed * Time.deltaTime;
+
+        /*
+        if(transform.position == shootDir)
+        {
+            Destroy(this);
+        }
+        */
     }
 
     public void Setup(Vector3 shootDir)

@@ -30,10 +30,10 @@ public class SovereignDragon_Script : MonoBehaviour, Parent_Beast
 
     public void front_special() 
     {
-        ProjectileAnimation(true);
+        ProjectileAnimation();
     }
 
-    void ProjectileAnimation(bool front)
+    void ProjectileAnimation()
     {
         GameObject player = battleManager.getSlot(battleManager.currentTurn);
         GameObject target = battleManager.getSlot(battleManager.targets[0]);
