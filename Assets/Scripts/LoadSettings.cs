@@ -85,9 +85,14 @@ public class LoadSettings : MonoBehaviour
     public static void setRedRoachAsset() {
         Sprite temp = Resources.Load<Sprite>("Assets/" + (Player.RedRoach? "clicked_button" : "button"));
         Color colorTemp = (Player.RedRoach ? Color.red : new Color(0.9137255f, 0.7098039f, 0.1254902f, 1f));
-        redRoach.image.sprite = temp;
-        redRoach.GetComponentInChildren<Text>().color = colorTemp;
-        Debug.Log("sprite " + temp.name + " color " + colorTemp.ToString());
+        //Solves missing reference exception
+        if(redRoach != null)
+        {
+            redRoach.image.sprite = temp;
+            redRoach.GetComponentInChildren<Text>().color = colorTemp;
+            Debug.Log("sprite " + temp.name + " color " + colorTemp.ToString());
+        }
+        
     }
 
     public void setVolumeSlider() {
