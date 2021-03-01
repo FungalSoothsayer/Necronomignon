@@ -5,7 +5,7 @@ using UnityEngine;
 public class Conglomerate_Script : MonoBehaviour, Parent_Beast
 {
     BattleManager battleManager;
-    int currentSlot;
+    
     void Start()
     {
         GameObject g = GameObject.Find("GameManager");
@@ -18,8 +18,7 @@ public class Conglomerate_Script : MonoBehaviour, Parent_Beast
 
     public void back_special()
     {
-
-        currentSlot = battleManager.getCurrentBeastSlot();
+        int currentSlot = battleManager.getCurrentBeastSlot();
         battleManager.targets.Clear();
         bool front = false;
         Beast enemy = battleManager.GetPlayerTarget();
