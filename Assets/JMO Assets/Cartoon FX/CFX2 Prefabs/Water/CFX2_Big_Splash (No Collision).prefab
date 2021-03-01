@@ -9168,6 +9168,7 @@ GameObject:
   - component: {fileID: 198039942544698878}
   - component: {fileID: 199188810652770198}
   - component: {fileID: 114913718520774464}
+  - component: {fileID: -388609966359737343}
   m_Layer: 0
   m_Name: CFX2_Big_Splash (No Collision)
   m_TagString: Untagged
@@ -13814,6 +13815,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnlyDeactivate: 0
+--- !u!114 &-388609966359737343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687118924408352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4971c0f896b9bf9468fba8da60206f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1947517658076526
 GameObject:
   m_ObjectHideFlags: 0
