@@ -72,8 +72,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                     }
                     beastPrefab.transform.localPosition = new Vector3(0, 0);
                     beastPrefab.transform.localRotation = Quaternion.identity;
-
-                    //Change scale too
+                    beastPrefab.transform.localScale = new Vector3(1f, 1f);
                 }
             }
 
@@ -164,8 +163,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                     }
                     beastPrefab.transform.localPosition = new Vector3(0, 0);
                     beastPrefab.transform.localRotation = Quaternion.identity;
-
-                    //Change scale too
+                    beastPrefab.transform.localScale = new Vector3(1f, 1f);
                 }
             }
 
