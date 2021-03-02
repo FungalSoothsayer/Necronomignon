@@ -37,6 +37,7 @@ public class DreamSlime_Script : MonoBehaviour, Parent_Beast
             }
             battleManager.slots[slot] = BeastManager.getFromNameS("DreamDummy");
             battleManager.attackPool.Add(battleManager.slots[slot]);
+            battleManager.players[slot] = battleManager.slots[slot];
         }
         else if (battleManager.roundOrderTypes[battleManager.turn] == "Enemy" && !battleManager.isSquadFull("Enemy"))
         {
@@ -55,6 +56,7 @@ public class DreamSlime_Script : MonoBehaviour, Parent_Beast
             }
             battleManager.enemySlots[slot] = BeastManager.getFromNameS("DreamDummy");
             battleManager.enemyAttackPool.Add(battleManager.enemySlots[slot]);
+            battleManager.enemies[slot] = battleManager.enemySlots[slot];
         }
     }
 
