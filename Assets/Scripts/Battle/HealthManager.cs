@@ -18,11 +18,13 @@ public class HealthManager : MonoBehaviour
     public int playersLeft = 0;
     public int enemiesLeft = 0;
 
-    List<HealthBar> playerHealthBars = new List<HealthBar>();
-    List<HealthBar> enemyHealthBars = new List<HealthBar>();
+    public List<HealthBar> playerHealthBars = new List<HealthBar>();
+    public List<HealthBar> enemyHealthBars = new List<HealthBar>();
 
     public List<Text> playerHealths = new List<Text>();
+    public List<Text> playerHealthsSaved = new List<Text>();
     public List<Text> enemyHealths = new List<Text>();
+    public List<Text> enemyHealthsSaved = new List<Text>();
 
     List<Beast> squad = new List<Beast>();
     List<Beast> enemies = new List<Beast>();
@@ -34,6 +36,15 @@ public class HealthManager : MonoBehaviour
     //Get the health for each beast in play from BeastDatabase
     public void GetHealth(List<Beast> players, List<Beast> opposing, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth)
     {
+        foreach(Text text in playerHealths)
+        {
+            playerHealthsSaved.Add(text);
+        }
+        foreach (Text text in enemyHealths)
+        {
+            enemyHealthsSaved.Add(text);
+        }
+
         for (int i = 10; i >= 0; i--)
         {
             if (activePlayersHealth[i] == null)
@@ -101,7 +112,10 @@ public class HealthManager : MonoBehaviour
                 {
                     Debug.Log(target.name + " is knocked out.");
                     playerHealths[x % squad.Count].gameObject.SetActive(false);
-                    CheckRemainingPlayers();
+                    if (!target.nonCombatant)
+                    {
+                        CheckRemainingPlayers();
+                    }
                     battleManager.RemoveBeast(squad[x % squad.Count]);
                 }
                 else
@@ -124,7 +138,10 @@ public class HealthManager : MonoBehaviour
                 {
                     Debug.Log(target.name + " is knocked out.");
                     enemyHealths[x].gameObject.SetActive(false);
-                    CheckRemainingOpposing();
+                    if (!target.nonCombatant)
+                    {
+                        CheckRemainingOpposing();
+                    }
                     battleManager.RemoveBeast(enemies[x]);
                 }
                 else
@@ -230,7 +247,7 @@ public class HealthManager : MonoBehaviour
         victoryScreen.SetActive(true);
         for (int x = 0; x < Values.SQUADMAX; x++)
         {
-            if (squad[x] != null)
+            if (squad[x] != null && squad[x].tier != -2)
             {
                 winners[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
                     ("Animations/" + squad[x].name + "/" + squad[x].name + "_Controller") as RuntimeAnimatorController;
