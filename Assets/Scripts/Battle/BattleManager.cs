@@ -450,6 +450,7 @@ public class BattleManager : MonoBehaviour
     {
         bool inFront = this.inFront();
         bool guarded = this.guarded(target);
+        cancelGuard = false;
 
         targets.Clear();
         targets.Add(target);
@@ -1042,7 +1043,7 @@ public class BattleManager : MonoBehaviour
 
         if(roundOrderTypes[turn] != "Player")
         {
-            if (enemiesTurnsTaken.Count() <= 0)
+            if (playersTurnsTaken.Count() <= 0)
             {
                 playersTurnsTaken.Add(0);
                 playersTurnsTaken.Add(0);
