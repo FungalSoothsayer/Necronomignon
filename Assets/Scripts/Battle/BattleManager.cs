@@ -132,7 +132,6 @@ public class BattleManager : MonoBehaviour
                 //totalBeasts--;
             }
         }
-        
 
         for(int x = 0; x < Values.SQUADMAX; x++)
         {

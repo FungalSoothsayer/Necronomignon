@@ -36,15 +36,24 @@ public class DreamSlime_Script : MonoBehaviour, Parent_Beast
                 }
             }
             battleManager.slots[slot] = BeastManager.getFromNameS("DreamDummy");
+            battleManager.slots[slot].hitPoints = battleManager.slots[slot].maxHP;
             battleManager.attackPool.Add(battleManager.slots[slot]);
-            battleManager.players[slot] = battleManager.slots[slot];
+            for (int x = 0; x < battleManager.players.Count; x++)
+            {
+                if (battleManager.players[x] == null || battleManager.players[x].speed == 0 || battleManager.players[x].hitPoints <= 0)
+                {
+                    battleManager.players[x] = battleManager.slots[slot];
+                    battleManager.playersActive[x] = true;
+                    break;
+                }
+            }
         }
         else if (battleManager.roundOrderTypes[battleManager.turn] == "Enemy" && !battleManager.isSquadFull("Enemy"))
         {
             while (slot == -1)
             {
                 ran = Random.Range(0, Values.SMALLSLOT);
-                if (battleManager.slots[ran] == null || battleManager.slots[ran].speed == 0 || battleManager.slots[ran].hitPoints <= 0)
+                if (battleManager.enemySlots[ran] == null || battleManager.enemySlots[ran].speed == 0 || battleManager.enemySlots[ran].hitPoints <= 0)
                 {
                     battleManager.enemyPadSlots[ran].transform.gameObject.SetActive(true);
                     GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + "DreamSlime"));
@@ -55,8 +64,17 @@ public class DreamSlime_Script : MonoBehaviour, Parent_Beast
                 }
             }
             battleManager.enemySlots[slot] = BeastManager.getFromNameS("DreamDummy");
+            battleManager.enemySlots[slot].hitPoints = battleManager.enemySlots[slot].maxHP;
             battleManager.enemyAttackPool.Add(battleManager.enemySlots[slot]);
-            battleManager.enemies[slot] = battleManager.enemySlots[slot];
+            for (int x = 0; x < battleManager.enemies.Count; x++)
+            {
+                if (battleManager.enemies[x] == null || battleManager.enemies[x].speed == 0 || battleManager.enemies[x].hitPoints <= 0)
+                {
+                    battleManager.enemies[x] = battleManager.enemySlots[slot];
+                    battleManager.enemiesActive[x] = true;
+                    break;
+                }
+            }
         }
     }
 
