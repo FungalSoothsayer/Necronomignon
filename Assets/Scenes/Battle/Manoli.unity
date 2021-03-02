@@ -17664,6 +17664,10 @@ MonoBehaviour:
   enemies: []
   roundOrder: []
   roundOrderTypes: []
+  attackPool: []
+  enemyAttackPool: []
+  targets: []
+  cancelGuard: 0
   turn: 0
   currentTurn:
     name: 
@@ -17751,6 +17755,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   selectedEnemy:
@@ -17839,6 +17844,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   selectedFriend:
@@ -17927,6 +17933,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 0000000000000000000000000000000000000000000000000000000000000000
     curseCharge: 0
   orderBar:
@@ -18026,6 +18033,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -18113,6 +18121,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -18200,6 +18209,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -18287,6 +18297,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -18374,6 +18385,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -18461,6 +18473,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -18548,6 +18561,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -18635,6 +18649,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -18722,6 +18737,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -18809,6 +18825,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -18896,6 +18913,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   playersActive: 01010101
@@ -18971,6 +18989,30 @@ MonoBehaviour:
   - {fileID: 83045567}
   - {fileID: 495753444}
   - {fileID: 1528890809}
+  playerDisplaySlots:
+  - {fileID: 208849505}
+  - {fileID: 1003606193}
+  - {fileID: 790610805}
+  - {fileID: 1020771645}
+  - {fileID: 890143557}
+  - {fileID: 550778064}
+  - {fileID: 160820008}
+  - {fileID: 1038081979}
+  - {fileID: 541965668}
+  - {fileID: 172410456}
+  - {fileID: 1929954897}
+  enemyDisplaySlots:
+  - {fileID: 334927421}
+  - {fileID: 439962229}
+  - {fileID: 1181405122}
+  - {fileID: 1588553021}
+  - {fileID: 1372576418}
+  - {fileID: 1217171339}
+  - {fileID: 94975852}
+  - {fileID: 1394452748}
+  - {fileID: 154272647}
+  - {fileID: 983964749}
+  - {fileID: 493502114}
   playerImgs:
   - {fileID: 631691820}
   - {fileID: 486360955}
@@ -19095,6 +19137,7 @@ MonoBehaviour:
   - {fileID: 1417020698}
   - {fileID: 51326916}
   - {fileID: 1826932611}
+  playerHealthsSaved: []
   enemyHealths:
   - {fileID: 670794152}
   - {fileID: 450600729}

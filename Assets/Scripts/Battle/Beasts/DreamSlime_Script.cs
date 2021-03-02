@@ -5,6 +5,8 @@ using UnityEngine;
 public class DreamSlime_Script : MonoBehaviour, Parent_Beast
 {
     BattleManager battleManager;
+    LoadMission loadMission;
+    HealthManager healthManager;
 
     void Start()
     {
@@ -13,6 +15,8 @@ public class DreamSlime_Script : MonoBehaviour, Parent_Beast
         if (g != null)
         {
             battleManager = g.GetComponent<BattleManager>();
+            loadMission = g.GetComponent<LoadMission>();
+            healthManager = g.GetComponent<HealthManager>();
         }
     }
 
@@ -38,6 +42,18 @@ public class DreamSlime_Script : MonoBehaviour, Parent_Beast
             battleManager.slots[slot] = BeastManager.getFromNameS("DreamDummy");
             battleManager.slots[slot].hitPoints = battleManager.slots[slot].maxHP;
             battleManager.attackPool.Add(battleManager.slots[slot]);
+            loadMission.playerSlot[slot] = (battleManager.slots[slot]);
+            healthManager.playersLeft++;
+
+            //health display
+            loadMission.playerDisplaySlots[slot].gameObject.SetActive(true);
+            loadMission.playerImgs[slot].sprite = Resources.Load<Sprite>("Static_Images/DreamSlime_Idle_00");
+            healthManager.playerHealthBars.Add(loadMission.playerHealthBars[slot]);
+            healthManager.playerHealthBars[healthManager.playerHealthBars.Count - 1].SetMaxHealth(battleManager.slots[slot].maxHP);
+            healthManager.playerHealths.Add(healthManager.playerHealthsSaved[slot]);
+            healthManager.playerHealths[healthManager.playerHealths.Count - 1].gameObject.SetActive(true);
+            healthManager.playerHealths[healthManager.playerHealths.Count - 1].text = battleManager.slots[slot].maxHP.ToString();
+
             for (int x = 0; x < battleManager.players.Count; x++)
             {
                 if (battleManager.players[x] == null || battleManager.players[x].speed == 0 || battleManager.players[x].hitPoints <= 0)

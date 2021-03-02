@@ -18,10 +18,11 @@ public class HealthManager : MonoBehaviour
     public int playersLeft = 0;
     public int enemiesLeft = 0;
 
-    List<HealthBar> playerHealthBars = new List<HealthBar>();
-    List<HealthBar> enemyHealthBars = new List<HealthBar>();
+    public List<HealthBar> playerHealthBars = new List<HealthBar>();
+    public List<HealthBar> enemyHealthBars = new List<HealthBar>();
 
     public List<Text> playerHealths = new List<Text>();
+    public List<Text> playerHealthsSaved = new List<Text>();
     public List<Text> enemyHealths = new List<Text>();
 
     List<Beast> squad = new List<Beast>();
@@ -34,6 +35,11 @@ public class HealthManager : MonoBehaviour
     //Get the health for each beast in play from BeastDatabase
     public void GetHealth(List<Beast> players, List<Beast> opposing, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth)
     {
+        foreach(Text text in playerHealths)
+        {
+            playerHealthsSaved.Add(text);
+        }
+
         for (int i = 10; i >= 0; i--)
         {
             if (activePlayersHealth[i] == null)

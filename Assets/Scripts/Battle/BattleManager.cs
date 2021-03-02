@@ -716,7 +716,7 @@ public class BattleManager : MonoBehaviour
             //loops through the slots until it finds a matching beast to the target
             for (int x = 0; x < enemySlots.Count; x++)
             {
-                if (enemySlots[x] != null && enemySlots[x].name == target.name)
+                if (enemySlots[x] != null && enemySlots[x].Equals(target))
                 {
                     StartCoroutine(ChangeBattleColor(enemyPadSlots[x].transform.GetChild(0).gameObject));
                     enemyPadSlots[x].transform.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("GetHit");
@@ -728,7 +728,7 @@ public class BattleManager : MonoBehaviour
         {
             for (int x = 0; x < slots.Count; x++)
             {
-                if (slots[x] != null && slots[x].name == target.name)
+                if (slots[x] != null && slots[x].Equals(target))
                 {
                     StartCoroutine(ChangeBattleColor(playerPadSlots[x].transform.GetChild(0).gameObject));
                     playerPadSlots[x].transform.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("GetHit");
@@ -1054,8 +1054,8 @@ public class BattleManager : MonoBehaviour
                 if (target.Equals(players[x]))
                 {
                     playersActive[x] = false;
-                    attackPool.Remove(players[x]);
                     loadMission.RemoveImage(players[x], "Player");
+                    attackPool.Remove(players[x]);
                     turn -= playersTurnsTaken[x];
                 }
             }
