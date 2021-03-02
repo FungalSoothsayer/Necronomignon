@@ -28,8 +28,8 @@ public class BattleManager : MonoBehaviour
     public List<Beast> enemies = new List<Beast>();
     public List<Beast> roundOrder = new List<Beast>();
     public List<string> roundOrderTypes = new List<string>();
-    List<Beast> attackPool = new List<Beast>();
-    List<Beast> enemyAttackPool = new List<Beast>();
+    public List<Beast> attackPool = new List<Beast>();
+    public List<Beast> enemyAttackPool = new List<Beast>();
 
     public List<Beast> targets;
     public bool cancelGuard = false;
@@ -132,7 +132,6 @@ public class BattleManager : MonoBehaviour
                 //totalBeasts--;
             }
         }
-        
 
         for(int x = 0; x < Values.SQUADMAX; x++)
         {
@@ -717,7 +716,7 @@ public class BattleManager : MonoBehaviour
             //loops through the slots until it finds a matching beast to the target
             for (int x = 0; x < enemySlots.Count; x++)
             {
-                if (enemySlots[x] != null && enemySlots[x].name == target.name)
+                if (enemySlots[x] != null && enemySlots[x].Equals(target))
                 {
                     StartCoroutine(ChangeBattleColor(enemyPadSlots[x].transform.GetChild(0).gameObject));
                     enemyPadSlots[x].transform.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("GetHit");
@@ -729,7 +728,7 @@ public class BattleManager : MonoBehaviour
         {
             for (int x = 0; x < slots.Count; x++)
             {
-                if (slots[x] != null && slots[x].name == target.name)
+                if (slots[x] != null && slots[x].Equals(target))
                 {
                     StartCoroutine(ChangeBattleColor(playerPadSlots[x].transform.GetChild(0).gameObject));
                     playerPadSlots[x].transform.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("GetHit");
@@ -1055,8 +1054,8 @@ public class BattleManager : MonoBehaviour
                 if (target.Equals(players[x]))
                 {
                     playersActive[x] = false;
-                    attackPool.Remove(players[x]);
                     loadMission.RemoveImage(players[x], "Player");
+                    attackPool.Remove(players[x]);
                     turn -= playersTurnsTaken[x];
                 }
             }
@@ -1184,5 +1183,39 @@ public class BattleManager : MonoBehaviour
             }
         }
         return b;
+    }
+    public bool isSquadFull(string squad)
+    {
+        int y = 0;
+
+        if (squad == "Player")
+        {
+            for (int x = 0; x < Values.SLOTMAX; x++)
+            {
+                if ((slots[x] != null && slots[x].speed != 0 && slots[x].hitPoints > 0) && x < Values.SMALLSLOT)
+                {
+                    y++;
+                }
+                else if ((slots[x] != null && slots[x].speed != 0 && slots[x].hitPoints > 0) && x >= Values.SMALLSLOT)
+                {
+                    y += 4;
+                }
+            }
+        }
+        else
+        {
+            for (int x = 0; x < Values.SLOTMAX; x++)
+            {
+                if ((enemySlots[x] != null && enemySlots[x].speed != 0 && enemySlots[x].hitPoints > 0) && x < Values.SMALLSLOT)
+                {
+                    y++;
+                }
+                else if((enemySlots[x] != null && enemySlots[x].speed != 0 && enemySlots[x].hitPoints > 0) && x >= Values.SMALLSLOT)
+                {
+                    y += 4;
+                }
+            }
+        }
+        return y == 8;
     }
 }

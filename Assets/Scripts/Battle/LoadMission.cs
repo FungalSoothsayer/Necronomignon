@@ -26,6 +26,8 @@ public class LoadMission : MonoBehaviour
     public List<HealthBar> enemyHealthBars;
 
     //Health display images
+    public List<GameObject> playerDisplaySlots;
+    public List<GameObject> enemyDisplaySlots;
     public List<Image> playerImgs;
     public List<Image> enemyImgs;
     public Image playerProfile;
@@ -286,6 +288,7 @@ public class LoadMission : MonoBehaviour
             }
 
         }
+        print("is null");
         return null;
     }
 
