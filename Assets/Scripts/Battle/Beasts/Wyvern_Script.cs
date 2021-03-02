@@ -33,16 +33,21 @@ public class Wyvern_Script : MonoBehaviour, Parent_Beast
 
     void ProjectileAnimation()
     {
-        GameObject player = battleManager.getSlot(battleManager.currentTurn);
         GameObject target = battleManager.getSlot(battleManager.targets[0]);
 
         GameObject movePrefab = Instantiate(backPrefab);
-        movePrefab.transform.SetParent(player.transform);
+        movePrefab.transform.SetParent(target.transform);
         movePrefab.transform.localPosition = new Vector3(0, 0);
         movePrefab.transform.localRotation = Quaternion.identity;
         movePrefab.transform.localScale = new Vector3(50, 50);
 
-        movePrefab.GetComponent<Projectile>().Setup(target.transform.position);
+        StartCoroutine("EndAnimation", movePrefab);
+    }
+
+    IEnumerator EndAnimation(GameObject movePrefab)
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(movePrefab);
     }
 
     //this method finds which targets are availible to a beast using a stab attack

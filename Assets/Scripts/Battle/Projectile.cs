@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private Vector3 shootDir;
-    float moveSpeed = 50f;
+    float moveSpeed = .2f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,16 +18,17 @@ public class Projectile : MonoBehaviour
     {
         transform.position += shootDir * moveSpeed * Time.deltaTime;
 
-        /*
-        if(transform.position == shootDir)
+        // Should destroy when touching the enemy
+        if (transform.position == shootDir)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
-        */
+        
     }
 
     public void Setup(Vector3 shootDir)
     {
         this.shootDir = shootDir;
+        this.shootDir.z = 0;
     }
 }

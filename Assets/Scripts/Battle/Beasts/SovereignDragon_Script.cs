@@ -44,6 +44,6 @@ public class SovereignDragon_Script : MonoBehaviour, Parent_Beast
         movePrefab.transform.localRotation = Quaternion.identity;
         movePrefab.transform.localScale = new Vector3(50, 50);
 
-        movePrefab.GetComponent<Projectile>().Setup(target.transform.position);
+        movePrefab.GetComponent<Projectile>().Setup(target.transform.localPosition);
     }
 }

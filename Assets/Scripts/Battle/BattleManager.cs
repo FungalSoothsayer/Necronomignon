@@ -764,6 +764,9 @@ public class BattleManager : MonoBehaviour
         {
             b = RedRoachEnemyTarget();
         }
+
+        targets.Clear();
+        targets.Add(b);
         return b;
     }
     Beast RedRoachEnemyTarget()

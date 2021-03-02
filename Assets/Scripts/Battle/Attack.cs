@@ -375,6 +375,7 @@ public class Attack : MonoBehaviour
         }
         else
         {
+            battleManager.PlayAttackAnimation(inFront);
             battleManager.PlayDamagedAnimation(target);
             healthManager.UpdateHealth(target, damage);
         }
