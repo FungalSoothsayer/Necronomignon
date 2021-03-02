@@ -24,6 +24,7 @@ public class HealthManager : MonoBehaviour
     public List<Text> playerHealths = new List<Text>();
     public List<Text> playerHealthsSaved = new List<Text>();
     public List<Text> enemyHealths = new List<Text>();
+    public List<Text> enemyHealthsSaved = new List<Text>();
 
     List<Beast> squad = new List<Beast>();
     List<Beast> enemies = new List<Beast>();
@@ -38,6 +39,10 @@ public class HealthManager : MonoBehaviour
         foreach(Text text in playerHealths)
         {
             playerHealthsSaved.Add(text);
+        }
+        foreach (Text text in enemyHealths)
+        {
+            enemyHealthsSaved.Add(text);
         }
 
         for (int i = 10; i >= 0; i--)

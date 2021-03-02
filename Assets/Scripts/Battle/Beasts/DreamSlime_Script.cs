@@ -94,17 +94,17 @@ public class DreamSlime_Script : MonoBehaviour, Parent_Beast
             battleManager.enemySlots[slot] = BeastManager.getFromNameS("DreamDummy");
             battleManager.enemySlots[slot].hitPoints = battleManager.enemySlots[slot].maxHP;
             battleManager.enemyAttackPool.Add(battleManager.enemySlots[slot]);
-            loadMission.playerSlot[slot] = (battleManager.slots[slot]);
-            healthManager.playersLeft++;
+            loadMission.enemySlot[slot] = (battleManager.enemySlots[slot]);
+            healthManager.enemiesLeft++;
 
             //health display
             loadMission.enemyDisplaySlots[slot].gameObject.SetActive(true);
             loadMission.enemyImgs[slot].sprite = Resources.Load<Sprite>("Static_Images/DreamSlime_Idle_00");
             healthManager.enemyHealthBars.Add(loadMission.enemyHealthBars[slot]);
-            healthManager.enemyHealthBars[healthManager.enemyHealthBars.Count - 1].SetMaxHealth(battleManager.slots[slot].maxHP);
-            healthManager.enemyHealths.Add(healthManager.enemyHealths[slot]);
+            healthManager.enemyHealthBars[healthManager.enemyHealthBars.Count - 1].SetMaxHealth(battleManager.enemySlots[slot].maxHP);
+            healthManager.enemyHealths.Add(healthManager.enemyHealthsSaved[slot]);
             healthManager.enemyHealths[healthManager.enemyHealths.Count - 1].gameObject.SetActive(true);
-            healthManager.enemyHealths[healthManager.enemyHealths.Count - 1].text = battleManager.slots[slot].maxHP.ToString();
+            healthManager.enemyHealths[healthManager.enemyHealths.Count - 1].text = battleManager.enemySlots[slot].maxHP.ToString();
             for (int x = 0; x < battleManager.enemies.Count; x++)
             {
                 if (battleManager.enemies[x] == null || battleManager.enemies[x].speed == 0 || battleManager.enemies[x].hitPoints <= 0)
