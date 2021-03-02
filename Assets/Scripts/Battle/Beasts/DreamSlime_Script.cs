@@ -29,14 +29,21 @@ public class DreamSlime_Script : MonoBehaviour, Parent_Beast
             while (slot == -1)
             {
                 ran = Random.Range(0, Values.SMALLSLOT);
-                if(battleManager.slots[ran] == null || battleManager.slots[ran].speed == 0 || battleManager.slots[ran].hitPoints <= 0)
+                if ((battleManager.slots[8] == null || (ran != 0 && ran != 1 && ran != 4 && ran != 5)) &&
+                    (battleManager.slots[9] == null || (ran != 1 && ran != 2 && ran != 5 && ran != 6)) &&
+                    (battleManager.slots[10] == null || (ran != 2 && ran != 3 && ran != 6 && ran != 7)))
                 {
-                    battleManager.playerPadSlots[ran].transform.gameObject.SetActive(true);
-                    GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + "DreamSlime"));
-                    beastPrefab.transform.SetParent(battleManager.playerPadSlots[ran].transform);
-                    beastPrefab.transform.localPosition = new Vector3(0, 0);
-                    beastPrefab.transform.localRotation = Quaternion.identity;
-                    slot = ran;
+
+                    if ((battleManager.slots[ran] == null || battleManager.slots[ran].speed == 0 || battleManager.slots[ran].hitPoints <= 0)
+                        )
+                    {
+                        battleManager.playerPadSlots[ran].transform.gameObject.SetActive(true);
+                        GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + "DreamSlime"));
+                        beastPrefab.transform.SetParent(battleManager.playerPadSlots[ran].transform);
+                        beastPrefab.transform.localPosition = new Vector3(0, 0);
+                        beastPrefab.transform.localRotation = Quaternion.identity;
+                        slot = ran;
+                    }
                 }
             }
             battleManager.slots[slot] = BeastManager.getFromNameS("DreamDummy");
@@ -69,14 +76,19 @@ public class DreamSlime_Script : MonoBehaviour, Parent_Beast
             while (slot == -1)
             {
                 ran = Random.Range(0, Values.SMALLSLOT);
-                if (battleManager.enemySlots[ran] == null || battleManager.enemySlots[ran].speed == 0 || battleManager.enemySlots[ran].hitPoints <= 0)
+                if ((battleManager.enemySlots[8] == null || (ran != 0 && ran != 1 && ran != 4 && ran != 5)) &&
+                    (battleManager.enemySlots[9] == null || (ran != 1 && ran != 2 && ran != 5 && ran != 6)) &&
+                    (battleManager.enemySlots[10] == null || (ran != 2 && ran != 3 && ran != 6 && ran != 7)))
                 {
-                    battleManager.enemyPadSlots[ran].transform.gameObject.SetActive(true);
-                    GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + "DreamSlime"));
-                    beastPrefab.transform.SetParent(battleManager.enemyPadSlots[ran].transform);
-                    beastPrefab.transform.localPosition = new Vector3(0, 0);
-                    beastPrefab.transform.localRotation = Quaternion.identity;
-                    slot = ran;
+                    if (battleManager.enemySlots[ran] == null || battleManager.enemySlots[ran].speed == 0 || battleManager.enemySlots[ran].hitPoints <= 0)
+                    {
+                        battleManager.enemyPadSlots[ran].transform.gameObject.SetActive(true);
+                        GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + "DreamSlime"));
+                        beastPrefab.transform.SetParent(battleManager.enemyPadSlots[ran].transform);
+                        beastPrefab.transform.localPosition = new Vector3(0, 0);
+                        beastPrefab.transform.localRotation = Quaternion.identity;
+                        slot = ran;
+                    }
                 }
             }
             battleManager.enemySlots[slot] = BeastManager.getFromNameS("DreamDummy");

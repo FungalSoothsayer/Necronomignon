@@ -242,7 +242,7 @@ public class HealthManager : MonoBehaviour
         victoryScreen.SetActive(true);
         for (int x = 0; x < Values.SQUADMAX; x++)
         {
-            if (squad[x] != null)
+            if (squad[x] != null && squad[x].tier != -2)
             {
                 winners[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
                     ("Animations/" + squad[x].name + "/" + squad[x].name + "_Controller") as RuntimeAnimatorController;

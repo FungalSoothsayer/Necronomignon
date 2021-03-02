@@ -1186,26 +1186,36 @@ public class BattleManager : MonoBehaviour
     }
     public bool isSquadFull(string squad)
     {
-        if( squad == "Player")
+        int y = 0;
+
+        if (squad == "Player")
         {
-            for(int x = 0; x< Values.SMALLSLOT; x++)
+            for (int x = 0; x < Values.SLOTMAX; x++)
             {
-                if(slots[x] == null || slots[x].speed == 0 || slots[x].hitPoints <= 0)
+                if ((slots[x] != null && slots[x].speed != 0 && slots[x].hitPoints > 0) && x < Values.SMALLSLOT)
                 {
-                    return false;
+                    y++;
+                }
+                else if ((slots[x] != null && slots[x].speed != 0 && slots[x].hitPoints > 0) && x >= Values.SMALLSLOT)
+                {
+                    y += 4;
                 }
             }
         }
         else
         {
-            for (int x = 0; x < Values.SMALLSLOT; x++)
+            for (int x = 0; x < Values.SLOTMAX; x++)
             {
-                if (enemySlots[x] == null || enemySlots[x].speed == 0 || enemySlots[x].hitPoints <= 0)
+                if ((enemySlots[x] != null && enemySlots[x].speed != 0 && enemySlots[x].hitPoints > 0) && x < Values.SMALLSLOT)
                 {
-                    return false;
+                    y++;
+                }
+                else if((enemySlots[x] != null && enemySlots[x].speed != 0 && enemySlots[x].hitPoints > 0) && x >= Values.SMALLSLOT)
+                {
+                    y += 4;
                 }
             }
         }
-        return true;
+        return y == 8;
     }
 }
