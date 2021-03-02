@@ -225,7 +225,7 @@
       "cost": "16",
       "type": "6",
       "static_img": "LuzuriaAngelicus_Idle_00",
-      "moveA": "11",
+      "moveA": "3",
       "moveB": "12",
       "statGradients": {
         "hpGradient": {

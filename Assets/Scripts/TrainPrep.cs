@@ -17,11 +17,6 @@ public class TrainPrep : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        img.GetComponent<Image>().sprite = Resources.Load<Sprite>("Static_Images/" + BeastManager.getFromNameS(SummonManager.name).static_img);
-        name.text = SummonManager.name;
-        */
-
         img.GetComponent<Image>().sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
 
         name.text = SummonManager.name;

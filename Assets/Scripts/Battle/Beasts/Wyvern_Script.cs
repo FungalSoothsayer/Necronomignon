@@ -26,12 +26,13 @@ public class Wyvern_Script : MonoBehaviour, Parent_Beast
     {
         battleManager.targets.Clear();
         battleManager.targets = FindColumnTargets();
+
         battleManager.cancelGuard = true;
     }
 
     //this method finds which targets are availible to a beast using a stab attack
     //it takes into consideration the position of the attacker and the availible targets 
-    List<Beast> FindColumnTargets()
+    public List<Beast> FindColumnTargets()
     {
         int slot = battleManager.getCurrentBeastSlot();
         List<Beast> slots = battleManager.slots;
