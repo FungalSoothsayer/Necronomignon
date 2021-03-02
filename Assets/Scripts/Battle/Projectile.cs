@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private Vector3 shootDir;
-    float moveSpeed = .2f;
+    float moveSpeed = .3f;
 
     // Start is called before the first frame update
     void Start()

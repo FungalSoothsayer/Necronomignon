@@ -36,7 +36,7 @@ public class Kitsune_Script : MonoBehaviour, Parent_Beast
         movePrefab.transform.SetParent(player.transform);
         movePrefab.transform.localPosition = new Vector3(0, 0);
         movePrefab.transform.localRotation = Quaternion.identity;
-        movePrefab.transform.localScale = new Vector3(50, 50);
+        movePrefab.transform.localScale = new Vector3(40, 40);
 
         movePrefab.GetComponent<Projectile>().Setup(target.transform.localPosition);
     }
