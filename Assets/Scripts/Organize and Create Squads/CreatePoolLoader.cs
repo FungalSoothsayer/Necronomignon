@@ -50,17 +50,30 @@ public class CreatePoolLoader : MonoBehaviour
     // Fill up the image slots with your summoned beasts
     void SetImages()
     {
-        for(int x = 0+ (counter * 9); x < slots.Count + (counter * 9); x++)
+        // Destroy old prefabs
+        foreach(Image slot in slots)
         {
+            foreach (Transform child in slot.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        // Populate pool with new prefabs
+        for (int x = 0 + (counter * 9); x < slots.Count + (counter * 9); x++)
+        {
+            slots[x % 9].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
+
             if (summoned.Count >= x + 1 && NotSummoned(x))
             {
-                slots[x % 9].gameObject.SetActive(true);
-                slots[x % 9].sprite = Resources.Load<Sprite>("Static_Images/"+summonedImages[x]);
-            }
-            else
-            {
-                print(x % 9);
-                slots[x % 9].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + summonedNames[x]));
+                beastPrefab.transform.SetParent(GameObject.Find("Pool" + (x % 9 + 1)).transform);
+                beastPrefab.transform.localPosition = new Vector3(0, 0);
+                beastPrefab.transform.localRotation = Quaternion.identity;
+                beastPrefab.transform.localScale = new Vector3(1.5f, 1.5f);
+
+                Animator animator = beastPrefab.GetComponent<Animator>();
+                animator.enabled = false;
             }
         }
 
@@ -103,7 +116,10 @@ public class CreatePoolLoader : MonoBehaviour
             return true;
         }
 
-        Beast beast = summoned[y];
+        Beast beast;
+
+
+        beast = y > 0 && y < summoned.Count ? summoned[y] : null;
 
         if (beast == null)
         {
@@ -143,8 +159,13 @@ public class CreatePoolLoader : MonoBehaviour
 
         if (NotSummoned(index))
         {
-            slots[index].gameObject.SetActive(true);
-            slots[index].sprite = Resources.Load<Sprite>("Static_Images/"+summonedImages[index+(counter*9)]);
+            GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + summonedNames[index + (counter * 9)]));
+            beastPrefab.transform.SetParent(GameObject.Find("Pool" + (index % 9 + 1)).transform);
+            beastPrefab.transform.localPosition = new Vector3(0, 0);
+            beastPrefab.transform.localRotation = Quaternion.identity;
+
+            Animator animator = beastPrefab.GetComponent<Animator>();
+            animator.enabled = false;
         }
     }
 }

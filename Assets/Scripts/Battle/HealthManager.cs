@@ -18,11 +18,13 @@ public class HealthManager : MonoBehaviour
     public int playersLeft = 0;
     public int enemiesLeft = 0;
 
-    List<HealthBar> playerHealthBars = new List<HealthBar>();
-    List<HealthBar> enemyHealthBars = new List<HealthBar>();
+    public List<HealthBar> playerHealthBars = new List<HealthBar>();
+    public List<HealthBar> enemyHealthBars = new List<HealthBar>();
 
     public List<Text> playerHealths = new List<Text>();
+    public List<Text> playerHealthsSaved = new List<Text>();
     public List<Text> enemyHealths = new List<Text>();
+    public List<Text> enemyHealthsSaved = new List<Text>();
 
     List<Beast> squad = new List<Beast>();
     List<Beast> enemies = new List<Beast>();
@@ -34,6 +36,15 @@ public class HealthManager : MonoBehaviour
     //Get the health for each beast in play from BeastDatabase
     public void GetHealth(List<Beast> players, List<Beast> opposing, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth)
     {
+        foreach(Text text in playerHealths)
+        {
+            playerHealthsSaved.Add(text);
+        }
+        foreach (Text text in enemyHealths)
+        {
+            enemyHealthsSaved.Add(text);
+        }
+
         for (int i = 10; i >= 0; i--)
         {
             if (activePlayersHealth[i] == null)
@@ -65,7 +76,6 @@ public class HealthManager : MonoBehaviour
             if (players[x] != null)
             {
                 playersLeft++;
-                print(players.Count + " players" + activePlayersHealth.Count + " active players");
                 activePlayersHealth[x].SetMaxHealth(players[x].maxHP);
                 playerHealths[x].text = players[x].maxHP.ToString();
             }
@@ -102,7 +112,10 @@ public class HealthManager : MonoBehaviour
                 {
                     Debug.Log(target.name + " is knocked out.");
                     playerHealths[x % squad.Count].gameObject.SetActive(false);
-                    CheckRemainingPlayers();
+                    if (!target.nonCombatant)
+                    {
+                        CheckRemainingPlayers();
+                    }
                     battleManager.RemoveBeast(squad[x % squad.Count]);
                 }
                 else
@@ -125,7 +138,10 @@ public class HealthManager : MonoBehaviour
                 {
                     Debug.Log(target.name + " is knocked out.");
                     enemyHealths[x].gameObject.SetActive(false);
-                    CheckRemainingOpposing();
+                    if (!target.nonCombatant)
+                    {
+                        CheckRemainingOpposing();
+                    }
                     battleManager.RemoveBeast(enemies[x]);
                 }
                 else
@@ -134,7 +150,6 @@ public class HealthManager : MonoBehaviour
                 }
             }
         }
-        print("end of healthman 133");
     }
 
     //Displays the damage output
@@ -232,7 +247,7 @@ public class HealthManager : MonoBehaviour
         victoryScreen.SetActive(true);
         for (int x = 0; x < Values.SQUADMAX; x++)
         {
-            if (squad[x] != null)
+            if (squad[x] != null && squad[x].tier != -2)
             {
                 winners[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
                     ("Animations/" + squad[x].name + "/" + squad[x].name + "_Controller") as RuntimeAnimatorController;
@@ -249,8 +264,10 @@ public class HealthManager : MonoBehaviour
 
     // Updates xp bar and text
     private void UpdateXpBar()
-    {
-        xpText.text = "XP Gained: " + battleManager.enemySummoner.xp / 2;
+    {   
+        int xp = (int)Mathf.Round(battleManager.enemySummoner.getLevel() / Player.summoner.getLevel() * (battleManager.enemySummoner.xp / 5));
+        if (xp < 1) xp = 1;
+        xpText.text = "XP Gained: " + xp;
         xpSlider.maxValue = Player.summoner.xpNeeded;
         xpSlider.value = Player.summoner.xp;
         Player.summoner.updateLevel();
@@ -267,7 +284,6 @@ public class HealthManager : MonoBehaviour
     //Collect rewards after winning a battle.
     public void onCollect()
     {
-        victoryScreen.SetActive(false);
         Player.summoner.addXP((battleManager.enemySummoner.getLevel()/Player.summoner.getLevel())*(battleManager.enemySummoner.xp/5));
         StartCoroutine(LoadMap());
     }
@@ -275,7 +291,8 @@ public class HealthManager : MonoBehaviour
     //After 1 second load the Map scene
     IEnumerator LoadMap()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
+        victoryScreen.SetActive(false);
         LoadScenes load = new LoadScenes();
         load.LoadSelect("Map");
     }

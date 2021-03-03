@@ -26,6 +26,8 @@ public class LoadMission : MonoBehaviour
     public List<HealthBar> enemyHealthBars;
 
     //Health display images
+    public List<GameObject> playerDisplaySlots;
+    public List<GameObject> enemyDisplaySlots;
     public List<Image> playerImgs;
     public List<Image> enemyImgs;
     public Image playerProfile;
@@ -119,11 +121,21 @@ public class LoadMission : MonoBehaviour
     {
         for (int x = 0; x < enemyToLoad.Count; x++)
         {
+            enemySlotImg[x].GetComponent<Image>().enabled = false;
+
             if (enemyToLoad[x] != null)
             {
-                enemySlotImg[x].GetComponent<Animator>().runtimeAnimatorController = 
-                    Resources.Load("Animations/" + enemyToLoad[x].name + "/" + enemyToLoad[x].name + "_Controller") as RuntimeAnimatorController;
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + enemyToLoad[x].name));
+                beastPrefab.transform.SetParent(enemySlotImg[x].transform);
+                beastPrefab.transform.localPosition = new Vector3(0, 0);
+                beastPrefab.transform.localRotation = Quaternion.identity;
+                //Change scale too
+
+                
+
+
                 enemyImgs[x].sprite = Resources.Load<Sprite>("Static_Images/" + enemyToLoad[x].static_img);
+
                 enemySlot.Add(enemyToLoad[x]);
                 enemySquad.Add(enemyToLoad[x]);
                 activeEnemiesHealth.Add(enemyHealthBars[x]);
@@ -149,6 +161,7 @@ public class LoadMission : MonoBehaviour
         foreach(Image slot in playerSlotImg)
         {
             slot.gameObject.SetActive(true);
+            slot.enabled = false;
         }
 
         for (int x = 0; x < toLoad.Count; x++)
@@ -157,10 +170,17 @@ public class LoadMission : MonoBehaviour
             {
                 toLoad[x] = null;
             }
+
             if (toLoad[x] != null)
             {
-                playerSlotImg[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animations/" + toLoad[x].name + "/" + toLoad[x].name + "_Controller") as RuntimeAnimatorController;
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + toLoad[x].name));
+                beastPrefab.transform.SetParent(playerSlotImg[x].transform);
+                beastPrefab.transform.localPosition = new Vector3(0, 0);
+                beastPrefab.transform.localRotation = Quaternion.identity;
+                //Change scale too
+
                 playerImgs[x].sprite = Resources.Load<Sprite>("Static_Images/" + toLoad[x].static_img);
+
                 Beast b = new Beast();
                 b = beastManager.getFromName(toLoad[x].name);
                 playerSlot.Add(b);
@@ -194,13 +214,6 @@ public class LoadMission : MonoBehaviour
             //gives the players beasts a boost based on their tier
             if(playerSlot[x] != null)
             {
-                /*playerSlot[x].power += (int)(playerSlot[x].power * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
-                playerSlot[x].defence += (int)(playerSlot[x].defence * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
-                playerSlot[x].speed += (int)(playerSlot[x].speed * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
-                playerSlot[x].dexterity += (int)(playerSlot[x].dexterity * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));
-                playerSlot[x].maxHP += (int)(playerSlot[x].maxHP * (Values.TEIRBOOST * (playerSlot[x].tier - 1)));*/
-
-                
                 playerSlot[x].power += (playerSlot[x].statGradients.powerGradient.getGradient(playerSlot[x].tier)) * (Player.summoner.getLevel() - 1);
                 playerSlot[x].defence += (playerSlot[x].statGradients.defenceGradient.getGradient(playerSlot[x].tier)) * (Player.summoner.getLevel() - 1);
                 playerSlot[x].speed += (playerSlot[x].statGradients.speedGradient.getGradient(playerSlot[x].tier)) * (Player.summoner.getLevel() - 1);
@@ -214,12 +227,6 @@ public class LoadMission : MonoBehaviour
             //gives the players beasts a boost based on their tier
             if (enemySlot[x] != null && enemySlot[x].tier>0)
             {
-                /*enemySlot[x].power += (int)(enemySlot[x].power * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
-                enemySlot[x].defence += (int)(enemySlot[x].defence * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
-                enemySlot[x].speed += (int)(enemySlot[x].speed * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
-                enemySlot[x].dexterity += (int)(enemySlot[x].dexterity * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));
-                enemySlot[x].maxHP += (int)(enemySlot[x].maxHP * (Values.TEIRBOOST * (enemySlot[x].tier - 1)));*/
-
                 enemySlot[x].power += (enemySlot[x].statGradients.powerGradient.getGradient(enemySlot[x].tier)) * (enemySummoner.getLevel() - 1);
                 enemySlot[x].defence += (enemySlot[x].statGradients.defenceGradient.getGradient(enemySlot[x].tier)) * (enemySummoner.getLevel() - 1);
                 enemySlot[x].speed += (enemySlot[x].statGradients.speedGradient.getGradient(enemySlot[x].tier)) * (enemySummoner.getLevel() - 1);
@@ -231,7 +238,6 @@ public class LoadMission : MonoBehaviour
 
         battleManager.SendLists(thisSquad, enemySquad, activePlayersHealth, activeEnemiesHealth, activePlayerDamageBar, activeEnemyDamageBar, enemySummoner);
         battleManager.GetSlots(pb, eb);
-       // battleManager.GetSlots(playerSlot[0], playerSlot[1], playerSlot[2], playerSlot[3], playerSlot[4], playerSlot[5], enemySlot[0], enemySlot[1], enemySlot[2], enemySlot[3], enemySlot[4], enemySlot[5]);
     }
 
     void LoadDisplayPictures()
@@ -246,10 +252,18 @@ public class LoadMission : MonoBehaviour
     {
         return beast.static_img;
     }
+
     //Remove image when beast is knocked out
     public void RemoveImage(Beast toRemove, string owner)
     {
-        GetImageToRemove(toRemove, owner).gameObject.GetComponent<Animator>().SetInteger("Health", 0);
+        GameObject parent = GetImageToRemove(toRemove, owner).gameObject;
+        foreach(Transform child in parent.transform)
+        {
+            if(child.tag == "Prefab")
+            {
+                child.GetComponent<Animator>().SetInteger("Health", 0);
+            }
+        }
         GetHealthDisplayImageToRemove(toRemove, owner).transform.parent.gameObject.SetActive(false);
         StartCoroutine(PlayDeathAnimation(toRemove, owner));
     }
@@ -274,6 +288,7 @@ public class LoadMission : MonoBehaviour
             }
 
         }
+        print("is null");
         return null;
     }
 
@@ -306,6 +321,8 @@ public class LoadMission : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         GetImageToRemove(toRemove, owner).gameObject.SetActive(false);
+        GameObject child = GetImageToRemove(toRemove, owner).transform.GetChild(0).gameObject;
+        Destroy(child);
     }
 
     //Opens give up dialog and pauses the game or resumes the game if the user doesn't give up. 1 stands for resume
@@ -321,9 +338,5 @@ public class LoadMission : MonoBehaviour
             Time.timeScale = 0;
             giveUpDialog.SetActive(true);
         }
-        
-
     }
-
-
 }

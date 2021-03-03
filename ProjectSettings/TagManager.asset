@@ -8,6 +8,7 @@ TagManager:
   - Level
   - Summon
   - settings
+  - Prefab
   layers:
   - Default
   - TransparentFX

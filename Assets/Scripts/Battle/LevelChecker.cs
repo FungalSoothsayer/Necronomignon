@@ -24,7 +24,6 @@ public class LevelChecker : MonoBehaviour
     public void setLastClick(string levelName)
     {
         lastClick = levelName;
-        print(lastClick);
     }
     //unlocks the following level
     public void Progess(string levelName)
