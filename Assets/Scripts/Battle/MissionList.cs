@@ -618,7 +618,7 @@ public class MissionList : MonoBehaviour
                     ran = Random.Range(0, BeastManager.beastsList.Beasts.Count);
                 }
 
-                if (BeastManager.beastsList.Beasts[ran].tier != -2)
+                if (BeastManager.beastsList.Beasts[ran].tier != -2 && BeastManager.beastsList.Beasts[ran].size != 1)
                 {
                     beastCost += BeastManager.beastsList.Beasts[ran].cost;
                     beast.Add(ran);
@@ -626,6 +626,10 @@ public class MissionList : MonoBehaviour
                 else
                 {
                     ran = -1;
+                }
+                if(beastCost + Values.BEAST_COST_MIN > Values.TOTAL_BEAST_COST)
+                {
+                    break;
                 }
             }
 

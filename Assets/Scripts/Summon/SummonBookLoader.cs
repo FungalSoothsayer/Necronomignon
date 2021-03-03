@@ -79,14 +79,14 @@ public class SummonBookLoader : MonoBehaviour
         //Sets prefabs in available spaces 
         for (int x = 0 + (counter * 6); x < slots.Count + (counter * 6); x++)
         {
-            
+            slots[x % 6].gameObject.SetActive(true);
             if (sorted.Count >= x + 1)
             {
                 slots[x % 6].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
                 
                 //Prefab setting
                 GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + summonedNames[x]));
-                beastPrefab.transform.SetParent(GameObject.Find($"Slot{(x % 6 + 1)}").transform);
+                beastPrefab.transform.SetParent(GameObject.Find("Slot" +((x % 6) + 1)).transform);
                 beastPrefab.transform.localPosition = new Vector3(0, 0);
                 beastPrefab.transform.localRotation = Quaternion.identity;
                 beastPrefab.transform.localScale = new Vector3(3, 3);
