@@ -245,6 +245,7 @@ public class HealthManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         victoryScreen.SetActive(true);
+        int unlock = UnityEngine.Random.Range(0,100);
         for (int x = 0; x < Values.SQUADMAX; x++)
         {
             if (squad[x] != null && squad[x].tier != -2)
@@ -258,12 +259,12 @@ public class HealthManager : MonoBehaviour
             }
         }
 
-        UpdateXpBar();
+        UpdateXpBar(unlock <=10);
         StartCoroutine(winnersAnimations());
     }
 
     // Updates xp bar and text
-    private void UpdateXpBar()
+    private void UpdateXpBar(bool specialUnlock)
     {   
         int xp = (int)Mathf.Round(battleManager.enemySummoner.getLevel() / Player.summoner.getLevel() * (battleManager.enemySummoner.xp / 5));
         if (xp < 1) xp = 1;
@@ -271,6 +272,26 @@ public class HealthManager : MonoBehaviour
         xpSlider.maxValue = Player.summoner.xpNeeded;
         xpSlider.value = Player.summoner.xp;
         Player.summoner.updateLevel();
+        if (specialUnlock && BeastManager.getFromNameS("SovereignDragon").tier < 0)
+        {
+            xpText.text += "\n Speacial Unlock:\n SovereignDragon";
+            LevelChecker.unlock("SovereignDragon");
+        }
+        else if (specialUnlock && BeastManager.getFromNameS("Thanatos").tier < 0)
+        {
+            xpText.text += "\n Speacial Unlock:\n Thanatos";
+            LevelChecker.unlock("Thanatos");
+        }
+        else if (specialUnlock && BeastManager.getFromNameS("Nage").tier < 0)
+        {
+            xpText.text += "\n Speacial Unlock:\n Nage";
+            LevelChecker.unlock("Nage");
+        }
+        else if (specialUnlock && BeastManager.getFromNameS("Mandoro").tier < 0)
+        {
+            xpText.text += "\n Speacial Unlock:\n Mandoro";
+            LevelChecker.unlock("Mandoro");
+        }
     }
 
     //Play the 'roaring' animation for the winning team.
