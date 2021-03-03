@@ -557,14 +557,14 @@ public class BattleManager : MonoBehaviour
         if (turn >= totalMoves - 1)
         {
             PlayAttackAnimation(inFront);
-            /*if (roundOrderTypes[turn] == "Player")
+            if (roundOrderTypes[turn] == "Player")
             {
                 attack.InitiateAttack(currentTurn, targets, inFront, Player.summoner);
             }
             else
             {
                 attack.InitiateAttack(currentTurn, targets, inFront, enemySummoner);
-            }*/
+            }
             GameObject slot = getSlot();
             if (!slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Front") &&
                 !slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Back"))
@@ -593,7 +593,6 @@ public class BattleManager : MonoBehaviour
                 StartCoroutine(PlayerAttack());
                 
             }
-            turn = 0;
         }
         else
         {
@@ -1043,12 +1042,12 @@ public class BattleManager : MonoBehaviour
 
         if(roundOrderTypes[turn] != "Player")
         {
-            if (playersTurnsTaken.Count() <= 0)
+            if (playersTurnsTaken.Count < Values.SQUADMAX)
             {
-                playersTurnsTaken.Add(0);
-                playersTurnsTaken.Add(0);
-                playersTurnsTaken.Add(0);
-                playersTurnsTaken.Add(0);
+                while (playersTurnsTaken.Count < Values.SQUADMAX)
+                {
+                    playersTurnsTaken.Add(0);
+                }
             }
             for (int x = 0; x < players.Count; x++)
             {
