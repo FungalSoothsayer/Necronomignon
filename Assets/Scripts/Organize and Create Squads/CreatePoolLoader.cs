@@ -116,7 +116,10 @@ public class CreatePoolLoader : MonoBehaviour
             return true;
         }
 
-        Beast beast = summoned[y];
+        Beast beast;
+
+
+        beast = y > 0 && y < summoned.Count ? summoned[y] : null;
 
         if (beast == null)
         {
