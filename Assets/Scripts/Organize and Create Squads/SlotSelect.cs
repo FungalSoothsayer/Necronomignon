@@ -70,7 +70,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                     {
                         beastPrefab.transform.SetParent(GameObject.Find("BigSlot" + (slotID - 8)).transform);
                     }
-                    beastPrefab.transform.localPosition = new Vector3(0, 0);
+                    beastPrefab.transform.localPosition = new Vector3(-10, -20);
                     beastPrefab.transform.localRotation = Quaternion.identity;
                     beastPrefab.transform.localScale = new Vector3(2f, 2f);
                 }
@@ -96,8 +96,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         int index = createManager.selectedIndex;
 
         createPoolLoader.slots[index].enabled = false;
-        createPoolLoader.slots[index].transform.GetChild(0).gameObject.SetActive(false);
-        Destroy(createPoolLoader.slots[index].transform.GetChild(0).gameObject);
+        GameObject.Find("PoolBeasts").transform.GetChild(index).gameObject.SetActive(false);
         SetSlot();
     }
 
@@ -162,9 +161,9 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                     {
                         beastPrefab.transform.SetParent(GameObject.Find("BigSlot" + (slotID - 8)).transform);
                     }
-                    beastPrefab.transform.localPosition = new Vector3(0, 0);
+                    beastPrefab.transform.localPosition = new Vector3(-10, -20);
                     beastPrefab.transform.localRotation = Quaternion.identity;
-                    beastPrefab.transform.localScale = new Vector3(1f, 1f);
+                    beastPrefab.transform.localScale = new Vector3(2f, 2f);
                 }
             }
 
