@@ -2385,6 +2385,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -2472,6 +2473,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -2559,6 +2561,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -2646,6 +2649,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -2733,6 +2737,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -2820,6 +2825,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -2907,6 +2913,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -2994,6 +3001,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -3081,6 +3089,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -3168,6 +3177,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   - name: 
@@ -3255,6 +3265,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   cancelButton: {fileID: 1538440197}
@@ -3348,6 +3359,7 @@ MonoBehaviour:
         t4: 0
         t5: 0
     buffs: []
+    nonCombatant: 0
     statusTurns: 000000000000000000000000000000000000000000000000
     curseCharge: 0
   selectedIndex: 0

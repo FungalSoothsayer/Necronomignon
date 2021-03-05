@@ -60,7 +60,7 @@ public class CreatePoolLoader : MonoBehaviour
         }
 
         // Populate pool with new prefabs
-        for (int x = 0 + (counter * 9); x < slots.Count + (counter * 9); x++)
+        for (int x =  (counter * 9); x < slots.Count + (counter * 9); x++)
         {
             slots[x % 9].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
 
@@ -116,7 +116,10 @@ public class CreatePoolLoader : MonoBehaviour
             return true;
         }
 
-        Beast beast = summoned[y];
+        Beast beast;
+
+
+        beast = y >= 0 && y < summoned.Count ? summoned[y] : null;
 
         if (beast == null)
         {
