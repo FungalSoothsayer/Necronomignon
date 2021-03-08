@@ -17,16 +17,28 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         transform.position += shootDir * moveSpeed * Time.deltaTime;
-
-        // Should destroy when touching the enemy
-        if (transform.position == shootDir)
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void Setup(Vector3 shootDir)
     {
         this.shootDir = shootDir;
+        transform.eulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(shootDir));
+    }
+
+    float GetAngleFromVectorFloat(Vector3 dir)
+    {
+        dir = dir.normalized;
+        float n = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        if (n < 0) n += 360;
+
+        return n;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.GetComponent<Parent_Beast>() != null)
+        {
+            Destroy(gameObject);
+        }
     }
 }

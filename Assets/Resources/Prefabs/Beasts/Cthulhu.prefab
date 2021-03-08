@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6630872619667330206}
   - component: {fileID: 6630872619667330205}
   - component: {fileID: -3543262246550014899}
+  - component: {fileID: 7417054206687311987}
   m_Layer: 5
   m_Name: Cthulhu
   m_TagString: Prefab
@@ -108,3 +109,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backPrefab: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+--- !u!61 &7417054206687311987
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6630872619667330203}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.832077, y: 15.713333}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 33.229034, y: 30.495453}
+  m_EdgeRadius: 0
