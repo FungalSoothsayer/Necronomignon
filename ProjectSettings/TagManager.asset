@@ -9,6 +9,8 @@ TagManager:
   - Summon
   - settings
   - Prefab
+  - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -18,9 +20,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Projectile
   - 
   - 
   - 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4177045918159278}
   - component: {fileID: 198601255114733596}
   - component: {fileID: 199218836714256136}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CFX4 Stars Outside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4684,7 +4684,7 @@ GameObject:
   - component: {fileID: 4768087405571930}
   - component: {fileID: 198314808193956702}
   - component: {fileID: 199753946071232444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CFX4 Stars Inside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9360,7 +9360,7 @@ GameObject:
   - component: {fileID: -442152681619537993}
   - component: {fileID: 3042039983449203073}
   - component: {fileID: 395464470076925143}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CFX4 Aura Bubble C
   m_TagString: Untagged
   m_Icon: {fileID: 0}

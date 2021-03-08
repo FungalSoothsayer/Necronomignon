@@ -748,6 +748,7 @@ public class BattleManager : MonoBehaviour
     //starts the attacking cycle for the enemy
     IEnumerator EnemyAttack()
     {
+        ChangeSquadLayers();
         eRunning = true;
         yield return new WaitForSeconds(2f);
         if (attackPool.Count > 0)
@@ -950,11 +951,44 @@ public class BattleManager : MonoBehaviour
     //starts the attacking cycle for the player
     IEnumerator PlayerAttack()
     {
+        ChangeSquadLayers();
         pRunning = true;
         yield return new WaitForSeconds(2f);
         //pRunning = false;
         if (enemyAttackPool.Count > 0)
             Attack(selectedEnemy);
+    }
+
+    void ChangeSquadLayers()
+    {
+        if (roundOrderTypes[turn] == "Player")
+        {
+            foreach(Beast b in attackPool)
+            {
+                GameObject slot = getSlot(b);
+                slot.layer = 8;
+            }
+
+            foreach (Beast b in enemyAttackPool)
+            {
+                GameObject slot = getSlot(b);
+                slot.layer = 9;
+            }
+        }
+        else if (roundOrderTypes[turn] == "Enemy")
+        {
+            foreach (Beast b in attackPool)
+            {
+                GameObject slot = getSlot(b);
+                slot.layer = 9;
+            }
+
+            foreach (Beast b in enemyAttackPool)
+            {
+                GameObject slot = getSlot(b);
+                slot.layer = 8;
+            }
+        }
     }
 
     //Get the row to determine whether the current turn beast is using an A move or a B move

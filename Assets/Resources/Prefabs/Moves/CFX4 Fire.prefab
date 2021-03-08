@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 10800000}
   - component: {fileID: 11400000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 400002}
   - component: {fileID: 19800000}
   - component: {fileID: 19900000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CFX4 Sparkles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4660,7 +4660,7 @@ GameObject:
   - component: {fileID: 2983427915505231498}
   - component: {fileID: 6483875188163061450}
   - component: {fileID: 4498536308640171535}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CFX4 Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
