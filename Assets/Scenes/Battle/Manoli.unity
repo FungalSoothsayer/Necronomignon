@@ -4702,7 +4702,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: How much XP is gained.
 --- !u!222 &502773802
@@ -10036,7 +10036,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Victory
 --- !u!222 &1074470857
@@ -19152,6 +19152,7 @@ MonoBehaviour:
   - {fileID: 2144725306}
   - {fileID: 1290436072}
   - {fileID: 1284235552}
+  enemyHealthsSaved: []
   winners:
   - {fileID: 93803183}
   - {fileID: 1343231209}

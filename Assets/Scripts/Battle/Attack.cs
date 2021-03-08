@@ -378,11 +378,12 @@ public class Attack : MonoBehaviour
             battleManager.PlayAttackAnimation(inFront);
             battleManager.PlayDamagedAnimation(target);
             healthManager.UpdateHealth(target, damage);
+            Color type = GetTypeColor(attacker);
+            healthManager.DisplayDamageOutput(target, damage.ToString(), type);
         }
 
         //Change damage output color
-        Color type = GetTypeColor(attacker);
-        healthManager.DisplayDamageOutput(target, damage.ToString(), type);
+        
 
         int rand = UnityEngine.Random.Range(0, 2);
         if (target.statusTurns[(int)Move.types.Sleep] > 0 && rand > 0 && rand<5)

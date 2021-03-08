@@ -21,7 +21,7 @@ public class Conglomerate_Script : MonoBehaviour, Parent_Beast
     {
         ProjectileAnimation();
 
-        currentSlot = battleManager.getCurrentBeastSlot();
+        /*currentSlot = battleManager.getCurrentBeastSlot();
         battleManager.targets.Clear();
         bool front = false;
         Beast enemy = battleManager.GetPlayerTarget();
@@ -37,7 +37,7 @@ public class Conglomerate_Script : MonoBehaviour, Parent_Beast
         {
             battleManager.attack.InitiateAttack(battleManager.currentTurn, battleManager.targets, front, battleManager.enemySummoner);
         }
-
+*/
     }
 
     public void front_special()
