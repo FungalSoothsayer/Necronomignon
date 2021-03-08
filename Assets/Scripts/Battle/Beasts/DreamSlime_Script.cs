@@ -23,8 +23,8 @@ public class DreamSlime_Script : MonoBehaviour, Parent_Beast
     public void back_special()
     {
         int slot = -1;
-        int ran;
-        if (battleManager.roundOrderTypes[battleManager.turn] == "Player" && !battleManager.isSquadFull("Player"))
+        int ran = Random.Range(0, 10);
+        if (ran < 3 && battleManager.roundOrderTypes[battleManager.turn] == "Player" && !battleManager.isSquadFull("Player"))
         {
             while (slot == -1)
             {
@@ -71,7 +71,7 @@ public class DreamSlime_Script : MonoBehaviour, Parent_Beast
                 }
             }
         }
-        else if (battleManager.roundOrderTypes[battleManager.turn] == "Enemy" && !battleManager.isSquadFull("Enemy"))
+        else if (ran < 3 && battleManager.roundOrderTypes[battleManager.turn] == "Enemy" && !battleManager.isSquadFull("Enemy"))
         {
             while (slot == -1)
             {
