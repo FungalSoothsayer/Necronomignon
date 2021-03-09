@@ -236,8 +236,8 @@ public class LoadMission : MonoBehaviour
             eb.Add(enemySlot[x]);
         }
 
-        battleManager.SendLists(thisSquad, enemySquad, activePlayersHealth, activeEnemiesHealth, activePlayerDamageBar, activeEnemyDamageBar, enemySummoner);
         battleManager.GetSlots(pb, eb);
+        battleManager.SendLists(thisSquad, enemySquad, activePlayersHealth, activeEnemiesHealth, activePlayerDamageBar, activeEnemyDamageBar, enemySummoner);
     }
 
     void LoadDisplayPictures()

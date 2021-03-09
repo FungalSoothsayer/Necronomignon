@@ -287,6 +287,7 @@ public class BattleManager : MonoBehaviour
         {
             if (!eRunning && !pRunning)
             {
+                ChangeSquadLayers();
                 StartCoroutine(EnemyAttack());
             }
         }
@@ -294,6 +295,7 @@ public class BattleManager : MonoBehaviour
         {
             if (!eRunning && !pRunning)
             {
+                ChangeSquadLayers();
                 StartCoroutine(PlayerAttack());
             }
         }
@@ -667,7 +669,6 @@ public class BattleManager : MonoBehaviour
                 return enemyPadSlots[x];
             }
         }
-
         return null;
     }
 
@@ -748,7 +749,6 @@ public class BattleManager : MonoBehaviour
     //starts the attacking cycle for the enemy
     IEnumerator EnemyAttack()
     {
-        ChangeSquadLayers();
         eRunning = true;
         yield return new WaitForSeconds(2f);
         if (attackPool.Count > 0)
@@ -951,7 +951,6 @@ public class BattleManager : MonoBehaviour
     //starts the attacking cycle for the player
     IEnumerator PlayerAttack()
     {
-        ChangeSquadLayers();
         pRunning = true;
         yield return new WaitForSeconds(2f);
         //pRunning = false;
@@ -963,13 +962,13 @@ public class BattleManager : MonoBehaviour
     {
         if (roundOrderTypes[turn] == "Player")
         {
-            foreach(Beast b in attackPool)
+            foreach(Beast b in slots)
             {
                 GameObject slot = getSlot(b);
                 slot.layer = 8;
             }
 
-            foreach (Beast b in enemyAttackPool)
+            foreach (Beast b in enemySlots)
             {
                 GameObject slot = getSlot(b);
                 slot.layer = 9;
