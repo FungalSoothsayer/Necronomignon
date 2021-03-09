@@ -155,32 +155,37 @@ public class HealthManager : MonoBehaviour
     //Displays the damage output
     public void DisplayDamageOutput(Beast target, string damage, Color color)
     {
-        GameObject slot = battleManager.getSlot(target);
-        Vector3 location = new Vector3(0, 0);
-
-        if (slot != null) {
-            location = new Vector3(slot.transform.localPosition.x, slot.transform.localPosition.y);
-        }
-
-        if(damage.Equals("MISS!") || damage.Equals("GUARD!"))
+        print(target.name);
+        if (target.name != "Target")
         {
-            location.x -= 25;
-            location.y -= 25;
+            GameObject slot = battleManager.getSlot(target);
+            Vector3 location = new Vector3(0, 0);
+
+            if (slot != null)
+            {
+                location = new Vector3(slot.transform.localPosition.x, slot.transform.localPosition.y);
+            }
+
+            if (damage.Equals("MISS!") || damage.Equals("GUARD!"))
+            {
+                location.x -= 25;
+                location.y -= 25;
+            }
+
+            if (damage.Equals("CRIT!"))
+            {
+                location.x -= 25;
+                location.y -= 50;
+            }
+
+            Transform damagePopup = Instantiate(damageOutputPrefab);
+            damagePopup.transform.SetParent(GameObject.Find("Canvas").transform);
+            damagePopup.localPosition = location;
+            damagePopup.localRotation = Quaternion.identity;
+
+            DamageOutput damageOutput = damagePopup.GetComponent<DamageOutput>();
+            damageOutput.Create(damage, color);
         }
-
-        if (damage.Equals("CRIT!"))
-        {
-            location.x -= 25;
-            location.y -= 50;
-        }
-
-        Transform damagePopup = Instantiate(damageOutputPrefab);
-        damagePopup.transform.SetParent(GameObject.Find("Canvas").transform);
-        damagePopup.localPosition = location;
-        damagePopup.localRotation = Quaternion.identity;
-
-        DamageOutput damageOutput = damagePopup.GetComponent<DamageOutput>();
-        damageOutput.Create(damage, color);
     }
 
     //adds health to the given beast upto the beasts maxHP
@@ -243,7 +248,7 @@ public class HealthManager : MonoBehaviour
     //Display the victory popup with the winning squad and rewards for winning the battle.
     IEnumerator displayVictoryScreen()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
         victoryScreen.SetActive(true);
         int unlock = UnityEngine.Random.Range(0,100);
         for (int x = 0; x < Values.SQUADMAX; x++)
@@ -259,7 +264,7 @@ public class HealthManager : MonoBehaviour
             }
         }
 
-        UpdateXpBar(unlock <=10);
+        UpdateXpBar(unlock <1);
         StartCoroutine(winnersAnimations());
     }
 

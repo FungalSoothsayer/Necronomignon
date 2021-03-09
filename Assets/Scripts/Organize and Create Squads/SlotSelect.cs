@@ -59,7 +59,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 if (createPoolLoader.summonedNames[x].Equals(createManager.selected.name))
                 {
-                    gameObject.GetComponent<Image>().enabled = false;
+                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
 
                     GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + createManager.selected.name));
                     if(createManager.selected.size == 0)
@@ -70,10 +70,10 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                     {
                         beastPrefab.transform.SetParent(GameObject.Find("BigSlot" + (slotID - 8)).transform);
                     }
-                    beastPrefab.transform.localPosition = new Vector3(0, 0);
+                    beastPrefab.transform.localPosition = new Vector3(-10, -30);
                     beastPrefab.transform.localRotation = Quaternion.identity;
-
-                    //Change scale too
+                    beastPrefab.transform.localScale = new Vector3(3f, 3f);
+                    beastPrefab.transform.SetParent(GameObject.Find("SlotBeasts").transform);
                 }
             }
 
@@ -85,9 +85,15 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void RemoveImage()
     {
         gameObject.GetComponent<Image>().enabled = true;
-        foreach(Transform child in gameObject.transform)
+        gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Static_Images/Ellipse 1");
+
+        foreach(Transform child in GameObject.Find("SlotBeasts").transform)
         {
-            Destroy(child.gameObject);
+            if(child.name.Contains(createManager.selected.name))
+            {
+                Destroy(child.gameObject);
+                break;
+            }
         }
     }
 
@@ -97,7 +103,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         int index = createManager.selectedIndex;
 
         createPoolLoader.slots[index].enabled = false;
-        createPoolLoader.slots[index].transform.GetChild(0).gameObject.SetActive(false);
+        GameObject.Find("PoolBeasts").transform.GetChild(index).gameObject.SetActive(false);
         SetSlot();
     }
 
@@ -151,7 +157,7 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 if (createPoolLoader.summonedNames[x].Equals(createManager.selected.name))
                 {
-                    gameObject.GetComponent<Image>().enabled = false;
+                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
 
                     GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + createManager.selected.name));
                     if (createManager.selected.size == 0)
@@ -162,10 +168,10 @@ public class SlotSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                     {
                         beastPrefab.transform.SetParent(GameObject.Find("BigSlot" + (slotID - 8)).transform);
                     }
-                    beastPrefab.transform.localPosition = new Vector3(0, 0);
+                    beastPrefab.transform.localPosition = new Vector3(-10, -30);
                     beastPrefab.transform.localRotation = Quaternion.identity;
-
-                    //Change scale too
+                    beastPrefab.transform.localScale = new Vector3(3f, 3f);
+                    beastPrefab.transform.SetParent(GameObject.Find("SlotBeasts").transform);
                 }
             }
 
