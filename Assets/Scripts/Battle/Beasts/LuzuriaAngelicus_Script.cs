@@ -30,7 +30,7 @@ public class LuzuriaAngelicus_Script : MonoBehaviour, Parent_Beast
         battleManager.targets.Clear();
         battleManager.targets = findRowTargets();
         battleManager.cancelGuard = true;
-        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
+        battleManager.PlayDamagedAnimation(battleManager.targets);
     }
 
     void ProjectileAnimation()
