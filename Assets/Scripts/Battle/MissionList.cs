@@ -191,7 +191,7 @@ public class MissionList : MonoBehaviour
                     b.power = 1;
                 }
             } 
-            while (b.power < 10 || b.name == "DreamSlime" || b.size == 1 || enemies.Contains(b));
+            while (b.power < 10 || b.name == "DreamSlime" || b.size == 1 || enemies.Contains(b) || b.size == 1);
 
             enemies.Add(b);
             enemies.Add(null);
@@ -238,7 +238,7 @@ public class MissionList : MonoBehaviour
                     ran = Random.Range(0, BeastManager.beastsList.Beasts.Count);
                 }
                
-                if (BeastManager.beastsList.Beasts[ran].tier != -2)
+                if (BeastManager.beastsList.Beasts[ran].tier != -2 && BeastManager.beastsList.Beasts[ran].size != 1)
                 {
                     beastCost += BeastManager.beastsList.Beasts[ran].cost;
                     beast.Add(ran);
@@ -305,7 +305,7 @@ public class MissionList : MonoBehaviour
                 {
                     ran = Random.Range(0, BeastManager.beastsList.Beasts.Count);
                 }
-                if (BeastManager.beastsList.Beasts[ran].tier != -2)
+                if (BeastManager.beastsList.Beasts[ran].tier != -2 && BeastManager.beastsList.Beasts[ran].size != 1)
                 {
                     beast.Add(ran);
                 }
