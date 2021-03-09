@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    BattleManager battleManager;
+
     private Vector3 shootDir;
     float moveSpeed = 100f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject g = GameObject.Find("GameManager");
+
+        if (g != null)
+        {
+            battleManager = g.GetComponent<BattleManager>();
+        }
     }
 
     // Update is called once per frame
@@ -39,6 +46,7 @@ public class Projectile : MonoBehaviour
         if(collision.GetComponent<Parent_Beast>() != null)
         {
             Destroy(gameObject);
+            collision.gameObject.GetComponent<Animator>().SetTrigger("GetHit");
         }
     }
 }

@@ -22,6 +22,7 @@ public class LuzuriaAngelicus_Script : MonoBehaviour, Parent_Beast
     public void back_special()
     {
         ProjectileAnimation();
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
     }
 
     public void front_special() 
@@ -29,6 +30,7 @@ public class LuzuriaAngelicus_Script : MonoBehaviour, Parent_Beast
         battleManager.targets.Clear();
         battleManager.targets = findRowTargets();
         battleManager.cancelGuard = true;
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
     }
 
     void ProjectileAnimation()

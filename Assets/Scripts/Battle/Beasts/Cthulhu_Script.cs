@@ -20,11 +20,12 @@ public class Cthulhu_Script : MonoBehaviour, Parent_Beast
     public void back_special()
     {
         ProjectileAnimation();
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
     }
 
     public void front_special()
     {
-        
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
     }
 
     void ProjectileAnimation()

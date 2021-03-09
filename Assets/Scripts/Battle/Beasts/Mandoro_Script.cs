@@ -33,10 +33,12 @@ public class Mandoro_Script : MonoBehaviour, Parent_Beast
         {
             print(b.name + " after");
         }
+
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
     }
 
     public void front_special() 
     {
-        
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
     }
 }

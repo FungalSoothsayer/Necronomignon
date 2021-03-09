@@ -25,7 +25,7 @@ public class SovereignDragon_Script : MonoBehaviour, Parent_Beast
 
     public void back_special()
     {
-        
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
     }
 
     public void front_special() 
@@ -42,7 +42,7 @@ public class SovereignDragon_Script : MonoBehaviour, Parent_Beast
         movePrefab.transform.SetParent(player.transform);
         movePrefab.transform.localPosition = new Vector3(0, 0);
         movePrefab.transform.localRotation = Quaternion.identity;
-        movePrefab.transform.localScale = new Vector3(40, 40);
+        movePrefab.transform.localScale = new Vector3(30, 30);
 
         Vector3 shootDir = ((target.transform.localPosition) - (player.transform.localPosition)).normalized;
         movePrefab.GetComponent<Projectile>().Setup(shootDir);

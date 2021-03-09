@@ -21,14 +21,15 @@ public class Wyvern_Script : MonoBehaviour, Parent_Beast
     public void back_special()
     {
         ProjectileAnimation();
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
     }
 
     public void front_special()
     {
         battleManager.targets.Clear();
         battleManager.targets = FindColumnTargets();
-
         battleManager.cancelGuard = true;
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
     }
 
     void ProjectileAnimation()
@@ -40,14 +41,6 @@ public class Wyvern_Script : MonoBehaviour, Parent_Beast
         movePrefab.transform.localPosition = new Vector3(0, 0);
         movePrefab.transform.localRotation = Quaternion.identity;
         movePrefab.transform.localScale = new Vector3(50, 50);
-
-        StartCoroutine("EndAnimation", movePrefab);
-    }
-
-    IEnumerator EndAnimation(GameObject movePrefab)
-    {
-        yield return new WaitForSeconds(2f);
-        Destroy(movePrefab);
     }
 
     //this method finds which targets are availible to a beast using a stab attack
