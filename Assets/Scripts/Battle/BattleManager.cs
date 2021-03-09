@@ -965,13 +965,13 @@ public class BattleManager : MonoBehaviour
             foreach(Beast b in slots)
             {
                 GameObject slot = getSlot(b);
-                slot.layer = 8;
+                slot.transform.GetChild(0).gameObject.layer = 8;
             }
 
             foreach (Beast b in enemySlots)
             {
                 GameObject slot = getSlot(b);
-                slot.layer = 9;
+                slot.transform.GetChild(0).gameObject.layer = 9;
             }
         }
         else if (roundOrderTypes[turn] == "Enemy")
@@ -979,13 +979,13 @@ public class BattleManager : MonoBehaviour
             foreach (Beast b in attackPool)
             {
                 GameObject slot = getSlot(b);
-                slot.layer = 9;
+                slot.transform.GetChild(0).gameObject.layer = 9;
             }
 
             foreach (Beast b in enemyAttackPool)
             {
                 GameObject slot = getSlot(b);
-                slot.layer = 8;
+                slot.transform.GetChild(0).gameObject.layer = 8;
             }
         }
     }
