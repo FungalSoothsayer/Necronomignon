@@ -255,8 +255,13 @@ public class HealthManager : MonoBehaviour
         {
             if (squad[x] != null && squad[x].tier != -2)
             {
-                winners[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
-                    ("Animations/" + squad[x].name + "/" + squad[x].name + "_Controller") as RuntimeAnimatorController;
+                winners[x].GetComponent<Image>().sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
+
+                GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + squad[x].name));
+                beastPrefab.transform.SetParent(winners[x].transform);
+                beastPrefab.transform.localPosition = new Vector3(0, -30);
+                beastPrefab.transform.localRotation = Quaternion.identity;
+                beastPrefab.transform.localScale = new Vector3(8f, 8f);
             }
             else
             {
@@ -303,8 +308,13 @@ public class HealthManager : MonoBehaviour
     IEnumerator winnersAnimations()
     {
         yield return new WaitForSeconds(2f);
-        foreach(GameObject g in winners)
-        g.GetComponent<Animator>().SetTrigger("Front");
+        foreach (GameObject g in winners)
+        {
+            if(g.transform.childCount > 0)
+            {
+                g.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Front");
+            }
+        }
     }
 
     //Collect rewards after winning a battle.
