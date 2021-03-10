@@ -35,6 +35,7 @@ public class LuzuriaAngelicus_Script : MonoBehaviour, Parent_Beast
 
     void ProjectileAnimation()
     {
+        GameObject player = battleManager.getSlot(battleManager.currentTurn);
         GameObject target = battleManager.getSlot(battleManager.targets[0]);
 
         GameObject movePrefab = Instantiate(backPrefab);
@@ -42,6 +43,8 @@ public class LuzuriaAngelicus_Script : MonoBehaviour, Parent_Beast
         movePrefab.transform.localPosition = new Vector3(0, 0);
         movePrefab.transform.localRotation = Quaternion.identity;
         movePrefab.transform.localScale = new Vector3(50, 50);
+
+        
     }
 
     //changes targets to the front row (if there are front row targets) or back row(if there are no front row targets)
