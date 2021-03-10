@@ -39,7 +39,7 @@ public class Kitsune_Script : MonoBehaviour, Parent_Beast
         movePrefab.transform.localScale = new Vector3(30, 30);
 
         Vector3 shootDir = ((target.transform.localPosition) - (player.transform.localPosition)).normalized;
-        shootDir.y /= 2;
+
         movePrefab.GetComponent<Projectile>().Setup(shootDir);
     }
 }

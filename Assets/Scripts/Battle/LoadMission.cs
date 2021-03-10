@@ -126,6 +126,7 @@ public class LoadMission : MonoBehaviour
             if (enemyToLoad[x] != null)
             {
                 GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + enemyToLoad[x].name));
+                
                 beastPrefab.transform.SetParent(enemySlotImg[x].transform);
                 beastPrefab.transform.localPosition = new Vector3(0, -50);
                 beastPrefab.transform.localRotation = Quaternion.identity;
