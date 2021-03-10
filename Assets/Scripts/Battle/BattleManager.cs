@@ -28,8 +28,8 @@ public class BattleManager : MonoBehaviour
     public List<Beast> enemies = new List<Beast>();
     public List<Beast> roundOrder = new List<Beast>();
     public List<string> roundOrderTypes = new List<string>();
-    List<Beast> attackPool = new List<Beast>();
-    List<Beast> enemyAttackPool = new List<Beast>();
+    public List<Beast> attackPool = new List<Beast>();
+    public List<Beast> enemyAttackPool = new List<Beast>();
 
     public List<Beast> targets;
     public bool cancelGuard = false;
@@ -132,7 +132,6 @@ public class BattleManager : MonoBehaviour
                 //totalBeasts--;
             }
         }
-        
 
         for(int x = 0; x < Values.SQUADMAX; x++)
         {
@@ -451,6 +450,7 @@ public class BattleManager : MonoBehaviour
     {
         bool inFront = this.inFront();
         bool guarded = this.guarded(target);
+        cancelGuard = false;
 
         targets.Clear();
         targets.Add(target);
@@ -557,14 +557,14 @@ public class BattleManager : MonoBehaviour
         if (turn >= totalMoves - 1)
         {
             PlayAttackAnimation(inFront);
-            /*if (roundOrderTypes[turn] == "Player")
+            if (roundOrderTypes[turn] == "Player")
             {
                 attack.InitiateAttack(currentTurn, targets, inFront, Player.summoner);
             }
             else
             {
                 attack.InitiateAttack(currentTurn, targets, inFront, enemySummoner);
-            }*/
+            }
             GameObject slot = getSlot();
             if (!slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Front") &&
                 !slot.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Back"))
@@ -593,7 +593,6 @@ public class BattleManager : MonoBehaviour
                 StartCoroutine(PlayerAttack());
                 
             }
-            turn = 0;
         }
         else
         {
@@ -717,7 +716,7 @@ public class BattleManager : MonoBehaviour
             //loops through the slots until it finds a matching beast to the target
             for (int x = 0; x < enemySlots.Count; x++)
             {
-                if (enemySlots[x] != null && enemySlots[x].name == target.name)
+                if (enemySlots[x] != null && enemySlots[x].Equals(target))
                 {
                     StartCoroutine(ChangeBattleColor(enemyPadSlots[x].transform.GetChild(0).gameObject));
                     enemyPadSlots[x].transform.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("GetHit");
@@ -729,7 +728,7 @@ public class BattleManager : MonoBehaviour
         {
             for (int x = 0; x < slots.Count; x++)
             {
-                if (slots[x] != null && slots[x].name == target.name)
+                if (slots[x] != null && slots[x].Equals(target))
                 {
                     StartCoroutine(ChangeBattleColor(playerPadSlots[x].transform.GetChild(0).gameObject));
                     playerPadSlots[x].transform.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("GetHit");
@@ -1043,20 +1042,20 @@ public class BattleManager : MonoBehaviour
 
         if(roundOrderTypes[turn] != "Player")
         {
-            if (enemiesTurnsTaken.Count() <= 0)
+            if (playersTurnsTaken.Count < Values.SQUADMAX)
             {
-                playersTurnsTaken.Add(0);
-                playersTurnsTaken.Add(0);
-                playersTurnsTaken.Add(0);
-                playersTurnsTaken.Add(0);
+                while (playersTurnsTaken.Count < Values.SQUADMAX)
+                {
+                    playersTurnsTaken.Add(0);
+                }
             }
             for (int x = 0; x < players.Count; x++)
             {
                 if (target.Equals(players[x]))
                 {
                     playersActive[x] = false;
-                    attackPool.Remove(players[x]);
                     loadMission.RemoveImage(players[x], "Player");
+                    attackPool.Remove(players[x]);
                     turn -= playersTurnsTaken[x];
                 }
             }
@@ -1184,5 +1183,39 @@ public class BattleManager : MonoBehaviour
             }
         }
         return b;
+    }
+    public bool isSquadFull(string squad)
+    {
+        int y = 0;
+
+        if (squad == "Player")
+        {
+            for (int x = 0; x < Values.SLOTMAX; x++)
+            {
+                if ((slots[x] != null && slots[x].speed != 0 && slots[x].hitPoints > 0) && x < Values.SMALLSLOT)
+                {
+                    y++;
+                }
+                else if ((slots[x] != null && slots[x].speed != 0 && slots[x].hitPoints > 0) && x >= Values.SMALLSLOT)
+                {
+                    y += 4;
+                }
+            }
+        }
+        else
+        {
+            for (int x = 0; x < Values.SLOTMAX; x++)
+            {
+                if ((enemySlots[x] != null && enemySlots[x].speed != 0 && enemySlots[x].hitPoints > 0) && x < Values.SMALLSLOT)
+                {
+                    y++;
+                }
+                else if((enemySlots[x] != null && enemySlots[x].speed != 0 && enemySlots[x].hitPoints > 0) && x >= Values.SMALLSLOT)
+                {
+                    y += 4;
+                }
+            }
+        }
+        return y == 8;
     }
 }

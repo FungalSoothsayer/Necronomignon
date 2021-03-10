@@ -18,11 +18,13 @@ public class HealthManager : MonoBehaviour
     public int playersLeft = 0;
     public int enemiesLeft = 0;
 
-    List<HealthBar> playerHealthBars = new List<HealthBar>();
-    List<HealthBar> enemyHealthBars = new List<HealthBar>();
+    public List<HealthBar> playerHealthBars = new List<HealthBar>();
+    public List<HealthBar> enemyHealthBars = new List<HealthBar>();
 
     public List<Text> playerHealths = new List<Text>();
+    public List<Text> playerHealthsSaved = new List<Text>();
     public List<Text> enemyHealths = new List<Text>();
+    public List<Text> enemyHealthsSaved = new List<Text>();
 
     List<Beast> squad = new List<Beast>();
     List<Beast> enemies = new List<Beast>();
@@ -34,6 +36,15 @@ public class HealthManager : MonoBehaviour
     //Get the health for each beast in play from BeastDatabase
     public void GetHealth(List<Beast> players, List<Beast> opposing, List<HealthBar> activePlayersHealth, List<HealthBar> activeEnemiesHealth)
     {
+        foreach(Text text in playerHealths)
+        {
+            playerHealthsSaved.Add(text);
+        }
+        foreach (Text text in enemyHealths)
+        {
+            enemyHealthsSaved.Add(text);
+        }
+
         for (int i = 10; i >= 0; i--)
         {
             if (activePlayersHealth[i] == null)
@@ -101,7 +112,10 @@ public class HealthManager : MonoBehaviour
                 {
                     Debug.Log(target.name + " is knocked out.");
                     playerHealths[x % squad.Count].gameObject.SetActive(false);
-                    CheckRemainingPlayers();
+                    if (!target.nonCombatant)
+                    {
+                        CheckRemainingPlayers();
+                    }
                     battleManager.RemoveBeast(squad[x % squad.Count]);
                 }
                 else
@@ -124,7 +138,10 @@ public class HealthManager : MonoBehaviour
                 {
                     Debug.Log(target.name + " is knocked out.");
                     enemyHealths[x].gameObject.SetActive(false);
-                    CheckRemainingOpposing();
+                    if (!target.nonCombatant)
+                    {
+                        CheckRemainingOpposing();
+                    }
                     battleManager.RemoveBeast(enemies[x]);
                 }
                 else
@@ -138,32 +155,37 @@ public class HealthManager : MonoBehaviour
     //Displays the damage output
     public void DisplayDamageOutput(Beast target, string damage, Color color)
     {
-        GameObject slot = battleManager.getSlot(target);
-        Vector3 location = new Vector3(0, 0);
-
-        if (slot != null) {
-            location = new Vector3(slot.transform.localPosition.x, slot.transform.localPosition.y);
-        }
-
-        if(damage.Equals("MISS!") || damage.Equals("GUARD!"))
+        print(target.name);
+        if (target.name != "Target")
         {
-            location.x -= 25;
-            location.y -= 25;
+            GameObject slot = battleManager.getSlot(target);
+            Vector3 location = new Vector3(0, 0);
+
+            if (slot != null)
+            {
+                location = new Vector3(slot.transform.localPosition.x, slot.transform.localPosition.y);
+            }
+
+            if (damage.Equals("MISS!") || damage.Equals("GUARD!"))
+            {
+                location.x -= 25;
+                location.y -= 25;
+            }
+
+            if (damage.Equals("CRIT!"))
+            {
+                location.x -= 25;
+                location.y -= 50;
+            }
+
+            Transform damagePopup = Instantiate(damageOutputPrefab);
+            damagePopup.transform.SetParent(GameObject.Find("Canvas").transform);
+            damagePopup.localPosition = location;
+            damagePopup.localRotation = Quaternion.identity;
+
+            DamageOutput damageOutput = damagePopup.GetComponent<DamageOutput>();
+            damageOutput.Create(damage, color);
         }
-
-        if (damage.Equals("CRIT!"))
-        {
-            location.x -= 25;
-            location.y -= 50;
-        }
-
-        Transform damagePopup = Instantiate(damageOutputPrefab);
-        damagePopup.transform.SetParent(GameObject.Find("Canvas").transform);
-        damagePopup.localPosition = location;
-        damagePopup.localRotation = Quaternion.identity;
-
-        DamageOutput damageOutput = damagePopup.GetComponent<DamageOutput>();
-        damageOutput.Create(damage, color);
     }
 
     //adds health to the given beast upto the beasts maxHP
@@ -226,11 +248,12 @@ public class HealthManager : MonoBehaviour
     //Display the victory popup with the winning squad and rewards for winning the battle.
     IEnumerator displayVictoryScreen()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
         victoryScreen.SetActive(true);
+        int unlock = UnityEngine.Random.Range(0,100);
         for (int x = 0; x < Values.SQUADMAX; x++)
         {
-            if (squad[x] != null)
+            if (squad[x] != null && squad[x].tier != -2)
             {
                 winners[x].GetComponent<Animator>().runtimeAnimatorController = Resources.Load
                     ("Animations/" + squad[x].name + "/" + squad[x].name + "_Controller") as RuntimeAnimatorController;
@@ -241,12 +264,12 @@ public class HealthManager : MonoBehaviour
             }
         }
 
-        UpdateXpBar();
+        UpdateXpBar(unlock <1);
         StartCoroutine(winnersAnimations());
     }
 
     // Updates xp bar and text
-    private void UpdateXpBar()
+    private void UpdateXpBar(bool specialUnlock)
     {   
         int xp = (int)Mathf.Round(battleManager.enemySummoner.getLevel() / Player.summoner.getLevel() * (battleManager.enemySummoner.xp / 5));
         if (xp < 1) xp = 1;
@@ -254,6 +277,26 @@ public class HealthManager : MonoBehaviour
         xpSlider.maxValue = Player.summoner.xpNeeded;
         xpSlider.value = Player.summoner.xp;
         Player.summoner.updateLevel();
+        if (specialUnlock && BeastManager.getFromNameS("SovereignDragon").tier < 0)
+        {
+            xpText.text += "\n Speacial Unlock:\n SovereignDragon";
+            LevelChecker.unlock("SovereignDragon");
+        }
+        else if (specialUnlock && BeastManager.getFromNameS("Thanatos").tier < 0)
+        {
+            xpText.text += "\n Speacial Unlock:\n Thanatos";
+            LevelChecker.unlock("Thanatos");
+        }
+        else if (specialUnlock && BeastManager.getFromNameS("Nage").tier < 0)
+        {
+            xpText.text += "\n Speacial Unlock:\n Nage";
+            LevelChecker.unlock("Nage");
+        }
+        else if (specialUnlock && BeastManager.getFromNameS("Mandoro").tier < 0)
+        {
+            xpText.text += "\n Speacial Unlock:\n Mandoro";
+            LevelChecker.unlock("Mandoro");
+        }
     }
 
     //Play the 'roaring' animation for the winning team.

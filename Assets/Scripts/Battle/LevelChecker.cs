@@ -84,7 +84,7 @@ public class LevelChecker : MonoBehaviour
         }
     }
 
-    private void unlock(String name)
+    public static void unlock(String name)
     {
         Beast b = new Beast();
         int x = 0;

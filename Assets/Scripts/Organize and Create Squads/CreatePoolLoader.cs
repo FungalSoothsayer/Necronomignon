@@ -51,16 +51,13 @@ public class CreatePoolLoader : MonoBehaviour
     void SetImages()
     {
         // Destroy old prefabs
-        foreach(Image slot in slots)
+        foreach (Transform child in GameObject.Find("PoolBeasts").transform)
         {
-            foreach (Transform child in slot.transform)
-            {
-                Destroy(child.gameObject);
-            }
+            Destroy(child.gameObject);
         }
 
         // Populate pool with new prefabs
-        for (int x = 0 + (counter * 9); x < slots.Count + (counter * 9); x++)
+        for (int x =  (counter * 9); x < slots.Count + (counter * 9); x++)
         {
             slots[x % 9].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
 
@@ -70,7 +67,8 @@ public class CreatePoolLoader : MonoBehaviour
                 beastPrefab.transform.SetParent(GameObject.Find("Pool" + (x % 9 + 1)).transform);
                 beastPrefab.transform.localPosition = new Vector3(0, 0);
                 beastPrefab.transform.localRotation = Quaternion.identity;
-                beastPrefab.transform.localScale = new Vector3(1.5f, 1.5f);
+                beastPrefab.transform.localScale = new Vector3(5f, 5f);
+                beastPrefab.transform.SetParent(GameObject.Find("PoolBeasts").transform);
 
                 Animator animator = beastPrefab.GetComponent<Animator>();
                 animator.enabled = false;
@@ -116,7 +114,10 @@ public class CreatePoolLoader : MonoBehaviour
             return true;
         }
 
-        Beast beast = summoned[y];
+        Beast beast;
+
+
+        beast = y >= 0 && y < summoned.Count ? summoned[y] : null;
 
         if (beast == null)
         {
@@ -154,15 +155,7 @@ public class CreatePoolLoader : MonoBehaviour
     {
         int index = createManager.selectedIndex;
 
-        if (NotSummoned(index))
-        {
-            GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + summonedNames[index + (counter * 9)]));
-            beastPrefab.transform.SetParent(GameObject.Find("Pool" + (index % 9 + 1)).transform);
-            beastPrefab.transform.localPosition = new Vector3(0, 0);
-            beastPrefab.transform.localRotation = Quaternion.identity;
-
-            Animator animator = beastPrefab.GetComponent<Animator>();
-            animator.enabled = false;
-        }
+        slots[index].enabled = true;
+        GameObject.Find("PoolBeasts").transform.GetChild(index).gameObject.SetActive(true);
     }
 }

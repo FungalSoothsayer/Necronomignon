@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -8,18 +9,31 @@ using UnityEngine.UI;
 public class LoadSettings : MonoBehaviour
 {
     public GameObject settingsPrefab;
+    public GameObject blurBackground;
+    public Dropdown resolutionDropdown;
+    public Dropdown fullscreenDropdown;
+    public static Button redRoach;
+    public Resolution[] resolutions;
+    //stores all possible screen resolutions with a 16:9 aspect ratio
+    public static List<Resolution> resolutionsList;
+    public bool fullscreen = true;
+    public bool borderless = true;
+
     float value = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (blurBackground != null) blurBackground.SetActive(false);
+
+        if (resolutionsList == null){
+            resolutionsList = new List<Resolution>();
+            getScreenResolutions();
+        }
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update(){}
 
     public void loadSettings() {
         //if settings screen is instantiated stop function
@@ -31,53 +45,54 @@ public class LoadSettings : MonoBehaviour
             value = auso[0].volume;
         }
         if (GameObject.Find("SettingsScreen") != null) return;
+
+        blurBackground.SetActive(true);
         
         GameObject parent = GameObject.Find("SettingsHolder"); 
         GameObject child = Instantiate(settingsPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+      
 
         child.name = "SettingsScreen";
         child.transform.SetParent(parent.transform, false);
 
-        setFunctions_OnClick();
+        resolutionDropdown = GameObject.Find("resolutionDropdown").GetComponent<Dropdown>();
+        fullscreenDropdown = GameObject.Find("fullscreenDropdown").GetComponent<Dropdown>();
+
+        setOnClickFunctions();
         setVolumeSlider();
+        getFullscreenOption();
+        setResolutionsDropdown();
+        setRedRoachAsset();
     }
-
-    public void closeSettings() {
-        GameObject settings = GameObject.Find("SettingsScreen");
-
-        //if settings screen is not instantiated stop function
-        if (settings == null)return;
-        
-        Destroy(settings);
-    }
-
-    public void setFunctions_OnClick()
+    
+    public void setOnClickFunctions()
     {
         Button CloseSettings = (Button) GameObject.Find("closeSettingsBtn").GetComponent<Button>();
         Button saveBtn = (Button) GameObject.Find("SaveBtn").GetComponent<Button>();
         Button loadBtn = (Button) GameObject.Find("LoadBtn").GetComponent<Button>();
-        Button redRoach = (Button) GameObject.Find("Red Roach").GetComponent<Button>();
-
+        redRoach = (Button) GameObject.Find("RedRoach").GetComponent<Button>();
+        Button RedRoach = (Button) GameObject.Find("Red Roach").GetComponent<Button>();
 
         CloseSettings.onClick.AddListener(closeSettings);
         saveBtn.onClick.AddListener(Saving.saveAll);
         loadBtn.onClick.AddListener(Saving.loadAll);
+        resolutionDropdown.onValueChanged.AddListener(delegate { onResolutionChanged(); });
+        fullscreenDropdown.onValueChanged.AddListener(delegate { onFullscreenChanged(); });
         redRoach.onClick.AddListener(Player.activeRedRoach);
-<<<<<<< Updated upstream
-=======
         RedRoach.onClick.AddListener(Player.activeRedRoach);
     }
 
     public static void setRedRoachAsset() {
         Sprite temp = Resources.Load<Sprite>("Assets/" + (Player.RedRoach? "clicked_button" : "button"));
         Color colorTemp = (Player.RedRoach ? Color.red : new Color(0.9137255f, 0.7098039f, 0.1254902f, 1f));
-        //Redroach button would not get activated and it will avoid a missing reference bug
-        if(redRoach != null) { 
+        //Solves missing reference exception
+        if(redRoach != null)
+        {
             redRoach.image.sprite = temp;
             redRoach.GetComponentInChildren<Text>().color = colorTemp;
             Debug.Log("sprite " + temp.name + " color " + colorTemp.ToString());
         }
->>>>>>> Stashed changes
+        
     }
 
     public void setVolumeSlider() {
@@ -92,8 +107,6 @@ public class LoadSettings : MonoBehaviour
             auso[auso.Length - 1].volume = slide.value;
         }
     }
-<<<<<<< Updated upstream
-=======
 
     /*
         Gets all supported screen resolutions with a 16:9 aspect ratio and stores them
@@ -154,7 +167,6 @@ public class LoadSettings : MonoBehaviour
 
         blurBackground.SetActive(false);
 
-        //Destroying settings page would not allow for 
         Destroy(settings);
     }
 
@@ -173,5 +185,4 @@ public class LoadSettings : MonoBehaviour
 
         Screen.SetResolution(temp.width, temp.height, borderless ? FullScreenMode.MaximizedWindow : FullScreenMode.Windowed);
     }
->>>>>>> Stashed changes
 }

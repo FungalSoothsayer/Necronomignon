@@ -194,7 +194,7 @@ public class Attack : MonoBehaviour
         //Calculate the chance that an attack is a critical hit
         //(d20roll) + ({Attacker.Speed/2} + Attacker.Skill)/({Target.Speed/2} + Target.Skill)
         int rand = UnityEngine.Random.Range(1, 20);
-        float criticalChance = rand + (((attacker.speed / 2) + attacker.dexterity) / (target.speed / 2) + target.dexterity);
+        float criticalChance = rand + (((attacker.speed / 2) + attacker.dexterity) / ((target.speed / 2) + target.dexterity));
         
 
         float ra = (float)(rand + target.defence / attacker.power);
@@ -377,11 +377,12 @@ public class Attack : MonoBehaviour
         {
             battleManager.PlayDamagedAnimation(target);
             healthManager.UpdateHealth(target, damage);
+            Color type = GetTypeColor(attacker);
+            healthManager.DisplayDamageOutput(target, damage.ToString(), type);
         }
 
         //Change damage output color
-        Color type = GetTypeColor(attacker);
-        healthManager.DisplayDamageOutput(target, damage.ToString(), type);
+        
 
         int rand = UnityEngine.Random.Range(0, 2);
         if (target.statusTurns[(int)Move.types.Sleep] > 0 && rand > 0 && rand<5)
