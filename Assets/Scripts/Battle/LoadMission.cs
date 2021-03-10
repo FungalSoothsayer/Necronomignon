@@ -121,7 +121,7 @@ public class LoadMission : MonoBehaviour
     {
         for (int x = 0; x < enemyToLoad.Count; x++)
         {
-            enemySlotImg[x].GetComponent<Image>().enabled = false;
+            enemySlotImg[x].sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
 
             if (enemyToLoad[x] != null)
             {
@@ -158,7 +158,7 @@ public class LoadMission : MonoBehaviour
         foreach(Image slot in playerSlotImg)
         {
             slot.gameObject.SetActive(true);
-            slot.enabled = false;
+            slot.sprite = Resources.Load<Sprite>("Static_Images/EmptyRectangle");
         }
 
         for (int x = 0; x < toLoad.Count; x++)
