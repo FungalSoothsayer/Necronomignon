@@ -1037,7 +1037,6 @@ GameObject:
   - component: {fileID: 93803184}
   - component: {fileID: 93803187}
   - component: {fileID: 93803186}
-  - component: {fileID: 93803185}
   m_Layer: 5
   m_Name: Beast1
   m_TagString: Untagged
@@ -1064,25 +1063,6 @@ RectTransform:
   m_AnchoredPosition: {x: -140, y: 94}
   m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &93803185
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93803183}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d09e4b3d9444ad42874333a4e57fa3c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &93803186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7692,7 +7672,6 @@ GameObject:
   - component: {fileID: 766986342}
   - component: {fileID: 766986345}
   - component: {fileID: 766986344}
-  - component: {fileID: 766986343}
   m_Layer: 5
   m_Name: Beast4
   m_TagString: Untagged
@@ -7719,25 +7698,6 @@ RectTransform:
   m_AnchoredPosition: {x: 395, y: 27}
   m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &766986343
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766986341}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d09e4b3d9444ad42874333a4e57fa3c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &766986344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11206,7 +11166,6 @@ GameObject:
   - component: {fileID: 1214333988}
   - component: {fileID: 1214333991}
   - component: {fileID: 1214333990}
-  - component: {fileID: 1214333989}
   m_Layer: 5
   m_Name: Beast8
   m_TagString: Untagged
@@ -11233,25 +11192,6 @@ RectTransform:
   m_AnchoredPosition: {x: 168, y: -74}
   m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1214333989
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214333987}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d09e4b3d9444ad42874333a4e57fa3c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1214333990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12935,7 +12875,6 @@ GameObject:
   - component: {fileID: 1343231210}
   - component: {fileID: 1343231213}
   - component: {fileID: 1343231212}
-  - component: {fileID: 1343231211}
   m_Layer: 5
   m_Name: Beast2
   m_TagString: Untagged
@@ -12962,25 +12901,6 @@ RectTransform:
   m_AnchoredPosition: {x: 142, y: 93}
   m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1343231211
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343231209}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d09e4b3d9444ad42874333a4e57fa3c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1343231212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14334,7 +14254,6 @@ GameObject:
   - component: {fileID: 1510505823}
   - component: {fileID: 1510505826}
   - component: {fileID: 1510505825}
-  - component: {fileID: 1510505824}
   m_Layer: 5
   m_Name: Beast6
   m_TagString: Untagged
@@ -14361,25 +14280,6 @@ RectTransform:
   m_AnchoredPosition: {x: 627, y: -64}
   m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1510505824
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1510505822}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d09e4b3d9444ad42874333a4e57fa3c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1510505825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15342,7 +15242,6 @@ GameObject:
   - component: {fileID: 1739743386}
   - component: {fileID: 1739743389}
   - component: {fileID: 1739743388}
-  - component: {fileID: 1739743387}
   m_Layer: 5
   m_Name: Beast7
   m_TagString: Untagged
@@ -15369,25 +15268,6 @@ RectTransform:
   m_AnchoredPosition: {x: -225, y: -84}
   m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1739743387
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739743385}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d09e4b3d9444ad42874333a4e57fa3c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1739743388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19505,7 +19385,6 @@ GameObject:
   - component: {fileID: 2014929288}
   - component: {fileID: 2014929291}
   - component: {fileID: 2014929290}
-  - component: {fileID: 2014929289}
   m_Layer: 5
   m_Name: Beast3
   m_TagString: Untagged
@@ -19532,25 +19411,6 @@ RectTransform:
   m_AnchoredPosition: {x: -399, y: 33}
   m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &2014929289
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014929287}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d09e4b3d9444ad42874333a4e57fa3c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2014929290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20295,7 +20155,6 @@ GameObject:
   - component: {fileID: 2072726507}
   - component: {fileID: 2072726510}
   - component: {fileID: 2072726509}
-  - component: {fileID: 2072726508}
   m_Layer: 5
   m_Name: Beast5
   m_TagString: Untagged
@@ -20322,25 +20181,6 @@ RectTransform:
   m_AnchoredPosition: {x: -625, y: -65}
   m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &2072726508
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072726506}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d09e4b3d9444ad42874333a4e57fa3c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2072726509
 MonoBehaviour:
   m_ObjectHideFlags: 0
