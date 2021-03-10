@@ -191,7 +191,7 @@ public class MissionList : MonoBehaviour
                     b.power = 1;
                 }
             } 
-            while (b.power < 10 || b.name == "DreamSlime" || b.size == 1 || enemies.Contains(b) || b.size == 1);
+            while (b.power < 10 || b.name == "DreamSlime" || b.size == 1 || enemies.Contains(b));
 
             enemies.Add(b);
             enemies.Add(null);
@@ -238,7 +238,7 @@ public class MissionList : MonoBehaviour
                     ran = Random.Range(0, BeastManager.beastsList.Beasts.Count);
                 }
                
-                if (BeastManager.beastsList.Beasts[ran].tier != -2 && BeastManager.beastsList.Beasts[ran].size != 1)
+                if (BeastManager.beastsList.Beasts[ran].tier != -2)
                 {
                     beastCost += BeastManager.beastsList.Beasts[ran].cost;
                     beast.Add(ran);
@@ -305,7 +305,7 @@ public class MissionList : MonoBehaviour
                 {
                     ran = Random.Range(0, BeastManager.beastsList.Beasts.Count);
                 }
-                if (BeastManager.beastsList.Beasts[ran].tier != -2 && BeastManager.beastsList.Beasts[ran].size != 1)
+                if (BeastManager.beastsList.Beasts[ran].tier != -2)
                 {
                     beast.Add(ran);
                 }
@@ -379,7 +379,7 @@ public class MissionList : MonoBehaviour
                         {
                             if ((b.maxHP > BeastManager.beastsList.Beasts[x].maxHP || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
                             {
-                                if (BeastManager.beastsList.Beasts[x].tier != -2 && BeastManager.beastsList.Beasts[x].size != 1)
+                                if (BeastManager.beastsList.Beasts[x].tier != -2)
                                 {
                                     b = BeastManager.beastsList.Beasts[x];
                                 }
@@ -393,7 +393,7 @@ public class MissionList : MonoBehaviour
                             if ((b.power > BeastManager.beastsList.Beasts[x].power || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
                             {
 
-                                if (BeastManager.beastsList.Beasts[x].tier != -2 && BeastManager.beastsList.Beasts[x].size != 1)
+                                if (BeastManager.beastsList.Beasts[x].tier != -2)
                                 {
                                     b = BeastManager.beastsList.Beasts[x];
                                 }
@@ -408,7 +408,7 @@ public class MissionList : MonoBehaviour
                         {
                             if ((b.defence > BeastManager.beastsList.Beasts[x].defence || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
                             {
-                                if (BeastManager.beastsList.Beasts[x].tier != -2 && BeastManager.beastsList.Beasts[x].size != 1)
+                                if (BeastManager.beastsList.Beasts[x].tier != -2)
                                 {
                                     b = BeastManager.beastsList.Beasts[x];
                                 }
@@ -422,7 +422,7 @@ public class MissionList : MonoBehaviour
                         {
                             if ((b.speed > BeastManager.beastsList.Beasts[x].speed || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
                             {
-                                if (BeastManager.beastsList.Beasts[x].tier != -2 && BeastManager.beastsList.Beasts[x].size != 1)
+                                if (BeastManager.beastsList.Beasts[x].tier != -2)
                                 {
                                     b = BeastManager.beastsList.Beasts[x];
                                 }
@@ -492,7 +492,7 @@ public class MissionList : MonoBehaviour
                     {
                         if ((b.maxHP < BeastManager.beastsList.Beasts[x].maxHP || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
                         {
-                            if (BeastManager.beastsList.Beasts[x].tier != -2 && BeastManager.beastsList.Beasts[x].size != 1)
+                            if (BeastManager.beastsList.Beasts[x].tier != -2)
                             {
                                 b = BeastManager.beastsList.Beasts[x];
                             }
@@ -508,7 +508,7 @@ public class MissionList : MonoBehaviour
                         if ((b.power < BeastManager.beastsList.Beasts[x].power || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
                         {
 
-                            if (BeastManager.beastsList.Beasts[x].tier != -2 && BeastManager.beastsList.Beasts[x].size != 1)
+                            if (BeastManager.beastsList.Beasts[x].tier != -2)
                             {
                                 b = BeastManager.beastsList.Beasts[x];
                             }
@@ -524,7 +524,7 @@ public class MissionList : MonoBehaviour
                     {
                         if ((b.defence < BeastManager.beastsList.Beasts[x].defence || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
                         {
-                            if (BeastManager.beastsList.Beasts[x].tier != -2 && BeastManager.beastsList.Beasts[x].size != 1)
+                            if (BeastManager.beastsList.Beasts[x].tier != -2)
                             {
                                 b = BeastManager.beastsList.Beasts[x];
                             }
@@ -539,7 +539,7 @@ public class MissionList : MonoBehaviour
                     {
                         if ((b.speed < BeastManager.beastsList.Beasts[x].speed || b.name == "") && !beasts.Contains(BeastManager.beastsList.Beasts[x].name))
                         {
-                            if (BeastManager.beastsList.Beasts[x].tier != -2 && BeastManager.beastsList.Beasts[x].size != 1)
+                            if (BeastManager.beastsList.Beasts[x].tier != -2)
                             {
                                 b = BeastManager.beastsList.Beasts[x];
                             }

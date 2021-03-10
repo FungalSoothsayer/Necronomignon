@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cthulhu_Script : MonoBehaviour, Parent_Beast
 {
     BattleManager battleManager;
+    [SerializeField] GameObject backPrefab;
 
     void Start()
     {
@@ -18,11 +19,23 @@ public class Cthulhu_Script : MonoBehaviour, Parent_Beast
 
     public void back_special()
     {
-        
+        ProjectileAnimation();
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
     }
 
     public void front_special()
     {
-        
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
+    }
+
+    void ProjectileAnimation()
+    {
+        GameObject target = battleManager.getSlot(battleManager.targets[0]);
+
+        GameObject movePrefab = Instantiate(backPrefab);
+        movePrefab.transform.SetParent(target.transform);
+        movePrefab.transform.localPosition = new Vector3(0, 0);
+        movePrefab.transform.localRotation = Quaternion.identity;
+        movePrefab.transform.localScale = new Vector3(50, 50);
     }
 }

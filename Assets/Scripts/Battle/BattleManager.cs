@@ -553,6 +553,9 @@ public class BattleManager : MonoBehaviour
                 return;
             }
         }
+
+        ChangeSquadLayers(targets);
+
         //Check to see if the round is still going and then run an attack
         if (turn >= totalMoves - 1)
         {
@@ -667,7 +670,6 @@ public class BattleManager : MonoBehaviour
                 return enemyPadSlots[x];
             }
         }
-
         return null;
     }
 
@@ -751,7 +753,9 @@ public class BattleManager : MonoBehaviour
         eRunning = true;
         yield return new WaitForSeconds(2f);
         if (attackPool.Count > 0)
+        {
             Attack(GetEnemyTarget());
+        }
     }
 
     //Enemy targets a random player from a pool of active player beasts
@@ -764,6 +768,9 @@ public class BattleManager : MonoBehaviour
         {
             b = RedRoachEnemyTarget();
         }
+
+        targets.Clear();
+        targets.Add(b);
         return b;
     }
     Beast RedRoachEnemyTarget()
@@ -951,7 +958,37 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         //pRunning = false;
         if (enemyAttackPool.Count > 0)
+        {
             Attack(selectedEnemy);
+        }
+    }
+
+    // Changes the layers of the attacker and target so the projectiles only hit the target
+    void ChangeSquadLayers(List<Beast> targets)
+    {
+        // Resets all of the prefabs to the Player layer
+        foreach (Beast b in attackPool)
+        {
+            GameObject slot = getSlot(b);
+            slot.transform.GetChild(0).gameObject.layer = 8;
+        }
+
+        foreach (Beast b in enemyAttackPool)
+        {
+            GameObject slot = getSlot(b);
+            slot.transform.GetChild(0).gameObject.layer = 8;
+        }
+
+        // Sets the attacker to the Player layer
+        GameObject player = getSlot(currentTurn);
+        player.transform.GetChild(0).gameObject.layer = 8;
+
+        // Sets the target to the Enemy layer
+        foreach (Beast target in targets)
+        {
+            GameObject enemy = getSlot(target);
+            enemy.transform.GetChild(0).gameObject.layer = 9;
+        }
     }
 
     //Get the row to determine whether the current turn beast is using an A move or a B move

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 95989466593967015}
   - component: {fileID: 95989466593967014}
   - component: {fileID: 3298936831351570016}
+  - component: {fileID: 2186229546600225013}
   m_Layer: 5
   m_Name: Conglomerate
   m_TagString: Prefab
@@ -107,3 +108,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5435a0666f6d05544a7313016727cd44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backPrefab: {fileID: 1687118924408352, guid: 77c69ec12208c4c4380d15e30b6f8f68, type: 3}
+--- !u!61 &2186229546600225013
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95989466593967012}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.68569946, y: 17.03048}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.409729, y: 27.23079}
+  m_EdgeRadius: 0

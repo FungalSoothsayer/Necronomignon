@@ -94,8 +94,6 @@ public class SummonBookLoader : MonoBehaviour
                 Animator animator = beastPrefab.GetComponent<Animator>();
                 animator.enabled = false;
 
-                Image pic = beastPrefab.GetComponent<Image>();
-
                 beastTexts[x % 6].GetComponent<Text>().text = summonedNames[x];
 
                 //Make not summoned beasts transparent
@@ -103,13 +101,13 @@ public class SummonBookLoader : MonoBehaviour
                 {
                     var tempColor = slots[x % 6].color;
                     tempColor.a = .5f;
-                    pic.color = tempColor;
+                    slots[x % 6].color = tempColor;
                 }
                 else
                 {
                     var tempColor = slots[x % 6].color;
                     tempColor.a = 1f;
-                    pic.color = tempColor;
+                    slots[x % 6].color = tempColor;
                 }
 
             }

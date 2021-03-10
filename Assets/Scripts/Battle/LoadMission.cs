@@ -127,12 +127,9 @@ public class LoadMission : MonoBehaviour
             {
                 GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + enemyToLoad[x].name));
                 beastPrefab.transform.SetParent(enemySlotImg[x].transform);
-                beastPrefab.transform.localPosition = new Vector3(0, 0);
+                beastPrefab.transform.localPosition = new Vector3(0, -50);
                 beastPrefab.transform.localRotation = Quaternion.identity;
-                //Change scale too
-
-                
-
+                //beastPrefab.transform.localScale = new Vector3(4, 4);
 
                 enemyImgs[x].sprite = Resources.Load<Sprite>("Static_Images/" + enemyToLoad[x].static_img);
 
@@ -175,9 +172,9 @@ public class LoadMission : MonoBehaviour
             {
                 GameObject beastPrefab = (GameObject)Instantiate(Resources.Load("Prefabs/Beasts/" + toLoad[x].name));
                 beastPrefab.transform.SetParent(playerSlotImg[x].transform);
-                beastPrefab.transform.localPosition = new Vector3(0, 0);
+                beastPrefab.transform.localPosition = new Vector3(0, -50);
                 beastPrefab.transform.localRotation = Quaternion.identity;
-                //Change scale too
+                //beastPrefab.transform.localScale = new Vector3(4, 4);
 
                 playerImgs[x].sprite = Resources.Load<Sprite>("Static_Images/" + toLoad[x].static_img);
 
@@ -236,8 +233,8 @@ public class LoadMission : MonoBehaviour
             eb.Add(enemySlot[x]);
         }
 
-        battleManager.SendLists(thisSquad, enemySquad, activePlayersHealth, activeEnemiesHealth, activePlayerDamageBar, activeEnemyDamageBar, enemySummoner);
         battleManager.GetSlots(pb, eb);
+        battleManager.SendLists(thisSquad, enemySquad, activePlayersHealth, activeEnemiesHealth, activePlayerDamageBar, activeEnemyDamageBar, enemySummoner);
     }
 
     void LoadDisplayPictures()

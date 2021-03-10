@@ -19,7 +19,7 @@ public class Dryad_Script : MonoBehaviour, Parent_Beast
 
     public void back_special()
     {
-        
+
     }
 
     public void front_special()
