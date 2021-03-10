@@ -6,6 +6,7 @@ using UnityEngine;
 public class SovereignDragon_Script : MonoBehaviour, Parent_Beast
 {
     BattleManager battleManager;
+    [SerializeField] GameObject frontPrefab;
 
     void Start()
     {
@@ -17,13 +18,33 @@ public class SovereignDragon_Script : MonoBehaviour, Parent_Beast
         }
     }
 
-    public void back_special()
+    private void Update()
     {
         
     }
 
+    public void back_special()
+    {
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
+    }
+
     public void front_special() 
     {
-        
+        ProjectileAnimation();
+    }
+
+    void ProjectileAnimation()
+    {
+        GameObject player = battleManager.getSlot(battleManager.currentTurn);
+        GameObject target = battleManager.getSlot(battleManager.targets[0]);
+
+        GameObject movePrefab = Instantiate(frontPrefab);
+        movePrefab.transform.SetParent(player.transform);
+        movePrefab.transform.localPosition = new Vector3(0, 0);
+        movePrefab.transform.localRotation = Quaternion.identity;
+        movePrefab.transform.localScale = new Vector3(30, 30);
+
+        Vector3 shootDir = ((target.transform.localPosition) - (player.transform.localPosition)).normalized;
+        movePrefab.GetComponent<Projectile>().Setup(shootDir);
     }
 }

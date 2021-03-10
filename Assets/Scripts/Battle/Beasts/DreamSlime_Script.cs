@@ -115,10 +115,12 @@ public class DreamSlime_Script : MonoBehaviour, Parent_Beast
                 }
             }
         }
+
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
     }
 
     public void front_special()
     {
-        
+        battleManager.PlayDamagedAnimation(battleManager.targets[0]);
     }
 }

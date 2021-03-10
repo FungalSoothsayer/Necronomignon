@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6746957924042127739}
   - component: {fileID: 6746957924042127738}
   - component: {fileID: 644780843716231754}
+  - component: {fileID: 2756922185869328014}
   m_Layer: 5
   m_Name: Mandoro
   m_TagString: Prefab
@@ -107,3 +108,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61762b3f6d42c5447933f4874de5f722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &2756922185869328014
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6746957924042127736}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.0467834, y: 10.730064}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.627869, y: 16.3264}
+  m_EdgeRadius: 0
